@@ -1,0 +1,12 @@
+{
+  "pages": {
+    "product-customizer": {
+      "path": "/_v/product-customizer"
+    }
+  },
+  "extensions": {
+    "product-customizer": {
+      "component": "ProductCustomizer"
+    }
+  }
+}

@@ -1,0 +1,51 @@
+@media screen and (max-width: 40em) {
+  .vtex-modal__overlay {
+    align-items: stretch !important;
+  }
+
+  .vtex-modal__modal {
+    border-radius: 0;
+  }
+
+  .vtex-modal__close-icon {
+    z-index: 10;
+  }
+}
+
+@media screen and (min-width: 40em) {
+  .vtex-product-customizer__options {
+    background-color: transparent;
+  }
+
+  .vtex-product-customizer__skus .sku-title:after {
+    -ms-flex: 1;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    border-width: 1px;
+    content: "";
+    flex: 1;
+    height: 1px;
+    margin-left: 10px;
+    position: relative;
+    top: 2px;
+  }
+
+  .vtex-modal__modal {
+    top: 40px;
+  }
+}
+
+.vtex-modal__modal,
+.vtex-modal__overlay {
+  padding: 0 !important;
+}
+
+.vtex-modal__overlay {
+  background: rgba(0, 0, 0, 0.9) !important;
+}
+
+.vtex-modal__modal {
+  height: 100%;
+  overflow: auto;
+  max-height: 800px;
+}

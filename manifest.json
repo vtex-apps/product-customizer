@@ -1,0 +1,20 @@
+{
+  "name": "product-customizer",
+  "vendor": "delivery",
+  "version": "0.1.0",
+  "title": "Product Customizer",
+  "description": "",
+  "mustUpdateAt": "2019-09-27",
+  "categories": [],
+  "registries": [
+    "smartcheckout"
+  ],
+  "settingsSchema": {},
+  "dependencies": {
+    "vtex.styleguide": "6.x"
+  },
+  "builders": {
+    "pages": "0.x",
+    "react": "2.x"
+  }
+}
