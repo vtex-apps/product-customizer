@@ -40,7 +40,7 @@ class ProductCustomizer extends Component {
               <img
                 className={'vtex-product-customizer__image'}
                 alt="Create Your Own"
-                src="https://api.pizzahut.io/v1/content/images/pizza/cyo.aaf361bc6ca3110a2b05a149b72ddefd.1.png?width=800"
+                src="https://via.placeholder.com/670x500"
               />
             </div>
             <div className={'w-100 w-two-thirds-ns flex-ns flex-column-ns'}>
