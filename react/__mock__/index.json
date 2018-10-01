@@ -1,0 +1,70 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://json-schema.org/draft-07/schema#",
+  "title": "Pizza Builder",
+  "type": ["object", "boolean"],
+  "required": ["Size","Dough","Toppings"],
+  "properties": {
+    "Size": {
+      "description": "Escolha o tamanho",
+      "type": "string", "enum":["4755","7837","7856"],
+      "minItems": 1,
+      "maxItems": 1,
+      "uniqueItems": true
+    },
+    "Dough": {
+      "description": "Escolha 1 tipo de massa",
+      "type": "string", "enum":["4872","5698"],
+      "minItems": 1,
+      "maxItems": 1,
+      "uniqueItems": true
+    },
+    "Toppings": {
+      "description": "Escolha até 2 ingredientes",
+      "type": "array", "items": {
+        "type": "string", "enum":["Pepperoni","Meat","Bacon"]
+      },
+      "minItems": 1,
+      "maxItems": 2,
+      "uniqueItems": false
+    }
+  },
+  "items":
+  [
+    {
+    "Id":"4755",
+      "Name": "Broto",
+      "price": 18.00,
+      "image": "https://via.placeholder.com/500x500",
+      "pricetable": "tabelacombo"
+    },
+    {
+    "Id":"7837",
+      "Name": "Média",
+      "price": 25.00,
+      "image": "https://via.placeholder.com/500x500",
+      "pricetable": "tabelacombo"
+    },
+    {
+    "Id":"7856",
+      "Name": "Grande",
+      "price": 32.00,
+      "image": "https://via.placeholder.com/500x500",
+      "pricetable": "tabelacombo"
+    },
+    {
+    "Id":"4872",
+      "Name": "Fina",
+      "price": 1.00,
+      "image": "https://via.placeholder.com/500x500",
+      "pricetable": "tabelacombo"
+    },
+    {
+    "Id":"5698",
+      "Name": "Crocante",
+      "price": 2.00,
+      "image": "https://via.placeholder.com/500x500",
+      "pricetable": "tabelacombo"
+    }
+  ]
+}

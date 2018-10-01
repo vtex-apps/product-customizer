@@ -13,25 +13,12 @@
 }
 
 @media screen and (min-width: 40em) {
+  .vtex-modal__modal {
+    max-height: 800px;
+  }
+
   .vtex-product-customizer__options {
     background-color: transparent;
-  }
-
-  .vtex-product-customizer__skus .sku-title:after {
-    -ms-flex: 1;
-    -webkit-box-flex: 1;
-    -webkit-flex: 1;
-    border-width: 1px;
-    content: "";
-    flex: 1;
-    height: 1px;
-    margin-left: 10px;
-    position: relative;
-    top: 2px;
-  }
-
-  .vtex-modal__modal {
-    top: 40px;
   }
 }
 
@@ -47,5 +34,4 @@
 .vtex-modal__modal {
   height: 100%;
   overflow: auto;
-  max-height: 800px;
 }
