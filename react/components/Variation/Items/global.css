@@ -1,4 +1,5 @@
 .vtex-product-customizer__single-choice .single-choice__image-container {
+  color: #1346d8;
   max-width: 72px;
   position: relative;
 }
@@ -15,6 +16,4 @@
 
 .vtex-product-customizer__single-choice.selected .single-choice__image-container img {
   width: 100%;
-  border: 1px solid;
-  border-color: #134CD8;
 }

@@ -1,28 +1,90 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 
-import VariationGroup from './Group'
+import SingleChoiceItem from './Items/SingleChoice'
+import MultipleChoiceItem from './Items/MultipleChoice'
 
 class List extends Component {
+  state = {
+    selectedSingle: null,
+  }
+
+  handleSelectItem = (e, key) => {
+    this.setState({ selectedSingle: key })
+  }
+
+  /**
+  * renderSingleChoiceVariation
+  * displays single choice items
+  * @return <SingleChoiceItem> Array
+  */
+  renderSingleChoiceVariation = (options) => {
+    return options.items.map((item, key) => {
+      return (
+        <SingleChoiceItem
+          key={key}
+          data={item}
+          selected={this.state.selectedSingle === key}
+          onClick={
+            e => {
+              this.handleSelectItem(e, key)
+            }
+          }
+        />
+      )
+    })
+  }
+
+  /**
+  * renderMultipleChoiceVariation
+  * displays single choice items
+  * @return <MultipleChoiceItem>Array
+  */
+  renderMultipleChoiceVariation = (options) => {
+    return options.items.map((item, key) => {
+      return (
+        <MultipleChoiceItem
+          key={key}
+          data={item}
+        />
+      )
+    })
+  }
+
+  /**
+  * renderChoicesTypeVariation
+  * Compare types of variations to display a equivalent component.
+  * @return mixed
+  */
+  renderChoicesTypeVariation = (variation) => {
+    switch (variation.choiceType) {
+      case 'single':
+        return this.renderSingleChoiceVariation(variation)
+      case 'multiple':
+        return this.renderMultipleChoiceVariation(variation)
+      default:
+        return null
+    }
+  }
+
   render() {
     const {
-      options,
+      variation,
     } = this.props
 
     return (
-      <div className={'vtex-product-customizer__options bg-light-gray bg-transparent-ns overflow-auto'}>
-        <h4 className={'ma0 pv3 ph5'}><span className={'f5 fw5'}>Select item variation</span></h4>
-        {options.map((variation, key) => {
-          return (
-            <VariationGroup key={key} variation={variation} />
-          )
-        })}
+      <div>
+        <div className={'vtex-product-customizer__skus bg-white'}>
+          <h4 className={'sku-title b--light-gray bn-ns bb ma0 pa5 f5 fw5'}>{ variation.description }</h4>
+          { this.renderChoicesTypeVariation(variation) }
+        </div>
       </div>
     )
   }
 
   static propTypes = {
-    options: PropTypes.array,
+    total: PropTypes.number,
+    variation: PropTypes.object,
   }
 }
 

@@ -17,7 +17,25 @@ class ProductCustomizer extends Component {
     total: 0.00,
     isModalOpen: false,
     changeToppings: false,
+    selectedVariations: [],
     variations: this.service.serializeData(),
+  }
+
+  calculateTotal = () => {
+    let currentTotal = 0
+    const {
+      selectedVariations,
+    } = this.state
+
+    if (selectedVariations.length === 0) {
+      return 0
+    }
+
+    for (const selectedVariation of selectedVariations) {
+      currentTotal += selectedVariation.price
+    }
+
+    this.setState({ total: currentTotal })
   }
 
   handleOpenModal = () => {
@@ -56,7 +74,20 @@ class ProductCustomizer extends Component {
               <div className={'pb5-ns pt0-ns ph5-ns  ph5 pb5 bb b--light-gray'}>
                 <p className={'ma0 fw3'}>Todo el sabor mexicano. Chorizo, pico de gallo, jalapeño y tocino.</p>
               </div>
-              <VariationList options={variations} />
+              <div className={'vtex-product-customizer__options bg-light-gray bg-transparent-ns overflow-auto'}>
+                <h4 className={'ma0 pv3 ph5'}>
+                  <span className={'f5 fw5'}>Select item variation</span>
+                </h4>
+                {variations.map((variation, key) => {
+                  return (
+                    <VariationList
+                      key={key}
+                      variation={variation}
+                    />
+                  )
+                })}
+              </div>
+
               <div className={'vtex-product-customizer__actions bt b--light-gray'}>
                 <ChangeToppings />
                 <AddToCart total={this.state.total} />
