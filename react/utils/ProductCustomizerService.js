@@ -1,3 +1,7 @@
+/**
+* @class' ProductCustomizerService
+* @description Handle all business rules from ProductCustomizer Component.
+*/
 class ProductCustomizerService {
   constructor(schema) {
     this.schema = schema
@@ -5,10 +9,15 @@ class ProductCustomizerService {
     this.properties = schema.properties
   }
 
+  /**
+  * serializeData
+  * Serialize schema data to component pattern.
+  * @return Object
+  */
   serializeData() {
     this.parseProperties()
 
-    return Object.keys(this.getProperties()).map(index => {
+    return Object.keys(this.properties).map(index => {
       const property = this.getProperty(index)
 
       return {
@@ -24,12 +33,17 @@ class ProductCustomizerService {
     })
   }
 
+  /**
+  * parseProperties
+  * Populates property fields with required values.
+  * @return void
+  */
   parseProperties() {
-    const properties = this.getProperties()
+    const properties = this.properties
 
     for (const property of Object.keys(properties)) {
       const parsedItems = []
-      const options = this.getEnums(property)
+      const options = this.getEnumsByProperty(property)
 
       this.getProperty(property)['required'] = this.isPropertyRequired(property)
       if (!options) {
@@ -51,7 +65,13 @@ class ProductCustomizerService {
     }
   }
 
-  getEnums(property) {
+  /**
+  * getEnumsByProperty
+  * Get enumerable values by property type.
+  * @param object property
+  * @return mixed
+  */
+  getEnumsByProperty(property) {
     if (this.properties[property].type === 'string') {
       return this.properties[property].enum
     }
@@ -61,49 +81,67 @@ class ProductCustomizerService {
     }
   }
 
+  /**
+  * isPropertyRequired
+  * Check if property passed is a required option.
+  * @param object property
+  * @return boolean
+  */
   isPropertyRequired(property) {
     return this.getRequiredProperties().indexOf(property) !== -1
   }
 
+  /**
+  * enumHasItem
+  * Check if enumerable passed has items in  schema.
+  * @param object enumerable
+  * @return boolean
+  */
   enumHasItem(enumerable) {
     let response = false
 
-    this.getItems().forEach(item => {
+    this.items.forEach(item => {
       if (enumerable !== item.Id) {
         return true
       }
+
       response = true
     })
 
     return response
   }
 
+  /**
+  * getItemByEnumerable
+  * Get equivalent item of enumerable.
+  * @param object enumerable
+  * @return object
+  */
   getItemByEnumerable(enumerable) {
-    const items = this.getItems().find(item => {
+    const item = this.items.find(item => {
       return enumerable === item.Id
     })
 
-    return items
+    return item
   }
 
-  getSchema() {
-    return this.schema
-  }
-
+  /**
+  * getProperty
+  * Get property value from index name.
+  * @param string index
+  * @return object
+  */
   getProperty(index) {
     return this.properties[index]
   }
 
-  getItems() {
-    return this.items
-  }
-
-  getProperties() {
-    return this.properties
-  }
-
+  /**
+  * getRequiredProperties
+  * Get an array with required properties.
+  * @return array
+  */
   getRequiredProperties() {
-    return this.getSchema().required
+    return this.schema.required
   }
 }
 

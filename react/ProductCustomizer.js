@@ -28,7 +28,7 @@ class ProductCustomizer extends Component {
 
   render() {
     const {
-      variations
+      variations,
     } = this.state
 
     return (
