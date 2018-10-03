@@ -6,25 +6,25 @@
   "required": ["Size","Dough","Toppings"],
   "properties": {
     "Size": {
-      "description": "Escolha o tamanho",
+      "description": "Choose your size",
       "type": "string", "enum":["4755","7837","7856"],
       "minItems": 1,
       "maxItems": 1,
       "uniqueItems": true
     },
     "Dough": {
-      "description": "Escolha 1 tipo de massa",
+      "description": "Whats your kind of dough?",
       "type": "string", "enum":["4872","5698"],
       "minItems": 1,
       "maxItems": 1,
       "uniqueItems": true
     },
     "Toppings": {
-      "description": "Escolha até 2 ingredientes",
+      "description": "Need extra toppings?",
       "type": "array", "items": {
-        "type": "string", "enum":["Pepperoni","Meat","Bacon"]
+        "type": "string", "enum":["Cheedar","Meat","Bacon"]
       },
-      "minItems": 1,
+      "minItems": 0,
       "maxItems": 2,
       "uniqueItems": false
     }
@@ -33,36 +33,36 @@
   [
     {
     "Id":"4755",
-      "Name": "Broto",
+      "Name": "Small",
       "price": 18.00,
       "image": "https://via.placeholder.com/500x500",
       "pricetable": "tabelacombo"
     },
     {
     "Id":"7837",
-      "Name": "Média",
+      "Name": "Medium",
       "price": 25.00,
       "image": "https://via.placeholder.com/500x500",
       "pricetable": "tabelacombo"
     },
     {
     "Id":"7856",
-      "Name": "Grande",
+      "Name": "Big",
       "price": 32.00,
       "image": "https://via.placeholder.com/500x500",
       "pricetable": "tabelacombo"
     },
     {
     "Id":"4872",
-      "Name": "Fina",
-      "price": 1.00,
+      "Name": "Regular",
+      "price": 0.00,
       "image": "https://via.placeholder.com/500x500",
       "pricetable": "tabelacombo"
     },
     {
     "Id":"5698",
-      "Name": "Crocante",
-      "price": 2.00,
+      "Name": "Stuffed",
+      "price": 5.00,
       "image": "https://via.placeholder.com/500x500",
       "pricetable": "tabelacombo"
     }

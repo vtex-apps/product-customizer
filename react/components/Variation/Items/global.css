@@ -1,0 +1,20 @@
+.vtex-product-customizer__single-choice .single-choice__image-container {
+  max-width: 72px;
+  position: relative;
+}
+
+.vtex-product-customizer__single-choice.selected .single-choice__image-container .single-choice__icon-container {
+  display: block;
+}
+
+.vtex-product-customizer__single-choice.selected .single-choice__image-container .vtex__icon-success {
+  right: 5px;
+  bottom: 10px;
+  position: absolute;
+}
+
+.vtex-product-customizer__single-choice.selected .single-choice__image-container img {
+  width: 100%;
+  border: 1px solid;
+  border-color: #134CD8;
+}

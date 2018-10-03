@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-import SingleChoiceItem from './Items/SingleChoice'
-import MultipleChoiceItem from './Items/MultipleChoice'
+import SingleChoiceItem from '../Items/SingleChoice'
+import MultipleChoiceItem from '../Items/MultipleChoice'
 
-class List extends Component {
+class Variation extends Component {
   renderMultipleChoiceVariation = (option) => {
     return option.items.map((item, key) => {
       return <MultipleChoiceItem key={key} data={item} />
@@ -26,6 +26,7 @@ class List extends Component {
       <div className={'vtex-product-customizer__options bg-light-gray bg-transparent-ns overflow-auto'}>
         <h4 className={'ma0 pv3 ph5'}><span className={'f5 fw5'}>Select item variation</span></h4>
         {options.map((variation, key) => {
+          console.log('variation: ', variation)
           return (
             <div key={key} >
               <div className={'vtex-product-customizer__skus bg-white'}>
@@ -44,4 +45,4 @@ class List extends Component {
   }
 }
 
-export default List
+export default Variation

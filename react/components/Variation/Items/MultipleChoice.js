@@ -1,6 +1,6 @@
+import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import NumericStepper from 'vtex.styleguide/NumericStepper'
-import PropTypes from 'prop-types'
 
 class MultipleChoice extends Component {
   state = {
@@ -14,7 +14,7 @@ class MultipleChoice extends Component {
     return (
       <div className={'vtex-product-customizer__multiple-choice flex items-center pa5 pointer'}>
         <div className={'multiple-choice__title w-100'}>{data}</div>
-        <div className={'multiple-choice__actions mh4 w4 near-black tc'}>
+        <div className={'multiple-choice__actions mh4 near-black tc'}>
           <NumericStepper
             value={this.state.value1}
             onChange={event => this.setState({ value1: event.value })}

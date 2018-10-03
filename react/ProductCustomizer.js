@@ -3,19 +3,21 @@ import Modal from 'vtex.styleguide/Modal'
 import Button from 'vtex.styleguide/Button'
 
 import './global.css'
-import data from './__mock__/index.json'
-import List from './components/Variations/List'
+import schema from './__mock__/index.json'
 import AddToCart from './components/Buttons/AddToCart'
+import VariationList from './components/Variation/List'
+import ChangeToppings from './components/Buttons/ChangeToppings'
 import ProductCustomizerService from './utils/ProductCustomizerService'
 
 const isMobile = window.__RUNTIME__.hints.mobile
 
 class ProductCustomizer extends Component {
-  Service = new ProductCustomizerService(data)
+  service = new ProductCustomizerService(schema)
   state = {
     total: 0.00,
     isModalOpen: false,
-    variations: this.Service.serializeData(),
+    changeToppings: false,
+    variations: this.service.serializeData(),
   }
 
   handleOpenModal = () => {
@@ -45,7 +47,7 @@ class ProductCustomizer extends Component {
             <div className={'w-100 w-third-ns flex-ns tc items-center-ns pa5 h-100-ns'}>
               <img
                 className={'vtex-product-customizer__image br3'}
-                alt="Create Your Own"
+                alt="Product Customize Image"
                 src="https://via.placeholder.com/330x330"
               />
             </div>
@@ -54,8 +56,11 @@ class ProductCustomizer extends Component {
               <div className={'pb5-ns pt0-ns ph5-ns  ph5 pb5 bb b--light-gray'}>
                 <p className={'ma0 fw3'}>Todo el sabor mexicano. Chorizo, pico de gallo, jalapeño y tocino.</p>
               </div>
-              <List options={variations} />
-              <AddToCart total={this.state.total} />
+              <VariationList options={variations} />
+              <div className={'vtex-product-customizer__actions bt b--light-gray'}>
+                <ChangeToppings />
+                <AddToCart total={this.state.total} />
+              </div>
             </div>
           </div>
         </Modal>
