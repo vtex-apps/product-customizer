@@ -18,14 +18,59 @@ class ProductCustomizer extends Component {
     isModalOpen: false,
     changeToppings: false,
     selectedVariations: [],
-    variations: this.service.serializeData(),
+    selectionsValidated: false,
+    variations: [],
   }
 
+  /**
+  * constructor
+  * Initilize the parent class contructor and parse the data from Schema
+  * @return void
+  */
+  constructor() {
+    super()
+    this.state.variations = this.service.serializeData()
+  }
+
+  /**
+  * onHandleRemovePreviousSelectedVariation
+  * Remove the current value from variations list and adds the new one.
+  * @param object variationToRemove
+  * @return bool|void
+  */
+  onHandleRemovePreviousSelectedVariation = async (variationToRemove) => {
+    const selectedVariations = this.state.selectedVariations
+
+    const updatedSelectedArray = selectedVariations.filter((currentVariation) => {
+      return variationToRemove === null || (variationToRemove.Id !== currentVariation.Id)
+    })
+
+    await this.setState({ selectedVariations: updatedSelectedArray })
+  }
+
+  /**
+  * onHandleAddSelectedVariations
+  * Add a new selected variation to array then updates total amount.
+  * @param object variation
+  * @return void
+  */
+  onHandleAddAndCalculateSelectedVariations = async (variation) => {
+    const selectedVariations = this.state.selectedVariations
+
+    selectedVariations.push(variation)
+    await this.setState({ selectedVariations: selectedVariations })
+
+    this.calculateTotal()
+  }
+
+  /**
+  * calculateTotal
+  * Calculate total amount of selected variations
+  * @return void
+  */
   calculateTotal = () => {
     let currentTotal = 0
-    const {
-      selectedVariations,
-    } = this.state
+    const selectedVariations = this.state.selectedVariations
 
     if (selectedVariations.length === 0) {
       return 0
@@ -38,10 +83,20 @@ class ProductCustomizer extends Component {
     this.setState({ total: currentTotal })
   }
 
+  /**
+  * handleOpenModal
+  * Show the product modal
+  * @return void
+  */
   handleOpenModal = () => {
     this.setState({ isModalOpen: true })
   }
 
+  /**
+  * handleCloseModal
+  * Close the product modal
+  * @return void
+  */
   handleCloseModal = () => {
     this.setState({ isModalOpen: false })
   }
@@ -49,6 +104,7 @@ class ProductCustomizer extends Component {
   render() {
     const {
       variations,
+      onHandleUpdateAmount,
     } = this.state
 
     return (
@@ -79,10 +135,15 @@ class ProductCustomizer extends Component {
                   <span className={'f5 fw5'}>Select item variation</span>
                 </h4>
                 {variations.map((variation, key) => {
+                  console.log(variation)
                   return (
                     <VariationList
                       key={key}
+                      index={key}
                       variation={variation}
+                      handleUpdateAmount={onHandleUpdateAmount}
+                      handleAddSelectedVariations={this.onHandleAddAndCalculateSelectedVariations}
+                      handleRemovePreviousSelectedVariation={this.onHandleRemovePreviousSelectedVariation}
                     />
                   )
                 })}

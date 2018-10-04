@@ -52,14 +52,17 @@ class ProductCustomizerService {
       }
 
       options.forEach(enumerable => {
+        this.getProperty(property)['choiceType'] = 'single'
+
+        if (!this.getProperty(property)['required']) {
+          this.getProperty(property)['choiceType'] = 'multiple'
+        }
+
         if (this.enumHasItem(enumerable)) {
-          parsedItems.push(this.getItemByEnumerable(enumerable))
-          this.getProperty(property)['choiceType'] = 'single'
-          return true
+          return parsedItems.push(this.getItemByEnumerable(enumerable))
         }
 
         parsedItems.push(enumerable)
-        this.getProperty(property)['choiceType'] = 'multiple'
       })
 
       this.getProperty(property)['items'] = parsedItems

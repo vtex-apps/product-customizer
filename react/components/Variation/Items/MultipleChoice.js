@@ -4,7 +4,7 @@ import NumericStepper from 'vtex.styleguide/NumericStepper'
 
 class MultipleChoice extends Component {
   state = {
-    value1: 0,
+    choosedAmount: 0,
   }
   render() {
     const {
@@ -16,8 +16,8 @@ class MultipleChoice extends Component {
         <div className={'multiple-choice__title w-100'}>{data}</div>
         <div className={'multiple-choice__actions mh4 near-black tc'}>
           <NumericStepper
-            value={this.state.value1}
-            onChange={event => this.setState({ value1: event.value })}
+            value={this.state.choosedAmount}
+            onChange={event => this.setState({ choosedAmount: event.value })}
           />
         </div>
       </div>

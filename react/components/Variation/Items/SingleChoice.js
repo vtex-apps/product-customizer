@@ -13,37 +13,51 @@ class SingleChoice extends Component {
   render() {
     const {
       data,
-      onClick,
+      index,
       selected,
+      selectItem,
+      handleUpdateAmount,
     } = this.props
 
     return (
-      <div onClick={onClick} className={`vtex-product-customizer__single-choice ${selected ? 'selected bg-washed-blue' : ''} flex items-center pa5 pointer`}>
-        <div className={'single-choice__image-container mr4'}>
-          <img className={`single-choice_image-thumb br3 ${selected ? 'ba b--action-primary' : ''}`} src={data.image} />
-          <div className={'single-choice__icon-container dn'}>
-            <SuccessIcon size={16} />
+      <label>
+        <div onClick={selectItem} className={`vtex-product-customizer__single-choice ${selected ? 'selected bg-washed-blue' : ''} flex items-center pa5 pointer`}>
+          <div className={'single-choice__image-container mr4'}>
+            <input
+              type="radio"
+              className={'dn'}
+              name={`input-single-choice__${index}`}
+              value={data.price}
+              onChange={() => handleUpdateAmount(data)}
+            />
+            <img className={`single-choice_image-thumb br3 ${selected ? 'ba b--action-primary' : ''}`} src={data.image} />
+            <div className={'single-choice__icon-container dn'}>
+              <SuccessIcon size={16} />
+            </div>
+          </div>
+          <div className={'single-choice__content flex flex-column'}>
+            <div className={'single-choice__title'}>{data.Name}</div>
+            <div className={'single-choice__description pt2 mid-gray fw2'}>Lorem ipsum dolor sit amet, consectetur adipiscing.</div>
+          </div>
+          <div className={'single-choice__price mh4 w3 near-black tc'}>
+            <ProductPrice
+              showLabels={false}
+              showListPrice={false}
+              sellingPrice={data.price}
+              listPrice={data.price}
+            />
           </div>
         </div>
-        <div className={'single-choice__content flex flex-column'}>
-          <div className={'single-choice__title'}>{data.Name}</div>
-          <div className={'single-choice__description pt2 mid-gray fw2'}>Lorem ipsum dolor sit amet, consectetur adipiscing.</div>
-        </div>
-        <div className={'single-choice__price mh4 w3 near-black tc'}>
-          <ProductPrice
-            showLabels={false}
-            showListPrice={false}
-            sellingPrice={data.price}
-            listPrice={data.price}
-          />
-        </div>
-      </div>
+      </label>
     )
   }
 
   static propTypes = {
-    data: PropTypes.object,
-    onClick: PropTypes.function,
+    index: PropTypes.number,
+    selected: PropTypes.bool,
+    selectItem: PropTypes.func,
+    data: PropTypes.object.isRequired,
+    handleUpdateAmount: PropTypes.func,
   }
 }
 

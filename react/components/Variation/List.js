@@ -6,16 +6,57 @@ import MultipleChoiceItem from './Items/MultipleChoice'
 
 class List extends Component {
   state = {
+    validated: false,
     selectedSingle: null,
+    currentSelected: null,
   }
 
+  /**
+  * handleSelectItem
+  * Set the selected item of single choice
+  * @param object e
+  * @param number key
+  * @return void
+  */
   handleSelectItem = (e, key) => {
     this.setState({ selectedSingle: key })
   }
 
   /**
+  * onHandleUpdateAmount
+  * Remove the previous value from selected array then add the new one selected
+  * @param object selected
+  * @return void
+  */
+  onHandleUpdateAmount = async (selected) => {
+    const {
+      handleAddSelectedVariations,
+      handleRemovePreviousSelectedVariation,
+    } = this.props
+
+    const previousSelected = this.state.currentSelected
+
+    handleRemovePreviousSelectedVariation(previousSelected)
+
+    await this.setState({ currentSelected: selected })
+
+    handleAddSelectedVariations(this.state.currentSelected)
+  }
+
+  onHandleValidateList = () => {
+    const {
+      selectedSingle,
+    } = this.state
+
+    if (selectedSingle) {
+      console.log('validated')
+    }
+  }
+
+  /**
   * renderSingleChoiceVariation
   * displays single choice items
+  * @param array options
   * @return <SingleChoiceItem> Array
   */
   renderSingleChoiceVariation = (options) => {
@@ -23,13 +64,15 @@ class List extends Component {
       return (
         <SingleChoiceItem
           key={key}
+          index={this.props.index}
           data={item}
           selected={this.state.selectedSingle === key}
-          onClick={
+          selectItem={
             e => {
               this.handleSelectItem(e, key)
             }
           }
+          handleUpdateAmount={this.onHandleUpdateAmount}
         />
       )
     })
@@ -38,6 +81,7 @@ class List extends Component {
   /**
   * renderMultipleChoiceVariation
   * displays single choice items
+  * @param array options
   * @return <MultipleChoiceItem>Array
   */
   renderMultipleChoiceVariation = (options) => {
@@ -54,6 +98,7 @@ class List extends Component {
   /**
   * renderChoicesTypeVariation
   * Compare types of variations to display a equivalent component.
+  * @param object variation
   * @return mixed
   */
   renderChoicesTypeVariation = (variation) => {
@@ -83,8 +128,11 @@ class List extends Component {
   }
 
   static propTypes = {
+    index: PropTypes.number,
     total: PropTypes.number,
     variation: PropTypes.object,
+    handleAddSelectedVariations: PropTypes.func,
+    handleRemovePreviousSelectedVariation: PropTypes.func,
   }
 }
 
