@@ -5,10 +5,17 @@ import SingleChoiceItem from './Items/SingleChoice'
 import MultipleChoiceItem from './Items/MultipleChoice'
 
 class List extends Component {
+  static propTypes = {
+    index: PropTypes.number,
+    total: PropTypes.number,
+    variation: PropTypes.object,
+    variationGroup: PropTypes.object,
+    handleAddSelectedVariations: PropTypes.func,
+    handleRemovePreviousSelectedVariation: PropTypes.func,
+  }
+
   state = {
-    validated: false,
-    selectedSingle: null,
-    currentSelected: null,
+    isValid: false,
   }
 
   /**
@@ -19,16 +26,16 @@ class List extends Component {
   * @return void
   */
   handleSelectItem = (e, key) => {
-    this.setState({ selectedSingle: key })
+    return this.setState({ selectedSingle: key })
   }
 
   /**
   * onHandleUpdateAmount
-  * Remove the previous value from selected array then add the new one selected
+  * Removes the previous value from selected array then add the new one selected
   * @param object selected
   * @return void
   */
-  onHandleUpdateAmount = async (selected) => {
+  onHandleUpdateAmount = async selected => {
     const {
       handleAddSelectedVariations,
       handleRemovePreviousSelectedVariation,
@@ -43,14 +50,8 @@ class List extends Component {
     handleAddSelectedVariations(this.state.currentSelected)
   }
 
-  onHandleValidateList = () => {
-    const {
-      selectedSingle,
-    } = this.state
-
-    if (selectedSingle) {
-      console.log('validated')
-    }
+  handleIsValid = () => {
+    this.setState({ isValid: true })
   }
 
   /**
@@ -59,17 +60,18 @@ class List extends Component {
   * @param array options
   * @return <SingleChoiceItem> Array
   */
-  renderSingleChoiceVariation = (options) => {
+  renderSingleChoiceVariation = options => {
     return options.items.map((item, key) => {
       return (
         <SingleChoiceItem
           key={key}
-          index={this.props.index}
           data={item}
+          index={this.props.index}
           selected={this.state.selectedSingle === key}
           selectItem={
-            e => {
-              this.handleSelectItem(e, key)
+            async e => {
+              await this.handleSelectItem(e, key)
+              this.handleIsValid()
             }
           }
           handleUpdateAmount={this.onHandleUpdateAmount}
@@ -84,7 +86,7 @@ class List extends Component {
   * @param array options
   * @return <MultipleChoiceItem>Array
   */
-  renderMultipleChoiceVariation = (options) => {
+  renderMultipleChoiceVariation = options => {
     return options.items.map((item, key) => {
       return (
         <MultipleChoiceItem
@@ -101,7 +103,7 @@ class List extends Component {
   * @param object variation
   * @return mixed
   */
-  renderChoicesTypeVariation = (variation) => {
+  renderChoicesTypeVariation = variation => {
     switch (variation.choiceType) {
       case 'single':
         return this.renderSingleChoiceVariation(variation)
@@ -114,25 +116,24 @@ class List extends Component {
 
   render() {
     const {
+      isValid,
+    } = this.state
+
+    const {
       variation,
     } = this.props
 
     return (
       <div>
-        <div className={'vtex-product-customizer__skus bg-white'}>
-          <h4 className={'sku-title b--light-gray bn-ns bb ma0 pa5 f5 fw5'}>{ variation.description }</h4>
+        <div className={`vtex-product-customizer__skus bg-white ${isValid ? 'valid' : 'invalid'}`}>
+          <div className={'flex items-center justify-between bb b--light-gray'}>
+            <h4 className={'skus-title bn-ns ma0 pa5 f5 fw5'}>{ variation.description }</h4>
+            <span className={`skus--required-variation pa5 gray ${!variation.required ? 'dn' : ''}`}>required</span>
+          </div>
           { this.renderChoicesTypeVariation(variation) }
         </div>
       </div>
     )
-  }
-
-  static propTypes = {
-    index: PropTypes.number,
-    total: PropTypes.number,
-    variation: PropTypes.object,
-    handleAddSelectedVariations: PropTypes.func,
-    handleRemovePreviousSelectedVariation: PropTypes.func,
   }
 }
 

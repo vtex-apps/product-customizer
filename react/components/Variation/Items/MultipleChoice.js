@@ -3,6 +3,10 @@ import React, { Component } from 'react'
 import NumericStepper from 'vtex.styleguide/NumericStepper'
 
 class MultipleChoice extends Component {
+  static propTypes = {
+    data: PropTypes.string,
+  }
+
   state = {
     choosedAmount: 0,
   }
@@ -22,10 +26,6 @@ class MultipleChoice extends Component {
         </div>
       </div>
     )
-  }
-
-  static propTypes = {
-    data: PropTypes.string,
   }
 }
 

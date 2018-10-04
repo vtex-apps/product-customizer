@@ -6,6 +6,14 @@ import ProductPrice from 'vtex.store-components/ProductPrice'
 import './global.css'
 
 class SingleChoice extends Component {
+  static propTypes = {
+    index: PropTypes.number,
+    selected: PropTypes.bool,
+    selectItem: PropTypes.func,
+    data: PropTypes.object.isRequired,
+    handleUpdateAmount: PropTypes.func,
+  }
+
   state = {
     selected: false,
   }
@@ -50,14 +58,6 @@ class SingleChoice extends Component {
         </div>
       </label>
     )
-  }
-
-  static propTypes = {
-    index: PropTypes.number,
-    selected: PropTypes.bool,
-    selectItem: PropTypes.func,
-    data: PropTypes.object.isRequired,
-    handleUpdateAmount: PropTypes.func,
   }
 }
 

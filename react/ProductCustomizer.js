@@ -12,14 +12,13 @@ import ProductCustomizerService from './utils/ProductCustomizerService'
 const isMobile = window.__RUNTIME__.hints.mobile
 
 class ProductCustomizer extends Component {
-  service = new ProductCustomizerService(schema)
   state = {
-    total: 0.00,
+    total: 0,
+    variations: [],
     isModalOpen: false,
     changeToppings: false,
     selectedVariations: [],
     selectionsValidated: false,
-    variations: [],
   }
 
   /**
@@ -29,7 +28,10 @@ class ProductCustomizer extends Component {
   */
   constructor() {
     super()
-    this.state.variations = this.service.serializeData()
+
+    const service = new ProductCustomizerService(schema)
+
+    this.state.variations = service.serializeData()
   }
 
   /**
@@ -38,14 +40,14 @@ class ProductCustomizer extends Component {
   * @param object variationToRemove
   * @return bool|void
   */
-  onHandleRemovePreviousSelectedVariation = async (variationToRemove) => {
+  onHandleRemovePreviousSelectedVariation = (variationToRemove) => {
     const selectedVariations = this.state.selectedVariations
 
     const updatedSelectedArray = selectedVariations.filter((currentVariation) => {
-      return variationToRemove === null || (variationToRemove.Id !== currentVariation.Id)
+      return variationToRemove === undefined || (variationToRemove.Id !== currentVariation.Id)
     })
 
-    await this.setState({ selectedVariations: updatedSelectedArray })
+    this.setState({ selectedVariations: updatedSelectedArray })
   }
 
   /**
@@ -54,11 +56,11 @@ class ProductCustomizer extends Component {
   * @param object variation
   * @return void
   */
-  onHandleAddAndCalculateSelectedVariations = async (variation) => {
+  onHandleAddAndCalculateSelectedVariations = (variation) => {
     const selectedVariations = this.state.selectedVariations
 
     selectedVariations.push(variation)
-    await this.setState({ selectedVariations: selectedVariations })
+    this.setState({ selectedVariations: selectedVariations })
 
     this.calculateTotal()
   }
@@ -104,6 +106,7 @@ class ProductCustomizer extends Component {
   render() {
     const {
       variations,
+      selectionsValidated,
       onHandleUpdateAmount,
     } = this.state
 
@@ -135,7 +138,6 @@ class ProductCustomizer extends Component {
                   <span className={'f5 fw5'}>Select item variation</span>
                 </h4>
                 {variations.map((variation, key) => {
-                  console.log(variation)
                   return (
                     <VariationList
                       key={key}
@@ -149,7 +151,7 @@ class ProductCustomizer extends Component {
                 })}
               </div>
 
-              <div className={'vtex-product-customizer__actions bt b--light-gray'}>
+              <div className={`vtex-product-customizer__actions bt b--light-gray ${!selectionsValidated ? 'b' : ''}`}>
                 <ChangeToppings />
                 <AddToCart total={this.state.total} />
               </div>
