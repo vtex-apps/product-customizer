@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
+import { injectIntl, intlShape } from 'react-intl'
 
 import SingleChoiceItem from './Items/SingleChoice'
 import MultipleChoiceItem from './Items/MultipleChoice'
@@ -8,6 +9,7 @@ class List extends Component {
   static propTypes = {
     index: PropTypes.number,
     total: PropTypes.number,
+    intl: intlShape.isRequired,
     variation: PropTypes.object,
     variationGroup: PropTypes.object,
     handleAddSelectedVariations: PropTypes.func,
@@ -120,15 +122,20 @@ class List extends Component {
     } = this.state
 
     const {
+      intl,
       variation,
     } = this.props
+
+    const requiredLabel = intl.formatMessage({ id: 'product-customizer.required' })
 
     return (
       <div>
         <div className={`vtex-product-customizer__skus bg-white ${isValid ? 'valid' : 'invalid'}`}>
           <div className={'flex items-center justify-between bb b--light-gray'}>
             <h4 className={'skus-title bn-ns ma0 pa5 f5 fw5'}>{ variation.description }</h4>
-            <span className={`skus--required-variation pa5 gray ${!variation.required ? 'dn' : ''}`}>required</span>
+            {variation.required ? <span className={'skus--required-variation pa5 gray'}>
+              { requiredLabel }
+            </span> : null}
           </div>
           { this.renderChoicesTypeVariation(variation) }
         </div>
@@ -137,4 +144,4 @@ class List extends Component {
   }
 }
 
-export default List
+export default injectIntl(List)

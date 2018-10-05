@@ -35,3 +35,32 @@
   height: 100%;
   overflow: auto;
 }
+
+.vtex-product-customizer__actions .vtex-button {
+  width: 100%;
+}
+
+.vtex-product-customizer__actions .actions--change-toppings .vtex-button {
+  padding: 0;
+  text-align: left;
+}
+
+.vtex-product-customizer__single-choice .single-choice__image-container {
+  color: #1346d8;
+  max-width: 72px;
+  position: relative;
+}
+
+.vtex-product-customizer__single-choice.selected .single-choice__image-container .single-choice__icon-container {
+  display: block;
+}
+
+.vtex-product-customizer__single-choice.selected .single-choice__image-container .vtex__icon-success {
+  right: 5px;
+  bottom: 10px;
+  position: absolute;
+}
+
+.vtex-product-customizer__single-choice.selected .single-choice__image-container img {
+  width: 100%;
+}

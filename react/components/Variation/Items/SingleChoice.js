@@ -3,8 +3,6 @@ import React, { Component } from 'react'
 import SuccessIcon from 'vtex.styleguide/IconSuccess'
 import ProductPrice from 'vtex.store-components/ProductPrice'
 
-import './global.css'
-
 class SingleChoice extends Component {
   static propTypes = {
     index: PropTypes.number,
