@@ -3,21 +3,30 @@
   "$id": "http://json-schema.org/draft-07/schema#",
   "title": "Pizza Builder",
   "type": ["object", "boolean"],
-  "required": ["Size","Dough"],
   "properties": {
     "Size": {
       "description": "Choose your size",
       "type": "string", "enum":["4755","7837","7856"],
       "minItems": 1,
       "maxItems": 1,
+      "required:": true,
       "uniqueItems": true
     },
     "Dough": {
-      "description": "Whats your kind of dough?",
       "type": "string", "enum":["4872","5698"],
+      "description": "Whats your kind of dough?",
       "minItems": 1,
       "maxItems": 1,
+      "required:": true,
       "uniqueItems": true
+    },
+    "Drinks": {
+      "type": "string", "enum":["4758","7839"],
+      "description": "Do you wanna drink?",
+      "minItems": 0,
+      "maxItems": 5,
+      "required:": true,
+      "uniqueItems": false
     },
     "Toppings": {
       "description": "Need extra toppings?",
@@ -26,45 +35,81 @@
       },
       "minItems": 0,
       "maxItems": 2,
+      "required": false,
       "uniqueItems": false
     }
   },
   "items":
   [
     {
+    "Id":"4758",
+      "Name": "Coca-Cola",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing.",
+      "price": 9.90,
+      "image": "https://via.placeholder.com/500x500",
+      "pricetable": "tabelacombo",
+      "minItems": 0,
+      "maxItems": 5
+    },
+    {
+    "Id":"7839",
+      "Name": "Pepsi",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing.",
+      "price": 8.50,
+      "image": "https://via.placeholder.com/500x500",
+      "pricetable": "tabelacombo",
+      "minItems": 0,
+      "maxItems": 5
+    },
+    {
     "Id":"4755",
       "Name": "Small",
-      "price": 18.00,
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing.",
+      "price": 18.90,
       "image": "https://via.placeholder.com/500x500",
-      "pricetable": "tabelacombo"
+      "pricetable": "tabelacombo",
+      "minItems": 0,
+      "maxItems": 1
     },
     {
     "Id":"7837",
       "Name": "Medium",
-      "price": 25.00,
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing.",
+      "price": 25.90,
       "image": "https://via.placeholder.com/500x500",
-      "pricetable": "tabelacombo"
+      "pricetable": "tabelacombo",
+      "minItems": 0,
+      "maxItems": 1
     },
     {
     "Id":"7856",
       "Name": "Big",
-      "price": 32.00,
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing.",
+      "price": 32.90,
       "image": "https://via.placeholder.com/500x500",
-      "pricetable": "tabelacombo"
+      "pricetable": "tabelacombo",
+      "minItems": 0,
+      "maxItems": 1
     },
     {
     "Id":"4872",
       "Name": "Regular",
-      "price": 0.00,
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing.",
+      "price": 1.90,
       "image": "https://via.placeholder.com/500x500",
-      "pricetable": "tabelacombo"
+      "pricetable": "tabelacombo",
+      "minItems": 0,
+      "maxItems": 1
     },
     {
     "Id":"5698",
       "Name": "Stuffed",
-      "price": 5.00,
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing.",
+      "price": 5.90,
       "image": "https://via.placeholder.com/500x500",
-      "pricetable": "tabelacombo"
+      "pricetable": "tabelacombo",
+      "minItems": 0,
+      "maxItems": 1
     }
   ]
 }

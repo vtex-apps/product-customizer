@@ -103,6 +103,13 @@ class ProductCustomizer extends Component {
     this.setState({ isModalOpen: false })
   }
 
+  handleSubmit = e => {
+    e.preventDefault()
+
+    // Do form validation
+    // Add product to cart
+  }
+
   render() {
     const {
       variations,
@@ -129,32 +136,34 @@ class ProductCustomizer extends Component {
               />
             </div>
             <div className={'w-100 w-two-thirds-ns flex-ns flex-column-ns'}>
-              <h1 className={`vtex-product-customizer__title fw5 ma0 f3 pa5 ${isMobile ? 'dn' : ''}`}>Create Your Own</h1>
-              <div className={'pb5-ns pt0-ns ph5-ns  ph5 pb5 bb b--light-gray'}>
-                <p className={'ma0 fw3'}>Todo el sabor mexicano. Chorizo, pico de gallo, jalapeño y tocino.</p>
-              </div>
-              <div className={'vtex-product-customizer__options bg-light-gray bg-transparent-ns overflow-auto'}>
-                <h4 className={'ma0 pv3 ph5'}>
-                  <span className={'f5 fw5'}>Select item variation</span>
-                </h4>
-                {variations.map((variation, key) => {
-                  return (
-                    <VariationList
-                      key={key}
-                      index={key}
-                      variation={variation}
-                      handleUpdateAmount={onHandleUpdateAmount}
-                      handleAddSelectedVariations={this.onHandleAddAndCalculateSelectedVariations}
-                      handleRemovePreviousSelectedVariation={this.onHandleRemovePreviousSelectedVariation}
-                    />
-                  )
-                })}
-              </div>
+              <form name="vtex-product-customizer-form" onSubmit={this.handleSubmit}>
+                <h1 className={`vtex-product-customizer__title fw5 ma0 f3 pa5 ${isMobile ? 'dn' : ''}`}>Create Your Own</h1>
+                <div className={'pb5-ns pt0-ns ph5-ns  ph5 pb5 bb b--light-gray'}>
+                  <p className={'ma0 fw3'}>Todo el sabor mexicano. Chorizo, pico de gallo, jalapeño y tocino.</p>
+                </div>
+                <div className={'vtex-product-customizer__options bg-light-gray bg-transparent-ns overflow-auto'}>
+                  <h4 className={'ma0 pv3 ph5'}>
+                    <span className={'f5 fw5'}>Select item variation</span>
+                  </h4>
+                  {variations.map((variation, key) => {
+                    return (
+                      <VariationList
+                        key={key}
+                        index={key}
+                        variation={variation}
+                        handleUpdateAmount={onHandleUpdateAmount}
+                        handleAddSelectedVariations={this.onHandleAddAndCalculateSelectedVariations}
+                        handleRemovePreviousSelectedVariation={this.onHandleRemovePreviousSelectedVariation}
+                      />
+                    )
+                  })}
+                </div>
 
-              <div className={`vtex-product-customizer__actions bt b--light-gray ${!selectionsValidated ? 'b' : ''}`}>
-                <ChangeToppings />
-                <AddToCart total={this.state.total} />
-              </div>
+                <div className={`vtex-product-customizer__actions bt b--light-gray ${!selectionsValidated ? 'b' : ''}`}>
+                  <ChangeToppings />
+                  <AddToCart total={this.state.total} />
+                </div>
+              </form>
             </div>
           </div>
         </Modal>

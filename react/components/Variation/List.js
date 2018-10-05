@@ -18,6 +18,7 @@ class List extends Component {
 
   state = {
     isValid: false,
+    totalSelected: 0,
   }
 
   /**
@@ -56,6 +57,21 @@ class List extends Component {
     this.setState({ isValid: true })
   }
 
+  onHandleValidateSelectedAmount = (selectedValue, callback) => {
+    const {
+      variation,
+    } = this.props
+
+    callback({
+      isValid: variation.maxItems >= this.state.totalSelected,
+      message: 'Quantidade selecionada não pode ser maior que a quantidade máxima.',
+    })
+  }
+
+  onHandleAddTotalAmountSelected = (total) => {
+    this.setState({ totalSelected: total })
+  }
+
   /**
   * renderSingleChoiceVariation
   * displays single choice items
@@ -67,7 +83,9 @@ class List extends Component {
       return (
         <SingleChoiceItem
           key={key}
-          data={item}
+          item={item}
+          minItems={options.minItems}
+          maxItems={options.maxItems}
           index={this.props.index}
           selected={this.state.selectedSingle === key}
           selectItem={
@@ -93,7 +111,12 @@ class List extends Component {
       return (
         <MultipleChoiceItem
           key={key}
-          data={item}
+          item={item}
+          minTotalItems={options.minItems}
+          maxTotalItems={options.maxItems}
+          withPrice={typeof item === 'object'}
+          validate={this.onHandleValidateSelectedAmount}
+          addTotalItems={this.onHandleAddTotalAmountSelected}
         />
       )
     })
@@ -106,14 +129,11 @@ class List extends Component {
   * @return mixed
   */
   renderChoicesTypeVariation = variation => {
-    switch (variation.choiceType) {
-      case 'single':
-        return this.renderSingleChoiceVariation(variation)
-      case 'multiple':
-        return this.renderMultipleChoiceVariation(variation)
-      default:
-        return null
+    if (variation.uniqueItems === true) {
+      return this.renderSingleChoiceVariation(variation)
     }
+
+    return this.renderMultipleChoiceVariation(variation)
   }
 
   render() {

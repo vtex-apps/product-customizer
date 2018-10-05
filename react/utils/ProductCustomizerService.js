@@ -46,18 +46,11 @@ class ProductCustomizerService {
       const parsedItems = []
       const options = this.getEnumsByProperty(property)
 
-      this.getProperty(property)['required'] = this.isPropertyRequired(property)
       if (!options) {
         continue
       }
 
       options.forEach(enumerable => {
-        this.getProperty(property)['choiceType'] = 'single'
-
-        if (!this.getProperty(property)['required']) {
-          this.getProperty(property)['choiceType'] = 'multiple'
-        }
-
         if (this.enumHasItem(enumerable)) {
           return parsedItems.push(this.getItemByEnumerable(enumerable))
         }
@@ -83,16 +76,6 @@ class ProductCustomizerService {
     if (this.properties[property].type === 'array') {
       return this.properties[property].items.enum
     }
-  }
-
-  /**
-  * isPropertyRequired
-  * Check if property passed is a required option.
-  * @param object property
-  * @return boolean
-  */
-  isPropertyRequired(property) {
-    return this.getRequiredProperties().indexOf(property) !== -1
   }
 
   /**
@@ -137,15 +120,6 @@ class ProductCustomizerService {
   */
   getProperty(index) {
     return this.properties[index]
-  }
-
-  /**
-  * getRequiredProperties
-  * Get an array with required properties.
-  * @return array
-  */
-  getRequiredProperties() {
-    return this.schema.required
   }
 }
 

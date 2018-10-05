@@ -8,7 +8,7 @@ class SingleChoice extends Component {
     index: PropTypes.number,
     selected: PropTypes.bool,
     selectItem: PropTypes.func,
-    data: PropTypes.object.isRequired,
+    item: PropTypes.object.isRequired,
     handleUpdateAmount: PropTypes.func,
   }
 
@@ -18,7 +18,7 @@ class SingleChoice extends Component {
 
   render() {
     const {
-      data,
+      item,
       index,
       selected,
       selectItem,
@@ -33,24 +33,24 @@ class SingleChoice extends Component {
               type="radio"
               className={'dn'}
               name={`input-single-choice__${index}`}
-              value={data.price}
-              onChange={() => handleUpdateAmount(data)}
+              value={item.price}
+              onChange={() => handleUpdateAmount(item)}
             />
-            <img className={`single-choice_image-thumb br3 ${selected ? 'ba b--action-primary' : ''}`} src={data.image} />
+            <img className={`single-choice_image-thumb br3 ${selected ? 'ba b--action-primary' : ''}`} src={item.image} />
             <div className={'single-choice__icon-container dn'}>
               <SuccessIcon size={16} />
             </div>
           </div>
           <div className={'single-choice__content flex flex-column'}>
-            <div className={'single-choice__title'}>{data.Name}</div>
-            <div className={'single-choice__description pt2 mid-gray fw2'}>Lorem ipsum dolor sit amet, consectetur adipiscing.</div>
+            <div className={'single-choice__title'}>{item.Name}</div>
+            <div className={'single-choice__description pt2 mid-gray fw2'}>{item.Description}</div>
           </div>
           <div className={'single-choice__price mh4 w3 near-black tc'}>
             <ProductPrice
               showLabels={false}
               showListPrice={false}
-              sellingPrice={data.price}
-              listPrice={data.price}
+              sellingPrice={item.price}
+              listPrice={item.price}
             />
           </div>
         </div>
