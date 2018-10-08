@@ -15,7 +15,7 @@ class AddToCart extends Component {
     const label = intl.formatMessage({ id: 'product-customizer.add-to-cart' })
 
     return (
-      <div className={'actions--add-to-cart tc ph5 pb5'}>
+      <div className="actions--add-to-cart tc ph5 pb5">
         <Button type="submit">
           { label }
           <ProductPrice

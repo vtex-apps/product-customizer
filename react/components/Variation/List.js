@@ -46,7 +46,6 @@ class List extends Component {
     const previousSelected = this.state.currentSelected
 
     handleRemovePreviousSelectedVariation(previousSelected)
-
     await this.setState({ currentSelected: selected })
 
     handleAddSelectedVariations(this.state.currentSelected)
@@ -54,6 +53,14 @@ class List extends Component {
 
   handleIsValid = () => {
     this.setState({ isValid: true })
+  }
+
+  updateAmountToTotalSelected = (quantity) => {
+    this.setState({ totalSelected: quantity })
+  }
+
+  checkMaxAmount = () => {
+    return this.state.totalSelected <= this.props.variation.maxItems
   }
 
   onHandleAddTotalAmountSelected = (total) => {
@@ -103,7 +110,6 @@ class List extends Component {
           minTotalItems={options.minItems}
           maxTotalItems={options.maxItems}
           withPrice={typeof item === 'object'}
-          addTotalItems={this.onHandleAddTotalAmountSelected}
         />
       )
     })

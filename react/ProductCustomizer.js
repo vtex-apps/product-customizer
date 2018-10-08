@@ -31,14 +31,13 @@ class ProductCustomizer extends Component {
 
   /**
   * constructor
-  * Initilize the parent class contructor and parse the data from Schema
+  * Initialize the parent class contructor and parse the data from Schema
   * @return void
   */
   constructor() {
     super()
 
     const service = new ProductCustomizerService(schema)
-
     this.state.variations = service.serializeData()
   }
 
@@ -48,11 +47,13 @@ class ProductCustomizer extends Component {
   * @param object variationToRemove
   * @return bool|void
   */
-  onHandleRemovePreviousSelectedVariation = (variationToRemove) => {
-    const selectedVariations = this.state.selectedVariations
+  onHandleRemovePreviousSelectedVariation = variationToRemove => {
+    const {
+      selectedVariations,
+    } = this.state
 
-    const updatedSelectedArray = selectedVariations.filter((currentVariation) => {
-      return variationToRemove === undefined || (variationToRemove.Id !== currentVariation.Id)
+    const updatedSelectedArray = selectedVariations.filter(currentVariation => {
+      return !variationToRemove || (variationToRemove.Id !== currentVariation.Id)
     })
 
     this.setState({ selectedVariations: updatedSelectedArray })
@@ -64,11 +65,11 @@ class ProductCustomizer extends Component {
   * @param object variation
   * @return void
   */
-  onHandleAddAndCalculateSelectedVariations = (variation) => {
+  onHandleAddAndCalculateSelectedVariations = async variation => {
     const selectedVariations = this.state.selectedVariations
 
     selectedVariations.push(variation)
-    this.setState({ selectedVariations: selectedVariations })
+    await this.setState({ selectedVariations })
 
     this.calculateTotal()
   }
@@ -79,18 +80,15 @@ class ProductCustomizer extends Component {
   * @return void
   */
   calculateTotal = () => {
-    let currentTotal = 0
-    const selectedVariations = this.state.selectedVariations
+    const {
+      selectedVariations,
+    } = this.state
 
-    if (selectedVariations.length === 0) {
-      return 0
-    }
+    const total = selectedVariations.reduce((accumulator, currentValue) => {
+      return accumulator + currentValue.price
+    }, 0)
 
-    for (const selectedVariation of selectedVariations) {
-      currentTotal += selectedVariation.price
-    }
-
-    this.setState({ total: currentTotal })
+    this.setState({ total })
   }
 
   /**
@@ -111,14 +109,6 @@ class ProductCustomizer extends Component {
     this.setState({ isModalOpen: false })
   }
 
-  handleSubmit = e => {
-    console.log(this.state.selectedVariations)
-    e.preventDefault()
-
-    // Checl Lists validations
-    // Add product to cart
-  }
-
   render() {
     const {
       variations,
@@ -137,37 +127,33 @@ class ProductCustomizer extends Component {
           isOpen={this.state.isModalOpen}
           onClose={this.handleCloseModal}
         >
-          <div className={'flex-ns h-100-ns'}>
+          <div className="flex-ns h-100-ns">
             <h1 className={`vtex-product-customizer__title tc f4 fw5 ma0 pa5 w-100 bg-black-40 white ${!isMobile ? 'dn' : ''}`}>Create Your Own</h1>
-            <div className={'w-100 w-third-ns flex-ns tc items-center-ns pa5 h-100-ns'}>
+            <div className="w-100 w-third-ns flex-ns tc items-center-ns pa5 h-100-ns">
               <img
-                className={'vtex-product-customizer__image br3'}
+                className="vtex-product-customizer__image br3"
                 alt="Product Customize Image"
                 src="https://via.placeholder.com/330x330"
               />
             </div>
-            <div className={'w-100 w-two-thirds-ns flex-ns flex-column-ns'}>
-              <form name="vtex-product-customizer-form" onSubmit={this.handleSubmit}>
+            <div className="w-100 w-two-thirds-ns flex-ns flex-column-ns">
+              <form name="vtex-product-customizer-form">
                 <h1 className={`vtex-product-customizer__title fw5 ma0 f3 pa5 ${isMobile ? 'dn' : ''}`}>Create Your Own</h1>
-                <div className={'pb5-ns pt0-ns ph5-ns  ph5 pb5 bb b--light-gray'}>
-                  <p className={'ma0 fw3'}>Todo el sabor mexicano. Chorizo, pico de gallo, jalapeño y tocino.</p>
+                <div className="pb5-ns pt0-ns ph5-ns  ph5 pb5 bb b--light-gray">
+                  <p className="ma0 fw3">Todo el sabor mexicano. Chorizo, pico de gallo, jalapeño y tocino.</p>
                 </div>
-                <div className={'vtex-product-customizer__options bg-light-gray bg-transparent-ns overflow-auto'}>
-                  <h4 className={'ma0 pv3 ph5'}>
-                    <span className={'f5 fw5'}>Select item variation</span>
+                <div className="vtex-product-customizer__options bg-light-gray bg-transparent-ns overflow-auto">
+                  <h4 className="ma0 pv3 ph5">
+                    <span className="f5 fw5">Select item variation</span>
                   </h4>
-                  {variations.map((variation, key) => {
-                    return (
-                      <VariationList
-                        key={key}
-                        index={key}
-                        variation={variation}
-                        handleUpdateAmount={onHandleUpdateAmount}
-                        handleAddSelectedVariations={this.onHandleAddAndCalculateSelectedVariations}
-                        handleRemovePreviousSelectedVariation={this.onHandleRemovePreviousSelectedVariation}
-                      />
-                    )
-                  })}
+                  {variations.map((variation, key) => (<VariationList
+                    key={key}
+                    index={key}
+                    variation={variation}
+                    handleUpdateAmount={onHandleUpdateAmount}
+                    handleAddSelectedVariations={this.onHandleAddAndCalculateSelectedVariations}
+                    handleRemovePreviousSelectedVariation={this.onHandleRemovePreviousSelectedVariation}
+                  />))}
                 </div>
 
                 <div className={`vtex-product-customizer__actions bt b--light-gray ${!selectionsValidated ? 'b' : ''}`}>

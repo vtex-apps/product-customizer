@@ -17,11 +17,11 @@ class ChangeToppings extends Component {
     const changeLabel = intl.formatMessage({ id: 'product-customizer.change-composition' })
 
     return (
-      <div className={`actions--change-toppings ph5 pa5 ${!enableChangeToppings ? 'dn' : ''}`}>
+      enableChangeToppings ? <div className="actions--change-toppings ph5 pa5">
         <Button
           variation="tertiary"
         >{ changeLabel }</Button>
-      </div>
+      </div> : null
     )
   }
 }

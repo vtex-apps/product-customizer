@@ -19,16 +19,6 @@
       "maxItems": 1,
       "required": true,
       "uniqueItems": true
-    },
-    "Toppings": {
-      "description": "Need extra toppings?",
-      "type": "array", "items": {
-        "type": "string", "enum":["Cheedar","Meat","Bacon"]
-      },
-      "minItems": 0,
-      "maxItems": 2,
-      "required": false,
-      "uniqueItems": false
     }
   },
   "items":

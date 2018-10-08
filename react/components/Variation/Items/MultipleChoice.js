@@ -17,8 +17,7 @@ class MultipleChoice extends Component {
     choosedAmount: 0,
   }
 
-  calculateAmountOfSelectedItems = (event, item) => {
-    const quantity = event.value
+  calculateAmountOfSelectedItems = (quantity, item) => {
     const total = (quantity * item.price).toFixed(2)
 
     this.handleTotal(total)
@@ -39,10 +38,10 @@ class MultipleChoice extends Component {
     } = this.props
 
     return (
-      <div className={'vtex-product-customizer__multiple-choice flex items-center pa5 pointer'}>
+      <div className="vtex-product-customizer__multiple-choice flex items-center pa5 pointer">
         <div className={`multiple-choice__title w-100 ${withPrice ? 'flex flex-column justify-center' : ''}`}>
-          <div className={'multiple-choice__price'}>{withPrice ? item.Name : item }</div>
-          <div className={'multiple-choice__price'}>
+          <div className="multiple-choice__name">{withPrice ? item.Name : item }</div>
+          <div className="multiple-choice__price">
             {withPrice ? <ProductPrice
               showLabels={false}
               showListPrice={false}
@@ -51,18 +50,15 @@ class MultipleChoice extends Component {
             /> : null}
           </div>
         </div>
-        <div className={'multiple-choice__actions mh4 near-black tc'}>
+        <div className="multiple-choice__actions mh4 near-black tc">
           <NumericStepper
             value={this.state.choosedAmount}
             minItems={item.minItems}
             maxValue={item.maxItems}
             onChange={
               event => {
-                this.handleChoosedAmount(event.value)
-
-                if (withPrice) {
-                  this.calculateAmountOfSelectedItems(event, item)
-                }
+                const quantity = event.value
+                this.handleChoosedAmount(quantity)
               }
             }
           />
