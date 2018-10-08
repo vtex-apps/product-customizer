@@ -26,6 +26,7 @@ class ProductCustomizerService {
         choiceType: property.choiceType,
         description: property.description,
         items: property.items,
+        isTopping: property.isTopping,
         minItems: property.minItems,
         maxItems: property.maxItems,
         required: property.required,
@@ -52,9 +53,11 @@ class ProductCustomizerService {
 
       options.forEach(enumerable => {
         if (this.enumHasItem(enumerable)) {
+          this.getProperty(property)['isTopping'] = false
           return parsedItems.push(this.getItemByEnumerable(enumerable))
         }
 
+        this.getProperty(property)['isTopping'] = true
         parsedItems.push(enumerable)
       })
 

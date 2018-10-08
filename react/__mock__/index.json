@@ -9,7 +9,7 @@
       "type": "string", "enum":["4755","7837","7856"],
       "minItems": 1,
       "maxItems": 1,
-      "required:": true,
+      "required": true,
       "uniqueItems": true
     },
     "Dough": {
@@ -17,16 +17,8 @@
       "description": "Whats your kind of dough?",
       "minItems": 1,
       "maxItems": 1,
-      "required:": true,
+      "required": true,
       "uniqueItems": true
-    },
-    "Drinks": {
-      "type": "string", "enum":["4758","7839"],
-      "description": "Do you wanna drink?",
-      "minItems": 0,
-      "maxItems": 5,
-      "required:": true,
-      "uniqueItems": false
     },
     "Toppings": {
       "description": "Need extra toppings?",
@@ -59,7 +51,7 @@
       "image": "https://via.placeholder.com/500x500",
       "pricetable": "tabelacombo",
       "minItems": 0,
-      "maxItems": 5
+      "maxItems": 2
     },
     {
     "Id":"4755",

@@ -5,7 +5,6 @@ import ProductPrice from 'vtex.store-components/ProductPrice'
 
 class MultipleChoice extends Component {
   static propTypes = {
-    validate: PropTypes.func,
     withPrice: PropTypes.bool,
     addTotalItems: PropTypes.func,
     minTotalItems: PropTypes.number,
@@ -20,7 +19,7 @@ class MultipleChoice extends Component {
 
   calculateAmountOfSelectedItems = (event, item) => {
     const quantity = event.value
-    const total = quantity * item.price
+    const total = (quantity * item.price).toFixed(2)
 
     this.handleTotal(total)
   }
@@ -30,34 +29,14 @@ class MultipleChoice extends Component {
   }
 
   handleChoosedAmount = (choosedAmount) => {
-    const {
-      addTotalItems,
-    } = this.props
-
-    addTotalItems(choosedAmount)
-
     this.setState({ choosedAmount })
-  }
-
-  validate = (selectedValue, callback) => {
-    const {
-      maxTotalItems,
-    } = this.props
-
-    callback({
-      isValid: maxTotalItems >= selectedValue,
-      message: 'Quantidade selecionada não pode ser maior que a quantidade máxima.',
-    })
   }
 
   render() {
     const {
       item,
-      validate,
       withPrice,
     } = this.props
-
-    console.log(this.props)
 
     return (
       <div className={'vtex-product-customizer__multiple-choice flex items-center pa5 pointer'}>
@@ -79,19 +58,11 @@ class MultipleChoice extends Component {
             maxValue={item.maxItems}
             onChange={
               event => {
-                validate(event.value, validation => {
-                  console.log(validation)
-                  if (!validation.isValid) {
-                    alert(validation.message)
-                    return false
-                  }
+                this.handleChoosedAmount(event.value)
 
-                  this.handleChoosedAmount(event.value)
-
-                  if (withPrice) {
-                    this.calculateAmountOfSelectedItems(event, item)
-                  }
-                })
+                if (withPrice) {
+                  this.calculateAmountOfSelectedItems(event, item)
+                }
               }
             }
           />

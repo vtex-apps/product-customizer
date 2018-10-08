@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import Modal from 'vtex.styleguide/Modal'
 import Button from 'vtex.styleguide/Button'
@@ -12,11 +13,18 @@ import ProductCustomizerService from './utils/ProductCustomizerService'
 const isMobile = window.__RUNTIME__.hints.mobile
 
 class ProductCustomizer extends Component {
+  static propTypes = {
+    enableChangeToppings: PropTypes.bool,
+  }
+
+  static defaultProps = {
+    enableChangeToppings: false,
+  }
+
   state = {
     total: 0,
     variations: [],
     isModalOpen: false,
-    changeToppings: false,
     selectedVariations: [],
     selectionsValidated: false,
   }
@@ -104,9 +112,10 @@ class ProductCustomizer extends Component {
   }
 
   handleSubmit = e => {
+    console.log(this.state.selectedVariations)
     e.preventDefault()
 
-    // Do form validation
+    // Checl Lists validations
     // Add product to cart
   }
 
@@ -116,6 +125,8 @@ class ProductCustomizer extends Component {
       selectionsValidated,
       onHandleUpdateAmount,
     } = this.state
+
+    const { enableChangeToppings } = this.props
 
     return (
       <div>
@@ -160,7 +171,7 @@ class ProductCustomizer extends Component {
                 </div>
 
                 <div className={`vtex-product-customizer__actions bt b--light-gray ${!selectionsValidated ? 'b' : ''}`}>
-                  <ChangeToppings />
+                  <ChangeToppings enableChangeToppings={enableChangeToppings} />
                   <AddToCart total={this.state.total} />
                 </div>
               </form>

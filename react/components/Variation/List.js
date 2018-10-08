@@ -43,7 +43,6 @@ class List extends Component {
       handleAddSelectedVariations,
       handleRemovePreviousSelectedVariation,
     } = this.props
-
     const previousSelected = this.state.currentSelected
 
     handleRemovePreviousSelectedVariation(previousSelected)
@@ -55,17 +54,6 @@ class List extends Component {
 
   handleIsValid = () => {
     this.setState({ isValid: true })
-  }
-
-  onHandleValidateSelectedAmount = (selectedValue, callback) => {
-    const {
-      variation,
-    } = this.props
-
-    callback({
-      isValid: variation.maxItems >= this.state.totalSelected,
-      message: 'Quantidade selecionada não pode ser maior que a quantidade máxima.',
-    })
   }
 
   onHandleAddTotalAmountSelected = (total) => {
@@ -84,9 +72,9 @@ class List extends Component {
         <SingleChoiceItem
           key={key}
           item={item}
+          index={this.props.index}
           minItems={options.minItems}
           maxItems={options.maxItems}
-          index={this.props.index}
           selected={this.state.selectedSingle === key}
           selectItem={
             async e => {
@@ -115,7 +103,6 @@ class List extends Component {
           minTotalItems={options.minItems}
           maxTotalItems={options.maxItems}
           withPrice={typeof item === 'object'}
-          validate={this.onHandleValidateSelectedAmount}
           addTotalItems={this.onHandleAddTotalAmountSelected}
         />
       )
@@ -140,12 +127,10 @@ class List extends Component {
     const {
       isValid,
     } = this.state
-
     const {
       intl,
       variation,
     } = this.props
-
     const requiredLabel = intl.formatMessage({ id: 'product-customizer.required' })
 
     return (
