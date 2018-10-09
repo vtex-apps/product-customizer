@@ -32,6 +32,7 @@
 }
 
 .vtex-modal__modal {
+  width: 100%;
   height: 100%;
   overflow: auto;
 }
@@ -49,6 +50,13 @@
   color: #1346d8;
   max-width: 72px;
   position: relative;
+}
+
+.single-choice__description {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 200px;
+  overflow: hidden;
 }
 
 .vtex-product-customizer__single-choice.selected .single-choice__image-container .single-choice__icon-container {

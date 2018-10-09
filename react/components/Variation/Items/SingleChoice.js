@@ -7,13 +7,21 @@ class SingleChoice extends Component {
   static propTypes = {
     index: PropTypes.number,
     selected: PropTypes.bool,
-    selectItem: PropTypes.func,
     item: PropTypes.object.isRequired,
-    handleUpdateAmount: PropTypes.func,
+    onVariationChange: PropTypes.func,
   }
 
   state = {
     selected: false,
+  }
+
+  handleVariationChange = () => {
+    const {
+      item,
+      onVariationChange,
+    } = this.props
+
+    onVariationChange(item, 1)
   }
 
   render() {
@@ -21,36 +29,34 @@ class SingleChoice extends Component {
       item,
       index,
       selected,
-      selectItem,
-      handleUpdateAmount,
     } = this.props
 
     return (
       <label>
-        <div onClick={selectItem} className={`vtex-product-customizer__single-choice ${selected ? 'selected bg-washed-blue' : ''} flex items-center pa5 pointer`}>
+        <div className={`vtex-product-customizer__single-choice ${selected ? 'selected bg-washed-blue' : ''} flex items-center pa5 pointer`}>
           <div className="single-choice__image-container mr4">
             <input
               type="radio"
               className="dn"
               name={`input-single-choice__${index}`}
-              value={item.price}
-              onChange={() => handleUpdateAmount(item)}
+              value={item.id}
+              onChange={this.handleVariationChange}
             />
-            <img className={`single-choice_image-thumb br3 ${selected ? 'ba b--action-primary' : ''}`} src={item.image} />
+            <img className={`single-choice_image-thumb br3 ${selected ? 'ba b--action-primary' : ''}`} src="https://via.placeholder.com/40x40" />
             <div className="single-choice__icon-container dn">
               <SuccessIcon size={16} />
             </div>
           </div>
           <div className="single-choice__content flex flex-column">
-            <div className="single-choice__title">{item.Name}</div>
-            <div className="single-choice__description pt2 mid-gray fw2">{item.Description}</div>
+            <div className="single-choice__title">Variation</div>
+            <div className="single-choice__description pt2 mid-gray fw2">Description</div>
           </div>
           <div className="single-choice__price mh4 w3 near-black tc">
             <ProductPrice
               showLabels={false}
               showListPrice={false}
-              sellingPrice={item.price}
-              listPrice={item.price}
+              sellingPrice={19.90}
+              listPrice={19.90}
             />
           </div>
         </div>

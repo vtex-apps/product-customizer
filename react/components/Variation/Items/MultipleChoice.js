@@ -6,9 +6,9 @@ import ProductPrice from 'vtex.store-components/ProductPrice'
 class MultipleChoice extends Component {
   static propTypes = {
     withPrice: PropTypes.bool,
-    addTotalItems: PropTypes.func,
     minTotalItems: PropTypes.number,
     maxTotalItems: PropTypes.number,
+    onVariationChange: PropTypes.func,
     item: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   }
 
@@ -35,6 +35,7 @@ class MultipleChoice extends Component {
     const {
       item,
       withPrice,
+      onVariationChange,
     } = this.props
 
     return (
@@ -55,12 +56,7 @@ class MultipleChoice extends Component {
             value={this.state.choosedAmount}
             minItems={item.minItems}
             maxValue={item.maxItems}
-            onChange={
-              event => {
-                const quantity = event.value
-                this.handleChoosedAmount(quantity)
-              }
-            }
+            onChange={event => { onVariationChange(item, event.value) }}
           />
         </div>
       </div>
