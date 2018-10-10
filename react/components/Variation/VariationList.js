@@ -17,15 +17,17 @@ class VariationList extends Component {
 
   handleSingleChoiceChange = (variation, quantity) => {
     const {
+      skuId,
       onVariationChange,
     } = this.props
 
-    onVariationChange({ type: 'single', variation, quantity })
+    onVariationChange({ type: 'single', skuId, variation, quantity })
   }
 
   render() {
     const {
       index,
+      skuId,
       selected,
       variations,
       onSelectItem,
@@ -37,7 +39,7 @@ class VariationList extends Component {
           key={key}
           item={item}
           index={index}
-          skuId={this.props.skuId}
+          skuId={skuId}
           selected={selected === index}
           onSelectItem={onSelectItem}
           onVariationChange={this.handleSingleChoiceChange}

@@ -16,11 +16,11 @@ class ProductCustomizer extends Component {
   static propTypes = {
     productQuery: PropTypes.object,
     orderFormContext: contextPropTypes,
-    enableChangeToppings: PropTypes.bool,
+    canChangeToppings: PropTypes.bool,
   }
 
   static defaultProps = {
-    enableChangeToppings: true,
+    canChangeToppings: true,
   }
 
   state = {
@@ -111,6 +111,7 @@ class ProductCustomizer extends Component {
   handleSelectedVariation = (variationObject) => {
     return this.setState({
       selectedVariation: {
+        skuId: variationObject.skuId,
         variation: variationObject.variation,
         quantity: variationObject.quantity,
       },
@@ -153,7 +154,7 @@ class ProductCustomizer extends Component {
       variables: {
         orderFormId: orderFormContext.orderForm.orderFormId,
         items: [
-          { id: selectedVariation.variation.id, quantity: 1, seller: 1 },
+          { id: selectedVariation.skuId, quantity: 1, seller: 1 },
         ],
       },
     })
@@ -165,7 +166,7 @@ class ProductCustomizer extends Component {
 
   render() {
     const {
-      enableChangeToppings,
+      canChangeToppings,
       productQuery: {
         product,
       },
@@ -214,7 +215,7 @@ class ProductCustomizer extends Component {
                 </div>
                 <IngredientsContent onVariationChange={this.handleSelectedExtraVariations} currentVariation={selectedVariation} isOpen={isChangeIngredients} onClose={this.handleCloseChangeIngredients} />
                 <div className="vtex-product-customizer__actions bt b--light-gray">
-                  <ChangeToppings isVariationSelected={isVariationSelected} enableChangeToppings={enableChangeToppings} onClick={this.handleToggleChangeIngredients} />
+                  <ChangeToppings isVariationSelected={isVariationSelected} canChangeToppings={canChangeToppings} onClick={this.handleToggleChangeIngredients} />
                   <AddToCart isVariationSelected={isVariationSelected} total={total} />
                 </div>
               </form>

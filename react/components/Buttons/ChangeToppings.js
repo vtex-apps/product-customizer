@@ -7,8 +7,8 @@ class ChangeToppings extends Component {
   static propTypes = {
     onClick: PropTypes.func,
     intl: intlShape.isRequired,
+    canChangeToppings: PropTypes.bool,
     isVariationSelected: PropTypes.bool,
-    enableChangeToppings: PropTypes.bool,
   }
 
   render() {
@@ -16,16 +16,13 @@ class ChangeToppings extends Component {
       intl,
       onClick,
       isVariationSelected,
-      enableChangeToppings,
+      canChangeToppings,
     } = this.props
     const changeLabel = intl.formatMessage({ id: 'product-customizer.change-composition' })
 
     return (
-      enableChangeToppings && isVariationSelected ? <div className="actions--change-toppings ph5 pa5">
-        <Button
-          variation="tertiary"
-          onClick={onClick}
-        >{ changeLabel }</Button>
+      canChangeToppings && isVariationSelected ? <div className="actions--change-toppings ph5 pa5">
+        <Button variation="tertiary" onClick={onClick}>{ changeLabel }</Button>
       </div> : null
     )
   }
