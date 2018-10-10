@@ -9,10 +9,22 @@ class SkuGroupList extends Component {
     onVariationChange: PropTypes.func,
   }
 
+  state = {
+    selected: undefined,
+  }
+
+  handleSelectItem = key => {
+    this.setState({ selected: key })
+  }
+
   render() {
     const {
       onVariationChange,
     } = this.props
+
+    const {
+      selected,
+    } = this.state
 
     return (
       this.props.skus.map((sku, key) => {
@@ -22,7 +34,15 @@ class SkuGroupList extends Component {
               <div className={'flex items-center justify-between bb b--light-gray'}>
                 <h4 className={'skus-title bn-ns ma0 pa5 f5 fw5'}>{ sku.name }</h4>
               </div>
-              <VariationList key={key} skuId={sku.itemId} variations={sku.attachments} onVariationChange={onVariationChange} />
+              <VariationList
+                key={key}
+                index={key}
+                skuId={sku.itemId}
+                selected={selected}
+                variations={sku.attachments}
+                onSelectItem={this.handleSelectItem}
+                onVariationChange={onVariationChange}
+              />
             </div>
           </div>
         )

@@ -6,8 +6,11 @@ import SingleChoiceItem from './Items/SingleChoice'
 
 class VariationList extends Component {
   static propTypes = {
+    index: PropTypes.number,
     skuId: PropTypes.number,
+    selected: PropTypes.number,
     intl: intlShape.isRequired,
+    onSelectItem: PropTypes.func,
     variations: PropTypes.object,
     onVariationChange: PropTypes.func,
   }
@@ -24,7 +27,10 @@ class VariationList extends Component {
 
   render() {
     const {
+      index,
+      selected,
       variations,
+      onSelectItem,
     } = this.props
 
     return variations.map((item, key) => {
@@ -32,7 +38,10 @@ class VariationList extends Component {
         <SingleChoiceItem
           key={key}
           item={item}
+          index={index}
           skuId={this.props.skuId}
+          selected={selected === index}
+          onSelectItem={onSelectItem}
           onVariationChange={this.handleSingleChoiceChange}
         />
       )

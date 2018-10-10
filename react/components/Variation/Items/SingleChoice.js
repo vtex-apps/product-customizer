@@ -7,49 +7,52 @@ class SingleChoice extends Component {
   static propTypes = {
     index: PropTypes.number,
     selected: PropTypes.bool,
-    item: PropTypes.object.isRequired,
+    onSelectItem: PropTypes.func,
     onVariationChange: PropTypes.func,
-  }
-
-  state = {
-    selected: false,
+    item: PropTypes.object.isRequired,
   }
 
   handleVariationChange = () => {
     const {
       item,
+      index,
+      onSelectItem,
       onVariationChange,
     } = this.props
 
+    onSelectItem(index)
     onVariationChange(item, 1)
+
+    this.setState({ selected: true })
   }
 
   render() {
     const {
       item,
-      index,
       selected,
     } = this.props
 
     return (
       <label>
-        <div className={`vtex-product-customizer__single-choice ${selected ? 'selected bg-washed-blue' : ''} flex items-center pa5 pointer`}>
-          <div className="single-choice__image-container mr4">
-            <input
-              type="radio"
-              className="dn"
-              name={`input-single-choice__${index}`}
-              value={item.id}
-              onChange={this.handleVariationChange}
-            />
-            <img className={`single-choice_image-thumb br3 ${selected ? 'ba b--action-primary' : ''}`} src="https://via.placeholder.com/40x40" />
-            <div className="single-choice__icon-container dn">
-              <SuccessIcon size={16} />
+        <div className={`vtex-product-customizer__single-choice ${selected ? 'selected bg-washed-blue' : ''} flex items-center justify-between pa5 pointer`}>
+          <div className="flex">
+            <div className="single-choice__image-container mr4">
+              <input
+                type="radio"
+                className="dn"
+                name="input-single-choice"
+                value={item.id}
+                onChange={this.handleVariationChange}
+              />
+              <img className={`single-choice_image-thumb br3 ${selected ? 'ba b--action-primary' : ''}`} src="https://via.placeholder.com/72x72" />
+              <div className="single-choice__icon-container dn">
+                <SuccessIcon size={16} />
+              </div>
             </div>
-          </div>
-          <div className="single-choice__content flex flex-column">
-            <div className="single-choice__title">Variation</div>
-            <div className="single-choice__description pt2 mid-gray fw2">Description</div>
+            <div className="single-choice__content flex flex-column justify-center">
+              <div className="single-choice__title">Variation</div>
+              <div className="single-choice__description pt2 mid-gray fw2">Description</div>
+            </div>
           </div>
           <div className="single-choice__price mh4 w3 near-black tc">
             <ProductPrice
