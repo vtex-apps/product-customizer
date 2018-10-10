@@ -11,7 +11,9 @@
   ],
   "settingsSchema": {},
   "dependencies": {
+    "vtex.store": "1.x",
     "vtex.styleguide": "7.x",
+    "vtex.store-components": "1.5.0",
     "vtex.store-components": "1.5.0"
   },
   "builders": {

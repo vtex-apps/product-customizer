@@ -2,6 +2,7 @@ import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import Modal from 'vtex.styleguide/Modal'
 import Button from 'vtex.styleguide/Button'
+import { orderFormConsumer, contextPropTypes } from 'vtex.store/OrderFormContext'
 
 import './global.css'
 import schema from './__mock__/index.json'
@@ -11,11 +12,10 @@ import ChangeToppings from './components/Buttons/ChangeToppings'
 import IngredientsContent from './components/IngredientsContent'
 import ProductCustomizerService from './utils/ProductCustomizerService'
 
-const isMobile = window.__RUNTIME__.hints.mobile
-
 class ProductCustomizer extends Component {
   static propTypes = {
     productQuery: PropTypes.object,
+    orderFormContext: contextPropTypes,
     enableChangeToppings: PropTypes.bool,
   }
 
@@ -27,6 +27,7 @@ class ProductCustomizer extends Component {
     total: 0,
     variations: [],
     isModalOpen: false,
+    extraVariations: [],
     isOpenChangeIngredients: false,
   }
 
@@ -35,8 +36,8 @@ class ProductCustomizer extends Component {
   * Initialize the parent class contructor and parse the data from Schema
   * @return void
   */
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
 
     const service = new ProductCustomizerService(schema)
     this.state.variations = service.serializeData()
@@ -82,24 +83,84 @@ class ProductCustomizer extends Component {
     this.setState({ isChangeIngredients: false })
   }
 
-  handleVariationChange = async (variation) => {
-    console.log('INDEX COMPONENT: ', variation)
+  handleVariationChange = async (variationObject) => {
+    await this.handleSelectedVariation(variationObject)
 
-    await this.handleSelectedVariation(variation)
-
-    this.calculateTotal()
+    this.calculateTotalFromSelectedVariation()
   }
 
-  calculateTotal = () => {
+  calculateTotalFromSelectedVariation = () => {
+    const {
+      extraVariations,
+      selectedVariation: {
+        quantity,
+        variation,
+      },
+    } = this.state
+
+    const totalVariation = variation.price * quantity || 19.90 * quantity
+    const totalExtraVariations = extraVariations.reduce((accumulator, item) => {
+      const total = item.variation.price * item.quantity
+
+      return accumulator + total
+    }, 0)
+
+    this.setState({ total: totalVariation + totalExtraVariations })
+  }
+
+  handleSelectedVariation = (variationObject) => {
+    return this.setState({
+      selectedVariation: {
+        variation: variationObject.variation,
+        quantity: variationObject.quantity,
+      },
+    })
+  }
+
+  handleSelectedExtraVariations = async variationObject => {
+    const currentExtraVariations = this.state.extraVariations
+
+    const key = currentExtraVariations.findIndex(extraVariation => {
+      return extraVariation.index === variationObject.index
+    })
+
+    if (key === -1) {
+      currentExtraVariations.push(variationObject)
+    } else {
+      if (variationObject.quantity !== 0) {
+        currentExtraVariations[key] = variationObject
+      } else {
+        currentExtraVariations.splice(key)
+      }
+    }
+
+    await this.setState({ extraVariations: currentExtraVariations })
+    this.calculateTotalFromSelectedVariation()
+  }
+
+  handleOnSubmitForm = e => {
+    e.preventDefault()
+
+    const {
+      orderFormContext,
+    } = this.props
+
     const {
       selectedVariation,
     } = this.state
 
-    this.setState({ total: selectedVariation.price })
-  }
-
-  handleSelectedVariation = (variation) => {
-    this.setState({ selectedVariation: variation })
+    orderFormContext.addItem({
+      variables: {
+        orderFormId: orderFormContext.orderForm.orderFormId,
+        items: [
+          { id: selectedVariation.variation.id, quantity: 1, seller: 1 },
+        ],
+      },
+    })
+      .then(() => {
+        orderFormContext.refetch()
+        this.handleCloseModal()
+      })
   }
 
   render() {
@@ -137,7 +198,7 @@ class ProductCustomizer extends Component {
               />
             </div>
             <div className="w-100 w-two-thirds-ns flex-ns flex-column-ns">
-              <form name="vtex-product-customizer-form">
+              <form name="vtex-product-customizer-form" onSubmit={this.handleOnSubmitForm}>
                 <h1 className="vtex-product-customizer__title fw5 ma0 f3 pa5 dn db-ns">{product.productName}</h1>
                 <div className="pb5-ns pt0-ns ph5-ns  ph5 pb5 bb b--light-gray">
                   <p className="ma0 fw3">{product.description}</p>
@@ -151,7 +212,7 @@ class ProductCustomizer extends Component {
                     onVariationChange={this.handleVariationChange}
                   />
                 </div>
-                <IngredientsContent currentVariation={selectedVariation} isOpen={isChangeIngredients} onClose={this.handleCloseChangeIngredients} />
+                <IngredientsContent onVariationChange={this.handleSelectedExtraVariations} currentVariation={selectedVariation} isOpen={isChangeIngredients} onClose={this.handleCloseChangeIngredients} />
                 <div className="vtex-product-customizer__actions bt b--light-gray">
                   <ChangeToppings isVariationSelected={isVariationSelected} enableChangeToppings={enableChangeToppings} onClick={this.handleToggleChangeIngredients} />
                   <AddToCart isVariationSelected={isVariationSelected} total={total} />
@@ -165,4 +226,4 @@ class ProductCustomizer extends Component {
   }
 }
 
-export default ProductCustomizer
+export default orderFormConsumer(ProductCustomizer)

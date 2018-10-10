@@ -7,20 +7,21 @@ class IngredientsContent extends Component {
   static propTypes = {
     isOpen: PropTypes.bool,
     onClose: PropTypes.func,
+    onVariationChange: PropTypes.func,
     currentVariation: PropTypes.object,
   }
 
   state = {
     ingredients: [
-      { id: 1, image: 'https://via.placeholder.com/72x72', name: 'Variation 1', price: 19.90 },
-      { id: 2, image: 'https://via.placeholder.com/72x72', name: 'Variation 2', price: 19.90 },
-      { id: 3, image: 'https://via.placeholder.com/72x72', name: 'Variation 3', price: 19.90 },
-      { id: 4, image: 'https://via.placeholder.com/72x72', name: 'Variation 4', price: 19.90 },
-      { id: 5, image: 'https://via.placeholder.com/72x72', name: 'Variation 5', price: 19.90 },
+      { id: 1, image: 'https://via.placeholder.com/72x72', name: 'Extra Variation 1', price: 3.90 },
+      { id: 2, image: 'https://via.placeholder.com/72x72', name: 'Extra Variation 2', price: 3.90 },
+      { id: 3, image: 'https://via.placeholder.com/72x72', name: 'Extra Variation 3', price: 3.90 },
+      { id: 4, image: 'https://via.placeholder.com/72x72', name: 'Extra Variation 4', price: 4.90 },
+      { id: 5, image: 'https://via.placeholder.com/72x72', name: 'Extra Variation 5', price: 2.90 },
     ],
     selectedIngredients: [
-      { id: 1, image: 'https://via.placeholder.com/72x72', name: 'Variation 7', price: 20.90 },
-      { id: 1, image: 'https://via.placeholder.com/72x72', name: 'Variation 8', price: 21.90 },
+      { id: 3, image: 'https://via.placeholder.com/72x72', name: 'Variation 1', price: 20.90 },
+      { id: 5, image: 'https://via.placeholder.com/72x72', name: 'Variation 2', price: 21.90 },
     ],
   }
 
@@ -29,6 +30,7 @@ class IngredientsContent extends Component {
       isOpen,
       onClose,
       currentVariation,
+      onVariationChange,
     } = this.props
 
     return (isOpen
@@ -72,7 +74,7 @@ class IngredientsContent extends Component {
                 {this.state.ingredients.map((ingredient, key) => {
                   return (
                     <li key={key} className="flex justify-between items-center mb4">
-                      <MultipleChoice item={ingredient} minTotalItems={0} maxTotalItems={10} />
+                      <MultipleChoice onVariationChange={onVariationChange} index={key} item={ingredient} minTotalItems={0} maxTotalItems={10} />
                     </li>
                   )
                 })}

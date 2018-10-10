@@ -7,22 +7,20 @@ import SingleChoiceItem from './Items/SingleChoice'
 class VariationList extends Component {
   static propTypes = {
     index: PropTypes.number,
-    skuId: PropTypes.number,
     selected: PropTypes.number,
     intl: intlShape.isRequired,
     onSelectItem: PropTypes.func,
     variations: PropTypes.object,
     onVariationChange: PropTypes.func,
+    skuId: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   }
 
   handleSingleChoiceChange = (variation, quantity) => {
     const {
-      skuId,
       onVariationChange,
     } = this.props
 
-    console.log('Handle Single Choice Cahnges', skuId, variation, quantity)
-    onVariationChange(variation)
+    onVariationChange({ type: 'single', variation, quantity })
   }
 
   render() {
