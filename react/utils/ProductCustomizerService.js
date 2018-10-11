@@ -8,61 +8,45 @@ class ProductCustomizerService {
     this.schema = schema
     this.items = schema.items
     this.properties = schema.properties
+
+    console.log(this.schema)
   }
 
   /**
-  * serializeData
-  * Serialize schema data to component pattern.
+  * serialize
+  * Serialize schemas data to component pattern.
   * @return Object
   */
-  serializeData() {
-    this.parseProperties()
+  serialize() {
+    const requiredVariations = this.parseRequiredVariations()
 
-    return Object.keys(this.properties).map(index => {
-      const property = this.getProperty(index)
-
-      return {
-        option: index,
-        choiceType: property.choiceType,
-        description: property.description,
-        items: property.items,
-        isTopping: property.isTopping,
-        minItems: property.minItems,
-        maxItems: property.maxItems,
-        required: property.required,
-        uniqueItems: property.uniqueItems,
-      }
-    })
+    return { requiredVariations }
   }
 
   /**
-  * parseProperties
-  * Populates property fields with required values.
-  * @return void
+  * parseToppingsProperties
+  * Fetch an array of optional variations.
+  * @return array
   */
-  parseProperties() {
-    const properties = this.properties
+  parseOptionalVariations() {
+    //
+  }
 
-    for (const property of Object.keys(properties)) {
-      const parsedItems = []
-      const options = this.getEnumsByProperty(property)
-
-      if (!options) {
-        continue
-      }
-
-      options.forEach(enumerable => {
-        if (this.enumHasItem(enumerable)) {
-          this.getProperty(property)['isTopping'] = false
-          return parsedItems.push(this.getItemByEnumerable(enumerable))
-        }
-
-        this.getProperty(property)['isTopping'] = true
-        parsedItems.push(enumerable)
+  /**
+  * parseRequiredVariations
+  * Fetch an array of required variations.
+  * @return array
+  */
+  parseRequiredVariations() {
+    return Object.keys(this.properties).filter(property => {
+      return this.properties[property].type === 'string'
+    }).map(property => {
+      return this.properties[property].enum.map(id => {
+        return this.items.find(item => {
+          return item.id === id
+        })
       })
-
-      this.getProperty(property)['items'] = parsedItems
-    }
+    })
   }
 
   /**
@@ -72,13 +56,7 @@ class ProductCustomizerService {
   * @return mixed
   */
   getEnumsByProperty(property) {
-    if (this.properties[property].type === 'string') {
-      return this.properties[property].enum
-    }
-
-    if (this.properties[property].type === 'array') {
-      return this.properties[property].items.enum
-    }
+    return this.properties[property].items
   }
 
   /**
@@ -91,7 +69,7 @@ class ProductCustomizerService {
     let response = false
 
     this.items.forEach(item => {
-      if (enumerable !== item.Id) {
+      if (enumerable !== item.id) {
         return true
       }
 
@@ -108,11 +86,7 @@ class ProductCustomizerService {
   * @return object
   */
   getItemByEnumerable(enumerable) {
-    const item = this.items.find(item => {
-      return enumerable === item.Id
-    })
-
-    return item
+    return this.items.find(item => enumerable === item.id)
   }
 
   /**

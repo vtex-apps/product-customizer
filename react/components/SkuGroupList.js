@@ -5,6 +5,7 @@ import VariationList from './Variation/VariationList'
 
 class SkuGroupList extends Component {
   static propTypes = {
+    skuId: PropTypes.number,
     skus: PropTypes.array,
     onVariationChange: PropTypes.func,
   }
@@ -19,6 +20,8 @@ class SkuGroupList extends Component {
 
   render() {
     const {
+      skus,
+      skuId,
       onVariationChange,
     } = this.props
 
@@ -27,7 +30,9 @@ class SkuGroupList extends Component {
     } = this.state
 
     return (
-      this.props.skus.map((sku, key) => {
+      skus.map((sku, key) => {
+        const variations = JSON.parse(sku.calculatedAttachments)
+
         return (
           <div key={key}>
             <div className="vtex-product-customizer__skus bg-white">
@@ -37,9 +42,9 @@ class SkuGroupList extends Component {
               <VariationList
                 key={key}
                 index={key}
-                skuId={sku.itemId}
+                skuId={skuId}
                 selected={selected}
-                variations={sku.attachments}
+                variations={variations}
                 onSelectItem={this.handleSelectItem}
                 onVariationChange={onVariationChange}
               />

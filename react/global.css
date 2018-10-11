@@ -1,40 +1,11 @@
-@media screen and (max-width: 40em) {
-  .vtex-modal__overlay {
-    align-items: stretch !important;
-  }
-
-  .vtex-modal__modal {
-    border-radius: 0;
-  }
-
-  .vtex-modal__close-icon {
-    z-index: 10;
-  }
-}
-
 @media screen and (min-width: 40em) {
-  .vtex-modal__modal {
-    max-height: 800px;
-  }
-
   .vtex-product-customizer__options {
     background-color: transparent;
   }
 }
 
-.vtex-modal__modal,
-.vtex-modal__overlay {
-  padding: 0 !important;
-}
-
-.vtex-modal__overlay {
-  background: rgba(0, 0, 0, 0.9) !important;
-}
-
-.vtex-modal__modal {
-  width: 100%;
-  height: 100%;
-  overflow: auto;
+.vtex-product-customizer {
+  padding-bottom: 140px;
 }
 
 .vtex-product-customizer__actions .vtex-button {

@@ -33,7 +33,7 @@ class VariationList extends Component {
       onSelectItem,
     } = this.props
 
-    return variations.map((item, key) => {
+    return variations.items.map((item, key) => {
       return (
         <SingleChoiceItem
           key={key}

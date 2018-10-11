@@ -32,6 +32,8 @@ class SingleChoice extends Component {
       selected,
     } = this.props
 
+    const parsedPrice = item.price / 100
+
     return (
       <label>
         <div className={`vtex-product-customizer__single-choice ${selected ? 'selected bg-washed-blue' : ''} flex items-center justify-between pa5 pointer`}>
@@ -44,22 +46,22 @@ class SingleChoice extends Component {
                 value={item.id}
                 onChange={this.handleVariationChange}
               />
-              <img className={`single-choice_image-thumb br3 ${selected ? 'ba b--action-primary' : ''}`} src="https://via.placeholder.com/72x72" />
+              <img className={`single-choice_image-thumb br3 ${selected ? 'ba b--action-primary' : ''}`} src={item.image} />
               <div className="single-choice__icon-container dn">
                 <SuccessIcon size={16} />
               </div>
             </div>
             <div className="single-choice__content flex flex-column justify-center">
-              <div className="single-choice__title">Variation</div>
-              <div className="single-choice__description pt2 mid-gray fw2">Description</div>
+              <div className="single-choice__title">{item.name}</div>
+              <div className="single-choice__description pt2 mid-gray fw2">{item.description || null}</div>
             </div>
           </div>
           <div className="single-choice__price mh4 w3 near-black tc">
             <ProductPrice
               showLabels={false}
               showListPrice={false}
-              sellingPrice={19.90}
-              listPrice={19.90}
+              sellingPrice={parsedPrice.toFixed(2)}
+              listPrice={parsedPrice.toFixed(2)}
             />
           </div>
         </div>
