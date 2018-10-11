@@ -53,8 +53,8 @@ class MultipleChoice extends Component {
         <div className="flex align-center">
           <img src={item.image} width="48" className="br3 h-100" />
           <div className="multiple-choice__title flex flex-column justify-center pl5">
-            <div className="multiple-choice__name">{item.name}</div>
-            <div className="multiple-choice__price">
+            <div className="multiple-choice__name near-black">{item.name}</div>
+            <div className="multiple-choice__price b near-black f6">
               <ProductPrice
                 showLabels={false}
                 showListPrice={false}
