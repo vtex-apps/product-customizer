@@ -49,6 +49,13 @@ class ProductCustomizer extends Component {
       }
     }
 
+    if (type === 'composition') {
+      return {
+        ...sku,
+        variations: service.getBasicCompositionBySku(),
+      }
+    }
+
     return {
       skuId: sku.itemId,
       variations: service.parseOptionalVariations(),
@@ -102,9 +109,11 @@ class ProductCustomizer extends Component {
       return sku.itemId === skuId
     })
     const optionalVariations = this.parseAttachments('optionals', sku)
+    const compositionVariations = this.parseAttachments('composition', sku)
 
     this.createNumericStepperIndexesStates(optionalVariations.variations)
     this.setState({ optionalVariations })
+    this.setState({ compositionVariations })
   }
 
   /**
@@ -257,6 +266,7 @@ class ProductCustomizer extends Component {
       selectedVariation,
       optionalVariations,
       isChangeIngredients,
+      compositionVariations,
     } = this.state
 
     const isVariationSelected = !!selectedVariation
@@ -297,6 +307,7 @@ class ProductCustomizer extends Component {
               currentVariation={selectedVariation}
               optionalVariations={optionalVariations}
               onClose={this.handleCloseChangeIngredients}
+              compositionVariations={compositionVariations}
               onVariationChange={this.handleSelectedExtraVariations}
             />
             <div className="vtex-product-customizer__actions absolute bottom-0 left-0 right-0 bt b--light-gray">

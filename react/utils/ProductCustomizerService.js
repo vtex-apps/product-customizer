@@ -5,8 +5,10 @@
 */
 class ProductCustomizerService {
   constructor(schema) {
+    this.schema = schema
     this.items = schema.items
     this.properties = schema.properties
+    console.log(schema)
   }
 
   /**
@@ -17,17 +19,9 @@ class ProductCustomizerService {
   parseOptionalVariations() {
     return Object.keys(this.properties).filter(property => {
       return this.properties[property].type === 'array'
-    }).map(property => {
-      return this.properties[property].items.enum
-    }).reduce((accumulator, arrayIds) => {
-      return arrayIds.map(id => {
-        return id
-      })
-    }).map(item => {
-      return this.items.find(entity => {
-        return entity.id === item
-      })
-    })
+    }).reduce((accumulator, property) => {
+      return this.items[property]
+    }, [])
   }
 
   /**
@@ -38,17 +32,22 @@ class ProductCustomizerService {
   parseRequiredVariations() {
     return Object.keys(this.properties).filter(property => {
       return this.properties[property].type === 'string'
-    }).map(property => {
-      return this.properties[property].enum
-    }).reduce((accumulator, arrayIds) => {
-      return arrayIds.map(id => {
-        return id
-      })
-    }).map(item => {
-      return this.items.find(entity => {
-        return entity.id === item
-      })
-    })
+    }).reduce((accumulator, property) => {
+      return this.items[property]
+    }, [])
+  }
+
+  /**
+  * getBasicCompositionBySku
+  * Fetch an array of required variations.
+  * @return array
+  */
+  getBasicCompositionBySku() {
+    return Object.keys(this.properties).filter(property => {
+      return this.properties[property].type === 'array' && this.properties[property].minTotalItems === '1'
+    }).reduce((accumulator, property) => {
+      return this.items[property]
+    }, [])
   }
 }
 

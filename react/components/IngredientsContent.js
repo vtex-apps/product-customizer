@@ -17,13 +17,8 @@ class IngredientsContent extends Component {
     currentVariation: PropTypes.object,
     /* Current optionals variations selected */
     optionalVariations: PropTypes.object,
-  }
-
-  state = {
-    selectedIngredients: [
-      { id: 3, image: 'https://via.placeholder.com/72x72', name: 'Variation 1', price: 20.90 },
-      { id: 5, image: 'https://via.placeholder.com/72x72', name: 'Variation 2', price: 21.90 },
-    ],
+    /* Composition of Product */
+    compositionVariations: PropTypes.object,
   }
 
   /**
@@ -39,6 +34,7 @@ class IngredientsContent extends Component {
       currentVariation,
       onVariationChange,
       optionalVariations,
+      compositionVariations,
     } = this.props
 
     return (isOpen && currentVariation
@@ -61,11 +57,11 @@ class IngredientsContent extends Component {
             <div className="change-ingredients--selected-ingredients">
               <h5>Your ingredients</h5>
               <ul className="pa0">
-                {this.state.selectedIngredients.map((ingredient, key) => {
+                {compositionVariations.variations.map((ingredient, key) => {
                   return (
                     <li key={key} className="flex justify-between items-center mb4">
                       <div className="flex">
-                        <img src={ingredient.image} />
+                        <img src={ingredient.image} width="72" height="100%" />
                         <div className="pa5">
                           <h4 className="ma0">{ingredient.name}</h4>
                         </div>
