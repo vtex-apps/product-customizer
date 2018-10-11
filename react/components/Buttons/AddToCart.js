@@ -12,7 +12,7 @@ class AddToCart extends Component {
     intl: intlShape.isRequired,
     /* Toggle the button state if there's not selected variations */
     isVariationSelected: PropTypes.bool,
-    isModalOpen: PropTypes.func,
+    isModalOpen: PropTypes.bool,
     onSubmit: PropTypes.func,
   }
 
@@ -32,15 +32,15 @@ class AddToCart extends Component {
       onSubmit,
     } = this.props
 
-    return (
+    return isVariationSelected && (
       <div className={`actions--add-to-cart tc pa5 ${isModalOpen ? 'fixed w-100 bg-white z-999 bottom-0' : ''}`}>
-        <Button type="submit" disabled={!isVariationSelected} onClick={onSubmit} block>
+        <Button type="submit" onClick={onSubmit} block>
           { label }
           <ProductPrice
             showLabels={false}
             showListPrice={false}
-            sellingPrice={this.props.total}
-            listPrice={this.props.total}
+            sellingPrice={total}
+            listPrice={total}
           />
         </Button>
       </div>

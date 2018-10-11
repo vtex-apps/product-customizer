@@ -40,59 +40,55 @@ class IngredientsContent extends Component {
     } = this.props
 
     return currentVariation && (
-      <div className="vtex-product-customizer__change-ingredients">
-        <h3>Change ingredients</h3>
+      <div className="vtex-product-customizer__change-ingredients pb10">
+        <h3 className="b--light-gray bb bw1 pb4 pl4">Change ingredients</h3>
         <div className="change-ingredients--selected-variation">
-          <fieldset>
-            <legend>Your item variation</legend>
-            <div className="flex items-center">
-              <img src={currentVariation.variation.image} width="72" height="100%" />
-              <div className="pa5">
-                <h4 className="ma0">{currentVariation.variation.name}</h4>
-              </div>
+          <legend className="bg-near-white w-100 pa4">Your item variation</legend>
+          <div className="flex items-center">
+            <img src={currentVariation.variation.image} width="72" height="100%" />
+            <div className="pa5">
+              <h4 className="ma0">{currentVariation.variation.name}</h4>
             </div>
-          </fieldset>
+          </div>
 
-          <fieldset>
-            <legend>Select your ingredients</legend>
-            <div className="change-ingredients--selected-ingredients">
-              <h5>Your ingredients</h5>
-              <ul className="pa0">
-                {this.state.selectedIngredients.map((ingredient, key) => {
-                  return (
-                    <li key={key} className="flex justify-between items-center mb4">
-                      <div className="flex">
-                        <img src={ingredient.image} />
-                        <div className="pa5">
-                          <h4 className="ma0">{ingredient.name}</h4>
-                        </div>
+          <legend className="bg-near-white w-100 pa4">Select your ingredients</legend>
+          <div className="change-ingredients--selected-ingredients pa4">
+            <h5 className="pb4 bb b--light-gray ttu">Your ingredients</h5>
+            <ul className="pa0">
+              {this.state.selectedIngredients.map((ingredient, key) => {
+                return (
+                  <li key={key} className="flex justify-between items-center mb4">
+                    <div className="flex">
+                      <img src={ingredient.image} />
+                      <div className="pa5">
+                        <h4 className="ma0">{ingredient.name}</h4>
                       </div>
-                      <span>x</span>
-                    </li>
-                  )
-                })}
-              </ul>
-            </div>
-            <div className="change-ingredients--extra-ingredients">
-              <h5>Extra ingredients</h5>
-              <ul className="pa0">
-                {optionalVariations.variations.map((ingredient, key) => {
-                  return (
-                    <li key={key} className="flex justify-between items-center mb4">
-                      <MultipleChoice
-                        item={ingredient}
-                        minTotalItems={0}
-                        maxTotalItems={10}
-                        index={ingredient.name}
-                        choosedAmount={choosedAmount}
-                        onVariationChange={onVariationChange}
-                      />
-                    </li>
-                  )
-                })}
-              </ul>
-            </div>
-          </fieldset>
+                    </div>
+                    <span>x</span>
+                  </li>
+                )
+              })}
+            </ul>
+          </div>
+          <div className="change-ingredients--extra-ingredients pa4">
+            <h5 className="pb4 bb b--light-gray ttu">Extra ingredients</h5>
+            <ul className="pa0">
+              {optionalVariations.variations.map((ingredient, key) => {
+                return (
+                  <li key={key} className="flex justify-between items-center mb4">
+                    <MultipleChoice
+                      item={ingredient}
+                      minTotalItems={0}
+                      maxTotalItems={10}
+                      index={ingredient.name}
+                      choosedAmount={choosedAmount}
+                      onVariationChange={onVariationChange}
+                    />
+                  </li>
+                )
+              })}
+            </ul>
+          </div>
         </div>
       </div>
     )
