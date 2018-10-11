@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { FormattedMessage } from 'react-intl'
+import Modal from 'vtex.styleguide/Modal'
 import { orderFormConsumer, contextPropTypes } from 'vtex.store/OrderFormContext'
 
 import './global.css'
@@ -63,21 +64,21 @@ class ProductCustomizer extends Component {
   }
 
   /**
-  * handleCanChangeIngredients
+  * handleOpenModal
   * Show the ingredients selection.
   * @return void
   */
-  handleCanChangeIngredients = () => {
-    this.setState({ isChangeIngredients: true })
+  handleOpenModal = () => {
+    this.setState({ isModalOpen: true })
   }
 
   /**
-  * handleCloseChangeIngredients
+  * handleCloseModal
   * Close the ingredients selection.
   * @return void
   */
-  handleCloseChangeIngredients = () => {
-    this.setState({ isChangeIngredients: false })
+  handleCloseModal = () => {
+    this.setState({ isModalOpen: false })
   }
 
   /**
@@ -262,11 +263,12 @@ class ProductCustomizer extends Component {
 
     const {
       total,
+      isModalOpen,
       choosedAmount,
       selectedVariation,
       optionalVariations,
       isChangeIngredients,
-      compositionVariations,
+      compositionVariations
     } = this.state
 
     const isVariationSelected = !!selectedVariation
@@ -285,24 +287,24 @@ class ProductCustomizer extends Component {
           />
         </div>
         <div className="w-100 w-two-thirds-ns flex-ns flex-column-ns relative-ns">
-          <form name="vtex-product-customizer-form" onSubmit={this.handleOnSubmitForm}>
-            <h1 className="vtex-product-customizer__title fw5 ma0 f3 pa5 dn db-ns">{product.productName}</h1>
-            <div className="pb5-ns pt0-ns ph5-ns  ph5 pb5 bb b--light-gray">
-              <p className="ma0 fw3">{product.description}</p>
-            </div>
-            <div className="vtex-product-customizer__options bg-light-gray bg-transparent-ns overflow-auto">
-              <h4 className="ma0 pv3 ph5">
-                <span className="f5 fw5">
-                  <FormattedMessage id="product-customizer.select-variation" />
-                </span>
-              </h4>
-              <SkuGroupList
-                skus={requiredVariations}
-                onVariationChange={this.handleVariationChange}
-              />
-            </div>
+          <h1 className="vtex-product-customizer__title fw5 ma0 f3 pa5 dn db-ns">{product.productName}</h1>
+          <div className="pb5-ns pt0-ns ph5-ns  ph5 pb5 bb b--light-gray">
+            <p className="ma0 fw3">{product.description}</p>
+          </div>
+          <div className="vtex-product-customizer__options bg-light-gray bg-transparent-ns overflow-auto">
+            <h4 className="ma0 pv3 ph5">
+              <FormattedMessage id="product-customizer.select-variation" />
+            </h4>
+            <SkuGroupList
+              skus={requiredVariations}
+              onVariationChange={this.handleVariationChange}
+            />
+          </div>
+          <Modal
+            isOpen={isModalOpen}
+            onClose={this.handleCloseModal}
+          >
             <IngredientsContent
-              isOpen={isChangeIngredients}
               choosedAmount={choosedAmount}
               currentVariation={selectedVariation}
               optionalVariations={optionalVariations}
@@ -310,15 +312,16 @@ class ProductCustomizer extends Component {
               compositionVariations={compositionVariations}
               onVariationChange={this.handleSelectedExtraVariations}
             />
-            <div className="vtex-product-customizer__actions absolute bottom-0 left-0 right-0 bt b--light-gray">
-              <ChangeToppings
-                isVariationSelected={isVariationSelected}
-                canChangeToppings={canChangeToppings}
-                onClick={this.handleCanChangeIngredients}
-              />
-              <AddToCart isVariationSelected={isVariationSelected} total={total} />
-            </div>
-          </form>
+            <AddToCart onSubmit={this.handleOnSubmitForm} isVariationSelected={isVariationSelected} total={total} isModalOpen={isModalOpen} />
+          </Modal>
+          <div className="vtex-product-customizer__actions fixed bg-white bottom-0 left-0 right-0 bt b--light-gray">
+            <ChangeToppings
+              isVariationSelected={isVariationSelected}
+              canChangeToppings={!isModalOpen && canChangeToppings}
+              onClick={this.handleOpenModal}
+            />
+            <AddToCart onSubmit={this.handleOnSubmitForm} isVariationSelected={isVariationSelected} total={total} />
+          </div>
         </div>
       </div>
     )

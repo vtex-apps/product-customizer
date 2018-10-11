@@ -28,8 +28,6 @@ class IngredientsContent extends Component {
   */
   render() {
     const {
-      isOpen,
-      onClose,
       choosedAmount,
       currentVariation,
       onVariationChange,
@@ -37,20 +35,17 @@ class IngredientsContent extends Component {
       compositionVariations,
     } = this.props
 
-    return (isOpen && currentVariation
-      ? <div className="vtex-product-customizer__change-ingredients">
-        <h3>Change ingredients</h3>
-        <span onClick={onClose}>x</span>
+    return currentVariation && (
+      <div className="vtex-product-customizer__change-ingredients pb10">
+        <h3 className="b--light-gray bb bw1 pb4 pl4">Change ingredients</h3>
         <div className="change-ingredients--selected-variation">
-          <fieldset>
-            <legend>Your item variation</legend>
-            <div className="flex items-center">
-              <img src={currentVariation.variation.image} width="72" height="100%" />
-              <div className="pa5">
-                <h4 className="ma0">{currentVariation.variation.name}</h4>
-              </div>
+          <legend className="bg-near-white w-100 pa4">Your item variation</legend>
+          <div className="flex items-center">
+            <img src={currentVariation.variation.image} width="72" height="100%" />
+            <div className="pa5">
+              <h4 className="ma0">{currentVariation.variation.name}</h4>
             </div>
-          </fieldset>
+          </div>
 
           <fieldset>
             <legend>Select your ingredients</legend>
@@ -66,26 +61,11 @@ class IngredientsContent extends Component {
                           <h4 className="ma0">{ingredient.name}</h4>
                         </div>
                       </div>
-                      <span>x</span>
-                    </li>
-                  )
-                })}
-              </ul>
-            </div>
-            <div className="change-ingredients--extra-ingredients">
-              <h5>Extra ingredients</h5>
-              <ul className="pa0">
-                {optionalVariations.variations.map((ingredient, key) => {
-                  return (
-                    <li key={key} className="flex justify-between items-center mb4">
-                      <MultipleChoice
-                        item={ingredient}
-                        minTotalItems={0}
-                        maxTotalItems={10}
-                        index={ingredient.name}
-                        choosedAmount={choosedAmount}
-                        onVariationChange={onVariationChange}
-                      />
+                      {
+                        ingredient.minQuantity === '1' && ingredient.defaultQuantity === '1'
+                          ? null
+                          : <span>x</span>
+                      }
                     </li>
                   )
                 })}
@@ -93,8 +73,27 @@ class IngredientsContent extends Component {
             </div>
           </fieldset>
         </div>
+        <div className="change-ingredients--extra-ingredients pa4">
+          <h5 className="pb4 bb b--light-gray ttu">Extra ingredients</h5>
+          <ul className="pa0">
+            {optionalVariations.variations.map((ingredient, key) => {
+              return (
+                <li key={key} className="flex justify-between items-center mb4">
+                  <MultipleChoice
+                    item={ingredient}
+                    minTotalItems={0}
+                    maxTotalItems={10}
+                    index={ingredient.name}
+                    choosedAmount={choosedAmount}
+                    onVariationChange={onVariationChange}
+                  />
+                </li>
+              )
+            })}
+          </ul>
+        </div>
       </div>
-      : null)
+    )
   }
 }
 
