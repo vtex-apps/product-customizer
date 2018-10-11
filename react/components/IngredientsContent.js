@@ -5,35 +5,40 @@ import MultipleChoice from './Variation/Items/MultipleChoice'
 
 class IngredientsContent extends Component {
   static propTypes = {
+    /* Control the open state */
     isOpen: PropTypes.bool,
+    /* Trigger function to close component */
     onClose: PropTypes.func,
+    /* Object with indexes and ammount  */
+    choosedAmount: PropTypes.object,
     onVariationChange: PropTypes.func,
     currentVariation: PropTypes.object,
+    optionalVariations: PropTypes.object,
   }
 
   state = {
-    ingredients: [
-      { id: 1, image: 'https://via.placeholder.com/72x72', name: 'Extra Variation 1', price: 3.90 },
-      { id: 2, image: 'https://via.placeholder.com/72x72', name: 'Extra Variation 2', price: 3.90 },
-      { id: 3, image: 'https://via.placeholder.com/72x72', name: 'Extra Variation 3', price: 3.90 },
-      { id: 4, image: 'https://via.placeholder.com/72x72', name: 'Extra Variation 4', price: 4.90 },
-      { id: 5, image: 'https://via.placeholder.com/72x72', name: 'Extra Variation 5', price: 2.90 },
-    ],
     selectedIngredients: [
       { id: 3, image: 'https://via.placeholder.com/72x72', name: 'Variation 1', price: 20.90 },
       { id: 5, image: 'https://via.placeholder.com/72x72', name: 'Variation 2', price: 21.90 },
     ],
   }
 
+  /**
+  * render
+  * Render the current component.
+  * @return <Component> IngredientsContent
+  */
   render() {
     const {
       isOpen,
       onClose,
+      choosedAmount,
       currentVariation,
       onVariationChange,
+      optionalVariations,
     } = this.props
 
-    return (isOpen
+    return (isOpen && currentVariation
       ? <div className="vtex-product-customizer__change-ingredients">
         <h3>Change ingredients</h3>
         <span onClick={onClose}>x</span>
@@ -41,9 +46,9 @@ class IngredientsContent extends Component {
           <fieldset>
             <legend>Your item variation</legend>
             <div className="flex items-center">
-              <img src="https://via.placeholder.com/72x72" />
+              <img src={currentVariation.variation.image} width="72" height="100%" />
               <div className="pa5">
-                <h4 className="ma0">{currentVariation.name}</h4>
+                <h4 className="ma0">{currentVariation.variation.name}</h4>
               </div>
             </div>
           </fieldset>
@@ -71,10 +76,17 @@ class IngredientsContent extends Component {
             <div className="change-ingredients--extra-ingredients">
               <h5>Extra ingredients</h5>
               <ul className="pa0">
-                {this.state.ingredients.map((ingredient, key) => {
+                {optionalVariations.variations.map((ingredient, key) => {
                   return (
                     <li key={key} className="flex justify-between items-center mb4">
-                      <MultipleChoice onVariationChange={onVariationChange} index={key} item={ingredient} minTotalItems={0} maxTotalItems={10} />
+                      <MultipleChoice
+                        item={ingredient}
+                        minTotalItems={0}
+                        maxTotalItems={10}
+                        index={ingredient.name}
+                        choosedAmount={choosedAmount}
+                        onVariationChange={onVariationChange}
+                      />
                     </li>
                   )
                 })}

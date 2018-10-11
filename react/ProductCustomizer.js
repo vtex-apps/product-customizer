@@ -11,9 +11,12 @@ import ProductCustomizerService from './utils/ProductCustomizerService'
 
 class ProductCustomizer extends Component {
   static propTypes = {
-    productQuery: PropTypes.object,
-    orderFormContext: contextPropTypes,
+    /* Enable user change the optional variations */
     canChangeToppings: PropTypes.bool,
+    /* Handle order informations */
+    orderFormContext: contextPropTypes,
+    /* Product data with calculated attachments */
+    productQuery: PropTypes.object.isRequired,
   }
 
   static defaultProps = {
@@ -22,61 +25,128 @@ class ProductCustomizer extends Component {
 
   state = {
     total: 0,
+    choosedAmount: [],
     isModalOpen: false,
     extraVariations: [],
     isOpenChangeIngredients: false,
   }
 
-  constructor(props) {
-    super(props)
+  /**
+  * parseAttachments
+  * Parse attachments into a readable object.
+  * @param string type
+  * @param object sku
+  * @return object
+  */
+  parseAttachments = (type, sku) => {
+    const service = new ProductCustomizerService(JSON.parse(sku.calculatedAttachments))
 
-    const attachments = this.parseAttachments()
-    // REFATORAR SERVICE PARA BUSCAR ITEMS OBRIGATÓRIOS E OPCIONAIS
-    console.log(attachments)
-  }
-
-  parseAttachments = () => {
-    const {
-      productQuery: {
-        product,
-      },
-    } = this.props
-
-    return product.items.map(item => {
-      const service = new ProductCustomizerService(JSON.parse(item.calculatedAttachments))
-
+    if (type === 'required') {
       return {
-        skuId: item.itemId,
-        ...service.serialize(),
+        ...sku,
+        variations: service.parseRequiredVariations(),
       }
-    })
+    }
+
+    return {
+      skuId: sku.itemId,
+      variations: service.parseOptionalVariations(),
+    }
   }
 
   /**
-  * handleToggleChangeIngredients
-  * Show the ingredients selection
+  * handleCanChangeIngredients
+  * Show the ingredients selection.
   * @return void
   */
-  handleToggleChangeIngredients = () => {
+  handleCanChangeIngredients = () => {
     this.setState({ isChangeIngredients: true })
   }
 
   /**
   * handleCloseChangeIngredients
-  * Close the ingredients selection
+  * Close the ingredients selection.
   * @return void
   */
   handleCloseChangeIngredients = () => {
     this.setState({ isChangeIngredients: false })
   }
 
-  handleVariationChange = async (variationObject) => {
+  /**
+  * handleVariationChange
+  * Call optional variations parser and calculates the total.
+  * @param object variationObject
+  * @return void
+  */
+  handleVariationChange = async variationObject => {
     await this.handleSelectedVariation(variationObject)
-
+    this.handleParseOptionalVariationsBySkuId(variationObject.skuId)
     this.calculateTotalFromSelectedVariation()
   }
 
-  handleSelectedVariation = (variationObject) => {
+  /**
+  * handleParseOptionalVariationsBySkuId
+  * Create the index state of numeric stepper.
+  * @param string skuId
+  * @return void
+  */
+  handleParseOptionalVariationsBySkuId = skuId => {
+    const {
+      productQuery: {
+        product,
+      },
+    } = this.props
+
+    const sku = product.items.find(sku => {
+      return sku.itemId === skuId
+    })
+    const optionalVariations = this.parseAttachments('optionals', sku)
+
+    this.createNumericStepperIndexesStates(optionalVariations.variations)
+    this.setState({ optionalVariations })
+  }
+
+  /**
+  * createNumericStepperIndexesStates
+  * Create the initial state of Numeric Stepper Component.
+  * @param array items
+  * @return void
+  */
+  createNumericStepperIndexesStates = items => {
+    const choosedAmount = {}
+
+    items.forEach(item => {
+      choosedAmount[item.name] = 0
+    })
+
+    this.setState({ choosedAmount })
+  }
+
+  /**
+  * onHandleNumericStepperChange
+  * Sets the optional variation values by index.
+  * @param object variationObject
+  * @return void
+  */
+  onHandleNumericStepperChange = variationObject => {
+    const {
+      choosedAmount,
+    } = this.state
+
+    choosedAmount[variationObject.index] = variationObject.quantity
+
+    this.setState({ choosedAmount })
+  }
+
+  /**
+  * handleSelectedVariation
+  * Resets extra variations state and update the current variation selected.
+  * @param object variationObject
+  * @return void
+  */
+  handleSelectedVariation = variationObject => {
+    this.setState({ extraVariations: [] })
+
     return this.setState({
       selectedVariation: {
         skuId: variationObject.skuId,
@@ -86,12 +156,19 @@ class ProductCustomizer extends Component {
     })
   }
 
+  /**
+  * handleSelectedExtraVariations
+  * Add the changed optional variation and call the calculate method
+  * @param object variationObject
+  * @return void
+  */
   handleSelectedExtraVariations = async variationObject => {
     const currentExtraVariations = this.state.extraVariations
-
     const key = currentExtraVariations.findIndex(extraVariation => {
       return extraVariation.index === variationObject.index
     })
+
+    this.onHandleNumericStepperChange(variationObject)
 
     if (key === -1) {
       currentExtraVariations.push(variationObject)
@@ -107,6 +184,11 @@ class ProductCustomizer extends Component {
     this.calculateTotalFromSelectedVariation()
   }
 
+  /**
+  * calculateTotalFromSelectedVariation
+  * Calculates the total based on all items selected.
+  * @return void
+  */
   calculateTotalFromSelectedVariation = () => {
     const {
       extraVariations,
@@ -116,14 +198,20 @@ class ProductCustomizer extends Component {
       },
     } = this.state
 
-    const totalVariation = variation.price * quantity || 19.90 * quantity
+    const totalVariation = (variation.price / 100) * quantity
     const totalExtraVariations = extraVariations.reduce((accumulator, item) => {
-      return accumulator + item.variation.price * item.quantity
+      const parsedPrice = parseFloat(item.variation.price / 100).toFixed(2)
+      return accumulator + parsedPrice * item.quantity
     }, 0)
 
     this.setState({ total: totalVariation + totalExtraVariations })
   }
 
+  /**
+  * handleOnSubmitForm
+  * Create an object based on selected variations and send to Order Form.
+  * @return void
+  */
   handleOnSubmitForm = e => {
     e.preventDefault()
 
@@ -149,6 +237,11 @@ class ProductCustomizer extends Component {
       })
   }
 
+  /**
+  * render
+  * Render the urrent component.
+  * @return <Component> ProductCustomizer
+  */
   render() {
     const {
       canChangeToppings,
@@ -159,11 +252,16 @@ class ProductCustomizer extends Component {
 
     const {
       total,
+      choosedAmount,
       selectedVariation,
+      optionalVariations,
       isChangeIngredients,
     } = this.state
 
     const isVariationSelected = !!selectedVariation
+    const requiredVariations = product.items.map(sku => {
+      return this.parseAttachments('required', sku)
+    })
 
     return (
       <div className="vtex-product-customizer relative flex-ns h-100-ns">
@@ -186,14 +284,24 @@ class ProductCustomizer extends Component {
                 <span className="f5 fw5">Select item variation</span>
               </h4>
               <SkuGroupList
-                skuId={product.itemId}
-                skus={product.items}
+                skus={requiredVariations}
                 onVariationChange={this.handleVariationChange}
               />
             </div>
-            <IngredientsContent onVariationChange={this.handleSelectedExtraVariations} currentVariation={selectedVariation} isOpen={isChangeIngredients} onClose={this.handleCloseChangeIngredients} />
+            <IngredientsContent
+              isOpen={isChangeIngredients}
+              choosedAmount={choosedAmount}
+              currentVariation={selectedVariation}
+              optionalVariations={optionalVariations}
+              onClose={this.handleCloseChangeIngredients}
+              onVariationChange={this.handleSelectedExtraVariations}
+            />
             <div className="vtex-product-customizer__actions absolute bottom-0 left-0 right-0 bt b--light-gray">
-              <ChangeToppings isVariationSelected={isVariationSelected} canChangeToppings={canChangeToppings} onClick={this.handleToggleChangeIngredients} />
+              <ChangeToppings
+                isVariationSelected={isVariationSelected}
+                canChangeToppings={canChangeToppings}
+                onClick={this.handleCanChangeIngredients}
+              />
               <AddToCart isVariationSelected={isVariationSelected} total={total} />
             </div>
           </form>

@@ -1,26 +1,12 @@
 
 /**
 * @class' ProductCustomizerService
-* @description Handle all business rules from ProductCustomizer Component.
+* @description Handle parsers from ProductCustomizer Component.
 */
 class ProductCustomizerService {
   constructor(schema) {
-    this.schema = schema
     this.items = schema.items
     this.properties = schema.properties
-
-    console.log(this.schema)
-  }
-
-  /**
-  * serialize
-  * Serialize schemas data to component pattern.
-  * @return Object
-  */
-  serialize() {
-    const requiredVariations = this.parseRequiredVariations()
-
-    return { requiredVariations }
   }
 
   /**
@@ -29,7 +15,19 @@ class ProductCustomizerService {
   * @return array
   */
   parseOptionalVariations() {
-    //
+    return Object.keys(this.properties).filter(property => {
+      return this.properties[property].type === 'array'
+    }).map(property => {
+      return this.properties[property].items.enum
+    }).reduce((accumulator, arrayIds) => {
+      return arrayIds.map(id => {
+        return id
+      })
+    }).map(item => {
+      return this.items.find(entity => {
+        return entity.id === item
+      })
+    })
   }
 
   /**
@@ -41,62 +39,16 @@ class ProductCustomizerService {
     return Object.keys(this.properties).filter(property => {
       return this.properties[property].type === 'string'
     }).map(property => {
-      return this.properties[property].enum.map(id => {
-        return this.items.find(item => {
-          return item.id === id
-        })
+      return this.properties[property].enum
+    }).reduce((accumulator, arrayIds) => {
+      return arrayIds.map(id => {
+        return id
+      })
+    }).map(item => {
+      return this.items.find(entity => {
+        return entity.id === item
       })
     })
-  }
-
-  /**
-  * getEnumsByProperty
-  * Get enumerable values by property type.
-  * @param object property
-  * @return mixed
-  */
-  getEnumsByProperty(property) {
-    return this.properties[property].items
-  }
-
-  /**
-  * enumHasItem
-  * Check if enumerable passed has items in  schema.
-  * @param object enumerable
-  * @return boolean
-  */
-  enumHasItem(enumerable) {
-    let response = false
-
-    this.items.forEach(item => {
-      if (enumerable !== item.id) {
-        return true
-      }
-
-      response = true
-    })
-
-    return response
-  }
-
-  /**
-  * getItemByEnumerable
-  * Get equivalent item of enumerable.
-  * @param object enumerable
-  * @return object
-  */
-  getItemByEnumerable(enumerable) {
-    return this.items.find(item => enumerable === item.id)
-  }
-
-  /**
-  * getProperty
-  * Get property value from index name.
-  * @param string index
-  * @return object
-  */
-  getProperty(index) {
-    return this.properties[index]
   }
 }
 

@@ -5,23 +5,33 @@ import VariationList from './Variation/VariationList'
 
 class SkuGroupList extends Component {
   static propTypes = {
-    skuId: PropTypes.number,
-    skus: PropTypes.array,
-    onVariationChange: PropTypes.func,
+    /* List of skus to interact with attachments */
+    skus: PropTypes.array.isRequired,
+    /* Function handler to change states by variation selection */
+    onVariationChange: PropTypes.func.isRequired,
   }
 
   state = {
     selected: undefined,
   }
 
-  handleSelectItem = key => {
-    this.setState({ selected: key })
+  /**
+  * handleSelectItem
+  * Handle selected state to change the style of component.
+  * @return void
+  */
+  handleSelectItem = () => {
+    //
   }
 
+  /**
+  * render
+  * Render the current component.
+  * @return <Component> SkuGroupList
+  */
   render() {
     const {
       skus,
-      skuId,
       onVariationChange,
     } = this.props
 
@@ -31,8 +41,6 @@ class SkuGroupList extends Component {
 
     return (
       skus.map((sku, key) => {
-        const variations = JSON.parse(sku.calculatedAttachments)
-
         return (
           <div key={key}>
             <div className="vtex-product-customizer__skus bg-white">
@@ -42,9 +50,9 @@ class SkuGroupList extends Component {
               <VariationList
                 key={key}
                 index={key}
-                skuId={skuId}
+                skuId={sku.itemId}
                 selected={selected}
-                variations={variations}
+                variations={sku.variations}
                 onSelectItem={this.handleSelectItem}
                 onVariationChange={onVariationChange}
               />
