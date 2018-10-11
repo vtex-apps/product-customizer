@@ -67,8 +67,8 @@ class MultipleChoice extends Component {
         <div className="multiple-choice__actions near-black tc">
           <NumericStepper
             value={choosedAmount[index]}
-            minItems={item.minQuantity}
-            maxValue={item.maxQuantity}
+            minItems={parseInt(item.minQuantity)}
+            maxValue={parseInt(item.maxQuantity)}
             onChange={this.handleChoosedAmount}
           />
         </div>
