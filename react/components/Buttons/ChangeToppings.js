@@ -5,12 +5,21 @@ import { injectIntl, intlShape } from 'react-intl'
 
 class ChangeToppings extends Component {
   static propTypes = {
+    /* Handle click events */
     onClick: PropTypes.func,
+    /* Internationalizetion object */
     intl: intlShape.isRequired,
+    /* Enable toppings changes is true */
     canChangeToppings: PropTypes.bool,
+    /* Toggle the button state if there's not selected variations */
     isVariationSelected: PropTypes.bool,
   }
 
+  /**
+  * render
+  * Render the current component.
+  * @return <Component> ChangeToppings
+  */
   render() {
     const {
       intl,

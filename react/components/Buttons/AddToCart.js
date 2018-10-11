@@ -6,16 +6,25 @@ import ProductPrice from 'vtex.store-components/ProductPrice'
 
 class AddToCart extends Component {
   static propTypes = {
+    /* Total of current selected variations */
     total: PropTypes.number,
+    /* Internationalizetion object */
     intl: intlShape.isRequired,
+    /* Toggle the button state if there's not selected variations */
     isVariationSelected: PropTypes.bool,
   }
 
+  /**
+  * render
+  * Render the current component.
+  * @return <Component> AddToCart
+  */
   render() {
     const intl = this.props.intl
     const label = intl.formatMessage({ id: 'product-customizer.add-to-cart' })
 
     const {
+      total,
       isVariationSelected,
     } = this.props
 
@@ -25,8 +34,8 @@ class AddToCart extends Component {
         <ProductPrice
           showLabels={false}
           showListPrice={false}
-          sellingPrice={this.props.total}
-          listPrice={this.props.total}
+          sellingPrice={total}
+          listPrice={total}
         />
       </Button>
     </div>)

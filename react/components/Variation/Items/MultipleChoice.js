@@ -5,26 +5,18 @@ import ProductPrice from 'vtex.store-components/ProductPrice'
 
 class MultipleChoice extends Component {
   static propTypes = {
+    /* Index to define the chossed amount */
     index: PropTypes.string,
+    /* Object that handle the choosed amount of variations */
     choosedAmount: PropTypes.object,
+    /* Min limit of selections */
     minTotalItems: PropTypes.number,
+    /* Max limit of selections */
     maxTotalItems: PropTypes.number,
+    /* Trigger function to handle changes on inputs  */
     onVariationChange: PropTypes.func,
+    /* Item to populate component data   */
     item: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-  }
-
-  state = {
-    choosedAmount: 0,
-  }
-
-  constructor(props) {
-    super(props)
-
-    this.baseState = this.state
-  }
-
-  onHandleResetChoosedAmount = () => {
-    this.setState(this.baseState)
   }
 
   handleChoosedAmount = async e => {
@@ -42,6 +34,11 @@ class MultipleChoice extends Component {
     onVariationChange({ index, variation: item, quantity: choosedAmount })
   }
 
+  /**
+  * render
+  * Render the current component.
+  * @return <Component> MultipleChoice
+  */
   render() {
     const {
       item,
