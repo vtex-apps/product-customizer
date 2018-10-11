@@ -6,15 +6,29 @@ import SingleChoiceItem from './Items/SingleChoice'
 
 class VariationList extends Component {
   static propTypes = {
+    /* Index to define the current variation selected */
     index: PropTypes.number,
+    /* Define if current component is selected  */
     selected: PropTypes.number,
+    /* Internationalization object  */
     intl: intlShape.isRequired,
+    /* Trigger function to handle selections  */
     onSelectItem: PropTypes.func,
+    /* Variations object to populate the component  */
     variations: PropTypes.object,
+    /* Trigger function to handle changes on inputs  */
     onVariationChange: PropTypes.func,
+    /* Determines a sku for each variation   */
     skuId: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   }
 
+  /**
+  * handleSingleChoiceChange
+  * Handle variation changes.
+  * @param object variation
+  * @param integer quantity
+  * @return void
+  */
   handleSingleChoiceChange = (variation, quantity) => {
     const {
       skuId,
@@ -24,6 +38,11 @@ class VariationList extends Component {
     onVariationChange({ type: 'single', skuId, variation, quantity })
   }
 
+  /**
+  * render
+  * Render the current component.
+  * @return <Component> VariationList
+  */
   render() {
     const {
       index,

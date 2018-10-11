@@ -26,7 +26,7 @@ class ProductCustomizer extends Component {
 
   state = {
     total: 0,
-    choosedAmount: [],
+    choosedAmount: {},
     isModalOpen: false,
     extraVariations: [],
     isOpenChangeIngredients: false,

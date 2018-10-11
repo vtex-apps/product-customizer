@@ -5,13 +5,23 @@ import ProductPrice from 'vtex.store-components/ProductPrice'
 
 class SingleChoice extends Component {
   static propTypes = {
+    /* Index to define the current variation selected */
     index: PropTypes.number,
+    /* Define if current component is selected  */
     selected: PropTypes.bool,
+    /* Trigger function to handle selections  */
     onSelectItem: PropTypes.func,
+    /* Trigger function to handle changes on inputs  */
     onVariationChange: PropTypes.func,
+    /* Item object to populate the component  */
     item: PropTypes.object.isRequired,
   }
 
+  /**
+  * handleVariationChange
+  * Handle variation changes.
+  * @return void
+  */
   handleVariationChange = () => {
     const {
       item,
@@ -26,6 +36,11 @@ class SingleChoice extends Component {
     this.setState({ selected: true })
   }
 
+  /**
+  * render
+  * Render the current component.
+  * @return <Component> SingleChoice
+  */
   render() {
     const {
       item,

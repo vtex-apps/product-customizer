@@ -9,10 +9,13 @@ class IngredientsContent extends Component {
     isOpen: PropTypes.bool,
     /* Trigger function to close component */
     onClose: PropTypes.func,
-    /* Object with indexes and ammount  */
+    /* Object with indexes and ammount of selected optional variations */
     choosedAmount: PropTypes.object,
+    /* Triggers function to execute on change variations */
     onVariationChange: PropTypes.func,
+    /* Current required variation selected */
     currentVariation: PropTypes.object,
+    /* Current optionals variations selected */
     optionalVariations: PropTypes.object,
   }
 
