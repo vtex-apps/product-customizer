@@ -21,7 +21,7 @@ class ChangeToppings extends Component {
     const changeLabel = intl.formatMessage({ id: 'product-customizer.change-composition' })
 
     return (
-      canChangeToppings && isVariationSelected ? <div className="actions--change-toppings ph5 pa5">
+      canChangeToppings && isVariationSelected ? <div className="actions--change-toppings ph5 pt5">
         <Button variation="tertiary" onClick={onClick}>{ changeLabel }</Button>
       </div> : null
     )

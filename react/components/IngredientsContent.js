@@ -30,18 +30,15 @@ class IngredientsContent extends Component {
   */
   render() {
     const {
-      isOpen,
-      onClose,
       choosedAmount,
       currentVariation,
       onVariationChange,
       optionalVariations,
     } = this.props
 
-    return (isOpen && currentVariation
-      ? <div className="vtex-product-customizer__change-ingredients">
+    return currentVariation && (
+      <div className="vtex-product-customizer__change-ingredients">
         <h3>Change ingredients</h3>
-        <span onClick={onClose}>x</span>
         <div className="change-ingredients--selected-variation">
           <fieldset>
             <legend>Your item variation</legend>
@@ -95,7 +92,7 @@ class IngredientsContent extends Component {
           </fieldset>
         </div>
       </div>
-      : null)
+    )
   }
 }
 
