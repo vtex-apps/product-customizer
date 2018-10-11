@@ -1,15 +1,13 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import Button from 'vtex.styleguide/Button'
-import { injectIntl, intlShape } from 'react-intl'
+import { FormattedMessage } from 'react-intl'
 import ProductPrice from 'vtex.store-components/ProductPrice'
 
 class AddToCart extends Component {
   static propTypes = {
     /* Total of current selected variations */
     total: PropTypes.number,
-    /* Internationalizetion object */
-    intl: intlShape.isRequired,
     /* Toggle the button state if there's not selected variations */
     isVariationSelected: PropTypes.bool,
     isModalOpen: PropTypes.bool,
@@ -22,9 +20,6 @@ class AddToCart extends Component {
   * @return <Component> AddToCart
   */
   render() {
-    const intl = this.props.intl
-    const label = intl.formatMessage({ id: 'product-customizer.add-to-cart' })
-
     const {
       total,
       isVariationSelected,
@@ -48,4 +43,4 @@ class AddToCart extends Component {
   }
 }
 
-export default injectIntl(AddToCart)
+export default AddToCart

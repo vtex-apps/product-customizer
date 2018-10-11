@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
-
+import { FormattedMessage } from 'react-intl'
 import Modal from 'vtex.styleguide/Modal'
 import { orderFormConsumer, contextPropTypes } from 'vtex.store/OrderFormContext'
+
 import './global.css'
 import SkuGroupList from './components/SkuGroupList'
 import AddToCart from './components/Buttons/AddToCart'
@@ -281,7 +282,7 @@ class ProductCustomizer extends Component {
           </div>
           <div className="vtex-product-customizer__options bg-light-gray bg-transparent-ns overflow-auto">
             <h4 className="ma0 pv3 ph5">
-              <span className="f5 fw5">Select item variation</span>
+              <FormattedMessage id="product-customizer.select-variation" />
             </h4>
             <SkuGroupList
               skus={requiredVariations}
