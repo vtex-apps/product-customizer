@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
-import { injectIntl, intlShape } from 'react-intl'
 
 import SingleChoiceItem from './Items/SingleChoice'
 
@@ -10,8 +9,6 @@ class VariationList extends Component {
     index: PropTypes.number,
     /* Define if current component is selected  */
     selected: PropTypes.number,
-    /* Internationalization object  */
-    intl: intlShape.isRequired,
     /* Trigger function to handle selections  */
     onSelectItem: PropTypes.func,
     /* Variations object to populate the component  */
@@ -68,4 +65,4 @@ class VariationList extends Component {
   }
 }
 
-export default injectIntl(VariationList)
+export default VariationList
