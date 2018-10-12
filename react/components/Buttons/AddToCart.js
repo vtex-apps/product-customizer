@@ -28,7 +28,7 @@ class AddToCart extends Component {
     } = this.props
 
     return isVariationSelected && (
-      <div className={`actions--add-to-cart tc pa5 ${isModalOpen ? 'fixed w-100 bg-white z-999 bottom-0' : ''}`}>
+      <div className={`actions--add-to-cart tc pa5 ${isModalOpen ? 'fixed w-100 bg-white z-999 bottom-0 bt b--light-gray' : ''}`}>
         <Button type="submit" onClick={onSubmit} block>
           <FormattedMessage id="product-customizer.add-to-cart" />
           <ProductPrice

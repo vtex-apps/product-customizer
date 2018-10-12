@@ -51,15 +51,22 @@ class ProductCustomizer extends Component {
     }
 
     if (type === 'composition') {
+      const composition = service.getBasicCompositionBySku()
+
       return {
-        ...sku,
-        variations: service.getBasicCompositionBySku(),
+        minTotalItems: composition.minTotalItems,
+        maxTotalItems: composition.maxTotalItems,
+        variations: composition.variations,
       }
     }
 
+    const optionals = service.parseOptionalVariations()
+
     return {
       skuId: sku.itemId,
-      variations: service.parseOptionalVariations(),
+      minTotalItems: optionals.minTotalItems,
+      maxTotalItems: optionals.maxTotalItems,
+      variations: optionals.variations,
     }
   }
 
@@ -233,6 +240,9 @@ class ProductCustomizer extends Component {
     const {
       selectedVariation,
     } = this.state
+
+    const service = new ProductCustomizerService()
+    service.updateAttachmentStringBySelections(this.state)
 
     orderFormContext.addItem({
       variables: {
