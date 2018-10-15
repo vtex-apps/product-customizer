@@ -36,11 +36,6 @@ class SingleChoice extends Component {
     this.setState({ selected: true })
   }
 
-  /**
-  * render
-  * Render the current component.
-  * @return <Component> SingleChoice
-  */
   render() {
     const {
       item,

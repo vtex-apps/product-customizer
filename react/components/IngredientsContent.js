@@ -26,11 +26,6 @@ class IngredientsContent extends Component {
     ],
   }
 
-  /**
-  * render
-  * Render the current component.
-  * @return <Component> IngredientsContent
-  */
   render() {
     const {
       isOpen,
@@ -41,31 +36,31 @@ class IngredientsContent extends Component {
       optionalVariations,
     } = this.props
 
-    return (isOpen && currentVariation
-      ? <div className="vtex-product-customizer__change-ingredients">
-        <h3>Change ingredients</h3>
-        <span onClick={onClose}>x</span>
-        <div className="change-ingredients--selected-variation">
-          <fieldset>
-            <legend>Your item variation</legend>
-            <div className="flex items-center">
-              <img src={currentVariation.variation.image} width="72" height="100%" />
+    return (
+      currentVariation && (
+        <div className="vtex-product-customizer__change-ingredients pb10">
+          <h3 className="b--light-gray bb bw1 pa5 ma0 b near-black">Change ingredients</h3>
+          <div className="change-ingredients--selected-variation">
+            <legend className="bg-near-white w-100 ph5 pv4">Your item variation</legend>
+            <div className="flex items-center pa5">
+              <img src={currentVariation.variation.image} width="48" className="br3 h-100" />
               <div className="pa5">
                 <h4 className="ma0">{currentVariation.variation.name}</h4>
               </div>
             </div>
-          </fieldset>
 
-          <fieldset>
-            <legend>Select your ingredients</legend>
-            <div className="change-ingredients--selected-ingredients">
-              <h5>Your ingredients</h5>
-              <ul className="pa0">
-                {this.state.selectedIngredients.map((ingredient, key) => {
+            <legend className="bg-near-white w-100 ph5 pv4 mb4">Select your ingredients</legend>
+            <div className="change-ingredients--selected-ingredients ph5 mb5">
+              <p className="pv3 bb b--light-gray ttu ma0 f7 b near-black">Your ingredients</p>
+              <ul className="ma0 pa0">
+                {compositionVariations.variations.map((ingredient, key) => {
                   return (
-                    <li key={key} className="flex justify-between items-center mb4">
+                    <li
+                      key={key}
+                      className="flex justify-between items-center pv4 bb b--light-gray"
+                    >
                       <div className="flex">
-                        <img src={ingredient.image} />
+                        <img src={ingredient.image} width="48" className="br3 h-100" />
                         <div className="pa5">
                           <h4 className="ma0">{ingredient.name}</h4>
                         </div>
@@ -95,10 +90,41 @@ class IngredientsContent extends Component {
                 })}
               </ul>
             </div>
+<<<<<<< Updated upstream
           </fieldset>
         </div>
       </div>
       : null)
+=======
+            <div className="change-ingredients--extra-ingredients ph5 mb5">
+              <p className="pv3 bb b--light-gray ttu ma0 f7 b near-black">Extra ingredients</p>
+              <ul className="ma0 pa0">
+                {optionalVariations.variations.map((ingredient, key) => {
+                  return (
+                    <li
+                      key={key}
+                      className={`flex justify-between items-center pv4 ${
+                        key !== optionalVariations.variations.length - 1 ? 'bb b--light-gray' : ''
+                      }`}
+                    >
+                      <MultipleChoice
+                        item={ingredient}
+                        minTotalItems={optionalVariations.minTotalItems}
+                        maxTotalItems={optionalVariations.maxTotalItems}
+                        index={ingredient.name}
+                        choosedAmount={choosedAmount}
+                        onVariationChange={onVariationChange}
+                      />
+                    </li>
+                  )
+                })}
+              </ul>
+            </div>
+          </div>
+        </div>
+      )
+    )
+>>>>>>> Stashed changes
   }
 }
 

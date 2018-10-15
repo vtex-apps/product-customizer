@@ -13,11 +13,6 @@ class ChangeToppings extends Component {
     isVariationSelected: PropTypes.bool,
   }
 
-  /**
-  * render
-  * Render the current component.
-  * @return <Component> ChangeToppings
-  */
   render() {
     const {
       onClick,

@@ -35,11 +35,6 @@ class VariationList extends Component {
     onVariationChange({ type: 'single', skuId, variation, quantity })
   }
 
-  /**
-  * render
-  * Render the current component.
-  * @return <Component> VariationList
-  */
   render() {
     const {
       index,

@@ -5,6 +5,11 @@
 */
 class ProductCustomizerService {
   constructor(schema) {
+    if (!schema) {
+      return false
+    }
+
+    this.schema = schema
     this.items = schema.items
     this.properties = schema.properties
   }
@@ -17,17 +22,13 @@ class ProductCustomizerService {
   parseOptionalVariations() {
     return Object.keys(this.properties).filter(property => {
       return this.properties[property].type === 'array'
-    }).map(property => {
-      return this.properties[property].items.enum
-    }).reduce((accumulator, arrayIds) => {
-      return arrayIds.map(id => {
-        return id
-      })
-    }).map(item => {
-      return this.items.find(entity => {
-        return entity.id === item
-      })
-    })
+    }).reduce((accumulator, property) => {
+      return {
+        minTotalItems: this.properties[property].minTotalItems,
+        maxTotalItems: this.properties[property].maxTotalItems,
+        variations: this.items[property],
+      }
+    }, [])
   }
 
   /**
@@ -38,17 +39,48 @@ class ProductCustomizerService {
   parseRequiredVariations() {
     return Object.keys(this.properties).filter(property => {
       return this.properties[property].type === 'string'
-    }).map(property => {
-      return this.properties[property].enum
-    }).reduce((accumulator, arrayIds) => {
-      return arrayIds.map(id => {
-        return id
-      })
-    }).map(item => {
-      return this.items.find(entity => {
-        return entity.id === item
-      })
-    })
+    }).reduce((accumulator, property) => {
+      return this.items[property]
+    }, [])
+  }
+
+  /**
+  * getBasicCompositionBySku
+  * Fetch an array of required variations.
+  * @return array
+  */
+  getBasicCompositionBySku() {
+    return Object.keys(this.properties).filter(property => {
+      return this.properties[property].type === 'array' && this.properties[property].minTotalItems === '1'
+    }).reduce((accumulator, property) => {
+      return {
+        minTotalItems: this.properties[property].minTotalItems,
+        maxTotalItems: this.properties[property].maxTotalItems,
+        variations: this.items[property],
+      }
+    }, [])
+  }
+
+  updateAttachmentStringBySelections(state) {
+    const {
+      extraVariations,
+      selectedVariation: {
+        variation,
+      },
+      compositionVariations,
+    } = state
+
+    const selectedVariationString = `[1-1]#${variation.id}[${variation.minQuantity}-${variation.maxQuantity}][1]`
+    const extraVariationsString = extraVariations.map(item => {
+      return `[${item.minTotalItems}-${item.maxTotalItems}]#${item.variation.id}[${item.variation.minQuantity}-${item.variation.maxQuantity}][${item.quantity}]`
+    }).join(';')
+    const compositionVariationsString = compositionVariations.variations.map(item => {
+      return `[${compositionVariations.maxTotalItems}-${compositionVariations.minTotalItems}]#${item.id}[${item.minQuantity}-${item.maxQuantity}][${item.defaultQuantity}]`
+    }).join(';')
+
+    console.log('selectedVariationString', selectedVariationString)
+    console.log('extraVariationsString', extraVariationsString)
+    console.log('compositionVariationsString', compositionVariationsString)
   }
 }
 

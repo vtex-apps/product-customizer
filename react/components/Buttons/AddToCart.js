@@ -12,28 +12,25 @@ class AddToCart extends Component {
     isVariationSelected: PropTypes.bool,
   }
 
-  /**
-  * render
-  * Render the current component.
-  * @return <Component> AddToCart
-  */
   render() {
     const {
       total,
       isVariationSelected,
     } = this.props
 
-    return (<div className="actions--add-to-cart tc ph5 pb5">
-      <Button type="submit" disabled={!isVariationSelected}>
-        <FormattedMessage id="product-customizer.add-to-cart" />
-        <ProductPrice
-          showLabels={false}
-          showListPrice={false}
-          sellingPrice={total}
-          listPrice={total}
-        />
-      </Button>
-    </div>)
+    return isVariationSelected && (
+      <div className={`actions--add-to-cart tc pa5 ${isModalOpen ? 'fixed w-100 bg-white z-999 bottom-0 bt b--light-gray' : ''}`}>
+        <Button type="submit" onClick={onSubmit} block>
+          <FormattedMessage id="product-customizer.add-to-cart" />
+          <ProductPrice
+            showLabels={false}
+            showListPrice={false}
+            sellingPrice={total}
+            listPrice={total}
+          />
+        </Button>
+      </div>
+    )
   }
 }
 

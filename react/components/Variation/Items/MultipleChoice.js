@@ -26,19 +26,16 @@ class MultipleChoice extends Component {
     const {
       item,
       index,
+      minTotalItems,
+      maxTotalItems,
       onVariationChange,
     } = this.props
 
     await this.setState({ choosedAmount })
 
-    onVariationChange({ index, variation: item, quantity: choosedAmount })
+    onVariationChange({ index, minTotalItems, maxTotalItems, variation: item, quantity: choosedAmount })
   }
 
-  /**
-  * render
-  * Render the current component.
-  * @return <Component> MultipleChoice
-  */
   render() {
     const {
       item,
@@ -51,8 +48,8 @@ class MultipleChoice extends Component {
     return (
       <div className="vtex-product-customizer__multiple-choice w-100 flex justify-between items-center pointer">
         <div className="flex align-center">
-          <img src={item.image} width="72" height="100%" />
-          <div className="multiple-choice__title w-100 flex flex-column justify-center pa5">
+          <img src={item.image} width="48" className="br3 h-100" />
+          <div className="multiple-choice__title flex flex-column justify-center pl5">
             <div className="multiple-choice__name">{item.name}</div>
             <div className="multiple-choice__price">
               <ProductPrice

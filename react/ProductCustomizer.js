@@ -49,9 +49,23 @@ class ProductCustomizer extends Component {
       }
     }
 
+    if (type === 'composition') {
+      const composition = service.getBasicCompositionBySku()
+
+      return {
+        minTotalItems: composition.minTotalItems,
+        maxTotalItems: composition.maxTotalItems,
+        variations: composition.variations,
+      }
+    }
+
+    const optionals = service.parseOptionalVariations()
+
     return {
       skuId: sku.itemId,
-      variations: service.parseOptionalVariations(),
+      minTotalItems: optionals.minTotalItems,
+      maxTotalItems: optionals.maxTotalItems,
+      variations: optionals.variations,
     }
   }
 
@@ -147,8 +161,7 @@ class ProductCustomizer extends Component {
   */
   handleSelectedVariation = variationObject => {
     this.setState({ extraVariations: [] })
-
-    return this.setState({
+    this.setState({
       selectedVariation: {
         skuId: variationObject.skuId,
         variation: variationObject.variation,
@@ -163,7 +176,7 @@ class ProductCustomizer extends Component {
   * @param object variationObject
   * @return void
   */
-  handleSelectedExtraVariations = async variationObject => {
+  handleSelectedExtraVariations = variationObject => {
     const currentExtraVariations = this.state.extraVariations
     const key = currentExtraVariations.findIndex(extraVariation => {
       return extraVariation.index === variationObject.index
@@ -181,8 +194,9 @@ class ProductCustomizer extends Component {
       }
     }
 
-    await this.setState({ extraVariations: currentExtraVariations })
-    this.calculateTotalFromSelectedVariation()
+    this.setState({ extraVariations: currentExtraVariations }, () => {
+      this.calculateTotalFromSelectedVariation()
+    })
   }
 
   /**
@@ -224,6 +238,9 @@ class ProductCustomizer extends Component {
       selectedVariation,
     } = this.state
 
+    const service = new ProductCustomizerService()
+    service.updateAttachmentStringBySelections(this.state)
+
     orderFormContext.addItem({
       variables: {
         orderFormId: orderFormContext.orderForm.orderFormId,
@@ -238,11 +255,6 @@ class ProductCustomizer extends Component {
       })
   }
 
-  /**
-  * render
-  * Render the urrent component.
-  * @return <Component> ProductCustomizer
-  */
   render() {
     const {
       canChangeToppings,
