@@ -10,9 +10,9 @@ class MultipleChoice extends Component {
     /* Object that handle the choosed amount of variations */
     choosedAmount: PropTypes.object,
     /* Min limit of selections */
-    minTotalItems: PropTypes.number,
+    minTotalItems: PropTypes.string,
     /* Max limit of selections */
-    maxTotalItems: PropTypes.number,
+    maxTotalItems: PropTypes.string,
     /* Trigger function to handle changes on inputs  */
     onVariationChange: PropTypes.func,
     /* Item to populate component data   */

@@ -11,12 +11,12 @@ class VariationList extends Component {
     selected: PropTypes.number,
     /* Trigger function to handle selections  */
     onSelectItem: PropTypes.func,
-    /* Variations object to populate the component  */
-    variations: PropTypes.object,
     /* Trigger function to handle changes on inputs  */
     onVariationChange: PropTypes.func,
     /* Determines a sku for each variation   */
     skuId: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    /* Variations object to populate the component  */
+    variations: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
   }
 
   /**

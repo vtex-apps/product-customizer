@@ -10,12 +10,16 @@ class AddToCart extends Component {
     total: PropTypes.number,
     /* Toggle the button state if there's not selected variations */
     isVariationSelected: PropTypes.bool,
+    isModalOpen: PropTypes.bool,
+    onSubmit: PropTypes.func,
   }
 
   render() {
     const {
       total,
       isVariationSelected,
+      isModalOpen,
+      onSubmit,
     } = this.props
 
     return isVariationSelected && (

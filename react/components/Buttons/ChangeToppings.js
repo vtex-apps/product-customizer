@@ -21,7 +21,7 @@ class ChangeToppings extends Component {
     } = this.props
 
     return (
-      canChangeToppings && isVariationSelected ? <div className="actions--change-toppings ph5 pa5">
+      canChangeToppings && isVariationSelected ? <div className="actions--change-toppings ph5 pt5">
         <Button variation="tertiary" onClick={onClick}>
           <FormattedMessage id="product-customizer.change-composition" />
         </Button>
