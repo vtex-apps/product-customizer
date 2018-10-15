@@ -242,7 +242,9 @@ class ProductCustomizer extends Component {
     } = this.state
 
     const service = new ProductCustomizerService()
-    service.updateAttachmentStringBySelections(this.state)
+    const attachmentsStringsObject = service.createAttachmentStringBySelections(this.state)
+
+    console.log('TO-DO: Insert these strings into a OrderForm', attachmentsStringsObject)
 
     orderFormContext.addItem({
       variables: {
@@ -262,6 +264,7 @@ class ProductCustomizer extends Component {
     const {
       canChangeToppings,
       productQuery: {
+        loading,
         product,
       },
     } = this.props
@@ -272,63 +275,68 @@ class ProductCustomizer extends Component {
       choosedAmount,
       selectedVariation,
       optionalVariations,
-      isChangeIngredients,
-      compositionVariations
+      compositionVariations,
     } = this.state
 
+    let requiredVariations = []
     const isVariationSelected = !!selectedVariation
-    const requiredVariations = product.items.map(sku => {
-      return this.parseAttachments('required', sku)
-    })
+
+    if (!loading) {
+      requiredVariations = product.items.map(sku => {
+        return this.parseAttachments('required', sku)
+      })
+    }
 
     return (
-      <div className="vtex-product-customizer relative flex-ns h-100-ns">
-        <h1 className="vtex-product-customizer__title tc f4 fw5 ma0 pa5 w-100 bg-black-40 white dn-ns">{product.productName}</h1>
-        <div className="w-100 w-third-ns flex-ns tc items-center-ns pa5 h-100-ns">
-          <img
-            className="vtex-product-customizer__image br3"
-            alt="Product Customize Image"
-            src={product.items[0].images[0].imageUrl}
-          />
+      !loading
+        ? <div className="vtex-product-customizer relative flex-ns h-100-ns">
+          <h1 className="vtex-product-customizer__title tc f4 fw5 ma0 pa5 w-100 bg-black-40 white dn-ns">{product.productName}</h1>
+          <div className="w-100 w-third-ns flex-ns tc items-center-ns pa5 h-100-ns">
+            <img
+              className="vtex-product-customizer__image br3"
+              alt="Product Customize Image"
+              src={product.items[0].images[0].imageUrl}
+            />
+          </div>
+          <div className="w-100 w-two-thirds-ns flex-ns flex-column-ns relative-ns">
+            <h1 className="vtex-product-customizer__title fw5 ma0 f3 pa5 dn db-ns">{product.productName}</h1>
+            <div className="pb5-ns pt0-ns ph5-ns  ph5 pb5 bb b--light-gray">
+              <p className="ma0 fw3">{product.description}</p>
+            </div>
+            <div className="vtex-product-customizer__options bg-light-gray bg-transparent-ns overflow-auto">
+              <h4 className="ma0 pv3 ph5">
+                <FormattedMessage id="product-customizer.select-variation" />
+              </h4>
+              <SkuGroupList
+                skus={requiredVariations}
+                onVariationChange={this.handleVariationChange}
+              />
+            </div>
+            <Modal
+              isOpen={isModalOpen}
+              onClose={this.handleCloseModal}
+            >
+              <IngredientsContent
+                choosedAmount={choosedAmount}
+                currentVariation={selectedVariation}
+                optionalVariations={optionalVariations}
+                onClose={this.handleCloseChangeIngredients}
+                compositionVariations={compositionVariations}
+                onVariationChange={this.handleSelectedExtraVariations}
+              />
+              <AddToCart onSubmit={this.handleOnSubmitForm} isVariationSelected={isVariationSelected} total={total} isModalOpen={isModalOpen} />
+            </Modal>
+            <div className="vtex-product-customizer__actions fixed bg-white bottom-0 left-0 right-0 bt b--light-gray">
+              <ChangeToppings
+                isVariationSelected={isVariationSelected}
+                canChangeToppings={!isModalOpen && canChangeToppings}
+                onClick={this.handleOpenModal}
+              />
+              <AddToCart onSubmit={this.handleOnSubmitForm} isVariationSelected={isVariationSelected} total={total} />
+            </div>
+          </div>
         </div>
-        <div className="w-100 w-two-thirds-ns flex-ns flex-column-ns relative-ns">
-          <h1 className="vtex-product-customizer__title fw5 ma0 f3 pa5 dn db-ns">{product.productName}</h1>
-          <div className="pb5-ns pt0-ns ph5-ns  ph5 pb5 bb b--light-gray">
-            <p className="ma0 fw3">{product.description}</p>
-          </div>
-          <div className="vtex-product-customizer__options bg-light-gray bg-transparent-ns overflow-auto">
-            <h4 className="ma0 pv3 ph5">
-              <FormattedMessage id="product-customizer.select-variation" />
-            </h4>
-            <SkuGroupList
-              skus={requiredVariations}
-              onVariationChange={this.handleVariationChange}
-            />
-          </div>
-          <Modal
-            isOpen={isModalOpen}
-            onClose={this.handleCloseModal}
-          >
-            <IngredientsContent
-              choosedAmount={choosedAmount}
-              currentVariation={selectedVariation}
-              optionalVariations={optionalVariations}
-              onClose={this.handleCloseChangeIngredients}
-              compositionVariations={compositionVariations}
-              onVariationChange={this.handleSelectedExtraVariations}
-            />
-            <AddToCart onSubmit={this.handleOnSubmitForm} isVariationSelected={isVariationSelected} total={total} isModalOpen={isModalOpen} />
-          </Modal>
-          <div className="vtex-product-customizer__actions fixed bg-white bottom-0 left-0 right-0 bt b--light-gray">
-            <ChangeToppings
-              isVariationSelected={isVariationSelected}
-              canChangeToppings={!isModalOpen && canChangeToppings}
-              onClick={this.handleOpenModal}
-            />
-            <AddToCart onSubmit={this.handleOnSubmitForm} isVariationSelected={isVariationSelected} total={total} />
-          </div>
-        </div>
-      </div>
+        : null
     )
   }
 }

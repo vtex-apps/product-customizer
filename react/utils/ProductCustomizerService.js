@@ -61,7 +61,7 @@ class ProductCustomizerService {
     }, [])
   }
 
-  updateAttachmentStringBySelections(state) {
+  createAttachmentStringBySelections(state) {
     const {
       extraVariations,
       selectedVariation: {
@@ -78,9 +78,11 @@ class ProductCustomizerService {
       return `[${compositionVariations.maxTotalItems}-${compositionVariations.minTotalItems}]#${item.id}[${item.minQuantity}-${item.maxQuantity}][${item.defaultQuantity}]`
     }).join(';')
 
-    console.log('selectedVariationString', selectedVariationString)
-    console.log('extraVariationsString', extraVariationsString)
-    console.log('compositionVariationsString', compositionVariationsString)
+    return {
+      selectedVariationString,
+      extraVariationsString,
+      compositionVariationsString,
+    }
   }
 }
 
