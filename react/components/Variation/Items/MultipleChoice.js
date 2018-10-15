@@ -43,7 +43,8 @@ class MultipleChoice extends Component {
       choosedAmount,
     } = this.props
 
-    const price = parseFloat(item.price / 100).toFixed(2)
+    const calculatedPrice = (item.price / 100).toFixed(2)
+    const parsedPrice = parseFloat(calculatedPrice)
 
     return (
       <div className="vtex-product-customizer__multiple-choice w-100 flex justify-between items-center pointer">
@@ -55,8 +56,8 @@ class MultipleChoice extends Component {
               <ProductPrice
                 showLabels={false}
                 showListPrice={false}
-                sellingPrice={price}
-                listPrice={price}
+                sellingPrice={parsedPrice}
+                listPrice={parsedPrice}
               />
             </div>
           </div>

@@ -42,7 +42,8 @@ class SingleChoice extends Component {
       selected,
     } = this.props
 
-    const parsedPrice = parseFloat(item.price / 100).toFixed(2)
+    const calculatedPrice = (item.price / 100).toFixed(2)
+    const parsedPrice = parseFloat(calculatedPrice)
 
     return (
       <label>
