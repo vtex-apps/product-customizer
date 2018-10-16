@@ -7,8 +7,8 @@ class MultipleChoice extends Component {
   static propTypes = {
     /* Index to define the chossed amount */
     index: PropTypes.string,
-    /* Object that handle the choosed amount of variations */
-    choosedAmount: PropTypes.object,
+    /* Object that handle the chosen amount of variations */
+    chosenAmount: PropTypes.object,
     /* Min limit of selections */
     minTotalItems: PropTypes.string,
     /* Max limit of selections */
@@ -19,10 +19,10 @@ class MultipleChoice extends Component {
     item: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   }
 
-  handleChoosedAmount = async e => {
+  handleChosenAmount = async e => {
     e.preventDefault()
 
-    const choosedAmount = e.value
+    const chosenAmount = e.value
     const {
       item,
       index,
@@ -31,16 +31,16 @@ class MultipleChoice extends Component {
       onVariationChange,
     } = this.props
 
-    await this.setState({ choosedAmount })
+    await this.setState({ chosenAmount })
 
-    onVariationChange({ index, minTotalItems, maxTotalItems, variation: item, quantity: choosedAmount })
+    onVariationChange({ index, minTotalItems, maxTotalItems, variation: item, quantity: chosenAmount })
   }
 
   render() {
     const {
       item,
       index,
-      choosedAmount,
+      chosenAmount,
     } = this.props
 
     const calculatedPrice = (item.price / 100).toFixed(2)
@@ -64,10 +64,10 @@ class MultipleChoice extends Component {
         </div>
         <div className="multiple-choice__actions near-black tc">
           <NumericStepper
-            value={choosedAmount[index]}
+            value={chosenAmount[index]}
             minItems={parseInt(item.minQuantity)}
             maxValue={parseInt(item.maxQuantity)}
-            onChange={this.handleChoosedAmount}
+            onChange={this.handleChosenAmount}
           />
         </div>
       </div>

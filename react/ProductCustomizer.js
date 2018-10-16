@@ -27,7 +27,7 @@ class ProductCustomizer extends Component {
 
   state = {
     total: 0,
-    choosedAmount: {},
+    chosenAmount: {},
     isModalOpen: false,
     extraVariations: [],
     isOpenChangeIngredients: false,
@@ -131,13 +131,13 @@ class ProductCustomizer extends Component {
   * @return void
   */
   createNumericStepperIndexesStates = items => {
-    const choosedAmount = {}
+    const chosenAmount = {}
 
     items.forEach(item => {
-      choosedAmount[item.name] = 0
+      chosenAmount[item.name] = 0
     })
 
-    this.setState({ choosedAmount })
+    this.setState({ chosenAmount })
   }
 
   /**
@@ -148,12 +148,12 @@ class ProductCustomizer extends Component {
   */
   onHandleNumericStepperChange = variationObject => {
     const {
-      choosedAmount,
+      chosenAmount,
     } = this.state
 
-    choosedAmount[variationObject.index] = variationObject.quantity
+    chosenAmount[variationObject.index] = variationObject.quantity
 
-    this.setState({ choosedAmount })
+    this.setState({ chosenAmount })
   }
 
   /**
@@ -272,7 +272,7 @@ class ProductCustomizer extends Component {
     const {
       total,
       isModalOpen,
-      choosedAmount,
+      chosenAmount,
       selectedVariation,
       optionalVariations,
       compositionVariations,
@@ -317,7 +317,7 @@ class ProductCustomizer extends Component {
               onClose={this.handleCloseModal}
             >
               <IngredientsContent
-                choosedAmount={choosedAmount}
+                chosenAmount={chosenAmount}
                 currentVariation={selectedVariation}
                 optionalVariations={optionalVariations}
                 onClose={this.handleCloseChangeIngredients}
