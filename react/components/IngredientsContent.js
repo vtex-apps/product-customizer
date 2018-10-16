@@ -14,7 +14,7 @@ class IngredientsContent extends Component {
     onClose: PropTypes.func,
     /* Object with indexes and ammount of selected optional variations */
     chosenAmount: PropTypes.object,
-    chosenAmountComposition: PropTypes.object,
+    chosenAmountBasic: PropTypes.object,
     /* Triggers function to execute on change variations */
     onVariationChange: PropTypes.func,
     /* Current required variation selected */
@@ -23,16 +23,16 @@ class IngredientsContent extends Component {
     optionalVariations: PropTypes.object,
     /* Composition of Product */
     compositionVariations: PropTypes.object,
-    onVariationChangeComposition: PropTypes.func
+    onVariationChangeBasic: PropTypes.func
   }
 
   render() {
     const {
       chosenAmount,
-      chosenAmountComposition,
+      chosenAmountBasic,
       currentVariation,
       onVariationChange,
-      onVariationChangeComposition,
+      onVariationChangeBasic,
       optionalVariations,
       compositionVariations,
     } = this.props
@@ -76,8 +76,8 @@ class IngredientsContent extends Component {
                       minTotalItems={compositionVariations.minTotalItems}
                       maxTotalItems={compositionVariations.maxTotalItems}
                       index={ingredient.name}
-                      chosenAmount={chosenAmountComposition}
-                      onVariationChange={onVariationChangeComposition}
+                      chosenAmount={chosenAmountBasic}
+                      onVariationChange={onVariationChangeBasic}
                     />
                   </li>
                 ))}

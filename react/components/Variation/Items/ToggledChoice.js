@@ -20,7 +20,7 @@ class ToggledChoice extends Component {
   handleChosenAmount = async e => {
     e.preventDefault()
 
-    const chosenAmount = e.checked | 0
+    const chosenAmount = e.target.checked | 0
     const {
       item,
       index,

@@ -29,7 +29,7 @@ class ProductCustomizer extends Component {
   state = {
     total: 0,
     chosenAmount: {},
-    chosenAmountComposition: {},
+    chosenAmountBasic: {},
     isModalOpen: false,
     extraVariations: [],
     isOpenChangeIngredients: false,
@@ -140,11 +140,11 @@ class ProductCustomizer extends Component {
   }
 
   createBooleanIndexesStates = items => {
-    const chosenAmountComposition = items.reduce(
+    const chosenAmountBasic = items.reduce(
       (acc, item) => ({ ...acc, [item.name]: Number(item.defaultQuantity) }),
       {}
     )
-    this.setState({ chosenAmountComposition })
+    this.setState({ chosenAmountBasic })
   }
 
   /**
@@ -162,11 +162,11 @@ class ProductCustomizer extends Component {
   }
 
   onHandleBooleanChange = variationObject => {
-    const { chosenAmountComposition } = this.state
+    const { chosenAmountBasic } = this.state
 
-    chosenAmountComposition[variationObject.index] = variationObject.quantity
+    chosenAmountBasic[variationObject.index] = variationObject.quantity
 
-    this.setState({ chosenAmountComposition })
+    this.setState({ chosenAmountBasic })
   }
 
   /**
@@ -178,7 +178,7 @@ class ProductCustomizer extends Component {
   handleSelectedVariation = variationObject =>
     this.setState({
       extraVariations: [],
-      compositionVariations: [],
+      basicVariations: [],
       selectedVariation: {
         skuId: variationObject.skuId,
         variation: variationObject.variation,
@@ -215,25 +215,25 @@ class ProductCustomizer extends Component {
     })
   }
 
-  handleSelectedCompositionVariations = variationObject => {
-    const { compositionVariations } = this.state
-    const key = compositionVariations.findIndex(
-      variation => variation.index === variationObject.index
+  handleSelectedBasicVariations = variationObject => {
+    const { basicVariations } = this.state
+    const key = basicVariations.findIndex(
+      basicVariation => basicVariation.index === variationObject.index
     )
 
     this.onHandleBooleanChange(variationObject)
 
     if (key === -1) {
-      compositionVariations.push(variationObject)
+      basicVariations.push(variationObject)
     } else {
       if (variationObject.quantity !== 0) {
-        compositionVariations[key] = variationObject
+        basicVariations[key] = variationObject
       } else {
-        compositionVariations.splice(key)
+        basicVariations.splice(key)
       }
     }
 
-    this.setState({ compositionVariations }, this.calculateTotalFromSelectedVariation)
+    this.setState({ basicVariations }, this.calculateTotalFromSelectedVariation)
   }
 
   /**
@@ -301,7 +301,7 @@ class ProductCustomizer extends Component {
       total,
       isModalOpen,
       chosenAmount,
-      chosenAmountComposition,
+      chosenAmountBasic,
       selectedVariation,
       optionalVariations,
       compositionVariations,
@@ -347,13 +347,13 @@ class ProductCustomizer extends Component {
           <Modal isOpen={isModalOpen} onClose={this.handleCloseModal}>
             <IngredientsContent
               chosenAmount={chosenAmount}
-              chosenAmountComposition={chosenAmountComposition}
+              chosenAmountBasic={chosenAmountBasic}
               currentVariation={selectedVariation}
               optionalVariations={optionalVariations}
               onClose={this.handleCloseChangeIngredients}
               compositionVariations={compositionVariations}
               onVariationChange={this.handleSelectedExtraVariations}
-              onVariationChangeComposition={this.handleSelectedCompositionVariations}
+              onVariationChangeBasic={this.handleSelectedBasicVariations}
             />
             <AddToCart
               onSubmit={this.handleOnSubmitForm}
