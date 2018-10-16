@@ -26,11 +26,12 @@ class SingleChoice extends Component {
     const {
       item,
       index,
+      skuId,
       onSelectItem,
       onVariationChange,
     } = this.props
 
-    onSelectItem(index)
+    onSelectItem({parent: skuId, child: item.id})
     onVariationChange(item, 1)
 
     this.setState({ selected: true })
