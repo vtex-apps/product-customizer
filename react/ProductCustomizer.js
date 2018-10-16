@@ -2,7 +2,10 @@ import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { FormattedMessage } from 'react-intl'
 import Modal from 'vtex.styleguide/Modal'
-import { orderFormConsumer, contextPropTypes } from 'vtex.store/OrderFormContext'
+import {
+  orderFormConsumer,
+  contextPropTypes,
+} from 'vtex.store/OrderFormContext'
 
 import './global.css'
 import SkuGroupList from './components/SkuGroupList'
@@ -21,27 +24,28 @@ class ProductCustomizer extends Component {
     productQuery: PropTypes.object.isRequired,
   }
 
-  static defaultProps = {
-    canChangeToppings: true,
-  }
+  static defaultProps = { canChangeToppings: true }
 
   state = {
     total: 0,
     chosenAmount: {},
+    chosenAmountComposition: {},
     isModalOpen: false,
     extraVariations: [],
     isOpenChangeIngredients: false,
   }
 
   /**
-  * parseAttachments
-  * Parse attachments into a readable object.
-  * @param string type
-  * @param object sku
-  * @return object
-  */
+   * parseAttachments
+   * Parse attachments into a readable object.
+   * @param string type
+   * @param object sku
+   * @return object
+   */
   parseAttachments = (type, sku) => {
-    const service = new ProductCustomizerService(JSON.parse(sku.calculatedAttachments))
+    const service = new ProductCustomizerService(
+      JSON.parse(sku.calculatedAttachments)
+    )
 
     if (type === 'required') {
       return {
@@ -71,29 +75,25 @@ class ProductCustomizer extends Component {
   }
 
   /**
-  * handleOpenModal
-  * Show the ingredients selection.
-  * @return void
-  */
-  handleOpenModal = () => {
-    this.setState({ isModalOpen: true })
-  }
+   * handleOpenModal
+   * Show the ingredients selection.
+   * @return void
+   */
+  handleOpenModal = () => this.setState({ isModalOpen: true })
 
   /**
-  * handleCloseModal
-  * Close the ingredients selection.
-  * @return void
-  */
-  handleCloseModal = () => {
-    this.setState({ isModalOpen: false })
-  }
+   * handleCloseModal
+   * Close the ingredients selection.
+   * @return void
+   */
+  handleCloseModal = () => this.setState({ isModalOpen: false })
 
   /**
-  * handleVariationChange
-  * Call optional variations parser and calculates the total.
-  * @param object variationObject
-  * @return void
-  */
+   * handleVariationChange
+   * Call optional variations parser and calculates the total.
+   * @param object variationObject
+   * @return void
+   */
   handleVariationChange = async variationObject => {
     await this.handleSelectedVariation(variationObject)
     this.handleParseOptionalVariationsBySkuId(variationObject.skuId)
@@ -101,16 +101,14 @@ class ProductCustomizer extends Component {
   }
 
   /**
-  * handleParseOptionalVariationsBySkuId
-  * Create the index state of numeric stepper.
-  * @param string skuId
-  * @return void
-  */
+   * handleParseOptionalVariationsBySkuId
+   * Create the index state of numeric stepper.
+   * @param string skuId
+   * @return void
+   */
   handleParseOptionalVariationsBySkuId = skuId => {
     const {
-      productQuery: {
-        product,
-      },
+      productQuery: { product },
     } = this.props
 
     const sku = product.items.find(sku => {
@@ -119,17 +117,18 @@ class ProductCustomizer extends Component {
     const optionalVariations = this.parseAttachments('optionals', sku)
     const compositionVariations = this.parseAttachments('composition', sku)
 
+    this.createBooleanIndexesStates(compositionVariations.variations)
     this.createNumericStepperIndexesStates(optionalVariations.variations)
     this.setState({ optionalVariations })
     this.setState({ compositionVariations })
   }
 
   /**
-  * createNumericStepperIndexesStates
-  * Create the initial state of Numeric Stepper Component.
-  * @param array items
-  * @return void
-  */
+   * createNumericStepperIndexesStates
+   * Create the initial state of Numeric Stepper Component.
+   * @param array items
+   * @return void
+   */
   createNumericStepperIndexesStates = items => {
     const chosenAmount = {}
 
@@ -140,45 +139,59 @@ class ProductCustomizer extends Component {
     this.setState({ chosenAmount })
   }
 
+  createBooleanIndexesStates = items => {
+    const chosenAmountComposition = items.reduce(
+      (acc, item) => ({ ...acc, [item.name]: Number(item.defaultQuantity) }),
+      {}
+    )
+    this.setState({ chosenAmountComposition })
+  }
+
   /**
-  * onHandleNumericStepperChange
-  * Sets the optional variation values by index.
-  * @param object variationObject
-  * @return void
-  */
+   * onHandleNumericStepperChange
+   * Sets the optional variation values by index.
+   * @param object variationObject
+   * @return void
+   */
   onHandleNumericStepperChange = variationObject => {
-    const {
-      chosenAmount,
-    } = this.state
+    const { chosenAmount } = this.state
 
     chosenAmount[variationObject.index] = variationObject.quantity
 
     this.setState({ chosenAmount })
   }
 
+  onHandleBooleanChange = variationObject => {
+    const { chosenAmountComposition } = this.state
+
+    chosenAmountComposition[variationObject.index] = variationObject.quantity
+
+    this.setState({ chosenAmountComposition })
+  }
+
   /**
-  * handleSelectedVariation
-  * Resets extra variations state and update the current variation selected.
-  * @param object variationObject
-  * @return void
-  */
-  handleSelectedVariation = variationObject => {
-    this.setState({ extraVariations: [] })
+   * handleSelectedVariation
+   * Resets extra variations state and update the current variation selected.
+   * @param object variationObject
+   * @return void
+   */
+  handleSelectedVariation = variationObject =>
     this.setState({
+      extraVariations: [],
+      compositionVariations: [],
       selectedVariation: {
         skuId: variationObject.skuId,
         variation: variationObject.variation,
         quantity: variationObject.quantity,
       },
     })
-  }
 
   /**
-  * handleSelectedExtraVariations
-  * Add the changed optional variation and call the calculate method
-  * @param object variationObject
-  * @return void
-  */
+   * handleSelectedExtraVariations
+   * Add the changed optional variation and call the calculate method
+   * @param object variationObject
+   * @return void
+   */
   handleSelectedExtraVariations = variationObject => {
     const currentExtraVariations = this.state.extraVariations
     const key = currentExtraVariations.findIndex(extraVariation => {
@@ -202,18 +215,36 @@ class ProductCustomizer extends Component {
     })
   }
 
+  handleSelectedCompositionVariations = variationObject => {
+    const { compositionVariations } = this.state
+    const key = compositionVariations.findIndex(
+      variation => variation.index === variationObject.index
+    )
+
+    this.onHandleBooleanChange(variationObject)
+
+    if (key === -1) {
+      compositionVariations.push(variationObject)
+    } else {
+      if (variationObject.quantity !== 0) {
+        compositionVariations[key] = variationObject
+      } else {
+        compositionVariations.splice(key)
+      }
+    }
+
+    this.setState({ compositionVariations }, this.calculateTotalFromSelectedVariation)
+  }
+
   /**
-  * calculateTotalFromSelectedVariation
-  * Calculates the total based on all items selected.
-  * @return void
-  */
+   * calculateTotalFromSelectedVariation
+   * Calculates the total based on all items selected.
+   * @return void
+   */
   calculateTotalFromSelectedVariation = () => {
     const {
       extraVariations,
-      selectedVariation: {
-        quantity,
-        variation,
-      },
+      selectedVariation: { quantity, variation },
     } = this.state
 
     const totalVariation = (variation.price / 100) * quantity
@@ -226,34 +257,34 @@ class ProductCustomizer extends Component {
   }
 
   /**
-  * handleOnSubmitForm
-  * Create an object based on selected variations and send to Order Form.
-  * @return void
-  */
+   * handleOnSubmitForm
+   * Create an object based on selected variations and send to Order Form.
+   * @return void
+   */
   handleOnSubmitForm = e => {
     e.preventDefault()
 
-    const {
-      orderFormContext,
-    } = this.props
+    const { orderFormContext } = this.props
 
-    const {
-      selectedVariation,
-    } = this.state
+    const { selectedVariation } = this.state
 
     const service = new ProductCustomizerService()
-    const attachmentsStringsObject = service.createAttachmentStringBySelections(this.state)
+    const attachmentsStringsObject = service.createAttachmentStringBySelections(
+      this.state
+    )
 
-    console.log('TO-DO: Insert these strings into a OrderForm', attachmentsStringsObject)
+    console.log(
+      'TO-DO: Insert these strings into an OrderForm',
+      attachmentsStringsObject
+    )
 
-    orderFormContext.addItem({
-      variables: {
-        orderFormId: orderFormContext.orderForm.orderFormId,
-        items: [
-          { id: selectedVariation.skuId, quantity: 1, seller: 1 },
-        ],
-      },
-    })
+    orderFormContext
+      .addItem({
+        variables: {
+          orderFormId: orderFormContext.orderForm.orderFormId,
+          items: [{ id: selectedVariation.skuId, quantity: 1, seller: 1 }],
+        },
+      })
       .then(() => {
         orderFormContext.refetch()
         this.handleCloseModal()
@@ -263,16 +294,14 @@ class ProductCustomizer extends Component {
   render() {
     const {
       canChangeToppings,
-      productQuery: {
-        loading,
-        product,
-      },
+      productQuery: { loading, product },
     } = this.props
 
     const {
       total,
       isModalOpen,
       chosenAmount,
+      chosenAmountComposition,
       selectedVariation,
       optionalVariations,
       compositionVariations,
@@ -287,57 +316,67 @@ class ProductCustomizer extends Component {
       })
     }
 
-    return (
-      !loading
-        ? <div className="vtex-product-customizer relative flex-ns h-100-ns">
-          <h1 className="vtex-product-customizer__title tc f4 fw5 ma0 pa5 w-100 bg-black-40 white dn-ns">{product.productName}</h1>
-          <div className="w-100 w-third-ns flex-ns tc items-center-ns pa5 h-100-ns">
-            <img
-              className="vtex-product-customizer__image br3"
-              alt="Product Customize Image"
-              src={product.items[0].images[0].imageUrl}
+    return !loading ? (
+      <div className="vtex-product-customizer relative flex-ns h-100-ns">
+        <h1 className="vtex-product-customizer__title tc f4 fw5 ma0 pa5 w-100 bg-black-40 white dn-ns">
+          {product.productName}
+        </h1>
+        <div className="w-100 w-third-ns flex-ns tc items-center-ns pa5 h-100-ns">
+          <img
+            className="vtex-product-customizer__image br3"
+            alt="Product Customize Image"
+            src={product.items[0].images[0].imageUrl}
+          />
+        </div>
+        <div className="w-100 w-two-thirds-ns flex-ns flex-column-ns relative-ns">
+          <h1 className="vtex-product-customizer__title fw5 ma0 f3 pa5 dn db-ns">
+            {product.productName}
+          </h1>
+          <div className="pb5-ns pt0-ns ph5-ns  ph5 pb5 bb b--light-gray">
+            <p className="ma0 fw3">{product.description}</p>
+          </div>
+          <div className="vtex-product-customizer__options bg-light-gray bg-transparent-ns overflow-auto">
+            <h4 className="ma0 pv3 ph5">
+              <FormattedMessage id="product-customizer.select-variation" />
+            </h4>
+            <SkuGroupList
+              skus={requiredVariations}
+              onVariationChange={this.handleVariationChange}
             />
           </div>
-          <div className="w-100 w-two-thirds-ns flex-ns flex-column-ns relative-ns">
-            <h1 className="vtex-product-customizer__title fw5 ma0 f3 pa5 dn db-ns">{product.productName}</h1>
-            <div className="pb5-ns pt0-ns ph5-ns  ph5 pb5 bb b--light-gray">
-              <p className="ma0 fw3">{product.description}</p>
-            </div>
-            <div className="vtex-product-customizer__options bg-light-gray bg-transparent-ns overflow-auto">
-              <h4 className="ma0 pv3 ph5">
-                <FormattedMessage id="product-customizer.select-variation" />
-              </h4>
-              <SkuGroupList
-                skus={requiredVariations}
-                onVariationChange={this.handleVariationChange}
-              />
-            </div>
-            <Modal
-              isOpen={isModalOpen}
-              onClose={this.handleCloseModal}
-            >
-              <IngredientsContent
-                chosenAmount={chosenAmount}
-                currentVariation={selectedVariation}
-                optionalVariations={optionalVariations}
-                onClose={this.handleCloseChangeIngredients}
-                compositionVariations={compositionVariations}
-                onVariationChange={this.handleSelectedExtraVariations}
-              />
-              <AddToCart onSubmit={this.handleOnSubmitForm} isVariationSelected={isVariationSelected} total={total} isModalOpen={isModalOpen} />
-            </Modal>
-            <div className="vtex-product-customizer__actions fixed bg-white bottom-0 left-0 right-0 bt b--light-gray">
-              <ChangeToppings
-                isVariationSelected={isVariationSelected}
-                canChangeToppings={!isModalOpen && canChangeToppings}
-                onClick={this.handleOpenModal}
-              />
-              <AddToCart onSubmit={this.handleOnSubmitForm} isVariationSelected={isVariationSelected} total={total} />
-            </div>
+          <Modal isOpen={isModalOpen} onClose={this.handleCloseModal}>
+            <IngredientsContent
+              chosenAmount={chosenAmount}
+              chosenAmountComposition={chosenAmountComposition}
+              currentVariation={selectedVariation}
+              optionalVariations={optionalVariations}
+              onClose={this.handleCloseChangeIngredients}
+              compositionVariations={compositionVariations}
+              onVariationChange={this.handleSelectedExtraVariations}
+              onVariationChangeComposition={this.handleSelectedCompositionVariations}
+            />
+            <AddToCart
+              onSubmit={this.handleOnSubmitForm}
+              isVariationSelected={isVariationSelected}
+              total={total}
+              isModalOpen={isModalOpen}
+            />
+          </Modal>
+          <div className="vtex-product-customizer__actions fixed bg-white bottom-0 left-0 right-0 bt b--light-gray">
+            <ChangeToppings
+              isVariationSelected={isVariationSelected}
+              canChangeToppings={!isModalOpen && canChangeToppings}
+              onClick={this.handleOpenModal}
+            />
+            <AddToCart
+              onSubmit={this.handleOnSubmitForm}
+              isVariationSelected={isVariationSelected}
+              total={total}
+            />
           </div>
         </div>
-        : null
-    )
+      </div>
+    ) : null
   }
 }
 

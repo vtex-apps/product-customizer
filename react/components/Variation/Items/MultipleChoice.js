@@ -31,17 +31,19 @@ class MultipleChoice extends Component {
       onVariationChange,
     } = this.props
 
-    await this.setState({ chosenAmount })
-
-    onVariationChange({ index, minTotalItems, maxTotalItems, variation: item, quantity: chosenAmount })
+    this.setState({ chosenAmount }, () =>
+      onVariationChange({
+        index,
+        minTotalItems,
+        maxTotalItems,
+        variation: item,
+        quantity: chosenAmount,
+      })
+    )
   }
 
   render() {
-    const {
-      item,
-      index,
-      chosenAmount,
-    } = this.props
+    const { item, index, chosenAmount } = this.props
 
     const calculatedPrice = (item.price / 100).toFixed(2)
     const parsedPrice = parseFloat(calculatedPrice)

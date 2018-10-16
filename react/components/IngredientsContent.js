@@ -1,7 +1,9 @@
-import PropTypes from 'prop-types'
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { FormattedMessage } from 'react-intl'
+import classnames from 'classnames'
 
+import ToggledChoice from './Variation/Items/ToggledChoice'
 import MultipleChoice from './Variation/Items/MultipleChoice'
 
 class IngredientsContent extends Component {
@@ -12,6 +14,7 @@ class IngredientsContent extends Component {
     onClose: PropTypes.func,
     /* Object with indexes and ammount of selected optional variations */
     chosenAmount: PropTypes.object,
+    chosenAmountComposition: PropTypes.object,
     /* Triggers function to execute on change variations */
     onVariationChange: PropTypes.func,
     /* Current required variation selected */
@@ -20,13 +23,16 @@ class IngredientsContent extends Component {
     optionalVariations: PropTypes.object,
     /* Composition of Product */
     compositionVariations: PropTypes.object,
+    onVariationChangeComposition: PropTypes.func
   }
 
   render() {
     const {
       chosenAmount,
+      chosenAmountComposition,
       currentVariation,
       onVariationChange,
+      onVariationChangeComposition,
       optionalVariations,
       compositionVariations,
     } = this.props
@@ -42,7 +48,11 @@ class IngredientsContent extends Component {
               <FormattedMessage id="product-customizer.your-variation" />
             </legend>
             <div className="flex items-center pa5">
-              <img src={currentVariation.variation.image} width="48" className="br3 h-100" />
+              <img
+                src={currentVariation.variation.image}
+                width="48"
+                className="br3 h-100"
+              />
               <div className="pa5">
                 <h4 className="ma0">{currentVariation.variation.name}</h4>
               </div>
@@ -56,26 +66,21 @@ class IngredientsContent extends Component {
                 <FormattedMessage id="product-customizer.selected-ingredients" />
               </p>
               <ul className="ma0 pa0">
-                {compositionVariations.variations.map((ingredient, key) => {
-                  return (
-                    <li
-                      key={key}
-                      className="flex justify-between items-center pv4 bb b--light-gray"
-                    >
-                      <div className="flex">
-                        <img src={ingredient.image} width="48" className="br3 h-100" />
-                        <div className="pa5">
-                          <h4 className="ma0">{ingredient.name}</h4>
-                        </div>
-                      </div>
-                      {
-                        ingredient.minQuantity === '1' && ingredient.defaultQuantity === '1'
-                          ? null
-                          : <span>x</span>
-                      }
-                    </li>
-                  )
-                })}
+                {compositionVariations.variations.map((ingredient, key) => (
+                  <li
+                    key={key}
+                    className="flex justify-between items-center pv4 bb b--light-gray"
+                  >
+                    <ToggledChoice
+                      item={ingredient}
+                      minTotalItems={compositionVariations.minTotalItems}
+                      maxTotalItems={compositionVariations.maxTotalItems}
+                      index={ingredient.name}
+                      chosenAmount={chosenAmountComposition}
+                      onVariationChange={onVariationChangeComposition}
+                    />
+                  </li>
+                ))}
               </ul>
             </div>
             <div className="change-ingredients--extra-ingredients ph5 mb5">
@@ -87,9 +92,13 @@ class IngredientsContent extends Component {
                   return (
                     <li
                       key={key}
-                      className={`flex justify-between items-center pv4 ${
-                        key !== optionalVariations.variations.length - 1 ? 'bb b--light-gray' : ''
-                      }`}
+                      className={classnames(
+                        ['flex', 'justify-between', 'items-center', 'pv4'],
+                        {
+                          ['bb b--light-gray']:
+                            key !== optionalVariations.variations.length - 1,
+                        }
+                      )}
                     >
                       <MultipleChoice
                         item={ingredient}

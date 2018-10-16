@@ -68,15 +68,20 @@ class ProductCustomizerService {
         variation,
       },
       compositionVariations,
+      chosenAmountBasic
     } = state
 
     const selectedVariationString = `[1-1]#${variation.id}[${variation.minQuantity}-${variation.maxQuantity}][1]`
     const extraVariationsString = extraVariations.map(item => {
       return `[${item.minTotalItems}-${item.maxTotalItems}]#${item.variation.id}[${item.variation.minQuantity}-${item.variation.maxQuantity}][${item.quantity}]`
     }).join(';')
-    const compositionVariationsString = compositionVariations.variations.map(item => {
-      return `[${compositionVariations.maxTotalItems}-${compositionVariations.minTotalItems}]#${item.id}[${item.minQuantity}-${item.maxQuantity}][${item.defaultQuantity}]`
-    }).join(';')
+    const compositionVariationsString = Object.entries(chosenAmountBasic).reduce((acc, [key, value]) => {
+      if (value<1) return acc
+      const array = [...acc]
+      const variation = compositionVariations.variations.find(item => item.name === key)
+      array.push( `[${compositionVariations.maxTotalItems}-${compositionVariations.minTotalItems}]#${variation.id}[${variation.minQuantity}-${variation.maxQuantity}][${value}]`)
+      return array
+    }, []).join(`;`)
 
     return {
       selectedVariationString,
