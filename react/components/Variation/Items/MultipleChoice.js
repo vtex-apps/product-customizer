@@ -19,29 +19,25 @@ class MultipleChoice extends Component {
     item: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   }
 
-  handleChoosedAmount = async e => {
+  handleChoosedAmount = e => {
     e.preventDefault()
 
     const choosedAmount = e.value
-    const {
-      item,
-      index,
-      minTotalItems,
-      maxTotalItems,
-      onVariationChange,
-    } = this.props
+    const { item, index, minTotalItems, maxTotalItems, onVariationChange } = this.props
 
-    await this.setState({ choosedAmount })
-
-    onVariationChange({ index, minTotalItems, maxTotalItems, variation: item, quantity: choosedAmount })
+    this.setState({ choosedAmount }, () =>
+      onVariationChange({
+        index,
+        minTotalItems,
+        maxTotalItems,
+        variation: item,
+        quantity: choosedAmount,
+      })
+    )
   }
 
   render() {
-    const {
-      item,
-      index,
-      choosedAmount,
-    } = this.props
+    const { item, index, choosedAmount } = this.props
 
     const calculatedPrice = (item.price / 100).toFixed(2)
     const parsedPrice = parseFloat(calculatedPrice)

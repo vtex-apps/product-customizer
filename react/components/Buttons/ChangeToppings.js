@@ -14,18 +14,16 @@ class ChangeToppings extends Component {
   }
 
   render() {
-    const {
-      onClick,
-      isVariationSelected,
-      canChangeToppings,
-    } = this.props
+    const { onClick, isVariationSelected, canChangeToppings } = this.props
+
+    if (!canChangeToppings || !isVariationSelected) return null
 
     return (
-      canChangeToppings && isVariationSelected ? <div className="actions--change-toppings ph5 pt5">
+      <div className="actions--change-toppings ph5 pt5">
         <Button variation="tertiary" onClick={onClick}>
           <FormattedMessage id="product-customizer.change-composition" />
         </Button>
-      </div> : null
+      </div>
     )
   }
 }

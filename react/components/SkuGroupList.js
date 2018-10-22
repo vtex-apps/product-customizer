@@ -21,7 +21,7 @@ class SkuGroupList extends Component {
   * @return void
   */
   handleSelectItem = () => {
-    //
+    //TODO
   }
 
   render() {
