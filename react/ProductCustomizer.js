@@ -1,11 +1,8 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { FormattedMessage } from 'react-intl'
-import Modal from 'vtex.styleguide/Modal'
-import {
-  orderFormConsumer,
-  contextPropTypes,
-} from 'vtex.store/OrderFormContext'
+import { Modal, Spinner } from 'vtex.styleguide'
+import { orderFormConsumer, contextPropTypes } from 'vtex.store/OrderFormContext'
 
 import './global.css'
 import SkuGroupList from './components/SkuGroupList'
@@ -72,11 +69,11 @@ class ProductCustomizer extends Component {
   }
 
   /**
-  * parseToppingsProperties
-  * Fetch an array of optional variations.
-  * @param object schema
-  * @return array
-  */
+   * parseToppingsProperties
+   * Fetch an array of optional variations.
+   * @param object schema
+   * @return array
+   */
   parseOptionalVariations = schema => {
     const items = schema.items
     const properties = schema.properties
@@ -87,17 +84,17 @@ class ProductCustomizer extends Component {
       return {
         minTotalItems: properties[property].minTotalItems,
         maxTotalItems: properties[property].maxTotalItems,
-        variations: items[property],
-      }
-    }, [])
+          variations: items[property],
+        }
+      }, [])
   }
 
   /**
-  * parseRequiredVariations
-  * Fetch an array of required variations.
-  * @param object schema
-  * @return array
-  */
+   * parseRequiredVariations
+   * Fetch an array of required variations.
+   * @param object schema
+   * @return array
+   */
   parseRequiredVariations = schema => {
     const items = schema.items
     const properties = schema.properties
@@ -110,11 +107,11 @@ class ProductCustomizer extends Component {
   }
 
   /**
-  * getBasicCompositionBySku
-  * Fetch an array of required variations.
-  * @param object schema
-  * @return array
-  */
+   * getBasicCompositionBySku
+   * Fetch an array of required variations.
+   * @param object schema
+   * @return array
+   */
   getBasicCompositionBySku = schema => {
     const items = schema.items
     const properties = schema.properties
@@ -125,32 +122,40 @@ class ProductCustomizer extends Component {
       return {
         minTotalItems: properties[property].minTotalItems,
         maxTotalItems: properties[property].maxTotalItems,
-        variations: items[property],
-      }
-    }, [])
+          variations: items[property],
+        }
+      }, [])
   }
 
   /**
-  * createAttachmentStringBySelections
-  * Create the attachments string to inject in Order Form.
-  * @return object
-  */
+   * createAttachmentStringBySelections
+   * Create the attachments string to inject in Order Form.
+   * @return object
+   */
   createAttachmentStringBySelections = state => {
     const {
       extraVariations,
-      selectedVariation: {
-        variation,
-      },
+      selectedVariation: { variation },
       compositionVariations,
     } = state
 
-    const selectedVariationString = `[1-1]#${variation.id}[${variation.minQuantity}-${variation.maxQuantity}][1]`
-    const extraVariationsString = extraVariations.map(item => {
-      return `[${item.minTotalItems}-${item.maxTotalItems}]#${item.variation.id}[${item.variation.minQuantity}-${item.variation.maxQuantity}][${item.quantity}]`
-    }).join(';')
-    const compositionVariationsString = compositionVariations.variations.map(item => {
-      return `[${compositionVariations.maxTotalItems}-${compositionVariations.minTotalItems}]#${item.id}[${item.minQuantity}-${item.maxQuantity}][${item.defaultQuantity}]`
-    }).join(';')
+    const selectedVariationString = `[1-1]#${variation.id}[${variation.minQuantity}-${
+      variation.maxQuantity
+    }][1]`
+    const extraVariationsString = extraVariations
+      .map(item => {
+        return `[${item.minTotalItems}-${item.maxTotalItems}]#${item.variation.id}[${
+          item.variation.minQuantity
+        }-${item.variation.maxQuantity}][${item.quantity}]`
+      })
+      .join(';')
+    const compositionVariationsString = compositionVariations.variations
+      .map(item => {
+        return `[${compositionVariations.maxTotalItems}-${compositionVariations.minTotalItems}]#${
+          item.id
+        }[${item.minQuantity}-${item.maxQuantity}][${item.defaultQuantity}]`
+      })
+      .join(';')
 
     return {
       selectedVariationString,
@@ -160,10 +165,10 @@ class ProductCustomizer extends Component {
   }
 
   /**
-  * handleOpenModal
-  * Show the ingredients selection.
-  * @return void
-  */
+   * handleOpenModal
+   * Show the ingredients selection.
+   * @return void
+   */
   handleOpenModal = () => {
     this.setState({ isModalOpen: true })
   }
@@ -376,6 +381,8 @@ class ProductCustomizer extends Component {
       productQuery: { loading, product },
     } = this.props
 
+    if (loading) return <Spinner />
+
     const {
       total,
       isModalOpen,
@@ -385,17 +392,14 @@ class ProductCustomizer extends Component {
       optionalVariations,
       compositionVariations,
     } = this.state
-
-    let requiredVariations = []
+    
+    
     const isVariationSelected = !!selectedVariation
+    const requiredVariations = product.items.map(sku => {
+      return this.parseAttachments('required', sku)
+    })
 
-    if (!loading) {
-      requiredVariations = product.items.map(sku => {
-        return this.parseAttachments('required', sku)
-      })
-    }
-
-    return !loading ? (
+    return (
       <div className="vtex-product-customizer relative flex-ns h-100-ns">
         <h1 className="vtex-product-customizer__title tc f4 fw5 ma0 pa5 w-100 bg-black-40 white dn-ns">
           {product.productName}
@@ -455,7 +459,7 @@ class ProductCustomizer extends Component {
           </div>
         </div>
       </div>
-    ) : null
+    )
   }
 }
 

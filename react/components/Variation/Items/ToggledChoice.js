@@ -52,6 +52,7 @@ class ToggledChoice extends Component {
           </div>
         </div>
         <Checkbox
+          name={index}
           disabled={item.minQuantity === '1' && item.defaultQuantity === '1'}
           checked={!!chosenAmount[index]}
           onChange={this.handleChosenAmount}

@@ -23,7 +23,7 @@ class IngredientsContent extends Component {
     optionalVariations: PropTypes.object,
     /* Composition of Product */
     compositionVariations: PropTypes.object,
-    onVariationChangeBasic: PropTypes.func
+    onVariationChangeBasic: PropTypes.func,
   }
 
   render() {
@@ -65,15 +65,14 @@ class IngredientsContent extends Component {
             <ul className="ma0 pa0">
               {compositionVariations.variations.map((ingredient, key) => (
                 <li key={key} className="flex justify-between items-center pv4 bb b--light-gray">
-                  <div className="flex">
-                    <img src={ingredient.image} width="48" className="br3 h-100" />
-                    <div className="pa5">
-                      <h4 className="ma0">{ingredient.name}</h4>
-                    </div>
-                  </div>
-                  {!(ingredient.minQuantity === '1' && ingredient.defaultQuantity === '1') && (
-                    <span>x</span>
-                  )}
+                  <ToggledChoice
+                    item={ingredient}
+                    minTotalItems={compositionVariations.minTotalItems}
+                    maxTotalItems={compositionVariations.maxTotalItems}
+                    index={ingredient.name}
+                    chosenAmount={chosenAmountBasic}
+                    onVariationChange={onVariationChangeBasic}
+                  />
                 </li>
               ))}
             </ul>
@@ -86,16 +85,20 @@ class IngredientsContent extends Component {
               {optionalVariations.variations.map((ingredient, key) => (
                 <li
                   key={key}
-                  className={`flex justify-between items-center pv4 ${
-                    key !== optionalVariations.variations.length - 1 ? 'bb b--light-gray' : ''
-                  }`}
+                  className={classnames(
+                    ['flex', 'justify-between', 'items-center', 'pv4'],
+                    {
+                      ['bb b--light-gray']:
+                        key !== optionalVariations.variations.length - 1,
+                    }
+                  )}
                 >
                   <MultipleChoice
                     item={ingredient}
                     minTotalItems={optionalVariations.minTotalItems}
                     maxTotalItems={optionalVariations.maxTotalItems}
                     index={ingredient.name}
-                    choosedAmount={choosedAmount}
+                    chosenAmount={chosenAmount}
                     onVariationChange={onVariationChange}
                   />
                 </li>
