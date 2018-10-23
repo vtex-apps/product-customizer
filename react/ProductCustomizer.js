@@ -12,7 +12,6 @@ import SkuGroupList from './components/SkuGroupList'
 import AddToCart from './components/Buttons/AddToCart'
 import ChangeToppings from './components/Buttons/ChangeToppings'
 import IngredientsContent from './components/IngredientsContent'
-import ProductCustomizerService from './utils/ProductCustomizerService'
 
 class ProductCustomizer extends Component {
   static propTypes = {
@@ -43,19 +42,17 @@ class ProductCustomizer extends Component {
    * @return object
    */
   parseAttachments = (type, sku) => {
-    const service = new ProductCustomizerService(
-      JSON.parse(sku.calculatedAttachments)
-    )
+    const schema = JSON.parse(sku.calculatedAttachments)
 
     if (type === 'required') {
       return {
         ...sku,
-        variations: service.parseRequiredVariations(),
+        variations: this.parseRequiredVariations(schema),
       }
     }
 
     if (type === 'composition') {
-      const composition = service.getBasicCompositionBySku()
+      const composition = this.getBasicCompositionBySku(schema)
 
       return {
         minTotalItems: composition.minTotalItems,
@@ -64,7 +61,7 @@ class ProductCustomizer extends Component {
       }
     }
 
-    const optionals = service.parseOptionalVariations()
+    const optionals = this.parseOptionalVariations(schema)
 
     return {
       skuId: sku.itemId,
@@ -75,11 +72,101 @@ class ProductCustomizer extends Component {
   }
 
   /**
-   * handleOpenModal
-   * Show the ingredients selection.
-   * @return void
-   */
-  handleOpenModal = () => this.setState({ isModalOpen: true })
+  * parseToppingsProperties
+  * Fetch an array of optional variations.
+  * @param object schema
+  * @return array
+  */
+  parseOptionalVariations = schema => {
+    const items = schema.items
+    const properties = schema.properties
+
+    return Object.keys(properties).filter(property => {
+      return properties[property].type === 'array'
+    }).reduce((accumulator, property) => {
+      return {
+        minTotalItems: properties[property].minTotalItems,
+        maxTotalItems: properties[property].maxTotalItems,
+        variations: items[property],
+      }
+    }, [])
+  }
+
+  /**
+  * parseRequiredVariations
+  * Fetch an array of required variations.
+  * @param object schema
+  * @return array
+  */
+  parseRequiredVariations = schema => {
+    const items = schema.items
+    const properties = schema.properties
+
+    return Object.keys(properties).filter(property => {
+      return properties[property].type === 'string'
+    }).reduce((accumulator, property) => {
+      return items[property]
+    }, [])
+  }
+
+  /**
+  * getBasicCompositionBySku
+  * Fetch an array of required variations.
+  * @param object schema
+  * @return array
+  */
+  getBasicCompositionBySku = schema => {
+    const items = schema.items
+    const properties = schema.properties
+
+    return Object.keys(properties).filter(property => {
+      return properties[property].type === 'array' && properties[property].minTotalItems === '1'
+    }).reduce((accumulator, property) => {
+      return {
+        minTotalItems: properties[property].minTotalItems,
+        maxTotalItems: properties[property].maxTotalItems,
+        variations: items[property],
+      }
+    }, [])
+  }
+
+  /**
+  * createAttachmentStringBySelections
+  * Create the attachments string to inject in Order Form.
+  * @return object
+  */
+  createAttachmentStringBySelections = state => {
+    const {
+      extraVariations,
+      selectedVariation: {
+        variation,
+      },
+      compositionVariations,
+    } = state
+
+    const selectedVariationString = `[1-1]#${variation.id}[${variation.minQuantity}-${variation.maxQuantity}][1]`
+    const extraVariationsString = extraVariations.map(item => {
+      return `[${item.minTotalItems}-${item.maxTotalItems}]#${item.variation.id}[${item.variation.minQuantity}-${item.variation.maxQuantity}][${item.quantity}]`
+    }).join(';')
+    const compositionVariationsString = compositionVariations.variations.map(item => {
+      return `[${compositionVariations.maxTotalItems}-${compositionVariations.minTotalItems}]#${item.id}[${item.minQuantity}-${item.maxQuantity}][${item.defaultQuantity}]`
+    }).join(';')
+
+    return {
+      selectedVariationString,
+      extraVariationsString,
+      compositionVariationsString,
+    }
+  }
+
+  /**
+  * handleOpenModal
+  * Show the ingredients selection.
+  * @return void
+  */
+  handleOpenModal = () => {
+    this.setState({ isModalOpen: true })
+  }
 
   /**
    * handleCloseModal
@@ -262,29 +349,21 @@ class ProductCustomizer extends Component {
    * @return void
    */
   handleOnSubmitForm = e => {
+    // TO-DO: Insert strings into a OrderForm
     e.preventDefault()
 
     const { orderFormContext } = this.props
 
     const { selectedVariation } = this.state
 
-    const service = new ProductCustomizerService()
-    const attachmentsStringsObject = service.createAttachmentStringBySelections(
-      this.state
-    )
-
-    console.log(
-      'TO-DO: Insert these strings into an OrderForm',
-      attachmentsStringsObject
-    )
-
-    orderFormContext
-      .addItem({
-        variables: {
-          orderFormId: orderFormContext.orderForm.orderFormId,
-          items: [{ id: selectedVariation.skuId, quantity: 1, seller: 1 }],
-        },
-      })
+    orderFormContext.addItem({
+      variables: {
+        orderFormId: orderFormContext.orderForm.orderFormId,
+        items: [
+          { id: selectedVariation.skuId, quantity: 1, seller: 1 },
+        ],
+      },
+    })
       .then(() => {
         orderFormContext.refetch()
         this.handleCloseModal()
