@@ -3,6 +3,8 @@ import React, { Component } from 'react'
 import { FormattedMessage } from 'react-intl'
 import { Modal, Spinner } from 'vtex.styleguide'
 import { orderFormConsumer, contextPropTypes } from 'vtex.store/OrderFormContext'
+import { compose } from 'react-apollo'
+import { withRuntimeContext } from 'render'
 
 import './global.css'
 import SkuGroupList from './components/SkuGroupList'
@@ -18,9 +20,18 @@ class ProductCustomizer extends Component {
     orderFormContext: contextPropTypes,
     /* Product data with calculated attachments */
     productQuery: PropTypes.object.isRequired,
+    /* IO Render Runtime */
+    runtime: PropTypes.shape({
+      /* Navigates to an existing path */
+      navigate: PropTypes.func,
+      /* Pages to get the redirect path from */
+      pages: PropTypes.object, // Can't describe with Shape an object with dynamic keys
+    }),
+    /* Page from pages builder that is redirected after adding to cart */
+    pageToRedirect: PropTypes.string.isRequired,
   }
 
-  static defaultProps = { canChangeToppings: true }
+  static defaultProps = { canChangeToppings: true, pageToRedirect: 'store/order' }
 
   state = {
     total: 0,
@@ -29,6 +40,7 @@ class ProductCustomizer extends Component {
     isModalOpen: false,
     extraVariations: [],
     isOpenChangeIngredients: false,
+    isAddingToCart: false,
   }
 
   /**
@@ -78,12 +90,14 @@ class ProductCustomizer extends Component {
     const items = schema.items
     const properties = schema.properties
 
-    return Object.keys(properties).filter(property => {
-      return properties[property].type === 'array'
-    }).reduce((accumulator, property) => {
-      return {
-        minTotalItems: properties[property].minTotalItems,
-        maxTotalItems: properties[property].maxTotalItems,
+    return Object.keys(properties)
+      .filter(property => {
+        return properties[property].type === 'array'
+      })
+      .reduce((accumulator, property) => {
+        return {
+          minTotalItems: properties[property].minTotalItems,
+          maxTotalItems: properties[property].maxTotalItems,
           variations: items[property],
         }
       }, [])
@@ -99,11 +113,13 @@ class ProductCustomizer extends Component {
     const items = schema.items
     const properties = schema.properties
 
-    return Object.keys(properties).filter(property => {
-      return properties[property].type === 'string'
-    }).reduce((accumulator, property) => {
-      return items[property]
-    }, [])
+    return Object.keys(properties)
+      .filter(property => {
+        return properties[property].type === 'string'
+      })
+      .reduce((accumulator, property) => {
+        return items[property]
+      }, [])
   }
 
   /**
@@ -116,12 +132,14 @@ class ProductCustomizer extends Component {
     const items = schema.items
     const properties = schema.properties
 
-    return Object.keys(properties).filter(property => {
-      return properties[property].type === 'array' && properties[property].minTotalItems === '1'
-    }).reduce((accumulator, property) => {
-      return {
-        minTotalItems: properties[property].minTotalItems,
-        maxTotalItems: properties[property].maxTotalItems,
+    return Object.keys(properties)
+      .filter(property => {
+        return properties[property].type === 'array' && properties[property].minTotalItems === '1'
+      })
+      .reduce((accumulator, property) => {
+        return {
+          minTotalItems: properties[property].minTotalItems,
+          maxTotalItems: properties[property].maxTotalItems,
           variations: items[property],
         }
       }, [])
@@ -357,21 +375,24 @@ class ProductCustomizer extends Component {
     // TO-DO: Insert strings into a OrderForm
     e.preventDefault()
 
-    const { orderFormContext } = this.props
-
+    const { orderFormContext, runtime, pageToRedirect } = this.props
     const { selectedVariation } = this.state
 
-    orderFormContext.addItem({
-      variables: {
-        orderFormId: orderFormContext.orderForm.orderFormId,
-        items: [
-          { id: selectedVariation.skuId, quantity: 1, seller: 1 },
-        ],
-      },
-    })
+    this.setState({ isAddingToCart: true })
+    orderFormContext
+      .addItem({
+        variables: {
+          orderFormId: orderFormContext.orderForm.orderFormId,
+          items: [{ id: selectedVariation.skuId, quantity: 1, seller: 1 }],
+        },
+      })
       .then(() => {
+        this.setState({ isAddingToCart: false })
         orderFormContext.refetch()
-        this.handleCloseModal()
+        runtime.navigate({
+          fallbackToWindowLocation: false,
+          to: runtime.pages[pageToRedirect].path,
+        })
       })
   }
 
@@ -391,9 +412,9 @@ class ProductCustomizer extends Component {
       selectedVariation,
       optionalVariations,
       compositionVariations,
+      isAddingToCart
     } = this.state
-    
-    
+
     const isVariationSelected = !!selectedVariation
     const requiredVariations = product.items.map(sku => {
       return this.parseAttachments('required', sku)
@@ -454,6 +475,7 @@ class ProductCustomizer extends Component {
             <AddToCart
               onSubmit={this.handleOnSubmitForm}
               isVariationSelected={isVariationSelected}
+              isLoading={isAddingToCart}
               total={total}
             />
           </div>
@@ -463,4 +485,7 @@ class ProductCustomizer extends Component {
   }
 }
 
-export default orderFormConsumer(ProductCustomizer)
+export default compose(
+  orderFormConsumer,
+  withRuntimeContext
+)(ProductCustomizer)
