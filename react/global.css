@@ -1,51 +1,45 @@
-@media screen and (max-width: 40em) {
-  .vtex-modal__overlay {
-    align-items: stretch !important;
-  }
-
-  .vtex-modal__modal {
-    border-radius: 0;
-  }
-
-  .vtex-modal__close-icon {
-    z-index: 10;
-  }
-}
-
 @media screen and (min-width: 40em) {
   .vtex-product-customizer__options {
     background-color: transparent;
   }
-
-  .vtex-product-customizer__skus .sku-title:after {
-    -ms-flex: 1;
-    -webkit-box-flex: 1;
-    -webkit-flex: 1;
-    border-width: 1px;
-    content: "";
-    flex: 1;
-    height: 1px;
-    margin-left: 10px;
-    position: relative;
-    top: 2px;
-  }
-
-  .vtex-modal__modal {
-    top: 40px;
-  }
 }
 
-.vtex-modal__modal,
-.vtex-modal__overlay {
-  padding: 0 !important;
+.vtex-product-customizer {
+  padding-bottom: 140px;
 }
 
-.vtex-modal__overlay {
-  background: rgba(0, 0, 0, 0.9) !important;
+.vtex-product-customizer__actions .vtex-button {
+  width: 100%;
 }
 
-.vtex-modal__modal {
-  height: 100%;
-  overflow: auto;
-  max-height: 800px;
+.vtex-product-customizer__actions .actions--change-toppings .vtex-button {
+  padding: 0;
+  text-align: left;
+}
+
+.vtex-product-customizer__single-choice .single-choice__image-container {
+  color: #1346d8;
+  max-width: 72px;
+  position: relative;
+}
+
+.single-choice__description {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 200px;
+  overflow: hidden;
+}
+
+.vtex-product-customizer__single-choice.selected .single-choice__image-container .single-choice__icon-container {
+  display: block;
+}
+
+.vtex-product-customizer__single-choice.selected .single-choice__image-container .vtex__icon-success {
+  right: 5px;
+  bottom: 10px;
+  position: absolute;
+}
+
+.vtex-product-customizer__single-choice.selected .single-choice__image-container img {
+  width: 100%;
 }
