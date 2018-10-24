@@ -22,7 +22,9 @@ class AddToCart extends Component {
       onSubmit,
     } = this.props
 
-    return isVariationSelected && (
+    if (!isVariationSelected) return null
+
+    return (
       <div className={`actions--add-to-cart tc pa5 ${isModalOpen ? 'fixed w-100 bg-white z-999 bottom-0 bt b--light-gray' : ''}`}>
         <Button type="submit" onClick={onSubmit} block>
           <FormattedMessage id="product-customizer.add-to-cart" />
