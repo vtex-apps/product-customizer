@@ -9,6 +9,9 @@
   "registries": [
     "smartcheckout"
   ],
+  "scripts": {
+    "postreleasy": "vtex publish --verbose"
+  },
   "settingsSchema": {},
   "dependencies": {
     "vtex.store": "1.x",
