@@ -379,6 +379,7 @@ class ProductCustomizer extends Component {
       .then(() => {
         this.setState({ isAddingToCart: false })
         orderFormContext.refetch().then(() => minicartButton.click())
+        this.handleCloseModal()
       })
   }
 
