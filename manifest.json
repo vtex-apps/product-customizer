@@ -13,7 +13,8 @@
   "dependencies": {
     "vtex.store": "1.x",
     "vtex.styleguide": "7.x",
-    "vtex.store-components": "2.x"
+    "vtex.store-components": "2.x",
+    "vtex.product-details": "0.x"
   },
   "builders": {
     "pages": "0.x",
