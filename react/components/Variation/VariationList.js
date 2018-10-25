@@ -51,7 +51,7 @@ class VariationList extends Component {
           item={item}
           index={index}
           skuId={skuId}
-          selected={selected === index}
+          selected={selected.parent === skuId && selected.child === item.id}
           onSelectItem={onSelectItem}
           onVariationChange={this.handleSingleChoiceChange}
         />
