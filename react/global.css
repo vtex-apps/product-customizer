@@ -72,8 +72,3 @@ div.vtex-modal__overlay {
 .multiple-choice__price .vtex-price-selling {
   padding: 0;
 }
-
-.vtex-product-customizer__change-ingredients {
-  top: -2rem;
-  position: relative;
-}
