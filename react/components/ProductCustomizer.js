@@ -426,7 +426,7 @@ class ProductCustomizer extends Component {
           <div className="pb5-ns pt0-ns ph5-ns  ph5 pb5 bb b--light-gray">
             <p className="ma0 fw3">{product.description}</p>
           </div>
-          <div className="vtex-product-customizer__options bg-light-gray bg-transparent-ns overflow-auto">
+          <div className="vtex-product-customizer__options bg-light-gray bg-transparent-ns overflow-auto pb10">
             <h4 className="ma0 pv3 ph5">
               <FormattedMessage id="product-customizer.select-variation" />
             </h4>
