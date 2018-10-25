@@ -79,14 +79,17 @@ class ProductCustomizer extends Component {
     const items = schema.items
     const properties = schema.properties
 
-    return Object.keys(properties)
-      .filter(property => {
-        return properties[property].type === 'array'
-      })
-      .reduce((accumulator, property) => {
-        return {
-          minTotalItems: properties[property].minTotalItems,
-          maxTotalItems: properties[property].maxTotalItems,
+    const optionalVariations = Object.keys(properties).filter(
+      property =>
+        properties[property].type === 'array' && properties[property].minTotalItems === '0'
+    )
+
+    if (!optionalVariations.length) return {}
+
+    return optionalVariations.reduce((accumulator, property) => {
+      return {
+        minTotalItems: properties[property].minTotalItems,
+        maxTotalItems: properties[property].maxTotalItems,
           variations: items[property],
         }
       }, [])
@@ -217,8 +220,9 @@ class ProductCustomizer extends Component {
     const compositionVariations = this.parseAttachments('composition', sku)
 
     this.createBooleanIndexesStates(compositionVariations.variations)
-    this.createNumericStepperIndexesStates(optionalVariations.variations)
-    this.setState({ optionalVariations })
+    if (optionalVariations.variations)
+      this.createNumericStepperIndexesStates(optionalVariations.variations)
+    if (optionalVariations.variations) this.setState({ optionalVariations })
     this.setState({ compositionVariations })
   }
 

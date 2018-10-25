@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { FormattedMessage } from 'react-intl'
 import classnames from 'classnames'
@@ -33,8 +33,8 @@ class IngredientsContent extends Component {
       currentVariation,
       onVariationChange,
       onVariationChangeBasic,
-      optionalVariations,
-      compositionVariations,
+      optionalVariations = { variations: [] },
+      compositionVariations = { variations: [] },
     } = this.props
 
     if (!currentVariation) return null
@@ -55,9 +55,11 @@ class IngredientsContent extends Component {
             </div>
           </div>
 
-          <legend className="bg-near-white w-100 ph2 pv4 mb4">
-            <FormattedMessage id="product-customizer.select-your-ingredients" />
-          </legend>
+          {compositionVariations.variations.length > 0 && (
+            <Fragment>
+              <legend className="bg-near-white w-100 ph2 pv4 mb4">
+                <FormattedMessage id="product-customizer.select-your-ingredients" />
+              </legend>
           <div className="change-ingredients--selected-ingredients ph2 mb5">
             <p className="pv3 bb b--light-gray ttu ma0 f7 b near-black">
               <FormattedMessage id="product-customizer.selected-ingredients" />
@@ -74,12 +76,15 @@ class IngredientsContent extends Component {
                     onVariationChange={onVariationChangeBasic}
                   />
                 </li>
-              ))}
-            </ul>
-          </div>
-          <div className="change-ingredients--extra-ingredients ph2 mb5">
-            <p className="pv3 bb b--light-gray ttu ma0 f7 b near-black">
-              <FormattedMessage id="product-customizer.extra-ingredients" />
+                  ))}
+                </ul>
+              </div>
+            </Fragment>
+          )}
+          {optionalVariations.variations.length > 0 && (
+            <div className="change-ingredients--extra-ingredients ph2 mb5">
+              <p className="pv3 bb b--light-gray ttu ma0 f7 b near-black">
+                <FormattedMessage id="product-customizer.extra-ingredients" />
             </p>
             <ul className="ma0 pa0">
               {optionalVariations.variations.map((ingredient, key) => (
@@ -102,9 +107,10 @@ class IngredientsContent extends Component {
                     onVariationChange={onVariationChange}
                   />
                 </li>
-              ))}
-            </ul>
-          </div>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
       </div>
     )
