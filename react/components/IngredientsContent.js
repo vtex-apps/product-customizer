@@ -40,25 +40,25 @@ class IngredientsContent extends Component {
     if (!currentVariation) return null
 
     return (
-      <div className="vtex-product-customizer__change-ingredients pb10">
+      <div className="vtex-product-customizer__change-ingredients pb5">
         <h3 className="b--light-gray bb bw1 pa5 ma0 b near-black">
           <FormattedMessage id="product-customizer.change-ingredients" />
         </h3>
         <div className="change-ingredients--selected-variation">
-          <legend className="bg-near-white w-100 ph5 pv4">
+          <legend className="bg-near-white w-100 ph2 pv4">
             <FormattedMessage id="product-customizer.your-variation" />
           </legend>
-          <div className="flex items-center pa5">
+          <div className="flex items-center pa2">
             <img src={currentVariation.variation.image} width="48" className="br3 h-100" />
-            <div className="pa5">
+            <div className="pa2">
               <h4 className="ma0">{currentVariation.variation.name}</h4>
             </div>
           </div>
 
-          <legend className="bg-near-white w-100 ph5 pv4 mb4">
+          <legend className="bg-near-white w-100 ph2 pv4 mb4">
             <FormattedMessage id="product-customizer.select-your-ingredients" />
           </legend>
-          <div className="change-ingredients--selected-ingredients ph5 mb5">
+          <div className="change-ingredients--selected-ingredients ph2 mb5">
             <p className="pv3 bb b--light-gray ttu ma0 f7 b near-black">
               <FormattedMessage id="product-customizer.selected-ingredients" />
             </p>
@@ -77,7 +77,7 @@ class IngredientsContent extends Component {
               ))}
             </ul>
           </div>
-          <div className="change-ingredients--extra-ingredients ph5 mb5">
+          <div className="change-ingredients--extra-ingredients ph2 mb5">
             <p className="pv3 bb b--light-gray ttu ma0 f7 b near-black">
               <FormattedMessage id="product-customizer.extra-ingredients" />
             </p>

@@ -30,7 +30,7 @@ class AddToCart extends Component {
     if (!isVariationSelected) return null
 
     return (
-      <div className={`actions--add-to-cart tc pa5 ${isModalOpen ? 'fixed w-100 bg-white z-999 bottom-0 bt b--light-gray' : ''}`}>
+      <div className={`actions--add-to-cart tc pa5 ${isModalOpen ? 'w-100 left-0 bg-white z-4 bottom-0 bt b--light-gray' : ''}`}>
         <Button type="submit" onClick={onSubmit} isLoading={isLoading} block>
           <FormattedMessage id="product-customizer.add-to-cart" />
           <ProductPrice
