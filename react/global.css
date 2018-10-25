@@ -64,11 +64,18 @@ div.vtex-modal__overlay {
 
 /* Quantity selector */
 .multiple-choice__actions input {
+  border-width: 0;
   width: 2.5rem;
 }
 .multiple-choice__actions button {
-  width: 1.75rem !important; /* inline styles so important is needed */
+  border-width: 0;
+  font-size: 1.25rem;
+  width: 2rem !important; /* inline styles so important is needed */
 }
+.multiple-choice__actions button[disabled] {
+  visibility: hidden;
+}
+
 .multiple-choice__price .vtex-price-selling {
   padding: 0;
 }
