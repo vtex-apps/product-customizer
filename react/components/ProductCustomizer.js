@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { FormattedMessage } from 'react-intl'
-import { Modal, Spinner } from 'vtex.styleguide'
+import { Spinner } from 'vtex.styleguide'
 import { orderFormConsumer, contextPropTypes } from 'vtex.store/OrderFormContext'
 
 import '../global.css'
@@ -23,10 +23,8 @@ class ProductCustomizer extends Component {
   static defaultProps = { canChangeToppings: true }
 
   state = {
-    total: 0,
     chosenAmount: {},
     chosenAmountBasic: {},
-    isModalOpen: false,
     extraVariations: [],
     isOpenChangeIngredients: false,
     isAddingToCart: false,
@@ -172,54 +170,34 @@ class ProductCustomizer extends Component {
   }
 
   /**
-   * handleOpenModal
-   * Show the ingredients selection.
-   * @return void
-   */
-  handleOpenModal = () => {
-    this.setState({ isModalOpen: true })
-  }
-
-  /**
-   * handleCloseModal
-   * Close the ingredients selection.
-   * @return void
-   */
-  handleCloseModal = () => this.setState({ isModalOpen: false })
-
-  /**
    * handleVariationChange
-   * Call optional variations parser and calculates the total.
+   * Call optional variations parser.
    * @param object variationObject
    * @return void
    */
   handleVariationChange = async variationObject => {
-    await this.handleSelectedVariation(variationObject)
-    this.handleParseOptionalVariationsBySkuId(variationObject.skuId)
-    this.calculateTotalFromSelectedVariation()
-  }
+    const { productQuery: { product } } = this.props
+    const sku = product.items.find(sku => sku.itemId === variationObject.skuId)
 
-  /**
-   * handleParseOptionalVariationsBySkuId
-   * Create the index state of numeric stepper.
-   * @param string skuId
-   * @return void
-   */
-  handleParseOptionalVariationsBySkuId = skuId => {
-    const {
-      productQuery: { product },
-    } = this.props
-
-    const sku = product.items.find(sku => {
-      return sku.itemId === skuId
-    })
     const optionalVariations = this.parseAttachments('optionals', sku)
     const compositionVariations = this.parseAttachments('composition', sku)
 
-    this.createBooleanIndexesStates(compositionVariations.variations)
-    this.createNumericStepperIndexesStates(optionalVariations.variations)
-    this.setState({ optionalVariations })
-    this.setState({ compositionVariations })
+    const chosenAmountBasic = this.createBooleanIndexesStates(compositionVariations.variations)
+    const chosenAmount = this.createNumericStepperIndexesStates(optionalVariations.variations)
+
+    this.setState({
+      optionalVariations,
+      compositionVariations,
+      chosenAmount,
+      chosenAmountBasic,
+      extraVariations: [],
+      basicVariations: [],
+      selectedVariation: {
+        skuId: variationObject.skuId,
+        variation: variationObject.variation,
+        quantity: variationObject.quantity,
+      },
+    })
   }
 
   /**
@@ -229,21 +207,23 @@ class ProductCustomizer extends Component {
    * @return void
    */
   createNumericStepperIndexesStates = items => {
-    const chosenAmount = {}
-
-    items.forEach(item => {
-      chosenAmount[item.name] = 0
-    })
-
-    this.setState({ chosenAmount })
+    return items.reduce(
+      (acc, item) => ({ ...acc, [item.name]: 0 }),
+      {}
+    )
   }
 
+  /**
+   * createBooleanIndexesStates
+   * Create the initial value for binary ingredients.
+   * @param array items
+   * @return void
+   */
   createBooleanIndexesStates = items => {
-    const chosenAmountBasic = items.reduce(
+    return items.reduce(
       (acc, item) => ({ ...acc, [item.name]: Number(item.defaultQuantity) }),
       {}
     )
-    this.setState({ chosenAmountBasic })
   }
 
   /**
@@ -309,9 +289,7 @@ class ProductCustomizer extends Component {
       }
     }
 
-    this.setState({ extraVariations: currentExtraVariations }, () => {
-      this.calculateTotalFromSelectedVariation()
-    })
+    this.setState({ extraVariations: currentExtraVariations })
   }
 
   handleSelectedBasicVariations = variationObject => {
@@ -332,7 +310,7 @@ class ProductCustomizer extends Component {
       }
     }
 
-    this.setState({ basicVariations }, this.calculateTotalFromSelectedVariation)
+    this.setState({ basicVariations })
   }
 
   /**
@@ -343,16 +321,21 @@ class ProductCustomizer extends Component {
   calculateTotalFromSelectedVariation = () => {
     const {
       extraVariations,
-      selectedVariation: { quantity, variation },
+      selectedVariation
     } = this.state
 
-    const totalVariation = (variation.price / 100) * quantity
+    let totalVariation = 0
+    if (selectedVariation != null) {
+      const {quantity, variation} = selectedVariation
+      totalVariation = (variation.price / 100) * quantity
+    }
+
     const totalExtraVariations = extraVariations.reduce((accumulator, item) => {
       const parsedPrice = parseFloat(item.variation.price / 100).toFixed(2)
       return accumulator + parsedPrice * item.quantity
     }, 0)
 
-    this.setState({ total: totalVariation + totalExtraVariations })
+    return totalVariation + totalExtraVariations
   }
 
   /**
@@ -379,30 +362,25 @@ class ProductCustomizer extends Component {
       .then(() => {
         this.setState({ isAddingToCart: false })
         orderFormContext.refetch().then(() => minicartButton.click())
-        this.handleCloseModal()
       })
   }
 
   render() {
-    const {
-      canChangeToppings,
-      productQuery: { loading, product },
-    } = this.props
-
+    const { productQuery: { loading, product } } = this.props
     if (loading) return <Spinner />
 
     const {
-      total,
-      isModalOpen,
       chosenAmount,
       chosenAmountBasic,
-      selectedVariation,
+      selectedVariation: currentVariation,
       optionalVariations,
       compositionVariations,
       isAddingToCart
     } = this.state
 
-    const isVariationSelected = !!selectedVariation
+    const total = this.calculateTotalFromSelectedVariation()
+
+    const isVariationSelected = !!currentVariation
     const requiredVariations = product.items.map(sku => {
       return this.parseAttachments('required', sku)
     })
@@ -434,31 +412,19 @@ class ProductCustomizer extends Component {
               skus={requiredVariations}
               onVariationChange={this.handleVariationChange}
             />
-          </div>
-          <Modal isOpen={isModalOpen} onClose={this.handleCloseModal}>
             <IngredientsContent
-              chosenAmount={chosenAmount}
-              chosenAmountBasic={chosenAmountBasic}
-              currentVariation={selectedVariation}
-              optionalVariations={optionalVariations}
-              onClose={this.handleCloseChangeIngredients}
-              compositionVariations={compositionVariations}
-              onVariationChange={this.handleSelectedExtraVariations}
-              onVariationChangeBasic={this.handleSelectedBasicVariations}
-            />
-            <AddToCart
-              onSubmit={this.handleOnSubmitForm}
-              isVariationSelected={isVariationSelected}
-              total={total}
-              isModalOpen={isModalOpen}
-            />
-          </Modal>
+              {...{
+                currentVariation,
+                chosenAmount,
+                chosenAmountBasic,
+                optionalVariations,
+                compositionVariations,
+                onClose: this.handleCloseChangeIngredients,
+                onVariationChange: this.handleSelectedExtraVariations,
+                onVariationChangeBasic: this.handleSelectedBasicVariations
+              }} />
+          </div>
           <div className="vtex-product-customizer__actions fixed bg-white bottom-0 left-0 right-0 bt b--light-gray">
-            <ChangeToppings
-              isVariationSelected={isVariationSelected}
-              canChangeToppings={!isModalOpen && canChangeToppings}
-              onClick={this.handleOpenModal}
-            />
             <AddToCart
               onSubmit={this.handleOnSubmitForm}
               isVariationSelected={isVariationSelected}
