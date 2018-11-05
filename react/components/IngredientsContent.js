@@ -52,9 +52,9 @@ class IngredientsContent extends Component {
             <p className="pv3 bb b--light-gray ttu ma0 f7 b near-black">
               <FormattedMessage id="product-customizer.selected-ingredients" />
             </p>
-            <ul className="ma0 pa0">
+            <ul className="ma0 pa0 list">
               {compositionVariations.variations.map((ingredient, key) => (
-                <li key={key} className="flex justify-between items-center pv4 bb b--light-gray">
+                <li key={key}>
                   <ToggledChoice
                     item={ingredient}
                     minTotalItems={compositionVariations.minTotalItems}
