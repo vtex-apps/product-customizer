@@ -177,7 +177,8 @@ class ProductCustomizer extends Component {
    */
   handleVariationChange = async variationObject => {
     const { productQuery: { product } } = this.props
-    const variationSku = variation && variationObject.skuId
+    const variationSku = variationObject && variationObject.skuId
+
     const sku = product.items.find(sku => sku.itemId === variationSku)
 
     // TODO: add proper error message to handle null variationObject and sku
