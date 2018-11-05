@@ -58,7 +58,7 @@ class SingleChoice extends Component {
                 value={item.id}
                 onChange={this.handleVariationChange}
               />
-              <img className={`single-choice_image-thumb br3 ${selected ? 'ba b--action-primary' : ''}`} src={item.image} />
+              <img className={`single-choice_image-thumb br3 ba ${selected ? 'b--action-primary' : 'b--transparent'}`} src={item.image} />
               <div className="single-choice__icon-container dn">
                 <SuccessIcon size={16} />
               </div>
