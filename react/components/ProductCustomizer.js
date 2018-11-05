@@ -215,6 +215,12 @@ class ProductCustomizer extends Component {
     this.scrollIntoView(this.ingredientsContentAnchor.current)
   }
 
+  /**
+   * scrollIntoView
+   * Smoothly scrolls the element into view, aligned to the top of the window
+   * @param element element
+   * @return void
+   */
   scrollIntoView = element => {
     setTimeout(() => {
       element.scrollIntoView({
