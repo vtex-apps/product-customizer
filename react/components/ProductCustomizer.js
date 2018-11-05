@@ -96,17 +96,8 @@ class ProductCustomizer extends Component {
    * @param object schema
    * @return array
    */
-  parseRequiredVariations = schema => {
-    const items = schema.items
-    const properties = schema.properties
-
-    return Object.keys(properties)
-      .filter(property => {
-        return properties[property].type === 'string'
-      })
-      .reduce((accumulator, property) => {
-        return items[property]
-      }, [])
+  parseRequiredVariations = ({ items, required }) => {
+    return items[required[0]]
   }
 
   /**
@@ -176,13 +167,17 @@ class ProductCustomizer extends Component {
    * @return void
    */
   handleVariationChange = async variationObject => {
-    const { productQuery: { product } } = this.props
+    const {
+      productQuery: { product },
+    } = this.props
     const variationSku = variation && variationObject.skuId
     const sku = product.items.find(sku => sku.itemId === variationSku)
 
     // TODO: add proper error message to handle null variationObject and sku
-    const optionalVariations = sku ? this.parseAttachments('optionals', sku) : {variations : []}
-    const compositionVariations = sku ? this.parseAttachments('composition', sku) : {variations : []}
+    const optionalVariations = sku ? this.parseAttachments('optionals', sku) : { variations: [] }
+    const compositionVariations = sku
+      ? this.parseAttachments('composition', sku)
+      : { variations: [] }
 
     const chosenAmountBasic = this.createBooleanIndexesStates(compositionVariations.variations)
     const chosenAmount = this.createNumericStepperIndexesStates(optionalVariations.variations)
@@ -209,10 +204,7 @@ class ProductCustomizer extends Component {
    * @return void
    */
   createNumericStepperIndexesStates = items => {
-    return items.reduce(
-      (acc, item) => ({ ...acc, [item.name]: 0 }),
-      {}
-    )
+    return items.reduce((acc, item) => ({ ...acc, [item.name]: 0 }), {})
   }
 
   /**
@@ -222,10 +214,7 @@ class ProductCustomizer extends Component {
    * @return void
    */
   createBooleanIndexesStates = items => {
-    return items.reduce(
-      (acc, item) => ({ ...acc, [item.name]: Number(item.defaultQuantity) }),
-      {}
-    )
+    return items.reduce((acc, item) => ({ ...acc, [item.name]: Number(item.defaultQuantity) }), {})
   }
 
   /**
@@ -321,14 +310,11 @@ class ProductCustomizer extends Component {
    * @return void
    */
   calculateTotalFromSelectedVariation = () => {
-    const {
-      extraVariations,
-      selectedVariation
-    } = this.state
+    const { extraVariations, selectedVariation } = this.state
 
     let totalVariation = 0
     if (selectedVariation != null) {
-      const {quantity, variation} = selectedVariation
+      const { quantity, variation } = selectedVariation
       totalVariation = (variation.price / 100) * quantity
     }
 
@@ -368,7 +354,9 @@ class ProductCustomizer extends Component {
   }
 
   render() {
-    const { productQuery: { loading, product } } = this.props
+    const {
+      productQuery: { loading, product },
+    } = this.props
     if (loading) return <Spinner />
 
     const {
@@ -377,7 +365,7 @@ class ProductCustomizer extends Component {
       selectedVariation: currentVariation,
       optionalVariations,
       compositionVariations,
-      isAddingToCart
+      isAddingToCart,
     } = this.state
 
     const total = this.calculateTotalFromSelectedVariation()
@@ -423,8 +411,9 @@ class ProductCustomizer extends Component {
                 compositionVariations,
                 onClose: this.handleCloseChangeIngredients,
                 onVariationChange: this.handleSelectedExtraVariations,
-                onVariationChangeBasic: this.handleSelectedBasicVariations
-              }} />
+                onVariationChangeBasic: this.handleSelectedBasicVariations,
+              }}
+            />
           </div>
           <div className="vtex-product-customizer__actions fixed bg-white bottom-0 left-0 right-0 bt b--light-gray">
             <AddToCart
