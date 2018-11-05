@@ -17,9 +17,7 @@ class ToggledChoice extends Component {
     item: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   }
 
-  handleChosenAmount = async e => {
-    e.preventDefault()
-
+  handleChosenAmount = e => {
     const chosenAmount = e.target.checked | 0
     const {
       item,
@@ -44,7 +42,7 @@ class ToggledChoice extends Component {
     const { item, index, chosenAmount } = this.props
 
     return (
-      <Fragment>
+      <label className="flex justify-between items-center pv4 bb b--light-gray pointer">
         <div className="flex items-center">
           <img src={item.image} width="32" className="br3 h-100" />
           <div className="pa5">
@@ -57,7 +55,7 @@ class ToggledChoice extends Component {
           checked={!!chosenAmount[index]}
           onChange={this.handleChosenAmount}
         />
-      </Fragment>
+      </label>
     )
   }
 }
