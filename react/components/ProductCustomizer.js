@@ -177,10 +177,12 @@ class ProductCustomizer extends Component {
    */
   handleVariationChange = async variationObject => {
     const { productQuery: { product } } = this.props
-    const sku = product.items.find(sku => sku.itemId === variationObject.skuId)
+    const variationSku = variation && variationObject.skuId
+    const sku = product.items.find(sku => sku.itemId === variationSku)
 
-    const optionalVariations = this.parseAttachments('optionals', sku)
-    const compositionVariations = this.parseAttachments('composition', sku)
+    // TODO: add proper error message to handle null variationObject and sku
+    const optionalVariations = sku ? this.parseAttachments('optionals', sku) : {variations : []}
+    const compositionVariations = sku ? this.parseAttachments('composition', sku) : {variations : []}
 
     const chosenAmountBasic = this.createBooleanIndexesStates(compositionVariations.variations)
     const chosenAmount = this.createNumericStepperIndexesStates(optionalVariations.variations)
