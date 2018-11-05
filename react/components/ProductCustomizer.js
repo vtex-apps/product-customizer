@@ -9,6 +9,7 @@ import SkuGroupList from './SkuGroupList'
 import AddToCart from './Buttons/AddToCart'
 import ChangeToppings from './Buttons/ChangeToppings'
 import IngredientsContent from './IngredientsContent'
+import smoothscroll from 'smoothscroll-polyfill'
 
 class ProductCustomizer extends Component {
   static propTypes = {
@@ -28,6 +29,15 @@ class ProductCustomizer extends Component {
     extraVariations: [],
     isOpenChangeIngredients: false,
     isAddingToCart: false,
+  }
+
+  constructor(props) {
+    super(props)
+    this.ingredientsContentAnchor = React.createRef()
+  }
+
+  componentDidMount() {
+    smoothscroll.polyfill()
   }
 
   /**
@@ -201,6 +211,18 @@ class ProductCustomizer extends Component {
         quantity: variationObject.quantity,
       },
     })
+
+    this.scrollIntoView(this.ingredientsContentAnchor.current)
+  }
+
+  scrollIntoView = element => {
+    setTimeout(() => {
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+        inline:"start",
+      })
+    }, 200)
   }
 
   /**
@@ -414,6 +436,12 @@ class ProductCustomizer extends Component {
             <SkuGroupList
               skus={requiredVariations}
               onVariationChange={this.handleVariationChange}
+            />
+            <div ref={this.ingredientsContentAnchor}
+              style={{
+                position: "relative",
+                top: -110,
+              }}
             />
             <IngredientsContent
               {...{
