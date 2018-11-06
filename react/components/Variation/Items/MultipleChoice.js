@@ -51,7 +51,9 @@ class MultipleChoice extends Component {
     return (
       <div className="vtex-product-customizer__multiple-choice w-100 flex justify-between items-center">
         <div className="flex align-center">
-          <img src={item.image} width="48" className="br3 h-100" />
+          <div>
+            <img src={item.image} width="48" className="br3" />
+          </div>
           <div className="multiple-choice__title flex flex-column justify-center pl2">
             <div className="multiple-choice__name">{item.name}</div>
             <div className="multiple-choice__price">
