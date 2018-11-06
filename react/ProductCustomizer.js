@@ -15,7 +15,15 @@ class ProductCustomizerIndex extends Component {
       </div>
     )
 
-    const hasSchema = head(product.items).calculatedAttachments
+    let hasSchema
+    const { calculatedAttachments } = head(product.items)
+
+    try {
+      const schema = JSON.parse(calculatedAttachments)
+      hasSchema = Object.keys(schema.properties).length > 0
+    } catch(e) {
+      hasSchema = false
+    }
 
     if (!hasSchema) {
       return <ProductDetails {...this.props} />
