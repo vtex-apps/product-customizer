@@ -102,7 +102,7 @@ class ProductCustomizer extends Component {
    * @param object schema
    * @return array
    */
-  parseRequiredVariations = ({items, required}) => items[head(required)]
+  parseRequiredVariations = ({ items, required }) => items[head(required)]
 
   /**
    * getBasicCompositionBySku
@@ -176,9 +176,9 @@ class ProductCustomizer extends Component {
     const sku = product.items.find(sku => sku.itemId === variationSku)
 
     // TODO: add proper error message to handle null variationObject and sku
-    const optionalVariations = sku ? this.parseAttachments('optionals', sku) : {variations : []}
-    const compositionVariations = sku ? this.parseAttachments('composition', sku) : {variations : []}
-    
+    const optionalVariations = sku ? this.parseAttachments('optionals', sku) : { variations: [] }
+    const compositionVariations = sku ? this.parseAttachments('composition', sku) : { variations: [] }
+
     const chosenAmountBasic = this.createBooleanIndexesStates(compositionVariations.variations)
     const chosenAmount = this.createNumericStepperIndexesStates(optionalVariations.variations)
 
@@ -344,12 +344,12 @@ class ProductCustomizer extends Component {
   calculateTotalFromSelectedVariation = () => {
     const {
       extraVariations,
-      selectedVariation
+      selectedVariation,
     } = this.state
 
     let totalVariation = 0
     if (selectedVariation != null) {
-      const {quantity, variation} = selectedVariation
+      const { quantity, variation } = selectedVariation
       totalVariation = (variation.price / 100) * quantity
     }
 
@@ -398,7 +398,7 @@ class ProductCustomizer extends Component {
       selectedVariation: currentVariation,
       optionalVariations,
       compositionVariations,
-      isAddingToCart
+      isAddingToCart,
     } = this.state
 
     const total = this.calculateTotalFromSelectedVariation()
@@ -445,7 +445,7 @@ class ProductCustomizer extends Component {
                 compositionVariations,
                 onClose: this.handleCloseChangeIngredients,
                 onVariationChange: this.handleSelectedExtraVariations,
-                onVariationChangeBasic: this.handleSelectedBasicVariations
+                onVariationChangeBasic: this.handleSelectedBasicVariations,
               }} />
           </div>
           <div className="vtex-product-customizer__actions fixed bg-white bottom-0 left-0 right-0 bt b--light-gray">

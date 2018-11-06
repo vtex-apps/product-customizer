@@ -15,7 +15,7 @@ class AddToCart extends Component {
     /* Handles submit skus to orderForm */
     onSubmit: PropTypes.func,
     /* Show loading state when skus are being added to orderForm */
-    isLoading: PropTypes.bool
+    isLoading: PropTypes.bool,
   }
 
   render() {
@@ -24,7 +24,7 @@ class AddToCart extends Component {
       isVariationSelected,
       isModalOpen,
       onSubmit,
-      isLoading
+      isLoading,
     } = this.props
 
     if (!isVariationSelected) return null

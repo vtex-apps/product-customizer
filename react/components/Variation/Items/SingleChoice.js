@@ -15,6 +15,8 @@ class SingleChoice extends Component {
     onVariationChange: PropTypes.func,
     /* Item object to populate the component  */
     item: PropTypes.object.isRequired,
+    /* ID of the SKU */
+    skuId: PropTypes.string,
   }
 
   /**
@@ -25,13 +27,12 @@ class SingleChoice extends Component {
   handleVariationChange = () => {
     const {
       item,
-      index,
       skuId,
       onSelectItem,
       onVariationChange,
     } = this.props
 
-    onSelectItem({parent: skuId, child: item.id})
+    onSelectItem({ parent: skuId, child: item.id })
     onVariationChange(item, 1)
 
     this.setState({ selected: true })

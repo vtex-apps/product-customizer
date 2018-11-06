@@ -21,7 +21,7 @@ class ProductCustomizerIndex extends Component {
     try {
       const schema = JSON.parse(calculatedAttachments)
       hasSchema = Object.keys(schema.properties).length > 0
-    } catch(e) {
+    } catch (e) {
       hasSchema = false
     }
 

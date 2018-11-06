@@ -78,7 +78,7 @@ class IngredientsContent extends Component {
                   className={classnames(
                     ['flex', 'justify-between', 'items-center', 'pv4'],
                     {
-                      ['bb b--light-gray']:
+                      'bb b--light-gray':
                         key !== optionalVariations.variations.length - 1,
                     }
                   )}
