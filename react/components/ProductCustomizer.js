@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { FormattedMessage } from 'react-intl'
+import { head } from 'ramda'
 import { Spinner } from 'vtex.styleguide'
 import { orderFormConsumer, contextPropTypes } from 'vtex.store/OrderFormContext'
 
@@ -101,18 +102,7 @@ class ProductCustomizer extends Component {
    * @param object schema
    * @return array
    */
-  parseRequiredVariations = schema => {
-    const items = schema.items
-    const properties = schema.properties
-
-    return Object.keys(properties)
-      .filter(property => {
-        return properties[property].type === 'string'
-      })
-      .reduce((accumulator, property) => {
-        return items[property]
-      }, [])
-  }
+  parseRequiredVariations = ({items, required}) => items[head(required)]
 
   /**
    * getBasicCompositionBySku
@@ -126,7 +116,7 @@ class ProductCustomizer extends Component {
 
     return Object.keys(properties)
       .filter(property => {
-        return properties[property].type === 'array' && properties[property].minTotalItems === '1'
+        return properties[property].type === 'array' && properties[property].minTotalItems > 0
       })
       .reduce((accumulator, property) => {
         return {
@@ -180,16 +170,15 @@ class ProductCustomizer extends Component {
    * @param object variationObject
    * @return void
    */
-  handleVariationChange = async variationObject => {
+  handleVariationChange = variationObject => {
     const { productQuery: { product } } = this.props
     const variationSku = variationObject && variationObject.skuId
-
     const sku = product.items.find(sku => sku.itemId === variationSku)
 
     // TODO: add proper error message to handle null variationObject and sku
     const optionalVariations = sku ? this.parseAttachments('optionals', sku) : {variations : []}
     const compositionVariations = sku ? this.parseAttachments('composition', sku) : {variations : []}
-
+    
     const chosenAmountBasic = this.createBooleanIndexesStates(compositionVariations.variations)
     const chosenAmount = this.createNumericStepperIndexesStates(optionalVariations.variations)
 
