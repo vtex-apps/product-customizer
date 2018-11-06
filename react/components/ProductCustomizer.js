@@ -188,8 +188,8 @@ class ProductCustomizer extends Component {
       ? this.parseAttachments('composition', sku)
       : { variations: [] }
 
-    const chosenAmountBasic = this.createBooleanIndexesStates(compositionVariations.variations)
-    const chosenAmount = this.createNumericStepperIndexesStates(optionalVariations.variations)
+    const chosenAmountBasic = compositionVariations.variations ? this.createBooleanIndexesStates(compositionVariations.variations) : {}
+    const chosenAmount = optionalVariations.variations ? this.createNumericStepperIndexesStates(optionalVariations.variations) : {}
 
     this.setState({
       optionalVariations,

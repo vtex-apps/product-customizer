@@ -1,7 +1,8 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { FormattedMessage } from 'react-intl'
 import classnames from 'classnames'
+import { is, prop } from 'ramda'
 
 import ToggledChoice from './Variation/Items/ToggledChoice'
 import MultipleChoice from './Variation/Items/MultipleChoice'
@@ -26,6 +27,8 @@ class IngredientsContent extends Component {
     onVariationChangeBasic: PropTypes.func,
   }
 
+  hasVariations = object => is(Array, prop('variations', object))
+
   render() {
     const {
       chosenAmount,
@@ -45,56 +48,58 @@ class IngredientsContent extends Component {
           <FormattedMessage id="product-customizer.change-ingredients" />
         </h3>
         <div className="change-ingredients--selected-variation">
-          <legend className="bg-near-white w-100 ph2 pv4 mb4">
-            <FormattedMessage id="product-customizer.select-your-ingredients" />
-          </legend>
-          <div className="change-ingredients--selected-ingredients ph2 mb5">
-            <p className="pv3 bb b--light-gray ttu ma0 f7 b near-black">
-              <FormattedMessage id="product-customizer.selected-ingredients" />
-            </p>
-            <ul className="ma0 pa0 list">
-              {compositionVariations.variations.map((ingredient, key) => (
-                <li key={key}>
-                  <ToggledChoice
-                    item={ingredient}
-                    minTotalItems={compositionVariations.minTotalItems}
-                    maxTotalItems={compositionVariations.maxTotalItems}
-                    index={ingredient.name}
-                    chosenAmount={chosenAmountBasic}
-                    onVariationChange={onVariationChangeBasic}
-                  />
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="change-ingredients--extra-ingredients ph2 mb5">
-            <p className="pv3 bb b--light-gray ttu ma0 f7 b near-black">
-              <FormattedMessage id="product-customizer.extra-ingredients" />
-            </p>
-            <ul className="ma0 pa0">
-              {optionalVariations.variations.map((ingredient, key) => (
-                <li
-                  key={key}
-                  className={classnames(
-                    ['flex', 'justify-between', 'items-center', 'pv4'],
-                    {
-                      'bb b--light-gray':
-                        key !== optionalVariations.variations.length - 1,
-                    }
-                  )}
-                >
-                  <MultipleChoice
-                    item={ingredient}
-                    minTotalItems={optionalVariations.minTotalItems}
-                    maxTotalItems={optionalVariations.maxTotalItems}
-                    index={ingredient.name}
-                    chosenAmount={chosenAmount}
-                    onVariationChange={onVariationChange}
-                  />
-                </li>
-              ))}
-            </ul>
-          </div>
+          {this.hasVariations(compositionVariations) && (
+            <Fragment>
+              <legend className="bg-near-white w-100 ph2 pv4 mb4">
+                <FormattedMessage id="product-customizer.select-your-ingredients" />
+              </legend>
+              <div className="change-ingredients--selected-ingredients ph2 mb5">
+                <p className="pv3 bb b--light-gray ttu ma0 f7 b near-black">
+                  <FormattedMessage id="product-customizer.selected-ingredients" />
+                </p>
+                <ul className="ma0 pa0 list">
+                  {compositionVariations.variations.map((ingredient, key) => (
+                    <li key={key}>
+                      <ToggledChoice
+                        item={ingredient}
+                        minTotalItems={compositionVariations.minTotalItems}
+                        maxTotalItems={compositionVariations.maxTotalItems}
+                        index={ingredient.name}
+                        chosenAmount={chosenAmountBasic}
+                        onVariationChange={onVariationChangeBasic}
+                      />
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </Fragment>
+          )}
+          {this.hasVariations(optionalVariations) && (
+            <div className="change-ingredients--extra-ingredients ph2 mb5">
+              <p className="pv3 bb b--light-gray ttu ma0 f7 b near-black">
+                <FormattedMessage id="product-customizer.extra-ingredients" />
+              </p>
+              <ul className="ma0 pa0">
+                {optionalVariations.variations.map((ingredient, key) => (
+                  <li
+                    key={key}
+                    className={classnames(['flex', 'justify-between', 'items-center', 'pv4'], {
+                      'bb b--light-gray': key !== optionalVariations.variations.length - 1,
+                    })}
+                  >
+                    <MultipleChoice
+                      item={ingredient}
+                      minTotalItems={optionalVariations.minTotalItems}
+                      maxTotalItems={optionalVariations.maxTotalItems}
+                      index={ingredient.name}
+                      chosenAmount={chosenAmount}
+                      onVariationChange={onVariationChange}
+                    />
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
       </div>
     )
