@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { FormattedMessage } from 'react-intl'
-import { head } from 'ramda'
+import { find, propEq, prop, flip, o, keys, isNil } from 'ramda'
 import { Spinner } from 'vtex.styleguide'
 import { orderFormConsumer, contextPropTypes } from 'vtex.store/OrderFormContext'
 
@@ -96,13 +96,19 @@ class ProductCustomizer extends Component {
       }, [])
   }
 
+  findSchemaPropertyByType = type => object =>
+    find(o(propEq('type', type), flip(prop)(object)), keys(object))
+
   /**
    * parseRequiredVariations
    * Fetch an array of required variations.
    * @param object schema
    * @return array
    */
-  parseRequiredVariations = ({ items, required }) => items[head(required)]
+  parseRequiredVariations = ({ items, properties }) => {
+    const requiredVariation = this.findSchemaPropertyByType('string')(properties)
+    return items[requiredVariation]
+  }
 
   /**
    * getBasicCompositionBySku
@@ -171,13 +177,17 @@ class ProductCustomizer extends Component {
    * @return void
    */
   handleVariationChange = variationObject => {
-    const { productQuery: { product } } = this.props
+    const {
+      productQuery: { product },
+    } = this.props
     const variationSku = variationObject && variationObject.skuId
     const sku = product.items.find(sku => sku.itemId === variationSku)
 
     // TODO: add proper error message to handle null variationObject and sku
     const optionalVariations = sku ? this.parseAttachments('optionals', sku) : { variations: [] }
-    const compositionVariations = sku ? this.parseAttachments('composition', sku) : { variations: [] }
+    const compositionVariations = sku
+      ? this.parseAttachments('composition', sku)
+      : { variations: [] }
 
     const chosenAmountBasic = this.createBooleanIndexesStates(compositionVariations.variations)
     const chosenAmount = this.createNumericStepperIndexesStates(optionalVariations.variations)
@@ -216,9 +226,9 @@ class ProductCustomizer extends Component {
   scrollIntoView = element => {
     setTimeout(() => {
       element.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-        inline:"start",
+        behavior: 'smooth',
+        block: 'start',
+        inline: 'start',
       })
     }, 200)
   }
@@ -230,10 +240,7 @@ class ProductCustomizer extends Component {
    * @return void
    */
   createNumericStepperIndexesStates = items => {
-    return items.reduce(
-      (acc, item) => ({ ...acc, [item.name]: 0 }),
-      {}
-    )
+    return items.reduce((acc, item) => ({ ...acc, [item.name]: 0 }), {})
   }
 
   /**
@@ -243,10 +250,7 @@ class ProductCustomizer extends Component {
    * @return void
    */
   createBooleanIndexesStates = items => {
-    return items.reduce(
-      (acc, item) => ({ ...acc, [item.name]: Number(item.defaultQuantity) }),
-      {}
-    )
+    return items.reduce((acc, item) => ({ ...acc, [item.name]: Number(item.defaultQuantity) }), {})
   }
 
   /**
@@ -342,10 +346,7 @@ class ProductCustomizer extends Component {
    * @return void
    */
   calculateTotalFromSelectedVariation = () => {
-    const {
-      extraVariations,
-      selectedVariation,
-    } = this.state
+    const { extraVariations, selectedVariation } = this.state
 
     let totalVariation = 0
     if (selectedVariation != null) {
@@ -388,8 +389,25 @@ class ProductCustomizer extends Component {
       })
   }
 
+  getRequiredVariationsBySku = ({ items }) => {
+    const requiredVariations = items
+      .map(sku => this.parseAttachments('required', sku))
+      .filter(sku => {
+        const isValid = !isNil(sku.variations)
+        if (!isValid) {
+          console.warn(
+            `The attachment configuration for ${sku.nameComplete} seems to be incorrect, please review the attachment.`
+          )
+        }
+        return isValid
+      })
+      return requiredVariations
+  }
+
   render() {
-    const { productQuery: { loading, product } } = this.props
+    const {
+      productQuery: { loading, product },
+    } = this.props
     if (loading) return <Spinner />
 
     const {
@@ -404,9 +422,7 @@ class ProductCustomizer extends Component {
     const total = this.calculateTotalFromSelectedVariation()
 
     const isVariationSelected = !!currentVariation
-    const requiredVariations = product.items.map(sku => {
-      return this.parseAttachments('required', sku)
-    })
+    const requiredVariations = this.getRequiredVariationsBySku(product)
 
     return (
       <div className="vtex-product-customizer relative flex-ns h-100-ns">
@@ -446,7 +462,8 @@ class ProductCustomizer extends Component {
                 onClose: this.handleCloseChangeIngredients,
                 onVariationChange: this.handleSelectedExtraVariations,
                 onVariationChangeBasic: this.handleSelectedBasicVariations,
-              }} />
+              }}
+            />
           </div>
           <div className="vtex-product-customizer__actions fixed bg-white bottom-0 left-0 right-0 bt b--light-gray">
             <AddToCart
