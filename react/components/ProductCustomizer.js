@@ -23,7 +23,6 @@ class ProductCustomizer extends Component {
     chosenAmount: {},
     chosenAmountBasic: {},
     extraVariations: [],
-    isOpenChangeIngredients: false,
     isAddingToCart: false,
   }
 
