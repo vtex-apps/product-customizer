@@ -7,21 +7,16 @@ import { orderFormConsumer, contextPropTypes } from 'vtex.store/OrderFormContext
 import '../global.css'
 import SkuGroupList from './SkuGroupList'
 import AddToCart from './Buttons/AddToCart'
-import ChangeToppings from './Buttons/ChangeToppings'
 import IngredientsContent from './IngredientsContent'
 import smoothscroll from 'smoothscroll-polyfill'
 
 class ProductCustomizer extends Component {
   static propTypes = {
-    /* Enable user change the optional variations */
-    canChangeToppings: PropTypes.bool,
     /* Handle order informations */
     orderFormContext: contextPropTypes,
     /* Product data with calculated attachments */
     productQuery: PropTypes.object.isRequired,
   }
-
-  static defaultProps = { canChangeToppings: true }
 
   state = {
     chosenAmount: {},
