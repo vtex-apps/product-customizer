@@ -444,8 +444,8 @@ class ProductCustomizer extends Component {
               onVariationChange={this.handleVariationChange}
             />
             <div ref={this.ingredientsContentAnchor}
+              className="relative"
               style={{
-                position: "relative",
                 top: -110,
               }}
             />
