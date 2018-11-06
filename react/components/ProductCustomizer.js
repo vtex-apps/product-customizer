@@ -188,8 +188,12 @@ class ProductCustomizer extends Component {
       ? this.parseAttachments('composition', sku)
       : { variations: [] }
 
-    const chosenAmountBasic = compositionVariations.variations ? this.createBooleanIndexesStates(compositionVariations.variations) : {}
-    const chosenAmount = optionalVariations.variations ? this.createNumericStepperIndexesStates(optionalVariations.variations) : {}
+    const chosenAmountBasic = compositionVariations.variations
+      ? this.createBooleanIndexesStates(compositionVariations.variations)
+      : {}
+    const chosenAmount = optionalVariations.variations
+      ? this.createNumericStepperIndexesStates(optionalVariations.variations)
+      : {}
 
     this.setState({
       optionalVariations,
@@ -395,12 +399,14 @@ class ProductCustomizer extends Component {
         const isValid = !isNil(sku.variations)
         if (!isValid) {
           console.warn(
-            `The attachment configuration for ${sku.nameComplete} seems to be incorrect, please review the attachment.`
+            `The attachment configuration for ${
+              sku.nameComplete
+            } seems to be incorrect, please review the attachment.`
           )
         }
         return isValid
       })
-      return requiredVariations
+    return requiredVariations
   }
 
   render() {
