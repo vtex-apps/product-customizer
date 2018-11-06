@@ -212,6 +212,10 @@ class ProductCustomizer extends Component {
       },
     })
 
+    this.scrollToIngredients()
+  }
+
+  scrollToIngredients = () => {
     // TODO: find a better way for getting the top menu element
     const topbar = document && document.querySelector('.vtex-top-menu') 
     const topbarHeight = topbar ? topbar.scrollHeight : 0
