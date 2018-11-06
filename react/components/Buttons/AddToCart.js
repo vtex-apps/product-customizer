@@ -32,13 +32,15 @@ class AddToCart extends Component {
     return (
       <div className={`actions--add-to-cart tc pa5 ${isModalOpen ? 'w-100 left-0 bg-white z-4 bottom-0 bt b--light-gray' : ''}`}>
         <Button type="submit" onClick={onSubmit} isLoading={isLoading} block>
-          <FormattedMessage id="product-customizer.add-to-cart" />
-          <ProductPrice
-            showLabels={false}
-            showListPrice={false}
-            sellingPrice={total}
-            listPrice={total}
-          />
+          <div className="flex w-100 justify-between items-center">
+            <FormattedMessage id="product-customizer.add-to-cart" />
+            <ProductPrice
+              showLabels={false}
+              showListPrice={false}
+              sellingPrice={total}
+              listPrice={total}
+            />
+          </div>
         </Button>
       </div>
     )

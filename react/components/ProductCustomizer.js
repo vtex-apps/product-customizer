@@ -9,6 +9,7 @@ import SkuGroupList from './SkuGroupList'
 import AddToCart from './Buttons/AddToCart'
 import ChangeToppings from './Buttons/ChangeToppings'
 import IngredientsContent from './IngredientsContent'
+import smoothscroll from 'smoothscroll-polyfill'
 
 class ProductCustomizer extends Component {
   static propTypes = {
@@ -28,6 +29,15 @@ class ProductCustomizer extends Component {
     extraVariations: [],
     isOpenChangeIngredients: false,
     isAddingToCart: false,
+  }
+
+  constructor(props) {
+    super(props)
+    this.ingredientsContentAnchor = React.createRef()
+  }
+
+  componentDidMount() {
+    smoothscroll.polyfill()
   }
 
   /**
@@ -177,7 +187,8 @@ class ProductCustomizer extends Component {
    */
   handleVariationChange = async variationObject => {
     const { productQuery: { product } } = this.props
-    const variationSku = variation && variationObject.skuId
+    const variationSku = variationObject && variationObject.skuId
+
     const sku = product.items.find(sku => sku.itemId === variationSku)
 
     // TODO: add proper error message to handle null variationObject and sku
@@ -200,6 +211,24 @@ class ProductCustomizer extends Component {
         quantity: variationObject.quantity,
       },
     })
+
+    this.scrollIntoView(this.ingredientsContentAnchor.current)
+  }
+
+  /**
+   * scrollIntoView
+   * Smoothly scrolls the element into view, aligned to the top of the window
+   * @param element element
+   * @return void
+   */
+  scrollIntoView = element => {
+    setTimeout(() => {
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+        inline:"start",
+      })
+    }, 200)
   }
 
   /**
@@ -413,6 +442,12 @@ class ProductCustomizer extends Component {
             <SkuGroupList
               skus={requiredVariations}
               onVariationChange={this.handleVariationChange}
+            />
+            <div ref={this.ingredientsContentAnchor}
+              className="relative"
+              style={{
+                top: -110,
+              }}
             />
             <IngredientsContent
               {...{
