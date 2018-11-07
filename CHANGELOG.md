@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Fixed
+
+- Fixes ingredients auto-scroll positioning on mobile--previously it was missing the mark by a few pixels.
+
 ## [0.2.9] - 2018-11-07
 
 ### Changed
