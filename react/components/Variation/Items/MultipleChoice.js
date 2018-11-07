@@ -47,33 +47,39 @@ class MultipleChoice extends Component {
 
     const calculatedPrice = (item.price / 100).toFixed(2)
     const parsedPrice = parseFloat(calculatedPrice)
+    const selected = !!chosenAmount[index]
 
     return (
-      <div className="vtex-product-customizer__multiple-choice w-100 flex justify-between items-center">
-        <div className="flex align-center">
-          <div>
-            <img src={item.image} width="48" className="br3" />
+      <div className={`vtex-product-customizer__multiple-choice ${selected ? 'selected bg-washed-blue' : ''} w-100 ph4 pv5`}>
+        <div className="relative flex items-center flex-wrap">
+          <div className="flex-auto flex align-center">
+            <div>
+              <img src={item.image} width="48" className="br3" />
+            </div>
+            <div className="multiple-choice__title flex flex-column justify-center ml5">
+              <div className="multiple-choice__name">{item.name}</div>
+            </div>
           </div>
-          <div className="multiple-choice__title flex flex-column justify-center pl2">
-            <div className="multiple-choice__name">{item.name}</div>
-            <div className="multiple-choice__price">
+          <div className="flex-auto flex-none-ns flex justify-end">
+            <div className={`multiple-choice__price ${selected ? '' : 'o-50'} flex-none mr5 tr`}>
               <ProductPrice
                 showLabels={false}
                 showListPrice={false}
                 sellingPrice={parsedPrice}
                 listPrice={parsedPrice}
               />
+              <span className="f7"><FormattedMessage id="product-customizer.per-unit" /></span>
+            </div>
+            <div className="multiple-choice__actions flex-none ml4">
+              <NumericStepper
+                lean
+                value={chosenAmount[index]}
+                minItems={parseInt(item.minQuantity)}
+                maxValue={parseInt(item.maxQuantity)}
+                onChange={this.handleChosenAmount}
+              />
             </div>
           </div>
-        </div>
-        <div className="multiple-choice__actions near-black tc">
-          <NumericStepper
-            lean
-            value={chosenAmount[index]}
-            minItems={parseInt(item.minQuantity)}
-            maxValue={parseInt(item.maxQuantity)}
-            onChange={this.handleChosenAmount}
-          />
         </div>
       </div>
     )

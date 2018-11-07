@@ -49,7 +49,7 @@ class SingleChoice extends Component {
     return (
       <label className={`vtex-product-customizer__single-choice ${selected ? 'selected bg-washed-blue' : ''} db pa4 pointer`}>
         <div className="relative flex items-center justify-between">
-          <div className="flex">
+          <div className="flex-auto flex">
             <div className="single-choice__image-container mr4">
               <input
                 type="radio"
@@ -65,7 +65,7 @@ class SingleChoice extends Component {
               <div className="single-choice__description pt2 mid-gray fw2">{item.description || null}</div>
             </div>
           </div>
-          <div className="single-choice__price mh4 w3 near-black tc">
+          <div className="single-choice__price flex-none mh4 w3 near-black tr">
             <ProductPrice
               showLabels={false}
               showListPrice={false}
@@ -73,15 +73,12 @@ class SingleChoice extends Component {
               listPrice={parsedPrice}
             />
           </div>
-          {
-            selected && (
-              <div className="single-choice__icon-container absolute right-0 top-0">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
-                  <path fill="#70a401" d="M8,0C3.6,0,0,3.6,0,8s3.6,8,8,8s8-3.6,8-8S12.4,0,8,0z M7,11.4L3.6,8L5,6.6l2,2l4-4L12.4,6L7,11.4z" />
-                </svg>
-              </div>
-            )
-          }
+          <div className={`single-choice__icon-container flex-none ml3 ${selected ? '' : 'o-0'}`}>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16" className="db">
+              <path fill="#70a401" d="M8,0C3.589,0,0,3.589,0,8s3.589,8,8,8s8-3.589,8-8S12.411,0,8,0z M8,14c-3.309,0-6-2.691-6-6s2.691-6,6-6 s6,2.691,6,6S11.309,14,8,14z" />
+              <circle cx="8" cy="8" r="3" fill="#70A401" />
+            </svg>
+          </div>
         </div>
       </label>
     )
