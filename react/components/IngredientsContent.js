@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { FormattedMessage } from 'react-intl'
 import classnames from 'classnames'
-import { is, prop } from 'ramda'
+import { both, complement, is, isEmpty, propSatisfies } from 'ramda'
 
 import ToggledChoice from './Variation/Items/ToggledChoice'
 import MultipleChoice from './Variation/Items/MultipleChoice'
@@ -27,7 +27,9 @@ class IngredientsContent extends Component {
     onVariationChangeBasic: PropTypes.func,
   }
 
-  hasVariations = object => is(Array, prop('variations', object))
+  isArray = is(Array)
+  isNotEmpty = complement(isEmpty)
+  hasVariations = propSatisfies(both(this.isArray, this.isNotEmpty), 'variations')
 
   render() {
     const {
