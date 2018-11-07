@@ -47,7 +47,7 @@ class SingleChoice extends Component {
     const parsedPrice = parseFloat(calculatedPrice)
 
     return (
-      <label className={`vtex-product-customizer__single-choice ${selected ? 'selected bg-washed-blue' : ''} db pa5 pointer`}>
+      <label className={`vtex-product-customizer__single-choice ${selected ? 'selected bg-washed-blue' : ''} db pa4 pointer`}>
         <div className="relative flex items-center justify-between">
           <div className="flex">
             <div className="single-choice__image-container mr4">
@@ -76,8 +76,8 @@ class SingleChoice extends Component {
           {
             selected && (
               <div className="single-choice__icon-container absolute right-0 top-0">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="12" height="12">
-                  <path fill="#70a401" d="M6,15a1,1,0,0,1-.707-.293l-5-5A1,1,0,1,1,1.707,8.293L5.86,12.445,14.178.431a1,1,0,1,1,1.644,1.138l-9,13A1,1,0,0,1,6.09,15C6.06,15,6.03,15,6,15Z" />
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
+                  <path fill="#70a401" d="M8,0C3.6,0,0,3.6,0,8s3.6,8,8,8s8-3.6,8-8S12.4,0,8,0z M7,11.4L3.6,8L5,6.6l2,2l4-4L12.4,6L7,11.4z" />
                 </svg>
               </div>
             )
