@@ -37,6 +37,7 @@ class SkuGroupList extends Component {
             skuId={sku.itemId}
             selected={selected}
             variations={sku.variations}
+            schemaProperty={sku.schemaProperty}
             onSelectItem={this.handleSelectItem}
             onVariationChange={onVariationChange}
           />

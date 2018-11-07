@@ -46,9 +46,11 @@ class ProductCustomizer extends Component {
     const schema = JSON.parse(sku.calculatedAttachments)
 
     if (type === 'required') {
+      const { variations, schemaProperty } = this.parseRequiredVariations(schema)
       return {
         ...sku,
-        variations: this.parseRequiredVariations(schema),
+        variations,
+        schemaProperty,
       }
     }
 
@@ -56,6 +58,7 @@ class ProductCustomizer extends Component {
       const composition = this.getBasicCompositionBySku(schema)
 
       return {
+        schemaProperty: composition.schemaProperty,
         minTotalItems: composition.minTotalItems,
         maxTotalItems: composition.maxTotalItems,
         variations: composition.variations,
@@ -65,6 +68,7 @@ class ProductCustomizer extends Component {
     const optionals = this.parseOptionalVariations(schema)
 
     return {
+      schemaProperty: optionals.schemaProperty,
       skuId: sku.itemId,
       minTotalItems: optionals.minTotalItems,
       maxTotalItems: optionals.maxTotalItems,
@@ -88,6 +92,7 @@ class ProductCustomizer extends Component {
       })
       .reduce((accumulator, property) => {
         return {
+          schemaProperty: { id: property, ...properties[property] },
           minTotalItems: properties[property].minTotalItems,
           maxTotalItems: properties[property].maxTotalItems,
           variations: items[property],
@@ -106,7 +111,10 @@ class ProductCustomizer extends Component {
    */
   parseRequiredVariations = ({ items, properties }) => {
     const requiredVariation = this.findSchemaPropertyByType('string')(properties)
-    return items[requiredVariation]
+    return {
+      variations: items[requiredVariation],
+      schemaProperty: { id: requiredVariation, ...properties[requiredVariation] },
+    }
   }
 
   /**
@@ -125,6 +133,7 @@ class ProductCustomizer extends Component {
       })
       .reduce((accumulator, property) => {
         return {
+          schemaProperty: { id: property, ...properties[property] },
           minTotalItems: properties[property].minTotalItems,
           maxTotalItems: properties[property].maxTotalItems,
           variations: items[property],
@@ -203,6 +212,7 @@ class ProductCustomizer extends Component {
       extraVariations: [],
       basicVariations: [],
       selectedVariation: {
+        schemaProperty: variationObject.schemaProperty,
         skuId: variationObject.skuId,
         variation: variationObject.variation,
         quantity: variationObject.quantity,
@@ -214,9 +224,9 @@ class ProductCustomizer extends Component {
 
   scrollToIngredients = () => {
     // TODO: find a better way for getting the top menu element
-    const topbar = document && document.querySelector('.vtex-top-menu') 
+    const topbar = document && document.querySelector('.vtex-top-menu')
     const topbarHeight = topbar ? topbar.scrollHeight : 0
-    this.ingredientsContentAnchor.current.style.top = `${(-topbarHeight)}px`
+    this.ingredientsContentAnchor.current.style.top = `${-topbarHeight}px`
     this.scrollIntoView(this.ingredientsContentAnchor.current)
   }
 
@@ -371,24 +381,60 @@ class ProductCustomizer extends Component {
    * @return void
    */
   handleOnSubmitForm = e => {
-    // TO-DO: Insert strings into a OrderForm
     e.preventDefault()
 
-    const { orderFormContext } = this.props
-    const { selectedVariation } = this.state
+    const { orderFormContext, productQuery } = this.props
+    const { selectedVariation, chosenAmount, chosenAmountBasic } = this.state
     const minicartButton = document.querySelector('.vtex-minicart .vtex-button')
+    const { orderFormId } = orderFormContext.orderForm
+
+    const { product } = productQuery
+    const selectedSku = product.items.find(sku => sku.itemId === selectedVariation.skuId)
+    const schema = JSON.parse(selectedSku.calculatedAttachments)
 
     this.setState({ isAddingToCart: true })
     orderFormContext
       .addItem({
         variables: {
-          orderFormId: orderFormContext.orderForm.orderFormId,
+          orderFormId,
           items: [{ id: selectedVariation.skuId, quantity: 1, seller: 1 }],
         },
       })
       .then(() => {
-        this.setState({ isAddingToCart: false })
-        orderFormContext.refetch().then(() => minicartButton.click())
+        orderFormContext.refetch().then((response) => {
+          console.warn(response)
+          console.warn(this.state)
+          console.warn(this.props)
+          console.warn(selectedSku)
+
+          const itemIndex = response.data.orderForm.items.findIndex(item => item.id === selectedVariation.skuId)
+          const assemblyOptionIdBase = `${product.productName} - ${selectedSku.name}_`
+console.warn(itemIndex)
+console.warn(assemblyOptionIdBase)
+          // const parseAssemblyOption = ({ type, chosenVariations }) => {
+          //   return Object.entries(chosenVariations).map(([key, value]) => {
+
+          //   })
+          // }
+
+          // orderFormContext.updateOrderFormAssemblyOptions({
+          //   variables: {
+          //     orderFormId,
+          //     itemIndex: items.find(item => item.id === selectedVariation.skuId),
+          //     assemblyOptionId: '',
+          //     assemblyData: {
+          //       noSplitItem: true,
+          //       composition: {
+          //         items: [
+          //           id:
+          //         ]
+          //       }
+          //     }
+          //   }
+          // })
+          this.setState({ isAddingToCart: false })
+          minicartButton.click()
+        })
       })
   }
 

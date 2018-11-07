@@ -29,16 +29,18 @@ class VariationList extends Component {
   handleSingleChoiceChange = (variation, quantity) => {
     const {
       skuId,
+      schemaProperty,
       onVariationChange,
     } = this.props
 
-    onVariationChange({ type: 'single', skuId, variation, quantity })
+    onVariationChange({ type: 'single', skuId, variation, quantity, schemaProperty })
   }
 
   render() {
     const {
       index,
       skuId,
+      schemaProperty,
       selected,
       variations,
       onSelectItem,
@@ -51,6 +53,7 @@ class VariationList extends Component {
           item={item}
           index={index}
           skuId={skuId}
+          schemaProperty={schemaProperty}
           selected={selected.parent === skuId && selected.child === item.id}
           onSelectItem={onSelectItem}
           onVariationChange={this.handleSingleChoiceChange}
