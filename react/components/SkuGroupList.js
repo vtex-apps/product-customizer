@@ -11,14 +11,14 @@ class SkuGroupList extends Component {
     onVariationChange: PropTypes.func.isRequired,
   }
 
-  state = { selected: {parent: undefined, child: undefined} }
+  state = { selected: { parent: undefined, child: undefined } }
 
   /**
    * handleSelectItem
    * Handle selected state to change the style of component.
    * @return void
    */
-  handleSelectItem = (selected) => this.setState({selected})
+  handleSelectItem = (selected) => this.setState({ selected })
 
   render() {
     const { skus, onVariationChange } = this.props
