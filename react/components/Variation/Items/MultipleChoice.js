@@ -51,7 +51,7 @@ class MultipleChoice extends Component {
     const isSelected = !!chosenAmount[index]
 
     return (
-      <div className={`vtex-product-customizer__multiple-choice ${isSelected ? 'selected bg-washed-blue' : ''} w-100 ph4 pv5`}>
+      <div className={`vtex-product-customizer__multiple-choice ${isSelected ? 'selected bg-washed-blue' : 'hover-bg-near-white'} w-100 ph4 pv5`}>
         <div className="relative flex items-center flex-wrap">
           <div className="flex-auto flex align-center">
             <div>

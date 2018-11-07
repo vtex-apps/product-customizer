@@ -47,7 +47,7 @@ class SingleChoice extends Component {
     const parsedPrice = parseFloat(calculatedPrice)
 
     return (
-      <label className={`vtex-product-customizer__single-choice ${selected ? 'selected bg-washed-blue' : ''} db pa4 pointer`}>
+      <label className={`vtex-product-customizer__single-choice ${selected ? 'selected bg-washed-blue' : 'hover-bg-near-white'} db pa4 pointer`}>
         <div className="relative flex items-center justify-between">
           <div className="flex-auto flex">
             <div className="single-choice__image-container mr4">

@@ -45,7 +45,7 @@ class ToggledChoice extends Component {
     const isSelected = !!chosenAmount[index] || isDisabled
 
     return (
-      <label className={`vtex-product-customizer__toggled-choice ${isSelected ? 'selected bg-washed-blue' : ''} db pa4 pointer bb b--light-gray`}>
+      <label className={`vtex-product-customizer__toggled-choice ${isSelected ? 'selected bg-washed-blue' : 'hover-bg-near-white'} db pa4 pointer bb b--light-gray`}>
         <div className="relative flex items-center">
           <div className="flex-none pv2">
             <img src={item.image} width="48" className="br3" />
