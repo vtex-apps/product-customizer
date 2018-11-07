@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.2.7] - 2018-11-07
+
 ### Changed
 
 - Use the lean mode of the NumericStepper component on MultipleChoice
@@ -14,6 +16,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Fixed
 
 - Adjust the auto-scroll-to-ingredients function to scroll right to the header of the Ingredients section
+- Fix spinner alignment to match the one that comes from the parent component
 
 ## [0.2.6] - 2018-11-06
 

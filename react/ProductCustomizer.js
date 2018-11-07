@@ -9,7 +9,11 @@ class ProductCustomizerIndex extends Component {
   render() {
     const { productQuery: { loading, product } } = this.props
 
-    if (loading) return <Spinner />
+    if (loading) return (
+      <div className="flex justify-center pa8 w-100">
+        <Spinner />
+      </div>
+    )
 
     const hasSchema = head(product.items).calculatedAttachments
 
