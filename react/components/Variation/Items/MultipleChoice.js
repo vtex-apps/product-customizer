@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
+import { FormattedMessage } from 'react-intl'
 import NumericStepper from 'vtex.styleguide/NumericStepper'
 import ProductPrice from 'vtex.store-components/ProductPrice'
 
