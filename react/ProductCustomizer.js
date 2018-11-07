@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Spinner } from 'vtex.styleguide'
-import { and, complement, head, isEmpty, isNil } from 'ramda'
+import { keys, head } from 'ramda'
 
 import ProductDetails from 'vtex.product-details/ProductDetails'
 import ProductCustomizer from './components/ProductCustomizer'
@@ -15,15 +15,9 @@ class ProductCustomizerIndex extends Component {
       </div>
     )
 
-    let hasSchema
     const { calculatedAttachments } = head(product.items)
-
-    try {
-      const schema = JSON.parse(calculatedAttachments)
-      hasSchema = complement(and(isEmpty, isNil))(schema.properties)
-    } catch (e) {
-      hasSchema = false
-    }
+    const schema = JSON.parse(calculatedAttachments)
+    const hasSchema = !!(schema && schema.properties && keys(schema.properties).length)
 
     if (!hasSchema) {
       return <ProductDetails {...this.props} />
