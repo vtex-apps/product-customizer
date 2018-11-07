@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.2.7] - 2018-11-07
+
 ### Changed
 
 - Use the lean mode of the NumericStepper component on MultipleChoice
