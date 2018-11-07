@@ -46,7 +46,7 @@ class ToggledChoice extends Component {
       <label className="flex justify-between items-center pv4 bb b--light-gray pointer">
         <div className="flex items-center">
           <div>
-            <img src={item.image} width="32" className="br3" />
+            <img src={item.image} width="48" className="br3" />
           </div>
           <div className="pa5">
             <h4 className="ma0">{item.name}</h4>
