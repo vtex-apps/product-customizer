@@ -48,10 +48,10 @@ class MultipleChoice extends Component {
 
     const calculatedPrice = (item.price / 100).toFixed(2)
     const parsedPrice = parseFloat(calculatedPrice)
-    const selected = !!chosenAmount[index]
+    const isSelected = !!chosenAmount[index]
 
     return (
-      <div className={`vtex-product-customizer__multiple-choice ${selected ? 'selected bg-washed-blue' : ''} w-100 ph4 pv5`}>
+      <div className={`vtex-product-customizer__multiple-choice ${isSelected ? 'selected bg-washed-blue' : ''} w-100 ph4 pv5`}>
         <div className="relative flex items-center flex-wrap">
           <div className="flex-auto flex align-center">
             <div>
@@ -62,7 +62,7 @@ class MultipleChoice extends Component {
             </div>
           </div>
           <div className="flex-auto flex-none-ns flex justify-end">
-            <div className={`multiple-choice__price ${selected ? '' : 'o-50'} flex-none mr5 tr`}>
+            <div className={`multiple-choice__price ${isSelected ? '' : 'o-50'} flex-none mr5 tr`}>
               <ProductPrice
                 showLabels={false}
                 showListPrice={false}

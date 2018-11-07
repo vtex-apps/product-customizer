@@ -41,11 +41,11 @@ class ToggledChoice extends Component {
 
   render() {
     const { item, index, chosenAmount } = this.props
-    const disabled = item.minQuantity === '1' && item.defaultQuantity === '1'
-    const selected = !!chosenAmount[index] || disabled
+    const isDisabled = item.minQuantity === '1' && item.defaultQuantity === '1'
+    const isSelected = !!chosenAmount[index] || isDisabled
 
     return (
-      <label className={`vtex-product-customizer__toggled-choice ${selected ? 'selected bg-washed-blue' : ''} db pa4 pointer bb b--light-gray`}>
+      <label className={`vtex-product-customizer__toggled-choice ${isSelected ? 'selected bg-washed-blue' : ''} db pa4 pointer bb b--light-gray`}>
         <div className="relative flex items-center">
           <div className="flex-none pv2">
             <img src={item.image} width="48" className="br3" />
@@ -53,9 +53,9 @@ class ToggledChoice extends Component {
           <div className="flex-auto ml5">
             <div className="toggled-choice__name">{item.name}</div>
           </div>
-          <div className={`single-choice__icon-container ${disabled ? 'o-30' : ''} flex-none ml3`}>
+          <div className={`single-choice__icon-container ${isDisabled ? 'o-30' : ''} flex-none ml3`}>
             {
-              selected
+              isSelected
                 ? (
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16" className="db">
                     <path fill="#70a401" d="M8,0C3.6,0,0,3.6,0,8s3.6,8,8,8s8-3.6,8-8S12.4,0,8,0z M7,11.4L3.6,8L5,6.6l2,2l4-4L12.4,6L7,11.4z" />
@@ -70,7 +70,7 @@ class ToggledChoice extends Component {
           <div className="dn">
             <Checkbox
               name={index}
-              disabled={disabled}
+              disabled={isDisabled}
               checked={!!chosenAmount[index]}
               onChange={this.handleChosenAmount}
             />
