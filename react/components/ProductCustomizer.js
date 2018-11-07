@@ -214,7 +214,7 @@ class ProductCustomizer extends Component {
 
   scrollToIngredients = () => {
     // TODO: find a better way for getting the top menu element
-    const topbar = document && document.querySelector('.vtex-top-menu') 
+    const topbar = document && document.querySelector('.vtex-top-menu-fixed') 
     const topbarHeight = topbar ? topbar.scrollHeight : 0
     this.ingredientsContentAnchor.current.style.top = `${(-topbarHeight)}px`
     this.scrollIntoView(this.ingredientsContentAnchor.current)
