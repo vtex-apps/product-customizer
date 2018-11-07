@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
-import SuccessIcon from 'vtex.styleguide/IconSuccess'
 import ProductPrice from 'vtex.store-components/ProductPrice'
 
 class SingleChoice extends Component {
@@ -48,8 +47,8 @@ class SingleChoice extends Component {
     const parsedPrice = parseFloat(calculatedPrice)
 
     return (
-      <label>
-        <div className={`vtex-product-customizer__single-choice ${selected ? 'selected bg-washed-blue' : ''} flex items-center justify-between pa5 pointer`}>
+      <label className={`vtex-product-customizer__single-choice ${selected ? 'selected bg-washed-blue' : ''} db pa5 pointer`}>
+        <div className="relative flex items-center justify-between">
           <div className="flex">
             <div className="single-choice__image-container mr4">
               <input
@@ -59,10 +58,7 @@ class SingleChoice extends Component {
                 value={item.id}
                 onChange={this.handleVariationChange}
               />
-              <img className={`single-choice_image-thumb br3 ba ${selected ? 'b--action-primary' : 'b--transparent'}`} src={item.image} />
-              <div className="single-choice__icon-container dn">
-                <SuccessIcon size={16} />
-              </div>
+              <img className="single-choice_image-thumb br3" src={item.image} />
             </div>
             <div className="single-choice__content flex flex-column justify-center">
               <div className="single-choice__title">{item.name}</div>
@@ -77,6 +73,15 @@ class SingleChoice extends Component {
               listPrice={parsedPrice}
             />
           </div>
+          {
+            selected && (
+              <div className="single-choice__icon-container absolute right-0 top-0">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="12" height="12">
+                  <path fill="#70a401" d="M6,15a1,1,0,0,1-.707-.293l-5-5A1,1,0,1,1,1.707,8.293L5.86,12.445,14.178.431a1,1,0,1,1,1.644,1.138l-9,13A1,1,0,0,1,6.09,15C6.06,15,6.03,15,6,15Z" />
+                </svg>
+              </div>
+            )
+          }
         </div>
       </label>
     )
