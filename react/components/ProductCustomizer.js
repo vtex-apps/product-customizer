@@ -212,6 +212,14 @@ class ProductCustomizer extends Component {
       },
     })
 
+    this.scrollToIngredients()
+  }
+
+  scrollToIngredients = () => {
+    // TODO: find a better way for getting the top menu element
+    const topbar = document && document.querySelector('.vtex-top-menu') 
+    const topbarHeight = topbar ? topbar.scrollHeight : 0
+    this.ingredientsContentAnchor.current.style.top = `${(-topbarHeight)}px`
     this.scrollIntoView(this.ingredientsContentAnchor.current)
   }
 
@@ -443,12 +451,7 @@ class ProductCustomizer extends Component {
               skus={requiredVariations}
               onVariationChange={this.handleVariationChange}
             />
-            <div ref={this.ingredientsContentAnchor}
-              className="relative"
-              style={{
-                top: -110,
-              }}
-            />
+            <div ref={this.ingredientsContentAnchor} className="relative" />
             <IngredientsContent
               {...{
                 currentVariation,

@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Fixed
+
+- Adjust the auto-scroll-to-ingredients function to scroll right to the header of the Ingredients section
+
 ## [0.2.6] - 2018-11-06
 
 ## [0.2.5] - 2018-11-06
