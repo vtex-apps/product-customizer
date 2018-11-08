@@ -384,7 +384,13 @@ class ProductCustomizer extends Component {
     e.preventDefault()
 
     const { orderFormContext, productQuery } = this.props
-    const { selectedVariation, chosenAmount, chosenAmountBasic } = this.state
+    const {
+      selectedVariation,
+      chosenAmount,
+      chosenAmountBasic,
+      compositionVariations,
+      optionalVariations,
+    } = this.state
     const minicartButton = document.querySelector('.vtex-minicart .vtex-button')
     const { orderFormId } = orderFormContext.orderForm
 
@@ -401,22 +407,57 @@ class ProductCustomizer extends Component {
         },
       })
       .then(() => {
-        orderFormContext.refetch().then((response) => {
-          console.warn(response)
-          console.warn(this.state)
-          console.warn(this.props)
-          console.warn(selectedSku)
+        orderFormContext.refetch().then(response => {
+          const itemIndex = response.data.orderForm.items.findIndex(
+            item => item.id === selectedVariation.skuId
+          )
+          const assemblyOptionIdBase = `${product.productName} - ${selectedSku.name}`
+          compositionVariations.chosen = chosenAmountBasic
+          optionalVariations.chosen = chosenAmount
 
-          const itemIndex = response.data.orderForm.items.findIndex(item => item.id === selectedVariation.skuId)
-          const assemblyOptionIdBase = `${product.productName} - ${selectedSku.name}_`
-console.warn(itemIndex)
-console.warn(assemblyOptionIdBase)
-          // const parseAssemblyOption = ({ type, chosenVariations }) => {
-          //   return Object.entries(chosenVariations).map(([key, value]) => {
+          const convertItemsFromVariationsToComposition = variation => {
+            if (variation.variations) {
+              return Object.entries(variation.chosen)
+                .filter(([_, quantity]) => quantity > 0)
+                .map(([name, quantity]) => {
+                  return {
+                    quantity,
+                    id: variation.variations.find(sku => sku.name === name).id,
+                  }
+                })
+            }
 
-          //   })
-          // }
+            return {
+              quantity: variation.quantity,
+              id: variation.variation.id,
+            }
+          }
 
+          const validOptions = [selectedVariation]
+          if (compositionVariations.variations) validOptions.push(compositionVariations)
+          if (optionalVariations.variations) validOptions.push(optionalVariations)
+
+          const options = validOptions.map(variation => {
+            return {
+              orderFormId,
+              itemIndex,
+              assemblyOptionId: `${assemblyOptionIdBase}_${variation.schemaProperty.id}`,
+              assemblyData: {
+                noSplitItem: true,
+                composition: {
+                  items: convertItemsFromVariationsToComposition(variation),
+                },
+              },
+            }
+          })
+
+          const promises = options.map(variables =>
+            orderFormContext.updateOrderFormAssemblyOptions({
+              variables,
+            })
+          )
+
+          Promise.all(promises).then(w=>console.warn(w))
           // orderFormContext.updateOrderFormAssemblyOptions({
           //   variables: {
           //     orderFormId,
