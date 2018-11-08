@@ -7,5 +7,6 @@
   "product-customizer.select-variation": "Select your variation",
   "product-customizer.add-to-cart": "Add to cart",
   "product-customizer.required": "required",
-  "product-customizer.change-composition": "Change ingredients or sauce"
+  "product-customizer.change-composition": "Change ingredients or sauce",
+  "product-customizer.per-unit": "per un."
 }

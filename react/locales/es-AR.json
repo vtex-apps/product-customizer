@@ -7,5 +7,6 @@
   "product-customizer.select-variation": "Seleccione sus elementos",
   "product-customizer.add-to-cart": "Añadir al carrito",
   "product-customizer.required": "Obligatorio",
-  "product-customizer.change-composition": "Cambiar los ingredientes o las salsas"
+  "product-customizer.change-composition": "Cambiar los ingredientes o las salsas",
+  "product-customizer.per-unit": "por un."
 }

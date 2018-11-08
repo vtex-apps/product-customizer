@@ -41,23 +41,41 @@ class ToggledChoice extends Component {
 
   render() {
     const { item, index, chosenAmount } = this.props
+    const isDisabled = item.minQuantity === '1' && item.defaultQuantity === '1'
+    const isSelected = !!chosenAmount[index] || isDisabled
 
     return (
-      <label className="flex justify-between items-center pv4 bb b--light-gray pointer">
-        <div className="flex items-center">
-          <div>
+      <label className={`vtex-product-customizer__toggled-choice ${isSelected ? 'selected bg-washed-blue' : 'hover-bg-near-white'} db pa4 pointer bb b--light-gray`}>
+        <div className="relative flex items-center">
+          <div className="flex-none pv2">
             <img src={item.image} width="48" className="br3" />
           </div>
-          <div className="pa5">
-            <h4 className="ma0">{item.name}</h4>
+          <div className="flex-auto ml5">
+            <div className="toggled-choice__name">{item.name}</div>
+          </div>
+          <div className={`single-choice__icon-container ${isDisabled ? 'o-30' : ''} flex-none ml3`}>
+            {
+              isSelected
+                ? (
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16" className="db">
+                    <path fill="#70a401" d="M8,0C3.6,0,0,3.6,0,8s3.6,8,8,8s8-3.6,8-8S12.4,0,8,0z M7,11.4L3.6,8L5,6.6l2,2l4-4L12.4,6L7,11.4z" />
+                  </svg>
+                ) : (
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16" className="db">
+                    <path fill="#70a401" d="M8,0C3.589,0,0,3.589,0,8s3.589,8,8,8s8-3.589,8-8S12.411,0,8,0z M8,14c-3.309,0-6-2.691-6-6s2.691-6,6-6 s6,2.691,6,6S11.309,14,8,14z" />
+                  </svg>
+                )
+            }
+          </div>
+          <div className="dn">
+            <Checkbox
+              name={index}
+              disabled={isDisabled}
+              checked={!!chosenAmount[index]}
+              onChange={this.handleChosenAmount}
+            />
           </div>
         </div>
-        <Checkbox
-          name={index}
-          disabled={item.minQuantity === '1' && item.defaultQuantity === '1'}
-          checked={!!chosenAmount[index]}
-          onChange={this.handleChosenAmount}
-        />
       </label>
     )
   }

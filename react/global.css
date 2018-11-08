@@ -67,8 +67,12 @@ div.vtex-modal__overlay {
   width: 2.5rem;
 }
 .multiple-choice__actions button {
+  background: transparent;
   width: 1.75rem !important; /* inline styles so important is needed */
 }
 .multiple-choice__price .vtex-price-selling {
   padding: 0;
+}
+.multiple-choice__actions button.o-0 {
+  opacity: .2;
 }

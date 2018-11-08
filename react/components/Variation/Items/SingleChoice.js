@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
-import SuccessIcon from 'vtex.styleguide/IconSuccess'
 import ProductPrice from 'vtex.store-components/ProductPrice'
 
 class SingleChoice extends Component {
@@ -48,9 +47,9 @@ class SingleChoice extends Component {
     const parsedPrice = parseFloat(calculatedPrice)
 
     return (
-      <label>
-        <div className={`vtex-product-customizer__single-choice ${selected ? 'selected bg-washed-blue' : ''} flex items-center justify-between pa5 pointer`}>
-          <div className="flex">
+      <label className={`vtex-product-customizer__single-choice ${selected ? 'selected bg-washed-blue' : 'hover-bg-near-white'} db pa4 pointer`}>
+        <div className="relative flex items-center justify-between">
+          <div className="flex-auto flex">
             <div className="single-choice__image-container mr4">
               <input
                 type="radio"
@@ -59,23 +58,26 @@ class SingleChoice extends Component {
                 value={item.id}
                 onChange={this.handleVariationChange}
               />
-              <img className={`single-choice_image-thumb br3 ba ${selected ? 'b--action-primary' : 'b--transparent'}`} src={item.image} />
-              <div className="single-choice__icon-container dn">
-                <SuccessIcon size={16} />
-              </div>
+              <img className="single-choice_image-thumb br3" src={item.image} />
             </div>
             <div className="single-choice__content flex flex-column justify-center">
               <div className="single-choice__title">{item.name}</div>
               <div className="single-choice__description pt2 mid-gray fw2">{item.description || null}</div>
             </div>
           </div>
-          <div className="single-choice__price mh4 w3 near-black tc">
+          <div className="single-choice__price flex-none mh4 w3 near-black tr">
             <ProductPrice
               showLabels={false}
               showListPrice={false}
               sellingPrice={parsedPrice}
               listPrice={parsedPrice}
             />
+          </div>
+          <div className={`single-choice__icon-container flex-none ml3 ${selected ? '' : 'o-0'}`}>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16" className="db">
+              <path fill="#70a401" d="M8,0C3.589,0,0,3.589,0,8s3.589,8,8,8s8-3.589,8-8S12.411,0,8,0z M8,14c-3.309,0-6-2.691-6-6s2.691-6,6-6 s6,2.691,6,6S11.309,14,8,14z" />
+              <circle cx="8" cy="8" r="3" fill="#70A401" />
+            </svg>
           </div>
         </div>
       </label>

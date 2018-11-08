@@ -46,17 +46,17 @@ class IngredientsContent extends Component {
 
     return (
       <div className="vtex-product-customizer__change-ingredients bg-white">
-        <h3 className="b--light-gray bb bw1 pa5 ma0 b near-black">
+        <h3 className="b--light-gray bb bw1 ph4 pv5 ma0 b near-black">
           <FormattedMessage id="product-customizer.change-ingredients" />
         </h3>
         <div className="change-ingredients--selected-variation">
           {this.hasVariations(compositionVariations) && (
             <Fragment>
-              <legend className="bg-near-white w-100 ph2 pv4 mb4">
+              <legend className="bg-near-white w-100 pa4 mb4">
                 <FormattedMessage id="product-customizer.select-your-ingredients" />
               </legend>
               <div className="change-ingredients--selected-ingredients ph2 mb5">
-                <p className="pv3 bb b--light-gray ttu ma0 f7 b near-black">
+                <p className="pv3 ph4 bb b--light-gray ttu ma0 f7 b near-black">
                   <FormattedMessage id="product-customizer.selected-ingredients" />
                 </p>
                 <ul className="ma0 pa0 list">
@@ -78,14 +78,14 @@ class IngredientsContent extends Component {
           )}
           {this.hasVariations(optionalVariations) && (
             <div className="change-ingredients--extra-ingredients ph2 mb5">
-              <p className="pv3 bb b--light-gray ttu ma0 f7 b near-black">
+              <p className="pv3 ph4 bb b--light-gray ttu ma0 f7 b near-black">
                 <FormattedMessage id="product-customizer.extra-ingredients" />
               </p>
               <ul className="ma0 pa0">
                 {optionalVariations.variations.map((ingredient, key) => (
                   <li
                     key={key}
-                    className={classnames(['flex', 'justify-between', 'items-center', 'pv4'], {
+                    className={classnames(['db'], {
                       'bb b--light-gray': key !== optionalVariations.variations.length - 1,
                     })}
                   >
