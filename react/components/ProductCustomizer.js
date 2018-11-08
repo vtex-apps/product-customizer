@@ -419,37 +419,39 @@ class ProductCustomizer extends Component {
             if (variation.variations) {
               return Object.entries(variation.chosen)
                 .filter(([_, quantity]) => quantity > 0)
-                .map(([name, quantity]) => {
-                  return {
-                    quantity,
-                    id: variation.variations.find(sku => sku.name === name).id,
-                  }
-                })
+                .map(([name, quantity]) => ({
+                  quantity,
+                  id: variation.variations.find(sku => sku.name === name).id,
+                }))
             }
 
-            return {
-              quantity: variation.quantity,
-              id: variation.variation.id,
-            }
+            return [
+              {
+                quantity: variation.quantity,
+                id: variation.variation.id,
+              },
+            ]
           }
 
           const validOptions = [selectedVariation]
           if (compositionVariations.variations) validOptions.push(compositionVariations)
           if (optionalVariations.variations) validOptions.push(optionalVariations)
 
-          const options = validOptions.map(variation => {
-            return {
-              orderFormId,
-              itemIndex,
-              assemblyOptionId: `${assemblyOptionIdBase}_${variation.schemaProperty.id}`,
-              assemblyData: {
-                noSplitItem: true,
-                composition: {
-                  items: convertItemsFromVariationsToComposition(variation),
+          const options = validOptions
+            .map(variation => {
+              return {
+                orderFormId,
+                itemIndex,
+                assemblyOptionId: `${assemblyOptionIdBase}_${variation.schemaProperty.id}`,
+                assemblyData: {
+                  noSplitItem: true,
+                  composition: {
+                    items: convertItemsFromVariationsToComposition(variation),
+                  },
                 },
-              },
-            }
-          })
+              }
+            })
+            .filter(option => option.assemblyData.composition.items.length)
 
           const promises = options.map(variables =>
             orderFormContext.updateOrderFormAssemblyOptions({
@@ -457,22 +459,8 @@ class ProductCustomizer extends Component {
             })
           )
 
-          Promise.all(promises).then(w=>console.warn(w))
-          // orderFormContext.updateOrderFormAssemblyOptions({
-          //   variables: {
-          //     orderFormId,
-          //     itemIndex: items.find(item => item.id === selectedVariation.skuId),
-          //     assemblyOptionId: '',
-          //     assemblyData: {
-          //       noSplitItem: true,
-          //       composition: {
-          //         items: [
-          //           id:
-          //         ]
-          //       }
-          //     }
-          //   }
-          // })
+          Promise.all(promises).then(orderFormContext.refetch)
+
           this.setState({ isAddingToCart: false })
           minicartButton.click()
         })
