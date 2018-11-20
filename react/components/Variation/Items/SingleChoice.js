@@ -1,86 +1,48 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import ProductPrice from 'vtex.store-components/ProductPrice'
+import Radio from 'vtex.styleguide/Radio'
+import ItemDescription from './ItemDescription';
 
 class SingleChoice extends Component {
   static propTypes = {
-    /* Index to define the current variation selected */
-    index: PropTypes.number,
     /* Define if current component is selected  */
     selected: PropTypes.bool,
-    /* Trigger function to handle selections  */
-    onSelectItem: PropTypes.func,
     /* Trigger function to handle changes on inputs  */
-    onVariationChange: PropTypes.func,
+    onChange: PropTypes.func,
     /* Item object to populate the component  */
     item: PropTypes.object.isRequired,
-    /* ID of the SKU */
-    skuId: PropTypes.string,
-  }
-
-  /**
-  * handleVariationChange
-  * Handle variation changes.
-  * @return void
-  */
-  handleVariationChange = () => {
-    const {
-      item,
-      skuId,
-      onSelectItem,
-      onVariationChange,
-    } = this.props
-
-    onSelectItem({ parent: skuId, child: item.id })
-    onVariationChange(item, 1)
-
-    this.setState({ selected: true })
   }
 
   render() {
     const {
-      item,
+      item: { description, id, image: imageUrl, name, price },
       selected,
+      onChange
     } = this.props
 
-    const calculatedPrice = (item.price / 100).toFixed(2)
+    const calculatedPrice = (price / 100).toFixed(2)
     const parsedPrice = parseFloat(calculatedPrice)
 
     return (
-      <label className={`vtex-product-customizer__single-choice ${selected ? 'selected bg-washed-blue' : 'hover-bg-near-white'} db pa4 pointer`}>
+      <div onClick={onChange} className={`${selected && 'selected bg-muted-5'} hover-bg-muted-5 db pa4 pointer bb b--muted-5`}>
         <div className="relative flex items-center justify-between">
-          <div className="flex-auto flex">
-            <div className="single-choice__image-container mr4">
-              <input
-                type="radio"
-                className="dn"
-                name="input-single-choice"
-                value={item.id}
-                onChange={this.handleVariationChange}
-              />
-              <img className="single-choice_image-thumb br3" src={item.image} />
-            </div>
-            <div className="single-choice__content flex flex-column justify-center">
-              <div className="single-choice__title">{item.name}</div>
-              <div className="single-choice__description pt2 mid-gray fw2">{item.description || null}</div>
-            </div>
-          </div>
-          <div className="single-choice__price flex-none mh4 w3 near-black tr">
+          <ItemDescription {...{ description, imageUrl, name }} />
+          {!isNaN(parsedPrice) && <div className="single-choice__price flex-none mh4 w3 near-black tr">
             <ProductPrice
               showLabels={false}
               showListPrice={false}
               sellingPrice={parsedPrice}
               listPrice={parsedPrice}
             />
-          </div>
-          <div className={`single-choice__icon-container flex-none ml3 ${selected ? '' : 'o-0'}`}>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16" className="db">
-              <path fill="#70a401" d="M8,0C3.589,0,0,3.589,0,8s3.589,8,8,8s8-3.589,8-8S12.411,0,8,0z M8,14c-3.309,0-6-2.691-6-6s2.691-6,6-6 s6,2.691,6,6S11.309,14,8,14z" />
-              <circle cx="8" cy="8" r="3" fill="#70A401" />
-            </svg>
-          </div>
+          </div>}
+          <Radio
+            checked={selected}
+            // Required but useless props
+            {...{ id: "", label: "", name: "", value: "", onChange: () => {}}}
+          />
         </div>
-      </label>
+      </div>
     )
   }
 }

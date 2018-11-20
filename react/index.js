@@ -1,28 +1,33 @@
 import React, { Component } from 'react'
-import { keys, head } from 'ramda'
+import { Spinner } from 'vtex.styleguide'
+import { head } from 'ramda'
 
 import { Spinner } from 'vtex.styleguide'
 import { ExtensionPoint } from 'vtex.render-runtime'
 
 import ProductCustomizer from './components/ProductCustomizer'
+import ProductCustomizerPreview from './components/ProductCustomizerPreview';
 
 class ProductCustomizerIndex extends Component {
   render() {
     const { productQuery: { loading, product } } = this.props
 
-    if (loading) return (
+    if (!product && loading) return (
       <div className="flex justify-center pa8 w-100">
         <Spinner />
       </div>
     )
 
-    const { calculatedAttachments } = head(product.items)
-    const schema = calculatedAttachments && JSON.parse(calculatedAttachments)
-    const hasSchema = !!(schema && schema.properties && keys(schema.properties).length)
+    const { attachments } = head(product.items)
+    const hasAttachments = attachments && attachments.length > 0
 
-    if (!hasSchema) {
+    if (hasAttachments) {
+      if (loading) {
+        return <ProductCustomizerPreview {...this.props} />
+      }
       return <ProductCustomizer {...this.props} />
     }
+
     return <ExtensionPoint id="product-details" {...this.props} />
   }
 }

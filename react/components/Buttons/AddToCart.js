@@ -9,36 +9,28 @@ class AddToCart extends Component {
     /* Total of current selected variations */
     total: PropTypes.number,
     /* Toggle the button state if there's not selected variations */
-    isVariationSelected: PropTypes.bool,
-    /* Toggles classes when the modal is open */
-    isModalOpen: PropTypes.bool,
+    ready: PropTypes.bool,
     /* Handles submit skus to orderForm */
-    onSubmit: PropTypes.func,
+    onClick: PropTypes.func,
     /* Show loading state when skus are being added to orderForm */
     isLoading: PropTypes.bool,
   }
 
   render() {
-    const {
-      total,
-      isVariationSelected,
-      isModalOpen,
-      onSubmit,
-      isLoading,
-    } = this.props
-
-    if (!isVariationSelected) return null
+    const { total, ready, onClick, isLoading } = this.props
+    if (!ready) return null
+    const calculatedTotal = (total / 100).toFixed(2)
 
     return (
-      <div className={`actions--add-to-cart tc pa5 ${isModalOpen ? 'w-100 left-0 bg-white z-4 bottom-0 bt b--light-gray' : ''}`}>
-        <Button type="submit" onClick={onSubmit} isLoading={isLoading} block>
+      <div className="actions--add-to-cart tc pa5">
+        <Button type="submit" onClick={onClick} isLoading={isLoading} block>
           <div className="flex w-100 justify-between items-center">
             <FormattedMessage id="product-customizer.add-to-cart" />
             <ProductPrice
               showLabels={false}
               showListPrice={false}
-              sellingPrice={total}
-              listPrice={total}
+              sellingPrice={calculatedTotal}
+              listPrice={calculatedTotal}
             />
           </div>
         </Button>

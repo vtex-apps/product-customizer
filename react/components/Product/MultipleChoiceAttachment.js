@@ -1,13 +1,14 @@
 import { Fragment, Component } from 'react'
+import MultipleChoice from '../Variation/Items/MultipleChoice';
 
 class MultipleChoiceAttachment extends Component {
 
-  getUpdatedQuantities(updatedItem, delta) {
+  getUpdatedQuantities(updatedItem, quantity) {
     const quantities = Object.values(this.props.items).reduce(
-      (quantities, item) => ({ ...quantities, [item.name]: { quantity: item.quantity } }),
+      (quantities, item) => ({ ...quantities, [item.name]: item.quantity }),
       {}
     )
-    quantities[updatedItem].quantity += delta
+    quantities[updatedItem] = quantity
     return quantities
   }
 
@@ -21,17 +22,31 @@ class MultipleChoiceAttachment extends Component {
     return minTotalItems <= newTotalItems && newTotalItems <= maxTotalItems
   }
 
-  canChangeItemQuantity(itemName, delta) {
-    const {minQuantity, quantity, maxQuantity} = this.props.items[itemName]
-    const newQuantity = quantity + delta 
-    return minQuantity <= newQuantity && newQuantity <= maxQuantity
+  canChangeItemQuantity(itemName, newQuantity) {
+    const { minQuantity, quantity, maxQuantity } = this.props.items[itemName]
+    return minQuantity <= newQuantity
+      && newQuantity <= maxQuantity
+      && this.canChangeTotalItems(newQuantity - quantity)
   }
 
-  handleChangeItemQuantity(itemName, delta) {
+  handleChangeItemQuantity(itemName, quantity) {
+    console.log('chagning', itemName, quantity)
     const { name, onAttachmentChange } = this.props
-    if (this.canChangeTotalItems(delta) && this.canChangeItemQuantity(itemName, delta)) {
-      const quantities = this.getUpdatedQuantities(itemName, delta)
-      onAttachmentChange(name, quantities) 
+    if (this.canChangeItemQuantity(itemName, quantity)) {
+      const quantities = this.getUpdatedQuantities(itemName, quantity)
+      onAttachmentChange(name, quantities)
+    }
+  }
+
+  getItemProps(itemName) {
+    const { items } = this.props
+    const item = items[itemName]
+    return {
+      item,
+      chosenAmount: item.quantity,
+      canIncrease: this.canChangeItemQuantity(itemName, item.quantity + 1),
+      canDecrease: this.canChangeItemQuantity(itemName, item.quantity - 1),
+      onChange: ({ value }) => this.handleChangeItemQuantity(itemName, value),
     }
   }
 
@@ -42,14 +57,7 @@ class MultipleChoiceAttachment extends Component {
     return (
       <Fragment>
         <div>{name}:</div>
-        {itemsNames.map(itemName =>
-          <div key={itemName}>
-            <span>- {itemName} </span>
-            <span onClick={() => this.handleChangeItemQuantity(itemName, -1)}>(-)</span>
-            <span> {items[itemName].quantity} </span>
-            <span onClick={() => this.handleChangeItemQuantity(itemName, +1)}>(+)</span>
-          </div>
-        )}
+        {itemsNames.map(itemName => <MultipleChoice {...this.getItemProps(itemName)} key={itemName} />)}
       </Fragment>
     )
   }

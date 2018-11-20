@@ -9,7 +9,12 @@ class ProductCustomizerContainer extends Component {
     const items =
       product.items.reduce(
         (items, sku) => ({ ...items, [sku.name]: this.parseSku(sku) }), {})
-    return { items }
+    console.log('RAW PROD', product)
+    return {
+      productName: product.productName,
+      imageUrl: product.items[0].images[0].imageUrl,
+      items
+    }
   }
 
   parseSku(sku) {
