@@ -51,7 +51,7 @@ class ToggledChoice extends Component {
             <img src={item.image} width="48" className="br3" />
           </div>
           <div className="flex-auto ml5">
-            <div className="toggled-choice__name">{item.name}</div>
+            <div className="toggled-choice__name t-heading-5">{item.name}</div>
           </div>
           <div className={`single-choice__icon-container ${isDisabled ? 'o-30' : ''} flex-none ml3`}>
             {

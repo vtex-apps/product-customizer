@@ -26,7 +26,7 @@ class MultipleChoice extends Component {
 
     return (
       <div className={`vtex-product-customizer__multiple-choice ${isSelected && 'selected bg-muted-5'} hover-bg-muted-5 w-100 ph4 pv5 bb b--muted-5`}>
-        <div className="relative flex items-center flex-wrap">
+        <div className="relative flex items-center">
           <ItemDescription {...{ imageUrl, name, description }} />
           <div className="flex-auto flex-none-ns flex justify-end">
             <div className="multiple-choice__actions flex-none ml4">

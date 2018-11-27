@@ -1,12 +1,12 @@
 export default function ItemDescription({ description, name, imageUrl }) {
   return (
-    <div className="flex-auto flex align-center">
+    <div className="flex">
       <div>
-        {imageUrl && <img src={imageUrl} width="54" className="br3 bb b--muted-3" />}
+        {imageUrl && <img src={imageUrl} className="br3 mr4" style={{ height: '54px', width: '54px' }} />}
       </div>
-      <div className="multiple-choice__title flex flex-column justify-center ml5">
-        <div className="multiple-choice__name">{name}</div>
-        <div className="single-choice__description pt2 mid-gray fw2">{description || null}</div>
+      <div className="multiple-choice__title flex flex-column justify-center">
+        <div className="multiple-choice__name t-heading-5">{name}</div>
+        <div className="single-choice__description">{description || null}</div>
       </div>
     </div>
   )

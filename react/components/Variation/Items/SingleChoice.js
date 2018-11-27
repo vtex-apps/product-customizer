@@ -25,19 +25,21 @@ class SingleChoice extends Component {
     const parsedPrice = parseFloat(calculatedPrice)
 
     const description = parsedPrice &&
-      <div className={"single-choice__price flex-none"}>
+      <div className={"single-choice__price flex-none t-small fw5 c-action-primary"}>
         <ProductPrice {...{ showLabels: false, showListPrice: false, sellingPrice: parsedPrice }} />
       </div>
 
     return (
-      <div onClick={onChange} className={`${selected && 'selected bg-muted-5'} hover-bg-muted-5 db pa4 pointer bb b--muted-5`}>
-        <div className="relative flex items-center justify-between">
+      <div onClick={onChange} className={`${selected && 'selected bg-muted-5'} hover-bg-muted-5 ph4 pointer bb b--muted-5 bw1`}>
+        <div className="relative flex items-center justify-between pv5">
           <ItemDescription {...{ description, imageUrl, name }} />
-          <Radio
-            checked={selected}
-            // Required but useless props
-            {...{ id: "", label: "", name: "", value: "", onChange: () => {}}}
-          />
+          <div className="mt3">
+            <Radio
+              checked={selected}
+              // Required but useless props
+              {...{ id: "", label: "", name: "", value: "", onChange: () => {}}}
+            />
+          </div>
         </div>
       </div>
     )
