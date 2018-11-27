@@ -16,7 +16,7 @@ class SingleChoice extends Component {
 
   render() {
     const {
-      item: { description, id, image: imageUrl, name, price },
+      item: { image: imageUrl, name, price },
       selected,
       onChange
     } = this.props
@@ -24,18 +24,15 @@ class SingleChoice extends Component {
     const calculatedPrice = (price / 100).toFixed(2)
     const parsedPrice = parseFloat(calculatedPrice)
 
+    const description = parsedPrice &&
+      <div className={"single-choice__price flex-none"}>
+        <ProductPrice {...{ showLabels: false, showListPrice: false, sellingPrice: parsedPrice }} />
+      </div>
+
     return (
       <div onClick={onChange} className={`${selected && 'selected bg-muted-5'} hover-bg-muted-5 db pa4 pointer bb b--muted-5`}>
         <div className="relative flex items-center justify-between">
           <ItemDescription {...{ description, imageUrl, name }} />
-          {!isNaN(parsedPrice) && <div className="single-choice__price flex-none mh4 w3 near-black tr">
-            <ProductPrice
-              showLabels={false}
-              showListPrice={false}
-              sellingPrice={parsedPrice}
-              listPrice={parsedPrice}
-            />
-          </div>}
           <Radio
             checked={selected}
             // Required but useless props

@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
-import { FormattedMessage } from 'react-intl'
 import NumericStepper from 'vtex.styleguide/NumericStepper'
 import ProductPrice from 'vtex.store-components/ProductPrice'
 import ItemDescription from './ItemDescription';
@@ -20,12 +19,16 @@ class MultipleChoice extends Component {
     const parsedPrice = parseFloat(calculatedPrice)
     const isSelected = !!chosenAmount
 
+    const description = !!parsedPrice &&
+      <div className={"multiple-choice__price flex-none"}>
+        <ProductPrice {...{ showLabels: false, showListPrice: false, sellingPrice: parsedPrice }} />
+      </div>
+
     return (
       <div className={`vtex-product-customizer__multiple-choice ${isSelected && 'selected bg-muted-5'} hover-bg-muted-5 w-100 ph4 pv5 bb b--muted-5`}>
         <div className="relative flex items-center flex-wrap">
-          <ItemDescription {...{ imageUrl, name }} />
+          <ItemDescription {...{ imageUrl, name, description }} />
           <div className="flex-auto flex-none-ns flex justify-end">
-            <PricePerUnit {...{ isSelected, parsedPrice }} />
             <div className="multiple-choice__actions flex-none ml4">
               <NumericStepper
                 lean
@@ -43,20 +46,5 @@ class MultipleChoice extends Component {
 
 }
 
-function PricePerUnit({ isSelected, parsedPrice }) {
-  return (
-    <div className={`multiple-choice__price ${isSelected ? '' : 'o-50'} flex-none mr5 tr`}>
-      <ProductPrice
-        showLabels={false}
-        showListPrice={false}
-        sellingPrice={parsedPrice}
-        listPrice={parsedPrice}
-      />
-      <span className="f7">
-        <FormattedMessage id="product-customizer.per-unit" />
-      </span>
-    </div>
-  )
-}
 
 export default MultipleChoice
