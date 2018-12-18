@@ -5,10 +5,10 @@ class MultipleChoiceAttachment extends Component {
 
   getUpdatedQuantities(updatedItem, quantity) {
     const quantities = Object.values(this.props.items).reduce(
-      (quantities, item) => ({ ...quantities, [item.name]: item.quantity }),
+      (quantities, item) => ({ ...quantities, [item.name]: { id: item.id, quantity: item.quantity }}),
       {}
     )
-    quantities[updatedItem] = quantity
+    quantities[updatedItem].quantity = quantity
     return quantities
   }
 

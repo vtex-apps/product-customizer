@@ -27,7 +27,7 @@ class ProductCustomizerWrapper extends Component {
   getQuantitiesFromItems = items =>
     Object.entries(items).reduce(
       (quantities, [itemName, item]) =>
-        ({ ...quantities, [itemName]: +item.defaultQuantity }),
+        ({ ...quantities, [itemName]: { id: item.id, quantity: +item.defaultQuantity }}),
       {}
     )
 
@@ -36,7 +36,7 @@ class ProductCustomizerWrapper extends Component {
       state => ({
         chosenAttachments: {
           ...state.chosenAttachments,
-          [attachmentName]: quantities
+          [attachmentName]: quantities,
         }
       })
     )
@@ -67,7 +67,7 @@ class ProductCustomizerWrapper extends Component {
     const [quantity, items] = Object.entries(attachment.items).reduce(
       ([total, obj], [name, item]) => {
         const quantity = name in quantities
-          ? quantities[name]
+          ? quantities[name].quantity
           : +item.defaultQuantity
         return [
           total + quantity,
@@ -92,6 +92,40 @@ class ProductCustomizerWrapper extends Component {
     return true
   }
 
+  getAssemblyOptions = () => {
+    const { chosenAttachments } = this.state
+    let optionsMap = {}
+    Object.values(chosenAttachments).map(attachObj => {
+      Object.values(attachObj).map(({ id, quantity }) => {
+        if (quantity > 0) {
+          optionsMap[id] = (optionsMap[id] || 0) + quantity
+        }
+      })
+    })
+    return Object.entries(optionsMap).map(([id, quantity]) => ({ id, quantity }))
+  }
+
+  handleSubmitAddToCart = async () => {
+    const { orderFormContext, product } = this.props
+    const { selectedSku } = this.state
+
+    this.setState({ isAddingToCart: true })
+    try {
+      await orderFormContext.addItem({
+        variables: {
+          orderFormId: orderFormContext.orderForm.orderFormId,
+          items: [{ id: product.items[selectedSku].skuId, quantity: 1, seller: 1 }],
+        },
+      })
+
+      // Add Assembly options and call mutation
+
+      await orderFormContext.refetch()
+    } catch (err) {
+    }
+    this.setState({ isAddingToCart: false })
+  }
+
   render() {
     const { imageUrl, items, productName } = this.props.product
     const { selectedSku, chosenAttachments } = this.state
@@ -113,7 +147,7 @@ class ProductCustomizerWrapper extends Component {
         {selectedSku && <AttachmentsPicker
           attachments={attachments}
           onAttachmentChange={this.onAttachmentChange} />}
-        <AddToCart ready={ready} total={total} onClick={() => console.log('mock')} isLoading={false} />
+        <AddToCart ready={ready} total={total} onClick={this.handleSubmitAddToCart} isLoading={false} />
       </Fragment>
     )
   }

@@ -23,7 +23,7 @@ class ProductCustomizerContainer extends Component {
     const attachments =
       names.reduce(
         (items, name) => ({ ...items, [name]: this.parseAttachment(name, calculatedAttachments) }), {})
-    return { attachments }
+    return { attachments, assemblyId: sku.attachments[0].name, skuId: sku.itemId }
   }
 
   parseAttachment(name, attachments) {
