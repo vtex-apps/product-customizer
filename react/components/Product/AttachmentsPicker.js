@@ -1,20 +1,14 @@
-import { Fragment } from 'react'
+import React, { Fragment } from 'react'
 
-import AttachmentPicker from './AttachmentPicker';
+import AttachmentPicker from './AttachmentPicker'
 
-function precedence({properties: {type, required}}) {
-  if (required && type === 'string') {
-    return 2
-  }
-  else if (required && type !== 'string') {
-    return 1
-  } else if (!required) {
-    return 0
-  }
+function precedence({ properties: { minTotalItems, maxTotalItems } }) {
+  if (minTotalItems === 1 && maxTotalItems === 1) { return 0 }
+  return maxTotalItems
 }
 
 function compareAttachments([_, att1], [__, att2]) {
-  return precedence(att2) - precedence(att1) 
+  return precedence(att1) - precedence(att2)
 }
 
 function AttachmentsPicker({ attachments, onAttachmentChange }) {
@@ -24,10 +18,10 @@ function AttachmentsPicker({ attachments, onAttachmentChange }) {
         .sort(compareAttachments)
         .map(
           ([name, attachment]) =>
-            <AttachmentPicker
+            (<AttachmentPicker
               key={name}
               onAttachmentChange={onAttachmentChange}
-              {...attachment} />
+              {...attachment} />)
         )}
     </Fragment>
   )

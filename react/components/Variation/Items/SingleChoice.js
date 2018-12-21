@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import ProductPrice from 'vtex.store-components/ProductPrice'
 import Radio from 'vtex.styleguide/Radio'
-import ItemDescription from './ItemDescription';
+import ItemDescription from './ItemDescription'
 
 class SingleChoice extends Component {
   static propTypes = {
@@ -16,16 +16,16 @@ class SingleChoice extends Component {
 
   render() {
     const {
-      item: { image: imageUrl, name, price },
+      item: { imageUrl, name, price },
       selected,
-      onChange
+      onChange,
     } = this.props
 
     const calculatedPrice = (price / 100).toFixed(2)
     const parsedPrice = parseFloat(calculatedPrice)
 
     const description = parsedPrice &&
-      <div className={"single-choice__price flex-none t-small fw5 c-action-primary"}>
+      <div className={'single-choice__price flex-none t-small fw5 c-action-primary'}>
         <ProductPrice {...{ showLabels: false, showListPrice: false, sellingPrice: parsedPrice }} />
       </div>
 
@@ -37,7 +37,7 @@ class SingleChoice extends Component {
             <Radio
               checked={selected}
               // Required but useless props
-              {...{ id: "", label: "", name: "", value: "", onChange: () => {}}}
+              {...{ id: '', label: '', name: '', value: '', onChange: () => {} }}
             />
           </div>
         </div>

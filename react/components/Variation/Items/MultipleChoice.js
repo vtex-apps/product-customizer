@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import NumericStepper from 'vtex.styleguide/NumericStepper'
 import ProductPrice from 'vtex.store-components/ProductPrice'
-import ItemDescription from './ItemDescription';
+import ItemDescription from './ItemDescription'
 
 class MultipleChoice extends Component {
   static propTypes = {
@@ -13,14 +13,14 @@ class MultipleChoice extends Component {
   }
 
   render() {
-    const { item: { image : imageUrl, price, name }, chosenAmount, canIncrease, canDecrease, onChange } = this.props
+    const { item: { imageUrl, price, name }, chosenAmount, canIncrease, canDecrease, onChange } = this.props
 
     const calculatedPrice = (price / 100).toFixed(2)
     const parsedPrice = parseFloat(calculatedPrice)
     const isSelected = !!chosenAmount
 
     const description = !!parsedPrice &&
-      <div className={"multiple-choice__price flex-none"}>
+      <div className={'multiple-choice__price flex-none'}>
         <ProductPrice {...{ showLabels: false, showListPrice: false, sellingPrice: parsedPrice }} />
       </div>
 
@@ -43,8 +43,6 @@ class MultipleChoice extends Component {
       </div>
     )
   }
-
 }
-
 
 export default MultipleChoice

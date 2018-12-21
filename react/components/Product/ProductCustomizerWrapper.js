@@ -1,9 +1,9 @@
 import React, { Fragment, Component } from 'react'
 import { orderFormConsumer } from 'vtex.store/OrderFormContext'
 
-import SkuSelector from './SkuSelector';
-import AttachmentsPicker from './AttachmentsPicker';
-import AddToCart from '../Buttons/AddToCart';
+import SkuSelector from './SkuSelector'
+import AttachmentsPicker from './AttachmentsPicker'
+import AddToCart from '../Buttons/AddToCart'
 
 class ProductCustomizerWrapper extends Component {
   state = {
@@ -11,10 +11,10 @@ class ProductCustomizerWrapper extends Component {
     chosenAttachments: {},
   }
 
-  onSkuChange = item =>
+  handleSkuChange = item =>
     this.setState({
       selectedSku: item,
-      chosenAttachments: this.getQuantitiesFromSkuAttachments(item)
+      chosenAttachments: this.getQuantitiesFromSkuAttachments(item),
     })
 
   getQuantitiesFromSkuAttachments = (sku) =>
@@ -27,17 +27,17 @@ class ProductCustomizerWrapper extends Component {
   getQuantitiesFromItems = items =>
     Object.entries(items).reduce(
       (quantities, [itemName, item]) =>
-        ({ ...quantities, [itemName]: { id: item.id, quantity: +item.defaultQuantity }}),
+        ({ ...quantities, [itemName]: { id: item.id, quantity: +item.defaultQuantity } }),
       {}
     )
 
-  onAttachmentChange = (attachmentName, quantities) =>
+  handleAttachmentChange = (attachmentName, quantities) =>
     this.setState(
       state => ({
         chosenAttachments: {
           ...state.chosenAttachments,
           [attachmentName]: quantities,
-        }
+        },
       })
     )
 
@@ -50,14 +50,14 @@ class ProductCustomizerWrapper extends Component {
 
   getAttachmentPrice(attachment) {
     return Object.values(attachment.items).reduce(
-      (total, {price, quantity}) => total + (price * quantity),
+      (total, { price, quantity }) => total + (price * quantity),
       0
     )
   }
 
   getAttachmentsWithQuantities(attachments, quantities) {
     return Object.entries(attachments).reduce(
-      (obj, [name, attachment]) => 
+      (obj, [name, attachment]) =>
         ({ ...obj, [name]: this.getAttachmentWithQuantities(attachment, quantities[name]) }),
       {}
     )
@@ -71,7 +71,7 @@ class ProductCustomizerWrapper extends Component {
           : +item.defaultQuantity
         return [
           total + quantity,
-          { ...obj, [name]: { ...item, quantity } }
+          { ...obj, [name]: { ...item, quantity } },
         ]
       },
       [0, {}]
@@ -79,30 +79,28 @@ class ProductCustomizerWrapper extends Component {
 
     return { ...attachment, items, quantity }
   }
-  
+
   isSkuReady(attachments) {
     return Object.values(attachments).every(this.isAttachmentReady)
   }
 
   isAttachmentReady(attachment) {
-    const { quantity, properties: { type, required } } = attachment
-    if (required && type === 'string') {
-      return quantity === 1
-    }
-    return true
+    const { quantity, properties: { minTotalItems, maxTotalItems } } = attachment
+    return quantity >= minTotalItems && quantity <= maxTotalItems
   }
 
   getAssemblyOptions = () => {
     const { chosenAttachments } = this.state
-    let optionsMap = {}
-    Object.values(chosenAttachments).map(attachObj => {
+
+    const options = []
+    Object.entries(chosenAttachments).map(([suffix, attachObj]) => {
       Object.values(attachObj).map(({ id, quantity }) => {
         if (quantity > 0) {
-          optionsMap[id] = (optionsMap[id] || 0) + quantity
+          options.push({ type: suffix, id, quantity })
         }
       })
     })
-    return Object.entries(optionsMap).map(([id, quantity]) => ({ id, quantity }))
+    return options
   }
 
   handleSubmitAddToCart = async () => {
@@ -110,18 +108,20 @@ class ProductCustomizerWrapper extends Component {
     const { selectedSku } = this.state
 
     this.setState({ isAddingToCart: true })
+
+    const skuData = product.items[selectedSku]
+    const { skuId, assemblyIdPreffix } = skuData
+
     try {
       await orderFormContext.addItem({
         variables: {
           orderFormId: orderFormContext.orderForm.orderFormId,
-          items: [{ id: product.items[selectedSku].skuId, quantity: 1, seller: 1 }],
+          items: [{ id: skuId, quantity: 1, seller: product.sellerId, options: this.getAssemblyOptions(), assemblyOptionPreffix: assemblyIdPreffix }],
         },
       })
-
-      // Add Assembly options and call mutation
-
       await orderFormContext.refetch()
     } catch (err) {
+      //TODO send to splunk
     }
     this.setState({ isAddingToCart: false })
   }
@@ -143,10 +143,10 @@ class ProductCustomizerWrapper extends Component {
         <SkuSelector
           items={Object.keys(items)}
           selectedSku={selectedSku}
-          onSkuChange={this.onSkuChange} />
+          onSkuChange={this.handleSkuChange} />
         {selectedSku && <AttachmentsPicker
           attachments={attachments}
-          onAttachmentChange={this.onAttachmentChange} />}
+          onAttachmentChange={this.handleAttachmentChange} />}
         <AddToCart ready={ready} total={total} onClick={this.handleSubmitAddToCart} isLoading={false} />
       </Fragment>
     )
