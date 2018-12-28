@@ -1,34 +1,24 @@
 import React, { Component } from 'react'
 import { orderFormConsumer } from 'vtex.store/OrderFormContext'
-import itemsMock from './mock/itemsMock.json'
 import { head } from 'ramda'
 
 import ProductCustomizerWrapper from './ProductCustomizerWrapper'
 
 class ProductCustomizerContainer extends Component {
   parseProduct(product) {
-    console.log('teste === props: ', this.props)
-    console.log('teste ===== itemsMock: ', itemsMock)
     console.log('RAW PROD', product)
-    const items =
-      product.items.reduce(
-        (items, sku) => ({ ...items, [sku.name]: this.parseSku(sku) }), {})
 
     const compositionPrices = this.getPriceMap(product.itemMetadata.priceTable)
-    console.log('raw ==== compositionPrices: ', compositionPrices)
-
-    const teste =
-      itemsMock.itemMetadata.items.reduce(
+    
+    const items =
+      product.itemMetadata.items.reduce(
         (items, item) => ({ ...items, ...this.parseItemMetada(item, compositionPrices) }), {})
-    console.log('teste === teste: ', teste)
-    console.log('teste === items: ', items)
 
     const sellers = head(product.items).sellers
-    // console.log('RAW PROD', product)
     return {
       productName: product.productName,
       imageUrl: product.items[0].images[0].imageUrl,
-      items: teste,
+      items,
       sellerId: sellers.find(seller => seller.sellerDefault).sellerId,
     }
   }
@@ -58,7 +48,8 @@ class ProductCustomizerContainer extends Component {
   }
 
   parseCompositionItem(compItem, prices) {
-    const metadatas = itemsMock.itemMetadata.items // TODO Use coming from server!
+    const { product } = this.props.productQuery
+    const metadatas = product.itemMetadata.items
     const { id, priceTable } = compItem
     const compMeta = metadatas.find(metadata => metadata.id === id)
     const fullComp = {
@@ -78,30 +69,6 @@ class ProductCustomizerContainer extends Component {
     const attachments = itemMetada.assemblyOptions.reduce((prev, option) =>
       ({ ...prev, ...this.parseAssemblyOption(option, prices) }), {})
     return { [name]: { attachments, assemblyIdPreffix: itemMetada.assemblyOptions[0].name, skuId: itemMetada.id } }
-  }
-
-  parseSku(sku) {
-    const calculatedAttachments = JSON.parse(sku.calculatedAttachments)
-    const names = Object.keys(calculatedAttachments.items)
-    const attachments =
-      names.reduce(
-        (items, name) => ({ ...items, [name]: this.parseAttachment(name, calculatedAttachments) }), {})
-    return { attachments, assemblyId: sku.attachments[0].name, skuId: sku.itemId }
-  }
-
-  parseAttachment(name, attachments) {
-    return {
-      name,
-      items: this.parseAttchmentItems(attachments.items[name]),
-      properties: {
-        ...attachments.properties[name],
-        required: attachments.required.includes(name),
-      },
-    }
-  }
-
-  parseAttchmentItems(items) {
-    return items.reduce((acc, item) => ({ ...acc, [item.name]: item }), {})
   }
 
   render() {

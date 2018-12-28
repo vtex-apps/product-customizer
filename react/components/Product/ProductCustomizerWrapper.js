@@ -9,6 +9,7 @@ class ProductCustomizerWrapper extends Component {
   state = {
     selectedSku: null,
     chosenAttachments: {},
+    isAddingToCart: false,
   }
 
   handleSkuChange = item =>
@@ -120,6 +121,8 @@ class ProductCustomizerWrapper extends Component {
         },
       })
       await orderFormContext.refetch()
+      const minicartButton = document.querySelector('.vtex-minicart .vtex-button')
+      minicartButton && minicartButton.click()
     } catch (err) {
       //TODO send to splunk
     }
@@ -128,7 +131,7 @@ class ProductCustomizerWrapper extends Component {
 
   render() {
     const { imageUrl, items, productName } = this.props.product
-    const { selectedSku, chosenAttachments } = this.state
+    const { selectedSku, chosenAttachments, isAddingToCart } = this.state
 
     const attachments = selectedSku && this.getAttachmentsWithQuantities(items[selectedSku].attachments, chosenAttachments)
     const ready = selectedSku && this.isSkuReady(attachments)
@@ -147,7 +150,7 @@ class ProductCustomizerWrapper extends Component {
         {selectedSku && <AttachmentsPicker
           attachments={attachments}
           onAttachmentChange={this.handleAttachmentChange} />}
-        <AddToCart ready={ready} total={total} onClick={this.handleSubmitAddToCart} isLoading={false} />
+        <AddToCart ready={ready} total={total} onClick={this.handleSubmitAddToCart} isLoading={isAddingToCart} />
       </Fragment>
     )
   }
