@@ -2,9 +2,10 @@ import React, { Fragment } from 'react'
 
 import AttachmentPicker from './AttachmentPicker'
 
-function precedence({ properties: { minTotalItems, maxTotalItems } }) {
-  if (minTotalItems === 1 && maxTotalItems === 1) { return 0 }
-  return maxTotalItems
+function precedence({ isSingleChoice, isToggleChoice }) {
+  if (isSingleChoice) { return 0 }
+  if (isToggleChoice) { return 1 }
+  return 2
 }
 
 function compareAttachments([_, att1], [__, att2]) {

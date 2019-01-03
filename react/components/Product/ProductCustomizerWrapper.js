@@ -149,11 +149,11 @@ class ProductCustomizerWrapper extends Component {
 
     return (
       <Fragment>
-        <div className="flex-ns pv6-ns ph10-ns">
-          <div className="w-100 w-third-ns flex tc items-center-ns h-100-ns">
+        <div className="flex-ns pv6-ns justify-center-ns">
+          <div className="w-100 w-third-ns flex tc items-center-ns h-100-ns ph2-ns">
             <img className="vtex-product-customizer__image" src={imageUrl} />
           </div>
-          <div className="w-two-thirds-ns pl5-ns ph5-s">
+          <div className="w-40-ns ph2-ns">
             <div className="t-heading-5 c-on-base ph5 pt5-s">{productName}</div>
             <SkuSelector
               items={Object.keys(items)}
