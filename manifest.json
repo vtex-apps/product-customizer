@@ -12,7 +12,6 @@
   "scripts": {
     "postreleasy": "vtex publish --verbose"
   },
-  "settingsSchema": {},
   "dependencies": {
     "vtex.store": "1.x",
     "vtex.styleguide": "7.x",
@@ -20,7 +19,8 @@
     "vtex.product-details": "0.x"
   },
   "builders": {
-    "pages": "0.x",
+    "store": "0.x",
+    "messages": "0.x",
     "react": "2.x"
   }
 }
