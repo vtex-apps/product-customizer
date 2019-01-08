@@ -1,6 +1,8 @@
 {
   "dependencies": {
     "classnames": "^2.2.6",
-    "smoothscroll-polyfill": "^0.4.3"
+    "smoothscroll-polyfill": "^0.4.3",
+    "react-intl": "^2.7.2",
+    "ramda": "^0.26.1"
   }
 }
