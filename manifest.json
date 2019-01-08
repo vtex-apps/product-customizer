@@ -13,10 +13,10 @@
     "postreleasy": "vtex publish --verbose"
   },
   "dependencies": {
-    "vtex.store": "1.x",
+    "vtex.store-resources": "0.x",
     "vtex.styleguide": "7.x",
-    "vtex.store-components": "2.x",
-    "vtex.product-details": "0.x"
+    "vtex.store-components": "3.3.2-beta",
+    "vtex.product-details": "1.3.1-beta"
   },
   "builders": {
     "store": "0.x",

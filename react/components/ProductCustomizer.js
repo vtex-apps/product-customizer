@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import { FormattedMessage } from 'react-intl'
 import { find, propEq, prop, flip, o, keys, isNil } from 'ramda'
 import { Spinner } from 'vtex.styleguide'
-import { orderFormConsumer, contextPropTypes } from 'vtex.store/OrderFormContext'
+import { orderFormConsumer, contextPropTypes } from 'vtex.store-resources/OrderFormContext'
 
 import '../global.css'
 import SkuGroupList from './SkuGroupList'
@@ -146,19 +146,19 @@ class ProductCustomizer extends Component {
 
     const selectedVariationString = `[1-1]#${variation.id}[${variation.minQuantity}-${
       variation.maxQuantity
-    }][1]`
+      }][1]`
     const extraVariationsString = extraVariations
       .map(item => {
         return `[${item.minTotalItems}-${item.maxTotalItems}]#${item.variation.id}[${
           item.variation.minQuantity
-        }-${item.variation.maxQuantity}][${item.quantity}]`
+          }-${item.variation.maxQuantity}][${item.quantity}]`
       })
       .join(';')
     const compositionVariationsString = compositionVariations.variations
       .map(item => {
         return `[${compositionVariations.maxTotalItems}-${compositionVariations.minTotalItems}]#${
           item.id
-        }[${item.minQuantity}-${item.maxQuantity}][${item.defaultQuantity}]`
+          }[${item.minQuantity}-${item.maxQuantity}][${item.defaultQuantity}]`
       })
       .join(';')
 
@@ -214,7 +214,7 @@ class ProductCustomizer extends Component {
 
   scrollToIngredients = () => {
     // TODO: find a better way for getting the top menu element
-    const topbar = document && document.querySelector('.vtex-top-menu-fixed') 
+    const topbar = document && document.querySelector('.vtex-top-menu-fixed')
     const topbarHeight = topbar ? topbar.scrollHeight : 0
     this.ingredientsContentAnchor.current.style.top = `${(-topbarHeight)}px`
     this.scrollIntoView(this.ingredientsContentAnchor.current)
@@ -400,7 +400,7 @@ class ProductCustomizer extends Component {
         if (!isValid) {
           console.warn(
             `The attachment configuration for ${
-              sku.nameComplete
+            sku.nameComplete
             } seems to be incorrect, please review the attachment.`
           )
         }

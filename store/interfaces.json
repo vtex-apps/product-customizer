@@ -1,5 +1,4 @@
 {
-  "product-details": {},
   "product-details.customizer": {
     "component": "ProductCustomizer"
   }
