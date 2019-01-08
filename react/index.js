@@ -12,7 +12,7 @@ class ProductCustomizerIndex extends Component {
   render() {
     const { productQuery: { loading, product } } = this.props
 
-    if (!product && loading) return (
+    if (loading) return (
       <div className="flex justify-center pa8 w-100">
         <Spinner />
       </div>
