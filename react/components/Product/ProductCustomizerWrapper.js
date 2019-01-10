@@ -1,15 +1,20 @@
 import React, { Fragment, Component } from 'react'
 import { orderFormConsumer } from 'vtex.store-resources/OrderFormContext'
+import { head } from 'ramda'
 
 import SkuSelector from './SkuSelector'
 import AttachmentsPicker from './AttachmentsPicker'
 import AddToCart from '../Buttons/AddToCart'
 
 class ProductCustomizerWrapper extends Component {
-  state = {
-    selectedSku: null,
-    chosenAttachments: {},
-    isAddingToCart: false,
+  constructor(props) {
+    super(props)
+    const firstItem = head(Object.keys(props.product.items))
+    this.state = {
+      selectedSku: firstItem,
+      chosenAttachments: this.getQuantitiesFromSkuAttachments(firstItem),
+      isAddingToCart: false,
+    }
   }
 
   handleSkuChange = item =>
@@ -28,7 +33,7 @@ class ProductCustomizerWrapper extends Component {
   getQuantitiesFromItems = items =>
     Object.entries(items).reduce(
       (quantities, [itemName, item]) =>
-        ({ ...quantities, [itemName]: { id: item.id, quantity: +item.defaultQuantity } }),
+        ({ ...quantities, [itemName]: { id: item.id, quantity: +item.defaultQuantity, seller: item.seller } }),
       {}
     )
 
@@ -43,9 +48,11 @@ class ProductCustomizerWrapper extends Component {
     )
 
   getTotalPrice(attachments) {
+    const { selectedSku } = this.state
+    const baseValue = this.props.product.parentComertials[selectedSku].Price
     return Object.values(attachments).reduce(
       (total, attachment) => total + this.getAttachmentPrice(attachment),
-      0
+      baseValue * 100
     )
   }
 
@@ -95,9 +102,9 @@ class ProductCustomizerWrapper extends Component {
 
     const options = []
     Object.entries(chosenAttachments).map(([suffix, attachObj]) => {
-      Object.values(attachObj).map(({ id, quantity }) => {
+      Object.values(attachObj).map(({ id, quantity, seller }) => {
         if (quantity > 0) {
-          options.push({ type: suffix, id, quantity })
+          options.push({ type: suffix, id, quantity, seller })
         }
       })
     })
@@ -112,6 +119,9 @@ class ProductCustomizerWrapper extends Component {
 
     const skuData = product.items[selectedSku]
     const { skuId, assemblyIdPreffix } = skuData
+
+    console.log('teste orderFormContext: ', orderFormContext)
+    console.log('teste options: ', this.getAssemblyOptions())
 
     try {
       await orderFormContext.addItem({
@@ -130,11 +140,11 @@ class ProductCustomizerWrapper extends Component {
   }
 
   render() {
-    const { imageUrl, items, productName } = this.props.product
+    const { imageUrl, items, productName, parentComertials } = this.props.product
     const { selectedSku, chosenAttachments, isAddingToCart } = this.state
 
-    const attachments = selectedSku && this.getAttachmentsWithQuantities(items[selectedSku].attachments, chosenAttachments)
-    const ready = selectedSku && this.isSkuReady(attachments)
+    const attachments = this.getAttachmentsWithQuantities(items[selectedSku].attachments, chosenAttachments)
+    const ready = this.isSkuReady(attachments)
     const total = attachments && this.getTotalPrice(attachments)
 
     return (
@@ -146,10 +156,12 @@ class ProductCustomizerWrapper extends Component {
         <SkuSelector
           items={Object.keys(items)}
           selectedSku={selectedSku}
-          onSkuChange={this.handleSkuChange} />
-        {selectedSku && <AttachmentsPicker
+          onSkuChange={this.handleSkuChange} 
+          skuCommertialOffer={parentComertials[selectedSku]}
+        />
+        <AttachmentsPicker
           attachments={attachments}
-          onAttachmentChange={this.handleAttachmentChange} />}
+          onAttachmentChange={this.handleAttachmentChange} />
         <AddToCart ready={ready} total={total} onClick={this.handleSubmitAddToCart} isLoading={isAddingToCart} />
       </Fragment>
     )

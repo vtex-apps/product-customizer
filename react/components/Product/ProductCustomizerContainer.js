@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { orderFormConsumer } from 'vtex.store/OrderFormContext'
+import { orderFormConsumer } from 'vtex.store-resources/OrderFormContext'
 import { head } from 'ramda'
 
 import ProductCustomizerWrapper from './ProductCustomizerWrapper'
@@ -14,14 +14,21 @@ class ProductCustomizerContainer extends Component {
       product.itemMetadata.items.reduce(
         (items, item) => ({ ...items, ...this.parseItemMetada(item, compositionPrices) }), {})
 
+    const parentComertials = product.items.reduce((prev, curr) => {
+      return { ...prev, [curr.name]: this.findSellerDefault(curr.sellers).commertialOffer }
+    }, {})
+    
     const sellers = head(product.items).sellers
     return {
       productName: product.productName,
       imageUrl: product.items[0].images[0].imageUrl,
       items,
-      sellerId: sellers.find(seller => seller.sellerDefault).sellerId,
+      sellerId: this.findSellerDefault(sellers).sellerId,
+      parentComertials,
     }
   }
+
+  findSellerDefault = sellers => sellers.find(seller => seller.sellerDefault)
 
   getPriceMap(priceTable) {
     return priceTable.reduce((prev, curr) => {
