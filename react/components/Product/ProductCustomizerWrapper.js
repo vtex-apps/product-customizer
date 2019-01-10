@@ -149,20 +149,24 @@ class ProductCustomizerWrapper extends Component {
 
     return (
       <Fragment>
-        <div className="w-100 w-third-ns flex-ns tc items-center-ns h-100-ns">
-          <img className="vtex-product-customizer__image" src={imageUrl} />
+        <div className="flex-ns pv6-ns ph10-ns">
+          <div className="w-100 w-third-ns flex tc items-center-ns h-100-ns">
+            <img className="vtex-product-customizer__image" src={imageUrl} />
+          </div>
+          <div className="w-two-thirds-ns pl5-ns ph5-s">
+            <div className="t-heading-5 c-on-base ph5 pt5-s">{productName}</div>
+            <SkuSelector
+              items={Object.keys(items)}
+              selectedSku={selectedSku}
+              onSkuChange={this.handleSkuChange} 
+              skuCommertialOffer={parentComertials[selectedSku]} 
+            />
+            <AttachmentsPicker
+              attachments={attachments}
+              onAttachmentChange={this.handleAttachmentChange} />
+            <AddToCart ready={ready} total={total} onClick={this.handleSubmitAddToCart} isLoading={isAddingToCart} />
+          </div>
         </div>
-        <div>{productName}</div>
-        <SkuSelector
-          items={Object.keys(items)}
-          selectedSku={selectedSku}
-          onSkuChange={this.handleSkuChange} 
-          skuCommertialOffer={parentComertials[selectedSku]}
-        />
-        <AttachmentsPicker
-          attachments={attachments}
-          onAttachmentChange={this.handleAttachmentChange} />
-        <AddToCart ready={ready} total={total} onClick={this.handleSubmitAddToCart} isLoading={isAddingToCart} />
       </Fragment>
     )
   }

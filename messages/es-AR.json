@@ -9,5 +9,8 @@
   "product-customizer.required": "Obligatorio",
   "product-customizer.change-composition": "Cambiar los ingredientes o las salsas",
   "product-customizer.per-unit": "por un.",
-  "product-customizer.pick-size": "Elige un tamaño"
+  "product-customizer.pick-size": "Elige un tamaño",
+  "product-customizer.crust-title": "Elija una corteza",
+  "product-customizer.basic-toppings-title": "Ingredientes básicos",
+  "product-customizer.toppings-title": "Ingredientes adicionales"
 }

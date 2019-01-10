@@ -9,5 +9,8 @@
   "product-customizer.required": "required",
   "product-customizer.change-composition": "Change ingredients or sauce",
   "product-customizer.per-unit": "per un.",
-  "product-customizer.pick-size": "Pick one size"
+  "product-customizer.pick-size": "Pick one size",
+  "product-customizer.crust-title": "Pick one crust",
+  "product-customizer.basic-toppings-title": "Basic ingredients",
+  "product-customizer.toppings-title": "Extra ingredients"
 }

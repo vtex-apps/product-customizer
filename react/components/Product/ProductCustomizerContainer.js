@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { orderFormConsumer } from 'vtex.store-resources/OrderFormContext'
-import { head } from 'ramda'
+import { all, both, head, propEq, values } from 'ramda'
 
 import ProductCustomizerWrapper from './ProductCustomizerWrapper'
 
@@ -50,6 +50,8 @@ class ProductCustomizerContainer extends Component {
           maxTotalItems: composition.maxQuantity,
           minTotalItems: composition.minQuantity,
         },
+        isSingleChoice: both(propEq('minQuantity', 1), propEq('maxQuantity', 1))(composition),
+        isToggleChoice: all(propEq('maxQuantity', 1))(values(items)),
       },
     }
   }

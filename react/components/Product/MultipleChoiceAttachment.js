@@ -51,12 +51,11 @@ class MultipleChoiceAttachment extends Component {
   }
 
   render() {
-    const { name, items } = this.props
+    const { items } = this.props
     const itemsNames = Object.keys(items)
 
     return (
       <Fragment>
-        <div>{name}:</div>
         {itemsNames.map(itemName => <MultipleChoice {...this.getItemProps(itemName)} key={itemName} />)}
       </Fragment>
     )
