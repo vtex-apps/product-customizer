@@ -15,8 +15,8 @@
   "dependencies": {
     "vtex.store-resources": "0.x",
     "vtex.styleguide": "7.x",
-    "vtex.store-components": "3.3.2-beta",
-    "vtex.product-details": "1.3.1-beta"
+    "vtex.store-components": "3.x",
+    "vtex.product-details": "1.x"
   },
   "builders": {
     "store": "0.x",
