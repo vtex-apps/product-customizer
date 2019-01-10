@@ -164,7 +164,9 @@ class ProductCustomizerWrapper extends Component {
             <AttachmentsPicker
               attachments={attachments}
               onAttachmentChange={this.handleAttachmentChange} />
-            <AddToCart ready={ready} total={total} onClick={this.handleSubmitAddToCart} isLoading={isAddingToCart} />
+              <div className="vtex-product-customizer__actions fixed bg-white bottom-0 left-0 right-0 bt b--light-gray">
+                <AddToCart ready={ready} total={total} onClick={this.handleSubmitAddToCart} isLoading={isAddingToCart} />
+              </div>
           </div>
         </div>
       </Fragment>
