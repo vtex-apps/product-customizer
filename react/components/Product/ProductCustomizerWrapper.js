@@ -1,5 +1,5 @@
 import React, { Fragment, Component } from 'react'
-import { orderFormConsumer } from 'vtex.store/OrderFormContext'
+import { orderFormConsumer } from 'vtex.store-resources/OrderFormContext'
 
 import SkuSelector from './SkuSelector'
 import AttachmentsPicker from './AttachmentsPicker'
