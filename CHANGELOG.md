@@ -7,8 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.0.0] - 2019-01-10
+### Changed
+- Add support to store and messages builders.
+
 ## [0.2.12] - 2018-11-07
-### Fixes
+### Fixed
 - Check if calculatedAttachment is not nil
 
 ## [0.2.10] - 2018-11-07

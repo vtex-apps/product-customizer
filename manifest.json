@@ -1,7 +1,7 @@
 {
   "name": "product-customizer",
   "vendor": "vtex",
-  "version": "0.2.12",
+  "version": "1.0.0",
   "title": "Product Customizer",
   "description": "",
   "mustUpdateAt": "2019-09-27",
@@ -12,15 +12,15 @@
   "scripts": {
     "postreleasy": "vtex publish --verbose"
   },
-  "settingsSchema": {},
   "dependencies": {
-    "vtex.store": "1.x",
+    "vtex.store-resources": "0.x",
     "vtex.styleguide": "7.x",
-    "vtex.store-components": "2.x",
-    "vtex.product-details": "0.x"
+    "vtex.store-components": "3.x",
+    "vtex.product-details": "1.x"
   },
   "builders": {
-    "pages": "0.x",
+    "store": "0.x",
+    "messages": "0.x",
     "react": "2.x"
   }
 }
