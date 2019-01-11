@@ -9,15 +9,16 @@ class ProductCustomizerContainer extends Component {
     console.log('RAW PROD', product)
 
     const compositionPrices = this.getPriceMap(product.itemMetadata.priceTable)
-    
+
     const items =
       product.itemMetadata.items.reduce(
-        (items, item) => ({ ...items, ...this.parseItemMetada(item, compositionPrices) }), {})
+        (items, item) => ({ ...items, ...this.parseItemMetada(item, compositionPrices) }),
+        {})
 
-    const parentComertials = product.items.reduce((prev, curr) => {
-      return { ...prev, [curr.name]: this.findSellerDefault(curr.sellers).commertialOffer }
-    }, {})
-    
+    const parentComertials = product.items.reduce((prev, curr) =>
+      ({ ...prev, [curr.name]: this.findSellerDefault(curr.sellers).commertialOffer }),
+      {})
+
     const sellers = head(product.items).sellers
     return {
       productName: product.productName,
@@ -30,18 +31,27 @@ class ProductCustomizerContainer extends Component {
 
   findSellerDefault = sellers => sellers.find(seller => seller.sellerDefault)
 
+  /**
+   * Produces an object in which each key is a price table (like small) and the fields are objects that map
+   * product ids to its prices
+   */
   getPriceMap(priceTable) {
     return priceTable.reduce((prev, curr) => {
       const { type, values } = curr
-      const priceMap = values.reduce((currMap, itemPrice) => ({ ...currMap, [itemPrice.id]: itemPrice.price }), {})
+      const priceMap = values.reduce((currMap, itemPrice) =>
+        ({ ...currMap, [itemPrice.id]: itemPrice.price }),
+        {})
       return { ...prev, [type]: priceMap }
-    }, {})
+    },
+    {})
   }
 
   parseAssemblyOption(assemblyOption, prices) {
     const { composition, id } = assemblyOption
     const [_, optionName] = id.split('_')
-    const items = composition.items.reduce((prev, compCurr) => ({ ...prev, ...this.parseCompositionItem(compCurr, prices) }), {})
+    const items = composition.items.reduce((prev, compCurr) =>
+      ({ ...prev, ...this.parseCompositionItem(compCurr, prices) }),
+    {})
     return {
       [optionName]: {
         name: optionName,
@@ -74,9 +84,10 @@ class ProductCustomizerContainer extends Component {
     if (itemMetada.assemblyOptions.length === 0) {
       return {}
     }
-    const name = itemMetada.skuName
+    const name = itemMetada.name
     const attachments = itemMetada.assemblyOptions.reduce((prev, option) =>
-      ({ ...prev, ...this.parseAssemblyOption(option, prices) }), {})
+      ({ ...prev, ...this.parseAssemblyOption(option, prices) }),
+      {})
     return { [name]: { attachments, assemblyIdPreffix: itemMetada.assemblyOptions[0].name, skuId: itemMetada.id } }
   }
 

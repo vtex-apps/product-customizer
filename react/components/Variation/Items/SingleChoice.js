@@ -25,7 +25,8 @@ class SingleChoice extends Component {
     const parsedPrice = parseFloat(calculatedPrice)
 
     const description = parsedPrice &&
-      <div className={'single-choice__price flex-none t-small fw5 c-action-primary'}>
+      <div className={'single-choice__price flex t-small fw5 c-action-primary'}>
+        <div>+ </div>
         <ProductPrice {...{ showLabels: false, showListPrice: false, sellingPrice: parsedPrice }} />
       </div>
 

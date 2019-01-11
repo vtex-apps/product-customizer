@@ -120,9 +120,6 @@ class ProductCustomizerWrapper extends Component {
     const skuData = product.items[selectedSku]
     const { skuId, assemblyIdPreffix } = skuData
 
-    console.log('teste orderFormContext: ', orderFormContext)
-    console.log('teste options: ', this.getAssemblyOptions())
-
     try {
       await orderFormContext.addItem({
         variables: {
@@ -134,7 +131,7 @@ class ProductCustomizerWrapper extends Component {
       const minicartButton = document.querySelector('.vtex-minicart .vtex-button')
       minicartButton && minicartButton.click()
     } catch (err) {
-      //TODO send to splunk
+      // TODO send to splunk
     }
     this.setState({ isAddingToCart: false })
   }
@@ -158,15 +155,15 @@ class ProductCustomizerWrapper extends Component {
             <SkuSelector
               items={Object.keys(items)}
               selectedSku={selectedSku}
-              onSkuChange={this.handleSkuChange} 
-              skuCommertialOffer={parentComertials[selectedSku]} 
+              onSkuChange={this.handleSkuChange}
+              skuCommertialOffer={parentComertials[selectedSku]}
             />
             <AttachmentsPicker
               attachments={attachments}
               onAttachmentChange={this.handleAttachmentChange} />
-              <div className="vtex-product-customizer__actions fixed bg-white bottom-0 left-0 right-0 bt b--light-gray">
-                <AddToCart ready={ready} total={total} onClick={this.handleSubmitAddToCart} isLoading={isAddingToCart} />
-              </div>
+            <div className="vtex-product-customizer__actions fixed bg-white bottom-0 left-0 right-0 bt b--light-gray">
+              <AddToCart ready={ready} total={total} onClick={this.handleSubmitAddToCart} isLoading={isAddingToCart} />
+            </div>
           </div>
         </div>
       </Fragment>
