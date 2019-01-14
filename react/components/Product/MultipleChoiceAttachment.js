@@ -34,7 +34,7 @@ class MultipleChoiceAttachment extends Component {
     const { name, onAttachmentChange } = this.props
     if (this.canChangeItemQuantity(itemName, quantity)) {
       const quantities = this.getUpdatedQuantities(itemName, quantity)
-      onAttachmentChange(name, quantities)
+      onAttachmentChange(name, quantities, false)
     }
   }
 

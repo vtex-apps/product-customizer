@@ -32,13 +32,13 @@ class ProductCustomizerWrapper extends Component {
       {}
     )
 
-  handleAttachmentChange = (attachmentName, quantities) => 
+  handleAttachmentChange = (attachmentName, quantities, isSingleChoice) => 
     this.setState(
       state => ({
         chosenAttachments: {
           ...state.chosenAttachments,
           [attachmentName]: {
-            ...state.chosenAttachments[attachmentName],
+            ...state.chosenAttachments[attachmentName] && !isSingleChoice,
             ...quantities,
           },
         },
@@ -125,12 +125,14 @@ class ProductCustomizerWrapper extends Component {
           items: [{ id: skuId, quantity: 1, seller: product.sellerId, options: this.getAssemblyOptions(), assemblyOptionPreffix: assemblyIdPreffix }],
         },
       })
-      await orderFormContext.refetch()
+      
       const minicartButton = document.querySelector('.vtex-minicart .vtex-button')
       minicartButton && minicartButton.click()
     } catch (err) {
       // TODO send to splunk
+      console.log('teste ERRO: ', JSON.stringify(err))
     }
+    await orderFormContext.refetch()
     this.setState({ isAddingToCart: false })
   }
 

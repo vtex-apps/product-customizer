@@ -4,7 +4,7 @@ import SingleChoice from '../Variation/Items/SingleChoice';
 
 function SingleChoiceAttachment({ name, items, onAttachmentChange }) {
   const onChange = (itemName, item) => 
-    () => onAttachmentChange(name, { [itemName]: { id: item.id, quantity: 1, seller: item.seller }})
+    () => onAttachmentChange(name, { [itemName]: { id: item.id, quantity: 1, seller: item.seller }}, true)
   return (
     <Fragment>
       {Object.entries(items).map(([itemName, item]) =>
