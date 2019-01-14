@@ -34,7 +34,7 @@ class MultipleChoice extends Component {
         <div className="relative flex justify-between items-center">
           <ItemDescription {...{ imageUrl, name, description }} />
           <div className="flex-auto flex-none-ns flex justify-end">
-            <div className="multiple-choice__actions flex-none ml4 c-action-primary t-body fw5">
+            <div className="multiple-choice__actions flex-none ml4 c-action-primary t-body fw5 z-1">
               <NumericStepper
                 lean
                 value={chosenAmount}
