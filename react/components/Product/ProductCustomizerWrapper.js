@@ -1,20 +1,15 @@
 import React, { Fragment, Component } from 'react'
 import { orderFormConsumer } from 'vtex.store-resources/OrderFormContext'
-import { head } from 'ramda'
 
 import SkuSelector from './SkuSelector'
 import AttachmentsPicker from './AttachmentsPicker'
 import AddToCart from '../Buttons/AddToCart'
 
 class ProductCustomizerWrapper extends Component {
-  constructor(props) {
-    super(props)
-    const firstItem = head(Object.keys(props.product.items))
-    this.state = {
-      selectedSku: firstItem,
-      chosenAttachments: this.getQuantitiesFromSkuAttachments(firstItem),
-      isAddingToCart: false,
-    }
+  state = {
+    selectedSku: null,
+    chosenAttachments: {},
+    isAddingToCart: false,
   }
 
   handleSkuChange = item =>
@@ -143,8 +138,8 @@ class ProductCustomizerWrapper extends Component {
     const { imageUrl, items, productName, parentComertials } = this.props.product
     const { selectedSku, chosenAttachments, isAddingToCart } = this.state
 
-    const attachments = this.getAttachmentsWithQuantities(items[selectedSku].attachments, chosenAttachments)
-    const ready = this.isSkuReady(attachments)
+    const attachments = selectedSku && this.getAttachmentsWithQuantities(items[selectedSku].attachments, chosenAttachments)
+    const ready = attachments && this.isSkuReady(attachments)
     const total = attachments && this.getTotalPrice(attachments)
 
     return (
@@ -159,11 +154,13 @@ class ProductCustomizerWrapper extends Component {
               items={Object.keys(items)}
               selectedSku={selectedSku}
               onSkuChange={this.handleSkuChange}
-              skuCommertialOffer={parentComertials[selectedSku]}
+              skuCommertialOffer={selectedSku && parentComertials[selectedSku]}
             />
-            <AttachmentsPicker
-              attachments={attachments}
-              onAttachmentChange={this.handleAttachmentChange} />
+            {selectedSku && (
+              <AttachmentsPicker
+                attachments={attachments}
+                onAttachmentChange={this.handleAttachmentChange} />
+            )}
             <div className="vtex-product-customizer__actions fixed bg-white bottom-0 left-0 right-0 bt b--light-gray">
               <AddToCart ready={ready} total={total} onClick={this.handleSubmitAddToCart} isLoading={isAddingToCart} />
             </div>
