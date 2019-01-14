@@ -37,12 +37,15 @@ class ProductCustomizerWrapper extends Component {
       {}
     )
 
-  handleAttachmentChange = (attachmentName, quantities) =>
+  handleAttachmentChange = (attachmentName, quantities) => 
     this.setState(
       state => ({
         chosenAttachments: {
           ...state.chosenAttachments,
-          [attachmentName]: quantities,
+          [attachmentName]: {
+            ...state.chosenAttachments[attachmentName],
+            ...quantities,
+          },
         },
       })
     )
