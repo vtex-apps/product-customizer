@@ -3,7 +3,7 @@ import { orderFormConsumer } from 'vtex.store-resources/OrderFormContext'
 
 import SkuSelector from './SkuSelector'
 import AttachmentsPicker from './AttachmentsPicker'
-import AddToCart from '../Buttons/AddToCart'
+import MovingBottomButton from '../Buttons/MovingBottomButton'
 
 class ProductCustomizerWrapper extends Component {
   state = {
@@ -130,7 +130,6 @@ class ProductCustomizerWrapper extends Component {
       minicartButton && minicartButton.click()
     } catch (err) {
       // TODO send to splunk
-      console.log('teste ERRO: ', JSON.stringify(err))
     }
     await orderFormContext.refetch()
     this.setState({ isAddingToCart: false })
@@ -163,11 +162,9 @@ class ProductCustomizerWrapper extends Component {
                 attachments={attachments}
                 onAttachmentChange={this.handleAttachmentChange} />
             )}
-            <div className="vtex-product-customizer__actions fixed bg-white bottom-0 left-0 right-0 bt b--light-gray">
-              <AddToCart ready={ready} total={total} onClick={this.handleSubmitAddToCart} isLoading={isAddingToCart} />
-            </div>
           </div>
         </div>
+        <MovingBottomButton ready={ready} total={total} handleSubmitAddToCart={this.handleSubmitAddToCart} isLoading={isAddingToCart} />
       </Fragment>
     )
   }
