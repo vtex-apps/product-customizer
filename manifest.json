@@ -5,22 +5,18 @@
   "title": "Product Customizer",
   "description": "",
   "mustUpdateAt": "2019-09-27",
-  "categories": [],
-  "registries": [
-    "smartcheckout"
-  ],
   "scripts": {
     "postreleasy": "vtex publish --verbose"
   },
   "dependencies": {
     "vtex.store-resources": "0.x",
-    "vtex.styleguide": "7.x",
+    "vtex.styleguide": "9.x",
     "vtex.store-components": "3.x",
     "vtex.product-details": "1.x"
   },
   "builders": {
     "store": "0.x",
     "messages": "0.x",
-    "react": "2.x"
+    "react": "3.x"
   }
 }
