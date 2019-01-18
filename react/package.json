@@ -1,8 +1,9 @@
 {
   "dependencies": {
     "classnames": "^2.2.6",
-    "smoothscroll-polyfill": "^0.4.3",
+    "ramda": "^0.26.1",
+    "react-device-detect": "^1.6.1",
     "react-intl": "^2.7.2",
-    "ramda": "^0.26.1"
+    "smoothscroll-polyfill": "^0.4.3"
   }
 }

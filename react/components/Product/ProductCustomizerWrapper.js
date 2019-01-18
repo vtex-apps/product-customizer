@@ -1,5 +1,7 @@
 import React, { Fragment, Component } from 'react'
 import { orderFormConsumer } from 'vtex.store-resources/OrderFormContext'
+import smoothscroll from 'smoothscroll-polyfill'
+import { isMobileOnly } from 'react-device-detect'
 
 import SkuSelector from './SkuSelector'
 import AttachmentsPicker from './AttachmentsPicker'
@@ -12,11 +14,37 @@ class ProductCustomizerWrapper extends Component {
     isAddingToCart: false,
   }
 
-  handleSkuChange = item =>
+  attachmentView = React.createRef()
+
+  componentDidMount() {
+    smoothscroll.polyfill()
+  }
+
+  handleSkuChange = item => {
     this.setState({
       selectedSku: item,
       chosenAttachments: this.getQuantitiesFromSkuAttachments(item),
     })
+    this.scrollToIngredients()
+  }
+
+  scrollToIngredients = () => {
+    // TODO: find a better way for getting the top menu element
+    const topbar = document && document.querySelector('.vtex-store-header-2-x-topMenuContainer')
+    const container = document && document.querySelector('.vtex-category-menu-2-x-container')
+    const hasTopContainer = !!container
+    const extraHeight = isMobileOnly ? 0 : hasTopContainer && window.pageYOffset <= 80 ? 80 - window.pageYOffset : 0
+    const topbarRect = topbar ? topbar.getBoundingClientRect() : { height: 0, top: 0 }
+    const topbarDelta = topbarRect.top + topbarRect.height - extraHeight
+    const positionToScroll = this.attachmentView.current.offsetTop - topbarDelta
+    this.scrollToPosition(positionToScroll)
+  }
+
+  scrollToPosition = (positionToScroll) => {
+    setTimeout(() => {
+      window.scrollTo({ top: positionToScroll, behavior: 'smooth' })
+    }, 200)
+  }
 
   getQuantitiesFromSkuAttachments = (sku) =>
     Object.entries(this.props.product.items[sku].attachments).reduce(
@@ -157,11 +185,13 @@ class ProductCustomizerWrapper extends Component {
               onSkuChange={this.handleSkuChange}
               skuCommertialOffer={selectedSku && parentComertials[selectedSku]}
             />
-            {selectedSku && (
-              <AttachmentsPicker
-                attachments={attachments}
-                onAttachmentChange={this.handleAttachmentChange} />
-            )}
+            <div ref={this.attachmentView}>
+              {selectedSku && (
+                <AttachmentsPicker
+                  attachments={attachments}
+                  onAttachmentChange={this.handleAttachmentChange} />
+              )}
+            </div>
           </div>
         </div>
         <MovingBottomButton ready={ready} total={total} handleSubmitAddToCart={this.handleSubmitAddToCart} isLoading={isAddingToCart} />
