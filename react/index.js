@@ -1,16 +1,23 @@
 import React, { Component } from 'react'
 import { Spinner } from 'vtex.styleguide'
-import { head } from 'ramda'
+import { path } from 'ramda'
 
 import { Spinner } from 'vtex.styleguide'
 import { ExtensionPoint } from 'vtex.render-runtime'
 
 import ProductCustomizer from './components/ProductCustomizer'
-import ProductCustomizerPreview from './components/ProductCustomizerPreview';
 
 class ProductCustomizerIndex extends Component {
+
+  hasAttachments = () => {
+    const metadataItems = path(['product', 'itemMetadata', 'items'], this.props.productQuery)
+    if (!metadataItems) { return false }
+    return metadataItems.some(({ assemblyOptions }) => assemblyOptions && assemblyOptions.length > 0)
+  }
+
   render() {
-    const { productQuery: { loading, product } } = this.props
+    const { productQuery: { loading } } = this.props
+
 
     if (loading) return (
       <div className="flex justify-center pa8 w-100">
@@ -18,13 +25,7 @@ class ProductCustomizerIndex extends Component {
       </div>
     )
 
-    const { attachments } = head(product.items)
-    const hasAttachments = attachments && attachments.length > 0
-
-    if (hasAttachments) {
-      if (loading) {
-        return <ProductCustomizerPreview {...this.props} />
-      }
+    if (this.hasAttachments()) {
       return <ProductCustomizer {...this.props} />
     }
 

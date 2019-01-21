@@ -39,14 +39,14 @@ class MovingBottomButton extends PureComponent {
   }
 
   render() {
-    const { ready, total, handleSubmitAddToCart, isAddingToCart } = this.props
+    const { ready, total, handleSubmitAddToCart, isLoading } = this.props
     return (
       <Fragment>
         <div className={`vtex-product-customizer__actions`} ref={this.scrollingButton}>
-          <AddToCart ready={ready} total={total} onClick={handleSubmitAddToCart} isLoading={isAddingToCart} />
+          <AddToCart ready={ready} total={total} onClick={handleSubmitAddToCart} isLoading={isLoading} />
         </div>
         <div className={`vtex-product-customizer__actions fixed bg-white bottom-0 left-0 right-0 bt b--light-gray`} ref={this.fixedButton}>
-          <AddToCart ready={ready} total={total} onClick={handleSubmitAddToCart} isLoading={isAddingToCart} />
+          <AddToCart ready={ready} total={total} onClick={handleSubmitAddToCart} isLoading={isLoading} />
         </div>
       </Fragment>
     )
