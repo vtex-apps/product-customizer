@@ -24,7 +24,7 @@ class MultipleChoice extends Component {
     const sellingPriceClass = "c-action-primary t-small fw5"
 
     const description = !!parsedPrice &&
-      <div className={'multiple-choice__price flex items-center c-action-primary t-small fw5'}>
+      <div className={'multiple-choice__price flex items-center c-action-primary t-small fw5 mt1'}>
         <div>+ </div>
         <ProductPrice {...{ showLabels: false, showListPrice: false, sellingPrice: parsedPrice, sellingPriceClass }} />
       </div>

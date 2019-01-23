@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { orderFormConsumer } from 'vtex.store-resources/OrderFormContext'
-import { all, both, head, propEq, values } from 'ramda'
+import { all, both, head, propEq, values, find } from 'ramda'
 
 import ProductCustomizerWrapper from './ProductCustomizerWrapper'
 
@@ -12,24 +12,15 @@ class ProductCustomizerContainer extends Component {
 
     const items =
       product.itemMetadata.items.reduce(
-        (items, item) => ({ ...items, ...this.parseItemMetada(item, compositionPrices) }),
+        (items, item) => ({ ...items, ...this.parseItemMetada(item, compositionPrices, product.items) }),
         {})
 
-    const parentComertials = product.items.reduce((prev, curr) =>
-      ({ ...prev, [curr.name]: this.findSellerDefault(curr.sellers).commertialOffer }),
-      {})
-
-    const sellers = head(product.items).sellers
     return {
       productName: product.productName,
       imageUrl: product.items[0].images[0].imageUrl,
       items,
-      sellerId: this.findSellerDefault(sellers).sellerId,
-      parentComertials,
     }
   }
-
-  findSellerDefault = sellers => sellers.find(seller => seller.sellerDefault)
 
   /**
    * Produces an object in which each key is a price table (like small) and the fields are objects that map
@@ -80,15 +71,30 @@ class ProductCustomizerContainer extends Component {
     return { [compMeta.name]: fullComp }
   }
 
-  parseItemMetada(itemMetada, prices) {
+  getCommertialOfferForMetadata = (itemMetadata, productItems) => {
+    const item = find(propEq('itemId', itemMetadata.id))(productItems)
+    const seller = find(propEq('sellerId', itemMetadata.seller))(item.sellers)
+    return seller && seller.commertialOffer
+  }
+
+  parseItemMetada(itemMetada, prices, productItems) {
     if (itemMetada.assemblyOptions.length === 0) {
       return {}
     }
+    // console.log('teste )
     const name = itemMetada.name
     const attachments = itemMetada.assemblyOptions.reduce((prev, option) =>
       ({ ...prev, ...this.parseAssemblyOption(option, prices) }),
       {})
-    return { [name]: { attachments, assemblyIdPreffix: itemMetada.assemblyOptions[0].name, skuId: itemMetada.id } }
+    const commertialOffer = this.getCommertialOfferForMetadata(itemMetada, productItems)
+    return { [name]: { 
+      attachments, 
+      assemblyIdPreffix: itemMetada.assemblyOptions[0].name,
+      commertialOffer,
+      price: commertialOffer.Price,
+      seller: itemMetada.seller,
+      skuId: itemMetada.id }, 
+    }
   }
 
   render() {

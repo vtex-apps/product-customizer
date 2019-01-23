@@ -75,7 +75,7 @@ class ProductCustomizerWrapper extends Component {
 
   getTotalPrice(attachments) {
     const { selectedSku } = this.state
-    const baseValue = this.props.product.parentComertials[selectedSku].Price
+    const baseValue = this.props.product.items[selectedSku].price
     return Object.values(attachments).reduce(
       (total, attachment) => total + this.getAttachmentPrice(attachment),
       baseValue * 100
@@ -144,13 +144,13 @@ class ProductCustomizerWrapper extends Component {
     this.setState({ isAddingToCart: true })
 
     const skuData = product.items[selectedSku]
-    const { skuId, assemblyIdPreffix } = skuData
+    const { skuId, assemblyIdPreffix, seller } = skuData
 
     try {
       await orderFormContext.addItem({
         variables: {
           orderFormId: orderFormContext.orderForm.orderFormId,
-          items: [{ id: skuId, quantity: 1, seller: product.sellerId, options: this.getAssemblyOptions(), assemblyOptionPreffix: assemblyIdPreffix }],
+          items: [{ id: skuId, quantity: 1, seller, options: this.getAssemblyOptions(), assemblyOptionPreffix: assemblyIdPreffix }],
         },
       })
       
@@ -164,7 +164,7 @@ class ProductCustomizerWrapper extends Component {
   }
 
   render() {
-    const { imageUrl, items, productName, parentComertials } = this.props.product
+    const { imageUrl, items, productName } = this.props.product
     const { selectedSku, chosenAttachments, isAddingToCart } = this.state
 
     const attachments = selectedSku && this.getAttachmentsWithQuantities(items[selectedSku].attachments, chosenAttachments)
@@ -180,21 +180,21 @@ class ProductCustomizerWrapper extends Component {
           <div className="w-40-ns ph2-ns">
             <div className="t-heading-5 c-on-base ph5 pt5-s">{productName}</div>
             <SkuSelector
-              items={Object.keys(items)}
+              items={items}
               selectedSku={selectedSku}
               onSkuChange={this.handleSkuChange}
-              skuCommertialOffer={selectedSku && parentComertials[selectedSku]}
             />
             <div ref={this.attachmentView}>
               {selectedSku && (
                 <AttachmentsPicker
                   attachments={attachments}
-                  onAttachmentChange={this.handleAttachmentChange} />
+                  onAttachmentChange={this.handleAttachmentChange}
+                  chosenAttachments={chosenAttachments} />
               )}
             </div>
+            <MovingBottomButton ready={ready} total={total} handleSubmitAddToCart={this.handleSubmitAddToCart} isLoading={isAddingToCart} />
           </div>
         </div>
-        <MovingBottomButton ready={ready} total={total} handleSubmitAddToCart={this.handleSubmitAddToCart} isLoading={isAddingToCart} />
       </Fragment>
     )
   }

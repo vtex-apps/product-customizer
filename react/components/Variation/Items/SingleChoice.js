@@ -19,14 +19,15 @@ class SingleChoice extends Component {
       item: { imageUrl, name, price },
       selected,
       onChange,
+      showPlus,
     } = this.props
 
     const calculatedPrice = (price / 100).toFixed(2)
     const parsedPrice = parseFloat(calculatedPrice)
 
     const description = parsedPrice &&
-      <div className={'single-choice__price flex t-small fw5 c-action-primary'}>
-        <div>+ </div>
+      <div className={'single-choice__price flex t-small fw5 c-action-primary mt1'}>
+        {showPlus && <div>+ </div>}
         <ProductPrice {...{ showLabels: false, showListPrice: false, sellingPrice: parsedPrice }} />
       </div>
 

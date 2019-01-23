@@ -17,19 +17,23 @@ class MovingBottomButton extends PureComponent {
     window.removeEventListener('scroll', this.handleScroll)
   }
 
+  componentDidUpdate(prevProps) {
+    if (!prevProps.ready && this.props.ready) {
+      this.handleScroll()
+    }
+  }
+
   handleScroll = () => {
-
-    const fixedButtonRect = this.fixedButton.current.getBoundingClientRect()
-    const scrollingButtonRect = this.scrollingButton.current.getBoundingClientRect()
-
-    if (scrollingButtonRect.y <= fixedButtonRect.y) {
+    const fixedButtonY = this.fixedButton.current.offsetTop
+    const scrollingButtonY = this.scrollingButton.current.offsetTop - window.pageYOffset
+    if (scrollingButtonY <= fixedButtonY) {
       if (!this.showScrollingButton) {
         this.showScrollingButton = true
         this.fixedButton.current.style.visibility = 'hidden'
         this.scrollingButton.current.style.visibility = 'visible'
       }
     }
-    if (scrollingButtonRect.y > fixedButtonRect.y) {
+    if (scrollingButtonY > fixedButtonY) {
       if (this.showScrollingButton) {
         this.showScrollingButton = false
         this.fixedButton.current.style.visibility = 'visible'
@@ -42,10 +46,10 @@ class MovingBottomButton extends PureComponent {
     const { ready, total, handleSubmitAddToCart, isLoading } = this.props
     return (
       <Fragment>
-        <div className={`vtex-product-customizer__actions`} ref={this.scrollingButton}>
+        <div className={`vtex-product-customizer__actions w-100`} ref={this.scrollingButton}>
           <AddToCart ready={ready} total={total} onClick={handleSubmitAddToCart} isLoading={isLoading} />
         </div>
-        <div className={`vtex-product-customizer__actions fixed bg-white bottom-0 left-0 right-0 bt b--light-gray`} ref={this.fixedButton}>
+        <div className={`vtex-product-customizer__actions z-2 fixed bg-white bottom-0 w-40-ns ph1-ns w-100 bt b--light-gray`} ref={this.fixedButton}>
           <AddToCart ready={ready} total={total} onClick={handleSubmitAddToCart} isLoading={isLoading} />
         </div>
       </Fragment>

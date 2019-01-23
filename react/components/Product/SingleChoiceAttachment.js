@@ -8,7 +8,13 @@ function SingleChoiceAttachment({ name, items, onAttachmentChange }) {
   return (
     <Fragment>
       {Object.entries(items).map(([itemName, item]) =>
-        <SingleChoice item={item} selected={item.quantity === 1} onChange={onChange(itemName, item)} key={itemName} />
+        <SingleChoice 
+          item={item}
+          selected={item.quantity === 1}
+          onChange={onChange(itemName, item)}
+          key={itemName}
+          showPlus
+        />
       )}
     </Fragment>
   )
