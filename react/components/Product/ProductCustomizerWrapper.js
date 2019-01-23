@@ -1,11 +1,11 @@
 import React, { Fragment, Component } from 'react'
 import { orderFormConsumer } from 'vtex.store-resources/OrderFormContext'
 import smoothscroll from 'smoothscroll-polyfill'
-import { isMobileOnly } from 'react-device-detect'
 
 import SkuSelector from './SkuSelector'
 import AttachmentsPicker from './AttachmentsPicker'
 import MovingBottomButton from '../Buttons/MovingBottomButton'
+import { scrollToElementTop } from '../../utils/scroll'
 
 class ProductCustomizerWrapper extends Component {
   state = {
@@ -25,25 +25,7 @@ class ProductCustomizerWrapper extends Component {
       selectedSku: item,
       chosenAttachments: this.getQuantitiesFromSkuAttachments(item),
     })
-    this.scrollToIngredients()
-  }
-
-  scrollToIngredients = () => {
-    // TODO: find a better way for getting the top menu element
-    const topbar = document && document.querySelector('.vtex-store-header-2-x-topMenuContainer')
-    const container = document && document.querySelector('.vtex-category-menu-2-x-container')
-    const hasTopContainer = !!container
-    const extraHeight = isMobileOnly ? 0 : hasTopContainer && window.pageYOffset <= 80 ? 80 - window.pageYOffset : 0
-    const topbarRect = topbar ? topbar.getBoundingClientRect() : { height: 0, top: 0 }
-    const topbarDelta = topbarRect.top + topbarRect.height - extraHeight
-    const positionToScroll = this.attachmentView.current.offsetTop - topbarDelta
-    this.scrollToPosition(positionToScroll)
-  }
-
-  scrollToPosition = (positionToScroll) => {
-    setTimeout(() => {
-      window.scrollTo({ top: positionToScroll, behavior: 'smooth' })
-    }, 200)
+    scrollToElementTop(this.attachmentView.current)
   }
 
   getQuantitiesFromSkuAttachments = (sku) =>
@@ -60,7 +42,7 @@ class ProductCustomizerWrapper extends Component {
       {}
     )
 
-  handleAttachmentChange = (attachmentName, quantities, isSingleChoice) => 
+  handleAttachmentChange = (attachmentName, quantities, isSingleChoice, callback) => 
     this.setState(
       state => ({
         chosenAttachments: {
@@ -70,7 +52,8 @@ class ProductCustomizerWrapper extends Component {
             ...quantities,
           },
         },
-      })
+      }),
+      () => callback && callback(this.state.chosenAttachments)
     )
 
   getTotalPrice(attachments) {
@@ -188,6 +171,7 @@ class ProductCustomizerWrapper extends Component {
               {selectedSku && (
                 <AttachmentsPicker
                   attachments={attachments}
+                  selectedSku={selectedSku}
                   onAttachmentChange={this.handleAttachmentChange}
                   chosenAttachments={chosenAttachments} />
               )}

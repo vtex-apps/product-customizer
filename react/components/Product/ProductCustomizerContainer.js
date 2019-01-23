@@ -81,7 +81,6 @@ class ProductCustomizerContainer extends Component {
     if (itemMetada.assemblyOptions.length === 0) {
       return {}
     }
-    // console.log('teste )
     const name = itemMetada.name
     const attachments = itemMetada.assemblyOptions.reduce((prev, option) =>
       ({ ...prev, ...this.parseAssemblyOption(option, prices) }),

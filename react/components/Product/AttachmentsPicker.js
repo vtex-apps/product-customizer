@@ -1,6 +1,8 @@
-import React, { Fragment } from 'react'
+import React, { Component, Fragment } from 'react'
+import smoothscroll from 'smoothscroll-polyfill'
 
 import AttachmentPicker from './AttachmentPicker'
+import { scrollToElementTop } from '../../utils/scroll'
 
 function precedence({ isSingleChoice, isToggleChoice }) {
   if (isSingleChoice) { return 0 }
@@ -27,24 +29,69 @@ function shouldShowAttachment(attachment, canShowOtherAttachments) {
   return canShowOtherAttachments
 }
 
-function AttachmentsPicker({ attachments, onAttachmentChange, chosenAttachments }) {
-  const canShowOthers = areAllSinglesPicked(attachments, chosenAttachments)
+function findFirstNonSingleChoice(attachments) {
+  return Object.entries(attachments)
+         .sort(compareAttachments)
+         .find(([_, { isSingleChoice }]) => !isSingleChoice)
+}
 
-  return (
-    <Fragment>
-      {Object.entries(attachments)
-        .sort(compareAttachments)
-        .map(
-          ([name, attachment]) =>
-            shouldShowAttachment(attachment, canShowOthers) && (
-              <AttachmentPicker
-              key={name}
-              onAttachmentChange={onAttachmentChange}
-              {...attachment} />
-            )
-        )}
-    </Fragment>
-  )
+class AttachmentsPicker extends Component {
+  pickers = Object.keys(this.props.attachments)
+            .reduce((prev, name) => ({ ...prev, [name]: React.createRef() }), {})
+
+  state = {
+    allSinglesPicked: false,
+  }
+
+  componentDidMount() {
+    smoothscroll.polyfill()
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.selectedSku !== prevProps.selectedSku) {
+      this.setState({ allSinglesPicked: false })
+    }
+  }
+
+  attachmentChangeCallback = newChosenAttachments => {
+    const { attachments } = this.props
+    const currentAllSinglesPicked = this.state.allSinglesPicked
+    const newSinglesPicked = areAllSinglesPicked(attachments, newChosenAttachments)
+    if (currentAllSinglesPicked !== newSinglesPicked) {
+      this.setState({ allSinglesPicked: newSinglesPicked })
+      const [firstNotSingleName] = findFirstNonSingleChoice(attachments)
+      const picker = this.pickers[firstNotSingleName]
+      scrollToElementTop(picker.current)
+    }
+  }
+
+  handleOnAttachmentChange = (attachmentName, quantities, isSingleChoice) => {
+    this.props.onAttachmentChange(attachmentName, quantities, isSingleChoice, this.attachmentChangeCallback)
+  }
+
+  render() {
+    const { attachments } = this.props
+    const { allSinglesPicked } = this.state
+    return (
+      <Fragment>
+        {Object.entries(attachments)
+          .sort(compareAttachments)
+          .map(
+            ([name, attachment]) =>
+              <div 
+                ref={this.pickers[name]} 
+                key={name} 
+                className={`${shouldShowAttachment(attachment, allSinglesPicked) ? '' : 'dn'}`}
+              >
+                <AttachmentPicker
+                  key={name}
+                  onAttachmentChange={this.handleOnAttachmentChange}
+                  {...attachment} />
+              </div>
+          )}
+      </Fragment>
+    )
+  }
 }
 
 export default AttachmentsPicker
