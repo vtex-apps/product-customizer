@@ -40,7 +40,7 @@ class AttachmentsPicker extends Component {
             .reduce((prev, name) => ({ ...prev, [name]: React.createRef() }), {})
 
   state = {
-    allSinglesPicked: false,
+    allSinglesPicked: areAllSinglesPicked(this.props.attachments, this.props.chosenAttachments),
   }
 
   componentDidMount() {
@@ -48,8 +48,9 @@ class AttachmentsPicker extends Component {
   }
 
   componentDidUpdate(prevProps) {
+    const { attachments, chosenAttachments } = this.props
     if (this.props.selectedSku !== prevProps.selectedSku) {
-      this.setState({ allSinglesPicked: false })
+      this.setState({ allSinglesPicked: areAllSinglesPicked(attachments, chosenAttachments) })
     }
   }
 
