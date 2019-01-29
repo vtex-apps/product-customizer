@@ -1,6 +1,8 @@
 import React, { Fragment, Component } from 'react'
 import { orderFormConsumer } from 'vtex.store-resources/OrderFormContext'
 import smoothscroll from 'smoothscroll-polyfill'
+import { withToast } from 'vtex.styleguide'
+import { injectIntl } from 'react-intl'
 
 import SkuSelector from './SkuSelector'
 import AttachmentsPicker from './AttachmentsPicker'
@@ -122,6 +124,12 @@ class ProductCustomizerWrapper extends Component {
     return options
   }
 
+  showToast = success => {
+    const suffix = success ? 'buy-success' : 'add-failure'
+    const message = this.props.intl.formatMessage({ id: `product-customizer.${suffix}` })
+    this.props.showToast({ message })
+  }
+
   handleSubmitAddToCart = async () => {
     const { orderFormContext, product } = this.props
     const { selectedSku } = this.state
@@ -138,10 +146,12 @@ class ProductCustomizerWrapper extends Component {
           items: [{ id: skuId, quantity: 1, seller, options: this.getAssemblyOptions() }],
         },
       })
-      
+
+      this.showToast(true)
       const minicartButton = document.querySelector('.vtex-minicart .vtex-button')
       minicartButton && minicartButton.click()
     } catch (err) {
+      this.showToast(false)
       // TODO send to splunk
     }
     await orderFormContext.refetch()
@@ -186,4 +196,4 @@ class ProductCustomizerWrapper extends Component {
   }
 }
 
-export default orderFormConsumer(ProductCustomizerWrapper)
+export default injectIntl(withToast(orderFormConsumer(ProductCustomizerWrapper)))

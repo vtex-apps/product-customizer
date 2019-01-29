@@ -13,5 +13,7 @@
   "product-customizer.crust-title": "Elija una corteza",
   "product-customizer.basic-toppings-title": "Ingredientes básicos",
   "product-customizer.recipes-title": "Ingredientes básicos",
-  "product-customizer.toppings-title": "Ingredientes adicionales"
+  "product-customizer.toppings-title": "Ingredientes adicionales",
+  "product-customizer.buy-success": "Su producto se ha agregado a la cesta!",
+  "product-customizer.add-failure": "¡Algo salió mal y el artículo no se agregó a tu carrito!"
 }
