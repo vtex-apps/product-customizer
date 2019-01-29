@@ -1,13 +1,9 @@
-import { isMobileOnly } from 'react-device-detect'
-
 const headerTopMenuClass = '.vtex-store-header-2-x-topMenuContainer'
-const headerTransformConstant = 82
 
 const getTopbarScrollOffset = () => {
   const topbar = document && document.querySelector(headerTopMenuClass)
-  const topbarHeight = topbar ? topbar.clientHeight : 0
-  const transformExtra = topbar && !isMobileOnly ? headerTransformConstant : 0
-  return topbarHeight - transformExtra
+  const rect = topbar ? topbar.getBoundingClientRect() : { height: 0, top: 0 }
+  return rect.height + rect.top
 }
 
 export const scrollToElementTop = element => {

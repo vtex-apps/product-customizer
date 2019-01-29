@@ -60,9 +60,9 @@ class AttachmentsPicker extends Component {
     const newSinglesPicked = areAllSinglesPicked(attachments, newChosenAttachments)
     if (currentAllSinglesPicked !== newSinglesPicked) {
       this.setState({ allSinglesPicked: newSinglesPicked })
-      const [firstNotSingleName] = findFirstNonSingleChoice(attachments)
-      const picker = this.pickers[firstNotSingleName]
-      scrollToElementTop(picker.current)
+      const [firstNotSingleName] = findFirstNonSingleChoice(attachments) || []
+      const picker = firstNotSingleName && this.pickers[firstNotSingleName]
+      picker && scrollToElementTop(picker.current)
     }
   }
 
