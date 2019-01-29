@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { orderFormConsumer } from 'vtex.store-resources/OrderFormContext'
-import { all, both, head, propEq, values, find } from 'ramda'
+import { all, both, propEq, values, find } from 'ramda'
 
 import ProductCustomizerWrapper from './ProductCustomizerWrapper'
 
@@ -48,6 +48,7 @@ class ProductCustomizerContainer extends Component {
     return {
       [optionName]: {
         name: optionName,
+        assemblyId: id,
         items,
         properties: {
           maxTotalItems: composition.maxQuantity,
@@ -91,7 +92,6 @@ class ProductCustomizerContainer extends Component {
     const commertialOffer = this.getCommertialOfferForMetadata(itemMetada, productItems)
     return { [name]: { 
       attachments, 
-      assemblyIdPreffix: itemMetada.assemblyOptions[0].name,
       commertialOffer,
       price: commertialOffer.Price,
       seller: itemMetada.seller,

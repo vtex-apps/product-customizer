@@ -107,13 +107,15 @@ class ProductCustomizerWrapper extends Component {
   }
 
   getAssemblyOptions = () => {
-    const { chosenAttachments } = this.state
+    const { chosenAttachments, selectedSku } = this.state
+    const { product } = this.props
 
     const options = []
     Object.entries(chosenAttachments).map(([suffix, attachObj]) => {
+      const assemblyId = product.items[selectedSku].attachments[suffix].assemblyId
       Object.values(attachObj).map(({ id, quantity, seller }) => {
         if (quantity > 0) {
-          options.push({ type: suffix, id, quantity, seller })
+          options.push({ assemblyId, id, quantity, seller })
         }
       })
     })
@@ -127,13 +129,13 @@ class ProductCustomizerWrapper extends Component {
     this.setState({ isAddingToCart: true })
 
     const skuData = product.items[selectedSku]
-    const { skuId, assemblyIdPreffix, seller } = skuData
+    const { skuId, seller } = skuData
 
     try {
       await orderFormContext.addItem({
         variables: {
           orderFormId: orderFormContext.orderForm.orderFormId,
-          items: [{ id: skuId, quantity: 1, seller, options: this.getAssemblyOptions(), assemblyOptionPreffix: assemblyIdPreffix }],
+          items: [{ id: skuId, quantity: 1, seller, options: this.getAssemblyOptions() }],
         },
       })
       
