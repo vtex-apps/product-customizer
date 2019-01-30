@@ -23,12 +23,12 @@ function SkuSelector({ items, selectedSku, onSkuChange }) {
       <div className="ph5 pb4 c-muted-2 t-small">
         <FormattedMessage id="product-customizer.pick-size" />
       </div>
-      {Object.keys(items).map(item =>
+      {Object.entries(items).map(([name, item]) =>
         <SingleChoice 
-          item={{ name: item, price: items[item].price * 100 }}
-          selected={item === selectedSku}
-          onChange={() => onSkuChange(item)}
-          key={item}
+          item={{ name, price: item.price * 100, imageUrl: item.imageUrl }}
+          selected={name === selectedSku}
+          onChange={() => onSkuChange(name)}
+          key={name}
           showPlus={false}
         />
       )}
@@ -36,6 +36,4 @@ function SkuSelector({ items, selectedSku, onSkuChange }) {
   )
 }
 
-
-//passar price para item
 export default SkuSelector

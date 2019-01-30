@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { orderFormConsumer } from 'vtex.store-resources/OrderFormContext'
-import { all, both, propEq, values, find } from 'ramda'
+import { all, both, propEq, values, find, prop, findLast } from 'ramda'
 
 import ProductCustomizerWrapper from './ProductCustomizerWrapper'
 
@@ -12,7 +12,7 @@ class ProductCustomizerContainer extends Component {
 
     const items =
       product.itemMetadata.items.reduce(
-        (items, item) => ({ ...items, ...this.parseItemMetada(item, compositionPrices, product.items) }),
+        (items, item) => ({ ...items, ...this.parseItemMetadata(item, compositionPrices, product.items) }),
         {})
 
     return {
@@ -75,27 +75,24 @@ class ProductCustomizerContainer extends Component {
     return { [compMeta.name]: fullComp }
   }
 
-  getCommertialOfferForMetadata = (itemMetadata, productItems) => {
-    const item = find(propEq('itemId', itemMetadata.id))(productItems)
-    const seller = find(propEq('sellerId', itemMetadata.seller))(item.sellers)
-    return seller && seller.commertialOffer
-  }
-
-  parseItemMetada(itemMetada, prices, productItems) {
-    if (itemMetada.assemblyOptions.length === 0) {
+  parseItemMetadata(itemMetadata, prices, productItems) {
+    if (itemMetadata.assemblyOptions.length === 0) {
       return {}
     }
-    const name = itemMetada.name
-    const attachments = itemMetada.assemblyOptions.reduce((prev, option) =>
+    const name = itemMetadata.name
+    const attachments = itemMetadata.assemblyOptions.reduce((prev, option) =>
       ({ ...prev, ...this.parseAssemblyOption(option, prices) }),
       {})
-    const commertialOffer = this.getCommertialOfferForMetadata(itemMetada, productItems)
+    const productItem = find(propEq('itemId', itemMetadata.id))(productItems)
+    const crustImage = prop('imageUrl')(findLast(propEq('imageLabel', 'Crust'))(productItem.images))
+    const commertialOffer = prop('commertialOffer')(find(propEq('sellerId', itemMetadata.seller))(productItem.sellers))
     return { [name]: { 
       attachments, 
       commertialOffer,
+      imageUrl: crustImage,
       price: commertialOffer.Price,
-      seller: itemMetada.seller,
-      skuId: itemMetada.id }, 
+      seller: itemMetadata.seller,
+      skuId: itemMetadata.id }, 
     }
   }
 
