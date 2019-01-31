@@ -1,5 +1,7 @@
+import React, { memo } from 'react'
+
 import '../../../global.css'
-export default function ItemDescription({ description, name, imageUrl }) {
+function ItemDescription({ description, name, imageUrl }) {
   return (
     <div className="flex">
       <div>
@@ -12,3 +14,5 @@ export default function ItemDescription({ description, name, imageUrl }) {
     </div>
   )
 }
+
+export default memo(ItemDescription)

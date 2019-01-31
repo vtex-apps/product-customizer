@@ -1,7 +1,7 @@
 import { Fragment } from 'react'
 import { FormattedMessage } from 'react-intl'
 
-import SingleChoice from '../Variation/Items/SingleChoice';
+import SingleChoice from '../Variation/Items/SingleChoice'
 import ProductPrice from 'vtex.store-components/ProductPrice'
 
 function SkuSelector({ items, selectedSku, onSkuChange }) {
@@ -25,9 +25,11 @@ function SkuSelector({ items, selectedSku, onSkuChange }) {
       </div>
       {Object.entries(items).map(([name, item]) =>
         <SingleChoice 
-          item={{ name, price: item.price * 100, imageUrl: item.imageUrl }}
+          price={item.price * 100}
+          imageUrl={item.imageUrl}
+          name={name}
           selected={name === selectedSku}
-          onChange={() => onSkuChange(name)}
+          onChange={onSkuChange}
           key={name}
           showPlus={false}
         />

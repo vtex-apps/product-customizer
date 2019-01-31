@@ -1,13 +1,15 @@
 import React, { Component, Fragment } from 'react'
 
-import ToggledChoice from '../Variation/Items/ToggledChoice';
+import ToggledChoice from '../Variation/Items/ToggledChoice'
+
+const parseItem = ({ id, quantity, seller, name }) =>
+  ({ [name]: { id, quantity: Number(!quantity), seller }})
 
 class ToggleChoiceAttachment extends Component {
 
-  onChange = (itemName, item) => {
-    const { name, onAttachmentChange } = this.props
-    const { id, quantity, seller } = item
-    onAttachmentChange(name, { [itemName]: { id, quantity: Number(!quantity), seller } }, false)
+  onChange = itemName => {
+    const { items, name, onAttachmentChange } = this.props
+    onAttachmentChange(name, parseItem(items[itemName]), false)
   }
   render() {
     const { items } = this.props
@@ -16,10 +18,11 @@ class ToggleChoiceAttachment extends Component {
       <Fragment>
         {Object.entries(items).map(([itemName, item]) =>
           <ToggledChoice 
-            item={item} 
+            imageUrl={item.imageUrl}
+            name={item.name}
             selected={item.quantity === 1}
             disabled={item.minQuantity === 1}
-            onChange={() => this.onChange(itemName, item)} 
+            onChange={this.onChange} 
             key={itemName} />
         )}
       </Fragment>

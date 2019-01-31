@@ -38,15 +38,19 @@ class MultipleChoiceAttachment extends Component {
     }
   }
 
+  handleOnChange = (value, itemName) => this.handleChangeItemQuantity(itemName, value)
+
   getItemProps(itemName) {
     const { items } = this.props
-    const item = items[itemName]
+    const { imageUrl, price, name, quantity } = items[itemName]
     return {
-      item,
-      chosenAmount: item.quantity,
-      canIncrease: this.canChangeItemQuantity(itemName, item.quantity + 1),
-      canDecrease: this.canChangeItemQuantity(itemName, item.quantity - 1),
-      onChange: ({ value }) => this.handleChangeItemQuantity(itemName, value),
+      imageUrl,
+      price,
+      name,
+      chosenAmount: quantity,
+      canIncrease: this.canChangeItemQuantity(itemName, quantity + 1),
+      canDecrease: this.canChangeItemQuantity(itemName, quantity - 1),
+      onChange: this.handleOnChange,
     }
   }
 
