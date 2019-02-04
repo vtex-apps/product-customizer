@@ -40,7 +40,7 @@ class ProductCustomizerWrapper extends Component {
   getQuantitiesFromItems = items =>
     Object.entries(items).reduce(
       (quantities, [itemName, item]) =>
-        ({ ...quantities, [itemName]: { id: item.id, quantity: +item.defaultQuantity, seller: item.seller } }),
+        ({ ...quantities, [itemName]: { id: item.id, quantity: +item.initialQuantity, seller: item.seller } }),
       {}
     )
 
@@ -87,7 +87,7 @@ class ProductCustomizerWrapper extends Component {
       ([total, obj], [name, item]) => {
         const quantity = name in quantities
           ? quantities[name].quantity
-          : +item.defaultQuantity
+          : +item.initialQuantity
         return [
           total + quantity,
           { ...obj, [name]: { ...item, quantity } },
@@ -115,9 +115,11 @@ class ProductCustomizerWrapper extends Component {
     const options = []
     Object.entries(chosenAttachments).map(([suffix, attachObj]) => {
       const assemblyId = product.items[selectedSku].attachments[suffix].assemblyId
-      Object.values(attachObj).map(({ id, quantity, seller }) => {
-        if (quantity > 0) {
-          options.push({ assemblyId, id, quantity, seller })
+      Object.entries(attachObj).map(([name, { id, quantity, seller }]) => {
+        const meta = product.items[selectedSku].attachments[suffix].items[name]
+        const quantityToAdd = quantity - meta.minQuantity
+        if (quantityToAdd > 0) {
+          options.push({ assemblyId, id, quantity: quantityToAdd, seller })
         }
       })
     })

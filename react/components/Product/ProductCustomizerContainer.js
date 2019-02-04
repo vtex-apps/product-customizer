@@ -40,9 +40,8 @@ class ProductCustomizerContainer extends Component {
   parseAssemblyOption(assemblyOption, prices) {
     const { composition, id } = assemblyOption
     const [_, optionName] = id.split('_')
-    const isToggleChoice = all(propEq('maxQuantity', 1))(values(composition.items))
     const items = composition.items.reduce((prev, compCurr) =>
-      ({ ...prev, ...this.parseCompositionItem(compCurr, prices, isToggleChoice) }),
+      ({ ...prev, ...this.parseCompositionItem(compCurr, prices) }),
     {})
     
     return {
@@ -55,12 +54,12 @@ class ProductCustomizerContainer extends Component {
           minTotalItems: composition.minQuantity,
         },
         isSingleChoice: both(propEq('minQuantity', 1), propEq('maxQuantity', 1))(composition),
-        isToggleChoice,
+        isToggleChoice: all(propEq('maxQuantity', 1))(values(composition.items)),
       },
     }
   }
 
-  parseCompositionItem(compItem, prices, isToggleChoice) {
+  parseCompositionItem(compItem, prices) {
     const { product } = this.props.productQuery
     const metadatas = product.itemMetadata.items
     const { id, priceTable } = compItem
@@ -68,7 +67,6 @@ class ProductCustomizerContainer extends Component {
     const price = prices[priceTable][id]
     const fullComp = {
       ...compMeta,
-      defaultQuantity: isToggleChoice && price === 0 ? 1 : 0,
       ...compItem,
       price,
     }
