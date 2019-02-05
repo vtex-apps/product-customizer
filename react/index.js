@@ -21,10 +21,9 @@ class ProductCustomizerIndex extends Component {
     const hasSchema = !!(schema && schema.properties && keys(schema.properties).length)
 
     if (!hasSchema) {
-      return <ExtensionPoint id="product-details" {...this.props} />
+      return <ProductCustomizer {...this.props} />
     }
-
-    return <ProductCustomizer {...this.props} />
+    return <ExtensionPoint id="product-details" {...this.props} />
   }
 }
 
