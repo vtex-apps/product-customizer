@@ -16,7 +16,7 @@
   },
   "builders": {
     "store": "0.x",
-    "messages": "0.x",
+    "messages": "1.x",
     "react": "3.x"
   }
 }
