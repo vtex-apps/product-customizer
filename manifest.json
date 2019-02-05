@@ -1,7 +1,7 @@
 {
   "name": "product-customizer",
   "vendor": "vtex",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "title": "Product Customizer",
   "description": "",
   "mustUpdateAt": "2019-09-27",
@@ -16,7 +16,7 @@
   },
   "builders": {
     "store": "0.x",
-    "messages": "0.x",
+    "messages": "1.x",
     "react": "3.x"
   }
 }
