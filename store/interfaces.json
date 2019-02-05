@@ -1,5 +1,8 @@
 {
   "product-details.customizer": {
+    "required": [
+      "product-details"
+    ],
     "component": "ProductCustomizer"
   }
 }

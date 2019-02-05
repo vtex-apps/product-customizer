@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import { Spinner } from 'vtex.styleguide'
 import { keys, head } from 'ramda'
 
-import ProductDetails from 'vtex.product-details/ProductDetails'
+import { Spinner } from 'vtex.styleguide'
+import { ExtensionPoint } from 'vtex.render-runtime'
+
 import ProductCustomizer from './components/ProductCustomizer'
 
 class ProductCustomizerIndex extends Component {
@@ -20,7 +21,7 @@ class ProductCustomizerIndex extends Component {
     const hasSchema = !!(schema && schema.properties && keys(schema.properties).length)
 
     if (!hasSchema) {
-      return <ProductDetails {...this.props} />
+      return <ExtensionPoint id="product-details" {...this.props} />
     }
 
     return <ProductCustomizer {...this.props} />
