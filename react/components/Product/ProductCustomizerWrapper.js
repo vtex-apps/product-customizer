@@ -3,6 +3,7 @@ import { orderFormConsumer } from 'vtex.store-resources/OrderFormContext'
 import smoothscroll from 'smoothscroll-polyfill'
 import { withToast } from 'vtex.styleguide'
 import { injectIntl } from 'react-intl'
+import { pathOr } from 'ramda'
 
 import SkuSelector from './SkuSelector'
 import AttachmentsPicker from './AttachmentsPicker'
@@ -116,10 +117,10 @@ class ProductCustomizerWrapper extends Component {
     Object.entries(chosenAttachments).map(([suffix, attachObj]) => {
       const assemblyId = product.items[selectedSku].attachments[suffix].assemblyId
       Object.entries(attachObj).map(([name, { id, quantity, seller }]) => {
-        const meta = product.items[selectedSku].attachments[suffix].items[name]
-        const quantityToAdd = quantity - meta.minQuantity
-        if (quantityToAdd > 0) {
-          options.push({ assemblyId, id, quantity: quantityToAdd, seller })
+        const minQuantity = 
+         pathOr(0, ['items', selectedSku, 'attachments', suffix, 'items', name, 'minQuantity'], product)
+        if (quantity > 0 && quantity > minQuantity) {
+          options.push({ assemblyId, id, quantity, seller })
         }
       })
     })
