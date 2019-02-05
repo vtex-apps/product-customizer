@@ -1,9 +1,7 @@
 {
   "product-details.customizer": {
-    "allowed": [
-      "product-details"
-    ],
-    "required": [
+    "blocks": [
+      "product-details",
       "product-name",
       "product-images",
       "product-price",
@@ -12,7 +10,6 @@
       "sku-selector",
       "shipping-simulator",
       "availability-subscriber"
-    ],
-    "component": "index"
+    ]
   }
 }
