@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { Spinner } from 'vtex.styleguide'
 import { path } from 'ramda'
 
-import { Spinner } from 'vtex.styleguide'
 import { ExtensionPoint } from 'vtex.render-runtime'
 
 import ProductCustomizer from './components/ProductCustomizer'
