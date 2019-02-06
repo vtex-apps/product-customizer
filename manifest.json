@@ -9,7 +9,7 @@
     "postreleasy": "vtex publish --verbose"
   },
   "dependencies": {
-    "vtex.store-resources": "0.x",
+    "vtex.store-resources": "0.3.2-beta",
     "vtex.styleguide": "9.x",
     "vtex.store-components": "3.x",
     "vtex.product-details": "1.x"
