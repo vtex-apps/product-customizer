@@ -9,7 +9,8 @@
       "buy-button",
       "sku-selector",
       "shipping-simulator",
-      "availability-subscriber"
+      "availability-subscriber",
+      "product-specifications"
     ]
   }
 }
