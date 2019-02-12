@@ -8,5 +8,12 @@
   "product-customizer.add-to-cart": "Add to cart",
   "product-customizer.required": "required",
   "product-customizer.change-composition": "Change ingredients or sauce",
-  "product-customizer.per-unit": "per un."
+  "product-customizer.per-unit": "per un.",
+  "product-customizer.pick-size": "Pick one size",
+  "product-customizer.crust-title": "Pick one crust",
+  "product-customizer.basic-toppings-title": "Basic ingredients",
+  "product-customizer.recipes-title": "Basic ingredients",
+  "product-customizer.toppings-title": "Extra ingredients",
+  "product-customizer.buy-success": "Your product was added to the cart!",
+  "product-customizer.add-failure": "Something went wrong and the item wasn't added to your cart!"
 }

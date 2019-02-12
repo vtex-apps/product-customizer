@@ -8,5 +8,12 @@
   "product-customizer.add-to-cart": "product-customizer.add-to-cart",
   "product-customizer.required": "product-customizer.required",
   "product-customizer.change-composition": "product-customizer.change-composition",
-  "product-customizer.per-unit": "product-customizer.per-unit"
+  "product-customizer.per-unit": "product-customizer.per-unit",
+  "product-customizer.pick-size": "product-customizer.pick-size",
+  "product-customizer.crust-title": "product-customizer.crust-title",
+  "product-customizer.basic-toppings-title": "product-customizer.basic-toppings-title",
+  "product-customizer.recipes-title": "product-customizer.recipes-title",
+  "product-customizer.toppings-title": "product-customizer.toppings-title",
+  "product-customizer.buy-success": "product-customizer.buy-success",
+  "product-customizer.add-failure": "product-customizer.add-failure"
 }

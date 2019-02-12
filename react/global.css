@@ -76,3 +76,7 @@ div.vtex-modal__overlay {
 .multiple-choice__actions button.o-0 {
   opacity: .2;
 }
+
+.vtex-product-customizer__image {
+  object-fit: cover;
+}

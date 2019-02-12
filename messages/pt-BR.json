@@ -8,5 +8,12 @@
   "product-customizer.add-to-cart": "Adicionar ao carrinho",
   "product-customizer.required": "Obrigatório",
   "product-customizer.change-composition": "Alterar ingredientes ou molhos",
-  "product-customizer.per-unit": "por un."
+  "product-customizer.per-unit": "por un.",
+  "product-customizer.pick-size": "Escolha um tamanho",
+  "product-customizer.crust-title": "Escolha uma borda",
+  "product-customizer.basic-toppings-title": "Ingredientes básicos",
+  "product-customizer.recipes-title": "Ingredientes básicos",
+  "product-customizer.toppings-title": "Ingredientes extras",
+  "product-customizer.buy-success": "Seu produto foi adicionado ao carrinho!",
+  "product-customizer.add-failure": "Algo deu errado e o item não pode ser adicionado ao seu carrinho!"
 }

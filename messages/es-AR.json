@@ -8,5 +8,12 @@
   "product-customizer.add-to-cart": "Añadir al carrito",
   "product-customizer.required": "Obligatorio",
   "product-customizer.change-composition": "Cambiar los ingredientes o las salsas",
-  "product-customizer.per-unit": "por un."
+  "product-customizer.per-unit": "por un.",
+  "product-customizer.pick-size": "Elige un tamaño",
+  "product-customizer.crust-title": "Elija una corteza",
+  "product-customizer.basic-toppings-title": "Ingredientes básicos",
+  "product-customizer.recipes-title": "Ingredientes básicos",
+  "product-customizer.toppings-title": "Ingredientes adicionales",
+  "product-customizer.buy-success": "Su producto se ha agregado a la cesta!",
+  "product-customizer.add-failure": "¡Algo salió mal y el artículo no se agregó a tu carrito!"
 }
