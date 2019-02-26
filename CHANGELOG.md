@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.0.2] - 2019-02-26
+### Fixed
+- Adapt component to Checkout logic of adding items to cart with initialQuantity automatically
+
 ## [2.0.1] - 2019-02-25
 
 ## [2.0.0] - 2019-02-12
