@@ -117,13 +117,14 @@ class ProductCustomizerWrapper extends Component {
     Object.entries(chosenAttachments).map(([suffix, attachObj]) => {
       const assemblyId = product.items[selectedSku].attachments[suffix].assemblyId
       Object.entries(attachObj).map(([name, { id, quantity, seller }]) => {
-        const minQuantity = 
-         pathOr(0, ['items', selectedSku, 'attachments', suffix, 'items', name, 'minQuantity'], product)
-        if (quantity > 0 && quantity > minQuantity) {
+        const initialQuantity = 
+         pathOr(0, ['items', selectedSku, 'attachments', suffix, 'items', name, 'initialQuantity'], product)
+        if (quantity !== initialQuantity) {
           options.push({ assemblyId, id, quantity, seller })
         }
       })
     })
+    console.log('teste === options: ', options)
     return options
   }
 
