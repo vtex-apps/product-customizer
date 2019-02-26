@@ -124,7 +124,6 @@ class ProductCustomizerWrapper extends Component {
         }
       })
     })
-    console.log('teste === options: ', options)
     return options
   }
 
