@@ -22,7 +22,7 @@ const SingleChoice = ({
     </div>
 
   return (
-    <div onClick={() => onChange(name)} className={`${selected && 'selected bg-muted-5'} hover-bg-muted-5 ph4 pointer bb b--muted-5 bw1`}>
+    <div onClick={() => onChange(name, true)} className={`${selected && 'selected bg-muted-5'} hover-bg-muted-5 ph4 pointer bb b--muted-5 bw1`}>
       <div className="relative flex items-center justify-between pv5">
         <ItemDescription {...{ description, imageUrl, name }} />
         <div className="mt3">

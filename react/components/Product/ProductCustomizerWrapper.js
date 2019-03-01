@@ -23,20 +23,20 @@ class ProductCustomizerWrapper extends Component {
     smoothscroll.polyfill()
   }
 
-  handleSkuChange = item => {
+  handleSkuChange = (item, shouldScroll) => {
     this.setState({
       selectedSku: item,
       chosenAttachments: this.getQuantitiesFromSkuAttachments(item),
     })
-    scrollToElementTop(this.attachmentView.current)
+    item && shouldScroll && scrollToElementTop(this.attachmentView.current)
   }
 
-  getQuantitiesFromSkuAttachments = (sku) =>
+  getQuantitiesFromSkuAttachments = (sku) => sku ?
     Object.entries(this.props.product.items[sku].attachments).reduce(
       (quantities, [attName, attachment]) =>
         ({ ...quantities, [attName]: this.getQuantitiesFromItems(attachment.items) }),
       {}
-    )
+    ) : {}
 
   getQuantitiesFromItems = items =>
     Object.entries(items).reduce(
@@ -176,11 +176,12 @@ class ProductCustomizerWrapper extends Component {
             <img className="vtex-product-customizer__image" src={imageUrl} />
           </div>
           <div className="w-40-ns ph2-ns">
-            <div className="t-heading-5 c-on-base ph5 pt5-s">{productName}</div>
+            <div className="t-heading-4 c-on-base ph5 pt5-s">{productName}</div>
             <SkuSelector
               items={items}
               selectedSku={selectedSku}
               onSkuChange={this.handleSkuChange}
+              productQuery={this.props.productQuery}
             />
             <div ref={this.attachmentView}>
               {selectedSku && (

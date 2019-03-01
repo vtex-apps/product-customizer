@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { orderFormConsumer } from 'vtex.store-resources/OrderFormContext'
 import { all, both, propEq, values, find, prop, findLast } from 'ramda'
 
 import ProductCustomizerWrapper from './ProductCustomizerWrapper'
@@ -100,8 +99,8 @@ class ProductCustomizerContainer extends Component {
       return null
     }
 
-    return <ProductCustomizerWrapper product={this.parseProduct(product)} />
+    return <ProductCustomizerWrapper productQuery={this.props.productQuery} product={this.parseProduct(product)} />
   }
 }
 
-export default orderFormConsumer(ProductCustomizerContainer)
+export default ProductCustomizerContainer
