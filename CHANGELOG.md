@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.0.3] - 2019-03-01
+### Changed
+- Use SKUSelector component if there are variations in SKU
+
 ## [2.0.2] - 2019-02-26
 ### Fixed
 - Adapt component to Checkout logic of adding items to cart with initialQuantity automatically

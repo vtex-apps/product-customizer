@@ -4,7 +4,7 @@ import { path } from 'ramda'
 
 import { ExtensionPoint } from 'vtex.render-runtime'
 
-import ProductCustomizer from './components/ProductCustomizer'
+import ProductCustomizerContainer from './components/Product/ProductCustomizerContainer';
 
 class ProductCustomizerIndex extends Component {
 
@@ -25,7 +25,7 @@ class ProductCustomizerIndex extends Component {
     )
 
     if (this.hasAttachments()) {
-      return <ProductCustomizer {...this.props} />
+      return <ProductCustomizerContainer {...this.props} />
     }
 
     return <ExtensionPoint id="product-details" {...this.props} />
