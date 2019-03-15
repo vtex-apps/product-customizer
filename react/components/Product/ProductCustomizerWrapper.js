@@ -1,9 +1,11 @@
 import React, { Fragment, Component } from 'react'
-import { orderFormConsumer } from 'vtex.store-resources/OrderFormContext'
+// import { orderFormConsumer } from 'vtex.store-resources/OrderFormContext'
 import smoothscroll from 'smoothscroll-polyfill'
 import { withToast } from 'vtex.styleguide'
 import { injectIntl } from 'react-intl'
-import { pathOr } from 'ramda'
+import { compose, pathOr } from 'ramda'
+import { graphql } from 'react-apollo'
+import gql from 'graphql-tag'
 
 import SkuSelector from './SkuSelector'
 import AttachmentsPicker from './AttachmentsPicker'
@@ -134,30 +136,52 @@ class ProductCustomizerWrapper extends Component {
   }
 
   handleSubmitAddToCart = async () => {
-    const { orderFormContext, product } = this.props
+    const { product, addToCart } = this.props
     const { selectedSku } = this.state
 
     this.setState({ isAddingToCart: true })
 
     const skuData = product.items[selectedSku]
-    const { skuId, seller } = skuData
+    const { skuId, seller, commertialOffer, skuImageUrl, name, detailUrl } = skuData
+    console.log('teste addtocart: ', {
+      quantity: 1,
+      options: this.getAssemblyOptions(),
+      id: skuId,
+      sellingPrice: commertialOffer.Price,
+      listPrice: commertialOffer.ListPrice,
+      skuName: name,
+      imageUrl: skuImageUrl,
+      name,
+      detailUrl,
+      seller,
+    })
 
     try {
-      await orderFormContext.addItem({
-        variables: {
-          orderFormId: orderFormContext.orderForm.orderFormId,
-          items: [{ id: skuId, quantity: 1, seller, options: this.getAssemblyOptions() }],
-        },
-      })
-
-      this.showToast(true)
-      const minicartButton = document.querySelector('.vtex-minicart .vtex-button')
-      minicartButton && minicartButton.click()
+      const {
+        data: { addToCart: linkStateItems },
+      } = await addToCart([{
+        quantity: 1,
+        options: this.getAssemblyOptions(),
+        id: skuId,
+        sellingPrice: commertialOffer.Price,
+        listPrice: commertialOffer.ListPrice,
+        skuName: name,
+        imageUrl: skuImageUrl,
+        name,
+        detailUrl,
+        seller,
+      }])
+      console.log('teste === linkStateItems: ', linkStateItems)
+  
+      const success =
+        linkStateItems &&
+        !!linkStateItems.find(({ id }) => id === skuId)
+      this.showToast(success)
     } catch (err) {
       this.showToast(false)
       // TODO send to splunk
     }
-    await orderFormContext.refetch()
+    
     this.setState({ isAddingToCart: false })
   }
 
@@ -200,4 +224,23 @@ class ProductCustomizerWrapper extends Component {
   }
 }
 
-export default injectIntl(withToast(orderFormConsumer(ProductCustomizerWrapper)))
+const withMutation = graphql(
+  gql`
+    mutation addToCart($items: [MinicartItem]) {
+      addToCart(items: $items) @client
+    }
+  `,
+  {
+    props: ({ mutate }) => ({
+      addToCart: items => mutate({ variables: { items } }),
+    }),
+  }
+)
+
+export default compose(
+  injectIntl,
+  withToast,
+  withMutation,
+)(ProductCustomizerWrapper)
+
+// export default injectIntl(withToast(orderFormConsumer(ProductCustomizerWrapper)))

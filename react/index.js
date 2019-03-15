@@ -17,6 +17,8 @@ class ProductCustomizerIndex extends Component {
   render() {
     const { productQuery: { loading } } = this.props
 
+    console.log('teste productQuery: ', this.props.productQuery)
+
 
     if (loading) return (
       <div className="flex justify-center pa8 w-100">

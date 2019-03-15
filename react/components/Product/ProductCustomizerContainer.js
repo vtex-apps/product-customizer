@@ -83,13 +83,19 @@ class ProductCustomizerContainer extends Component {
     const productItem = find(propEq('itemId', itemMetadata.id))(productItems)
     const crustImage = prop('imageUrl')(findLast(propEq('imageLabel', 'Crust'))(productItem.images))
     const commertialOffer = prop('commertialOffer')(find(propEq('sellerId', itemMetadata.seller))(productItem.sellers))
-    return { [name]: { 
-      attachments, 
-      commertialOffer,
-      imageUrl: crustImage,
-      price: commertialOffer.Price,
-      seller: itemMetadata.seller,
-      skuId: itemMetadata.id }, 
+    return { 
+      [name]: { 
+        attachments, 
+        commertialOffer,
+        imageUrl: crustImage,
+        price: commertialOffer.Price,
+        seller: itemMetadata.seller,
+        skuId: itemMetadata.id,
+        listPrice: commertialOffer.ListPrice,
+        name: productItem.nameComplete,
+        detailUrl: `${this.props.productQuery.product.linkText}/p`,
+        skuImageUrl: productItem.images[0].imageUrl,
+      }, 
     }
   }
 
