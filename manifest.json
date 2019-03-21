@@ -1,7 +1,7 @@
 {
   "name": "product-customizer",
   "vendor": "vtex",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "title": "Product Customizer",
   "description": "",
   "mustUpdateAt": "2019-09-27",
@@ -9,7 +9,6 @@
     "postreleasy": "vtex publish --verbose"
   },
   "dependencies": {
-    "vtex.store-resources": "0.x",
     "vtex.styleguide": "9.x",
     "vtex.store-components": "3.x",
     "vtex.product-details": "1.x"

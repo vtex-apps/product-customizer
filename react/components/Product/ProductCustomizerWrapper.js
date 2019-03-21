@@ -1,9 +1,10 @@
 import React, { Fragment, Component } from 'react'
-import { orderFormConsumer } from 'vtex.store-resources/OrderFormContext'
 import smoothscroll from 'smoothscroll-polyfill'
 import { withToast } from 'vtex.styleguide'
 import { injectIntl } from 'react-intl'
-import { pathOr } from 'ramda'
+import { compose, pathOr } from 'ramda'
+import { graphql } from 'react-apollo'
+import gql from 'graphql-tag'
 
 import SkuSelector from './SkuSelector'
 import AttachmentsPicker from './AttachmentsPicker'
@@ -109,22 +110,60 @@ class ProductCustomizerWrapper extends Component {
     return quantity >= minTotalItems && quantity <= maxTotalItems
   }
 
+  getChoiceType = ({ isSingleChoice, isToggleChoice }) => {
+    if (isSingleChoice) {
+      return 'SINGLE'
+    }
+    if (isToggleChoice) {
+      return 'TOGGLE'
+    }
+    return 'MULTIPLE'
+  }
+
   getAssemblyOptions = () => {
     const { chosenAttachments, selectedSku } = this.state
     const { product } = this.props
+    console.log('teste props: ', this.props)
+    console.log('teste state: ', this.state)
 
     const options = []
+    const added = []
+    const removed = []
     Object.entries(chosenAttachments).map(([suffix, attachObj]) => {
-      const assemblyId = product.items[selectedSku].attachments[suffix].assemblyId
+      const attachmentTypeInfo = product.items[selectedSku].attachments[suffix]
+      const { assemblyId } = attachmentTypeInfo
       Object.entries(attachObj).map(([name, { id, quantity, seller }]) => {
         const initialQuantity = 
          pathOr(0, ['items', selectedSku, 'attachments', suffix, 'items', name, 'initialQuantity'], product)
+
+        if (quantity > initialQuantity) {
+          added.push({ 
+            normalizedQuantity: quantity, 
+            extraQuantity: quantity - initialQuantity, 
+            choiceType: this.getChoiceType(attachmentTypeInfo),
+            item: {
+              name,
+              sellingPrice: pathOr(0, ['items', selectedSku, 'attachments', suffix, 'items', name, 'price'], product)/100,
+              quantity,
+              id,
+            },
+          })
+        }
+
+        if (quantity < initialQuantity) {
+          removed.push({
+            name,
+            initialQuantity,
+            removedQuantity: initialQuantity - quantity,
+          })
+        }
+
         if (quantity !== initialQuantity) {
           options.push({ assemblyId, id, quantity, seller })
         }
       })
     })
-    return options
+    return { options, removed, added }
   }
 
   showToast = success => {
@@ -134,30 +173,46 @@ class ProductCustomizerWrapper extends Component {
   }
 
   handleSubmitAddToCart = async () => {
-    const { orderFormContext, product } = this.props
+    const { product, addToCart } = this.props
     const { selectedSku } = this.state
 
     this.setState({ isAddingToCart: true })
 
     const skuData = product.items[selectedSku]
-    const { skuId, seller } = skuData
+    const { skuId, seller, commertialOffer, skuImageUrl, name, detailUrl } = skuData
+    const { options, added, removed } = this.getAssemblyOptions()
+    const payload = {
+      quantity: 1,
+      options,
+      id: skuId,
+      sellingPrice: commertialOffer.Price,
+      listPrice: commertialOffer.ListPrice,
+      skuName: name,
+      imageUrl: skuImageUrl,
+      name,
+      detailUrl,
+      seller,
+      assemblyOptions: {
+        added,
+        removed,
+        parentPrice: commertialOffer.Price,
+      },
+    }
 
     try {
-      await orderFormContext.addItem({
-        variables: {
-          orderFormId: orderFormContext.orderForm.orderFormId,
-          items: [{ id: skuId, quantity: 1, seller, options: this.getAssemblyOptions() }],
-        },
-      })
-
-      this.showToast(true)
-      const minicartButton = document.querySelector('.vtex-minicart .vtex-button')
-      minicartButton && minicartButton.click()
+      const {
+        data: { addToCart: linkStateItems },
+      } = await addToCart([payload])
+  
+      const success =
+        linkStateItems &&
+        !!linkStateItems.find(({ id }) => id === skuId)
+      this.showToast(success)
     } catch (err) {
       this.showToast(false)
       // TODO send to splunk
     }
-    await orderFormContext.refetch()
+    
     this.setState({ isAddingToCart: false })
   }
 
@@ -200,4 +255,21 @@ class ProductCustomizerWrapper extends Component {
   }
 }
 
-export default injectIntl(withToast(orderFormConsumer(ProductCustomizerWrapper)))
+const withMutation = graphql(
+  gql`
+    mutation addToCart($items: [MinicartItem]) {
+      addToCart(items: $items) @client
+    }
+  `,
+  {
+    props: ({ mutate }) => ({
+      addToCart: items => mutate({ variables: { items } }),
+    }),
+  }
+)
+
+export default compose(
+  injectIntl,
+  withToast,
+  withMutation,
+)(ProductCustomizerWrapper)

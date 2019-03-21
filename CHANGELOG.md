@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.0.5] - 2019-03-21
+
 ## [2.0.4] - 2019-03-14
 ### Changed
 - Change messages file to most generic languages.
