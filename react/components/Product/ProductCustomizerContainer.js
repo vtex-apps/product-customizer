@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { all, both, propEq, values, find, prop, findLast } from 'ramda'
+import { all, both, propEq, values, find, path, prop, findLast } from 'ramda'
 
 import ProductCustomizerWrapper from './ProductCustomizerWrapper'
 
