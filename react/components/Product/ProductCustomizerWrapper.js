@@ -4,12 +4,13 @@ import { withToast } from 'vtex.styleguide'
 import { injectIntl } from 'react-intl'
 import { compose, pathOr } from 'ramda'
 import { graphql } from 'react-apollo'
-import gql from 'graphql-tag'
 
 import SkuSelector from './SkuSelector'
 import AttachmentsPicker from './AttachmentsPicker'
 import MovingBottomButton from '../Buttons/MovingBottomButton'
 import { scrollToElementTop } from '../../utils/scroll'
+
+import ADD_TO_CART_MUTATION from '../../mutations/addToCart.gql'
 
 class ProductCustomizerWrapper extends Component {
   state = {
@@ -123,8 +124,6 @@ class ProductCustomizerWrapper extends Component {
   getAssemblyOptions = () => {
     const { chosenAttachments, selectedSku } = this.state
     const { product } = this.props
-    console.log('teste props: ', this.props)
-    console.log('teste state: ', this.state)
 
     const options = []
     const added = []
@@ -256,11 +255,7 @@ class ProductCustomizerWrapper extends Component {
 }
 
 const withMutation = graphql(
-  gql`
-    mutation addToCart($items: [MinicartItem]) {
-      addToCart(items: $items) @client
-    }
-  `,
+  ADD_TO_CART_MUTATION,
   {
     props: ({ mutate }) => ({
       addToCart: items => mutate({ variables: { items } }),
