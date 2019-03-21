@@ -132,7 +132,6 @@ class ProductCustomizerWrapper extends Component {
     Object.entries(chosenAttachments).map(([suffix, attachObj]) => {
       const attachmentTypeInfo = product.items[selectedSku].attachments[suffix]
       const { assemblyId } = attachmentTypeInfo
-      // const assemblyId = product.items[selectedSku].attachments[suffix].assemblyId
       Object.entries(attachObj).map(([name, { id, quantity, seller }]) => {
         const initialQuantity = 
          pathOr(0, ['items', selectedSku, 'attachments', suffix, 'items', name, 'initialQuantity'], product)
