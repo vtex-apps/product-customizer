@@ -34,12 +34,7 @@ const getSkuItems = items => sort(compareSku, items)
 const getSelectedItem = (items, selectedSku) => selectedSku ? find(propEq('name', selectedSku), items) : null
 
 const saveSkuSelector = (onSkuChange, skuId, items, isMainVariation, isSecondaryPicked) => {
-  const shouldReset = moreThanVariations(items, 1) && !isSecondaryPicked
-  // If we are picking a new main variation and there are more than one secondary options for this variation, unselect SKU on parent component
-  if (isMainVariation && shouldReset) {
-    return onSkuChange(null, false)
-  }
-  const name = prop('name', find(propEq('itemId', skuId), items)) 
+  const name = prop('name', find(propEq('itemId', skuId), items))
   onSkuChange(name, false)
 }
 
@@ -54,7 +49,7 @@ const SelectorOptions = ({ productQuery, selectedSku, onSkuChange, parsedItems }
           skuItems={getSkuItems(items)}
           skuSelected={getSelectedItem(items, selectedSku)}
           productSlug={productQuery.product.linkText}
-          onSKUSelected={(skuId, isMainVariation, isSecondaryPicked) => 
+          onSKUSelected={(skuId, isMainVariation, isSecondaryPicked) =>
             saveSkuSelector(onSkuChange, skuId, items, isMainVariation, isSecondaryPicked)}
           alwaysShowSecondary={false}
         />
@@ -69,7 +64,7 @@ const SelectorOptions = ({ productQuery, selectedSku, onSkuChange, parsedItems }
         <FormattedMessage id="product-customizer.pick-size" />
       </div>
       {Object.entries(parsedItems).map(([name, item]) =>
-        <SingleChoice 
+        <SingleChoice
           price={item.price * 100}
           imageUrl={item.imageUrl}
           name={name}
