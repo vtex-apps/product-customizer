@@ -15,30 +15,38 @@ const compareSku = (item, otherItem) => {
   ] = item.sellers
   const [
     {
-      commertialOffer: {
-        AvailableQuantity: otherQuantity,
-        Price: otherPrice,
-      },
+      commertialOffer: { AvailableQuantity: otherQuantity, Price: otherPrice },
     },
   ] = otherItem.sellers
 
-  return quantity === 0
-    ? 1
-    : (otherQuantity === 0 && -1) || price - otherPrice
+  return quantity === 0 ? 1 : (otherQuantity === 0 && -1) || price - otherPrice
 }
 
-const moreThanVariations = (items, count) => pathOr(0, ['0', 'variations', 'length'], items) > count
+const moreThanVariations = (items, count) =>
+  pathOr(0, ['0', 'variations', 'length'], items) > count
 
 const getSkuItems = items => sort(compareSku, items)
 
-const getSelectedItem = (items, selectedSku) => selectedSku ? find(propEq('name', selectedSku), items) : null
+const getSelectedItem = (items, selectedSku) =>
+  selectedSku ? find(propEq('name', selectedSku), items) : null
 
-const saveSkuSelector = (onSkuChange, skuId, items, isMainVariation, isSecondaryPicked) => {
+const saveSkuSelector = (
+  onSkuChange,
+  skuId,
+  items,
+  isMainVariation,
+  isSecondaryPicked
+) => {
   const name = prop('name', find(propEq('itemId', skuId), items))
   onSkuChange(name, false)
 }
 
-const SelectorOptions = ({ productQuery, selectedSku, onSkuChange, parsedItems }) => {
+const SelectorOptions = ({
+  productQuery,
+  selectedSku,
+  onSkuChange,
+  parsedItems,
+}) => {
   const items = pathOr([], ['product', 'items'], productQuery)
   // If item has variations field, show SKUSelector
   if (moreThanVariations(items, 0)) {
@@ -50,7 +58,14 @@ const SelectorOptions = ({ productQuery, selectedSku, onSkuChange, parsedItems }
           skuSelected={getSelectedItem(items, selectedSku)}
           productSlug={productQuery.product.linkText}
           onSKUSelected={(skuId, isMainVariation, isSecondaryPicked) =>
-            saveSkuSelector(onSkuChange, skuId, items, isMainVariation, isSecondaryPicked)}
+            saveSkuSelector(
+              onSkuChange,
+              skuId,
+              items,
+              isMainVariation,
+              isSecondaryPicked
+            )
+          }
           alwaysShowSecondary={false}
         />
       </div>
@@ -63,7 +78,7 @@ const SelectorOptions = ({ productQuery, selectedSku, onSkuChange, parsedItems }
       <div className="ph5 pb4 c-muted-2 t-small">
         <FormattedMessage id="product-customizer.pick-size" />
       </div>
-      {Object.entries(parsedItems).map(([name, item]) =>
+      {Object.entries(parsedItems).map(([name, item]) => (
         <SingleChoice
           price={item.price * 100}
           imageUrl={item.imageUrl}
@@ -73,9 +88,9 @@ const SelectorOptions = ({ productQuery, selectedSku, onSkuChange, parsedItems }
           key={name}
           showPlus={false}
         />
-      )}
-      </Fragment>
-    )
+      ))}
+    </Fragment>
+  )
 }
 
 function SkuSelector({ items, selectedSku, onSkuChange, productQuery }) {
@@ -84,7 +99,7 @@ function SkuSelector({ items, selectedSku, onSkuChange, productQuery }) {
       <div className="ph5 pt4 pb2 pb4-ns">
         {selectedSku && (
           <ProductPrice
-            showListPrice={true}
+            showListPrice
             showLabels={false}
             sellingPrice={items[selectedSku].commertialOffer.Price}
             listPrice={items[selectedSku].commertialOffer.ListPrice}
@@ -94,7 +109,12 @@ function SkuSelector({ items, selectedSku, onSkuChange, productQuery }) {
           />
         )}
       </div>
-      <SelectorOptions productQuery={productQuery} selectedSku={selectedSku} onSkuChange={onSkuChange} parsedItems={items} />
+      <SelectorOptions
+        productQuery={productQuery}
+        selectedSku={selectedSku}
+        onSkuChange={onSkuChange}
+        parsedItems={items}
+      />
     </Fragment>
   )
 }

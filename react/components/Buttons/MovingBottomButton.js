@@ -3,9 +3,8 @@ import React, { Fragment, PureComponent } from 'react'
 import AddToCart from './AddToCart'
 
 class MovingBottomButton extends PureComponent {
-
-  scrollingButton = React.createRef();
-  fixedButton = React.createRef();
+  scrollingButton = React.createRef()
+  fixedButton = React.createRef()
 
   showScrollingButton = false
 
@@ -25,7 +24,8 @@ class MovingBottomButton extends PureComponent {
 
   handleScroll = () => {
     const fixedButtonY = this.fixedButton.current.offsetTop
-    const scrollingButtonY = this.scrollingButton.current.offsetTop - window.pageYOffset
+    const scrollingButtonY =
+      this.scrollingButton.current.offsetTop - window.pageYOffset
     if (scrollingButtonY <= fixedButtonY) {
       if (!this.showScrollingButton) {
         this.showScrollingButton = true
@@ -46,11 +46,27 @@ class MovingBottomButton extends PureComponent {
     const { ready, total, handleSubmitAddToCart, isLoading } = this.props
     return (
       <Fragment>
-        <div className={`vtex-product-customizer__actions w-100`} ref={this.scrollingButton}>
-          <AddToCart ready={ready} total={total} onClick={handleSubmitAddToCart} isLoading={isLoading} />
+        <div
+          className={`vtex-product-customizer__actions w-100`}
+          ref={this.scrollingButton}
+        >
+          <AddToCart
+            ready={ready}
+            total={total}
+            onClick={handleSubmitAddToCart}
+            isLoading={isLoading}
+          />
         </div>
-        <div className={`vtex-product-customizer__actions z-2 fixed bg-white bottom-0 w-40-ns ph1-ns w-100 bt b--light-gray`} ref={this.fixedButton}>
-          <AddToCart ready={ready} total={total} onClick={handleSubmitAddToCart} isLoading={isLoading} />
+        <div
+          className={`vtex-product-customizer__actions z-2 fixed bg-white bottom-0 w-40-ns ph1-ns w-100 bt b--light-gray`}
+          ref={this.fixedButton}
+        >
+          <AddToCart
+            ready={ready}
+            total={total}
+            onClick={handleSubmitAddToCart}
+            isLoading={isLoading}
+          />
         </div>
       </Fragment>
     )

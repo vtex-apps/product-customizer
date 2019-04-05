@@ -5,8 +5,12 @@ import AttachmentPicker from './AttachmentPicker'
 import { scrollToElementTop } from '../../utils/scroll'
 
 function precedence({ isSingleChoice, isToggleChoice }) {
-  if (isSingleChoice) { return 0 }
-  if (isToggleChoice) { return 1 }
+  if (isSingleChoice) {
+    return 0
+  }
+  if (isToggleChoice) {
+    return 1
+  }
   return 2
 }
 
@@ -20,8 +24,8 @@ function isSingleChoicePicked(chosenAttachment) {
 
 function areAllSinglesPicked(attachments, chosenAttachments) {
   return Object.values(attachments)
-         .filter(({ isSingleChoice }) => isSingleChoice)
-         .every(({ name }) => isSingleChoicePicked(chosenAttachments[name]))
+    .filter(({ isSingleChoice }) => isSingleChoice)
+    .every(({ name }) => isSingleChoicePicked(chosenAttachments[name]))
 }
 
 function shouldShowAttachment(attachment, canShowOtherAttachments) {
@@ -31,16 +35,21 @@ function shouldShowAttachment(attachment, canShowOtherAttachments) {
 
 function findFirstNonSingleChoice(attachments) {
   return Object.entries(attachments)
-         .sort(compareAttachments)
-         .find(([_, { isSingleChoice }]) => !isSingleChoice)
+    .sort(compareAttachments)
+    .find(([_, { isSingleChoice }]) => !isSingleChoice)
 }
 
 class AttachmentsPicker extends Component {
-  pickers = Object.keys(this.props.attachments)
-            .reduce((prev, name) => ({ ...prev, [name]: React.createRef() }), {})
+  pickers = Object.keys(this.props.attachments).reduce(
+    (prev, name) => ({ ...prev, [name]: React.createRef() }),
+    {}
+  )
 
   state = {
-    allSinglesPicked: areAllSinglesPicked(this.props.attachments, this.props.chosenAttachments),
+    allSinglesPicked: areAllSinglesPicked(
+      this.props.attachments,
+      this.props.chosenAttachments
+    ),
   }
 
   componentDidMount() {
@@ -50,14 +59,19 @@ class AttachmentsPicker extends Component {
   componentDidUpdate(prevProps) {
     const { attachments, chosenAttachments } = this.props
     if (this.props.selectedSku !== prevProps.selectedSku) {
-      this.setState({ allSinglesPicked: areAllSinglesPicked(attachments, chosenAttachments) })
+      this.setState({
+        allSinglesPicked: areAllSinglesPicked(attachments, chosenAttachments),
+      })
     }
   }
 
   attachmentChangeCallback = newChosenAttachments => {
     const { attachments } = this.props
     const currentAllSinglesPicked = this.state.allSinglesPicked
-    const newSinglesPicked = areAllSinglesPicked(attachments, newChosenAttachments)
+    const newSinglesPicked = areAllSinglesPicked(
+      attachments,
+      newChosenAttachments
+    )
     if (currentAllSinglesPicked !== newSinglesPicked) {
       this.setState({ allSinglesPicked: newSinglesPicked })
       const [firstNotSingleName] = findFirstNonSingleChoice(attachments) || []
@@ -67,7 +81,12 @@ class AttachmentsPicker extends Component {
   }
 
   handleOnAttachmentChange = (attachmentName, quantities, isSingleChoice) => {
-    this.props.onAttachmentChange(attachmentName, quantities, isSingleChoice, this.attachmentChangeCallback)
+    this.props.onAttachmentChange(
+      attachmentName,
+      quantities,
+      isSingleChoice,
+      this.attachmentChangeCallback
+    )
   }
 
   render() {
@@ -77,19 +96,21 @@ class AttachmentsPicker extends Component {
       <Fragment>
         {Object.entries(attachments)
           .sort(compareAttachments)
-          .map(
-            ([name, attachment]) =>
-              <div 
-                ref={this.pickers[name]} 
-                key={name} 
-                className={`${shouldShowAttachment(attachment, allSinglesPicked) ? '' : 'dn'}`}
-              >
-                <AttachmentPicker
-                  key={name}
-                  onAttachmentChange={this.handleOnAttachmentChange}
-                  {...attachment} />
-              </div>
-          )}
+          .map(([name, attachment]) => (
+            <div
+              ref={this.pickers[name]}
+              key={name}
+              className={`${
+                shouldShowAttachment(attachment, allSinglesPicked) ? '' : 'dn'
+              }`}
+            >
+              <AttachmentPicker
+                key={name}
+                onAttachmentChange={this.handleOnAttachmentChange}
+                {...attachment}
+              />
+            </div>
+          ))}
       </Fragment>
     )
   }

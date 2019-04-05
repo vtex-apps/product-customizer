@@ -33,27 +33,42 @@ class ProductCustomizerWrapper extends Component {
     item && shouldScroll && scrollToElementTop(this.attachmentView.current)
   }
 
-  getQuantitiesFromSkuAttachments = (sku) => sku ?
-    Object.entries(this.props.product.items[sku].attachments).reduce(
-      (quantities, [attName, attachment]) =>
-        ({ ...quantities, [attName]: this.getQuantitiesFromItems(attachment.items) }),
-      {}
-    ) : {}
+  getQuantitiesFromSkuAttachments = sku =>
+    sku
+      ? Object.entries(this.props.product.items[sku].attachments).reduce(
+          (quantities, [attName, attachment]) => ({
+            ...quantities,
+            [attName]: this.getQuantitiesFromItems(attachment.items),
+          }),
+          {}
+        )
+      : {}
 
   getQuantitiesFromItems = items =>
     Object.entries(items).reduce(
-      (quantities, [itemName, item]) =>
-        ({ ...quantities, [itemName]: { id: item.id, quantity: +item.initialQuantity, seller: item.seller } }),
+      (quantities, [itemName, item]) => ({
+        ...quantities,
+        [itemName]: {
+          id: item.id,
+          quantity: +item.initialQuantity,
+          seller: item.seller,
+        },
+      }),
       {}
     )
 
-  handleAttachmentChange = (attachmentName, quantities, isSingleChoice, callback) => 
+  handleAttachmentChange = (
+    attachmentName,
+    quantities,
+    isSingleChoice,
+    callback
+  ) =>
     this.setState(
       state => ({
         chosenAttachments: {
           ...state.chosenAttachments,
           [attachmentName]: {
-            ...state.chosenAttachments[attachmentName] && !isSingleChoice,
+            ...(state.chosenAttachments[attachmentName] && !isSingleChoice),
             ...quantities,
           },
         },
@@ -72,15 +87,17 @@ class ProductCustomizerWrapper extends Component {
 
   getAttachmentPrice(attachment) {
     return Object.values(attachment.items).reduce(
-      (total, { price, quantity }) => total + (price * quantity),
+      (total, { price, quantity }) => total + price * quantity,
       0
     )
   }
 
   getAttachmentsWithQuantities(attachments, quantities) {
     return Object.entries(attachments).reduce(
-      (obj, [name, attachment]) =>
-        ({ ...obj, [name]: this.getAttachmentWithQuantities(attachment, quantities[name]) }),
+      (obj, [name, attachment]) => ({
+        ...obj,
+        [name]: this.getAttachmentWithQuantities(attachment, quantities[name]),
+      }),
       {}
     )
   }
@@ -88,13 +105,9 @@ class ProductCustomizerWrapper extends Component {
   getAttachmentWithQuantities(attachment, quantities) {
     const [quantity, items] = Object.entries(attachment.items).reduce(
       ([total, obj], [name, item]) => {
-        const quantity = name in quantities
-          ? quantities[name].quantity
-          : +item.initialQuantity
-        return [
-          total + quantity,
-          { ...obj, [name]: { ...item, quantity } },
-        ]
+        const quantity =
+          name in quantities ? quantities[name].quantity : +item.initialQuantity
+        return [total + quantity, { ...obj, [name]: { ...item, quantity } }]
       },
       [0, {}]
     )
@@ -107,7 +120,10 @@ class ProductCustomizerWrapper extends Component {
   }
 
   isAttachmentReady(attachment) {
-    const { quantity, properties: { minTotalItems, maxTotalItems } } = attachment
+    const {
+      quantity,
+      properties: { minTotalItems, maxTotalItems },
+    } = attachment
     return quantity >= minTotalItems && quantity <= maxTotalItems
   }
 
@@ -132,17 +148,41 @@ class ProductCustomizerWrapper extends Component {
       const attachmentTypeInfo = product.items[selectedSku].attachments[suffix]
       const { assemblyId } = attachmentTypeInfo
       Object.entries(attachObj).map(([name, { id, quantity, seller }]) => {
-        const initialQuantity = 
-         pathOr(0, ['items', selectedSku, 'attachments', suffix, 'items', name, 'initialQuantity'], product)
+        const initialQuantity = pathOr(
+          0,
+          [
+            'items',
+            selectedSku,
+            'attachments',
+            suffix,
+            'items',
+            name,
+            'initialQuantity',
+          ],
+          product
+        )
 
         if (quantity > initialQuantity) {
-          added.push({ 
-            normalizedQuantity: quantity, 
-            extraQuantity: quantity - initialQuantity, 
+          added.push({
+            normalizedQuantity: quantity,
+            extraQuantity: quantity - initialQuantity,
             choiceType: this.getChoiceType(attachmentTypeInfo),
             item: {
               name,
-              sellingPrice: pathOr(0, ['items', selectedSku, 'attachments', suffix, 'items', name, 'price'], product)/100,
+              sellingPrice:
+                pathOr(
+                  0,
+                  [
+                    'items',
+                    selectedSku,
+                    'attachments',
+                    suffix,
+                    'items',
+                    name,
+                    'price',
+                  ],
+                  product
+                ) / 100,
               quantity,
               id,
             },
@@ -167,7 +207,9 @@ class ProductCustomizerWrapper extends Component {
 
   showToast = success => {
     const suffix = success ? 'buy-success' : 'add-failure'
-    const message = this.props.intl.formatMessage({ id: `product-customizer.${suffix}` })
+    const message = this.props.intl.formatMessage({
+      id: `product-customizer.${suffix}`,
+    })
     this.props.showToast({ message })
   }
 
@@ -178,7 +220,14 @@ class ProductCustomizerWrapper extends Component {
     this.setState({ isAddingToCart: true })
 
     const skuData = product.items[selectedSku]
-    const { skuId, seller, commertialOffer, skuImageUrl, name, detailUrl } = skuData
+    const {
+      skuId,
+      seller,
+      commertialOffer,
+      skuImageUrl,
+      name,
+      detailUrl,
+    } = skuData
     const { options, added, removed } = this.getAssemblyOptions()
     const payload = {
       quantity: 1,
@@ -202,16 +251,15 @@ class ProductCustomizerWrapper extends Component {
       const {
         data: { addToCart: linkStateItems },
       } = await addToCart([payload])
-  
+
       const success =
-        linkStateItems &&
-        !!linkStateItems.find(({ id }) => id === skuId)
+        linkStateItems && !!linkStateItems.find(({ id }) => id === skuId)
       this.showToast(success)
     } catch (err) {
       this.showToast(false)
       // TODO send to splunk
     }
-    
+
     this.setState({ isAddingToCart: false })
   }
 
@@ -219,7 +267,12 @@ class ProductCustomizerWrapper extends Component {
     const { imageUrl, items, productName } = this.props.product
     const { selectedSku, chosenAttachments, isAddingToCart } = this.state
 
-    const attachments = selectedSku && this.getAttachmentsWithQuantities(items[selectedSku].attachments, chosenAttachments)
+    const attachments =
+      selectedSku &&
+      this.getAttachmentsWithQuantities(
+        items[selectedSku].attachments,
+        chosenAttachments
+      )
     const ready = attachments && this.isSkuReady(attachments)
     const total = attachments && this.getTotalPrice(attachments)
 
@@ -243,10 +296,16 @@ class ProductCustomizerWrapper extends Component {
                   attachments={attachments}
                   selectedSku={selectedSku}
                   onAttachmentChange={this.handleAttachmentChange}
-                  chosenAttachments={chosenAttachments} />
+                  chosenAttachments={chosenAttachments}
+                />
               )}
             </div>
-            <MovingBottomButton ready={ready} total={total} handleSubmitAddToCart={this.handleSubmitAddToCart} isLoading={isAddingToCart} />
+            <MovingBottomButton
+              ready={ready}
+              total={total}
+              handleSubmitAddToCart={this.handleSubmitAddToCart}
+              isLoading={isAddingToCart}
+            />
           </div>
         </div>
       </Fragment>
@@ -254,17 +313,14 @@ class ProductCustomizerWrapper extends Component {
   }
 }
 
-const withMutation = graphql(
-  ADD_TO_CART_MUTATION,
-  {
-    props: ({ mutate }) => ({
-      addToCart: items => mutate({ variables: { items } }),
-    }),
-  }
-)
+const withMutation = graphql(ADD_TO_CART_MUTATION, {
+  props: ({ mutate }) => ({
+    addToCart: items => mutate({ variables: { items } }),
+  }),
+})
 
 export default compose(
   injectIntl,
   withToast,
-  withMutation,
+  withMutation
 )(ProductCustomizerWrapper)

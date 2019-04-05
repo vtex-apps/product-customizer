@@ -7,28 +7,43 @@ import ItemDescription from './ItemDescription'
 import '../../../global.css'
 
 const MultipleChoice = ({
-  imageUrl, 
-  price, 
-  name, 
-  chosenAmount, 
-  canIncrease, 
-  canDecrease, 
-  onChange
+  imageUrl,
+  price,
+  name,
+  chosenAmount,
+  canIncrease,
+  canDecrease,
+  onChange,
 }) => {
   const calculatedPrice = (price / 100).toFixed(2)
   const parsedPrice = parseFloat(calculatedPrice)
   const isSelected = !!chosenAmount
 
-  const sellingPriceClass = "c-action-primary t-small fw5"
+  const sellingPriceClass = 'c-action-primary t-small fw5'
 
-  const description = !!parsedPrice &&
-    <div className={'multiple-choice__price flex items-center c-action-primary t-small fw5 mt1'}>
+  const description = !!parsedPrice && (
+    <div
+      className={
+        'multiple-choice__price flex items-center c-action-primary t-small fw5 mt1'
+      }
+    >
       <div>+ </div>
-      <ProductPrice {...{ showLabels: false, showListPrice: false, sellingPrice: parsedPrice, sellingPriceClass }} />
+      <ProductPrice
+        {...{
+          showLabels: false,
+          showListPrice: false,
+          sellingPrice: parsedPrice,
+          sellingPriceClass,
+        }}
+      />
     </div>
+  )
 
   return (
-    <div className={`vtex-product-customizer__multiple-choice ${isSelected && 'selected bg-muted-5'} hover-bg-muted-5 w-100 ph4 pv5 bb b--muted-5`}>
+    <div
+      className={`vtex-product-customizer__multiple-choice ${isSelected &&
+        'selected bg-muted-5'} hover-bg-muted-5 w-100 ph4 pv5 bb b--muted-5`}
+    >
       <div className="relative flex justify-between items-center">
         <ItemDescription {...{ imageUrl, name, description }} />
         <div className="flex-auto flex-none-ns flex justify-end">
@@ -51,7 +66,7 @@ MultipleChoice.propTypes = {
   imageUrl: PropTypes.string,
   price: PropTypes.number,
   name: PropTypes.string,
-  chosenAmount: PropTypes.number, 
+  chosenAmount: PropTypes.number,
   canIncrease: PropTypes.bool,
   canDecrease: PropTypes.bool,
   onChange: PropTypes.func.isRequired,

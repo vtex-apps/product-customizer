@@ -9,10 +9,13 @@ class ProductCustomizerContainer extends Component {
 
     const compositionPrices = this.getPriceMap(product.itemMetadata.priceTable)
 
-    const items =
-      product.itemMetadata.items.reduce(
-        (items, item) => ({ ...items, ...this.parseItemMetadata(item, compositionPrices, product.items) }),
-        {})
+    const items = product.itemMetadata.items.reduce(
+      (items, item) => ({
+        ...items,
+        ...this.parseItemMetadata(item, compositionPrices, product.items),
+      }),
+      {}
+    )
 
     return {
       productName: product.productName,
@@ -28,21 +31,28 @@ class ProductCustomizerContainer extends Component {
   getPriceMap(priceTable) {
     return priceTable.reduce((prev, curr) => {
       const { type, values } = curr
-      const priceMap = values.reduce((currMap, itemPrice) =>
-        ({ ...currMap, [itemPrice.id]: itemPrice.price }),
-        {})
+      const priceMap = values.reduce(
+        (currMap, itemPrice) => ({
+          ...currMap,
+          [itemPrice.id]: itemPrice.price,
+        }),
+        {}
+      )
       return { ...prev, [type]: priceMap }
-    },
-    {})
+    }, {})
   }
 
   parseAssemblyOption(assemblyOption, prices) {
     const { composition, id } = assemblyOption
     const [_, optionName] = id.split('_')
-    const items = composition.items.reduce((prev, compCurr) =>
-      ({ ...prev, ...this.parseCompositionItem(compCurr, prices) }),
-    {})
-    
+    const items = composition.items.reduce(
+      (prev, compCurr) => ({
+        ...prev,
+        ...this.parseCompositionItem(compCurr, prices),
+      }),
+      {}
+    )
+
     return {
       [optionName]: {
         name: optionName,
@@ -52,8 +62,13 @@ class ProductCustomizerContainer extends Component {
           maxTotalItems: composition.maxQuantity,
           minTotalItems: composition.minQuantity,
         },
-        isSingleChoice: both(propEq('minQuantity', 1), propEq('maxQuantity', 1))(composition),
-        isToggleChoice: all(propEq('maxQuantity', 1))(values(composition.items)),
+        isSingleChoice: both(
+          propEq('minQuantity', 1),
+          propEq('maxQuantity', 1)
+        )(composition),
+        isToggleChoice: all(propEq('maxQuantity', 1))(
+          values(composition.items)
+        ),
       },
     }
   }
@@ -77,15 +92,23 @@ class ProductCustomizerContainer extends Component {
       return {}
     }
     const name = itemMetadata.name
-    const attachments = itemMetadata.assemblyOptions.reduce((prev, option) =>
-      ({ ...prev, ...this.parseAssemblyOption(option, prices) }),
-      {})
+    const attachments = itemMetadata.assemblyOptions.reduce(
+      (prev, option) => ({
+        ...prev,
+        ...this.parseAssemblyOption(option, prices),
+      }),
+      {}
+    )
     const productItem = find(propEq('itemId', itemMetadata.id))(productItems)
-    const crustImage = prop('imageUrl')(findLast(propEq('imageLabel', 'Crust'))(productItem.images))
-    const commertialOffer = prop('commertialOffer')(find(propEq('sellerId', itemMetadata.seller))(productItem.sellers))
-    return { 
-      [name]: { 
-        attachments, 
+    const crustImage = prop('imageUrl')(
+      findLast(propEq('imageLabel', 'Crust'))(productItem.images)
+    )
+    const commertialOffer = prop('commertialOffer')(
+      find(propEq('sellerId', itemMetadata.seller))(productItem.sellers)
+    )
+    return {
+      [name]: {
+        attachments,
         commertialOffer,
         imageUrl: crustImage,
         price: commertialOffer.Price,
@@ -95,7 +118,7 @@ class ProductCustomizerContainer extends Component {
         name: productItem.nameComplete,
         detailUrl: `${this.props.productQuery.product.linkText}/p`,
         skuImageUrl: path(['images', '0', 'imageUrl'], productItem),
-      }, 
+      },
     }
   }
 
@@ -105,7 +128,12 @@ class ProductCustomizerContainer extends Component {
       return null
     }
 
-    return <ProductCustomizerWrapper productQuery={this.props.productQuery} product={this.parseProduct(product)} />
+    return (
+      <ProductCustomizerWrapper
+        productQuery={this.props.productQuery}
+        product={this.parseProduct(product)}
+      />
+    )
   }
 }
 

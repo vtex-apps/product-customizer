@@ -5,7 +5,11 @@ import { Checkbox } from 'vtex.styleguide'
 import '../../../global.css'
 
 const ToggledChoice = ({ imageUrl, name, selected, onChange, disabled }) => (
-  <label className={`vtex-product-customizer__toggled-choice ${selected ? 'selected bg-washed-blue' : 'hover-bg-near-white'} db pa4 pointer bb b--light-gray`}>
+  <label
+    className={`vtex-product-customizer__toggled-choice ${
+      selected ? 'selected bg-washed-blue' : 'hover-bg-near-white'
+    } db pa4 pointer bb b--light-gray`}
+  >
     <div className="relative flex items-center">
       <div className="flex-none pv2">
         <img src={imageUrl} width="48" className="br3" />
@@ -13,7 +17,7 @@ const ToggledChoice = ({ imageUrl, name, selected, onChange, disabled }) => (
       <div className="flex-auto ml5">
         <div className="toggled-choice__name t-heading-5">{name}</div>
       </div>
-      <div className={`${disabled ? 'o-70': ''}`}>
+      <div className={`${disabled ? 'o-70' : ''}`}>
         <Checkbox
           disabled={disabled}
           name={name}
