@@ -264,7 +264,7 @@ class ProductCustomizerWrapper extends Component {
   }
 
   render() {
-    const { imageUrl, items, productName } = this.props.product
+    const { imageText, imageUrl, items, productName } = this.props.product
     const { selectedSku, chosenAttachments, isAddingToCart } = this.state
 
     const attachments =
@@ -280,7 +280,11 @@ class ProductCustomizerWrapper extends Component {
       <Fragment>
         <div className="flex-ns pv6-ns justify-center-ns">
           <div className="w-100 w-third-ns flex tc items-center-ns h-100-ns ph2-ns">
-            <img className="vtex-product-customizer__image" src={imageUrl} />
+            <img
+              className="vtex-product-customizer__image"
+              src={imageUrl}
+              alt={imageText}
+            />
           </div>
           <div className="w-40-ns ph2-ns">
             <div className="t-heading-4 c-on-base ph5 pt5-s">{productName}</div>
@@ -303,7 +307,7 @@ class ProductCustomizerWrapper extends Component {
             <MovingBottomButton
               ready={ready}
               total={total}
-              handleSubmitAddToCart={this.handleSubmitAddToCart}
+              onSubmitAddToCart={this.handleSubmitAddToCart}
               isLoading={isAddingToCart}
             />
           </div>

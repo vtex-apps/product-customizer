@@ -1,4 +1,4 @@
-import { Fragment, Component } from 'react'
+import React, { Fragment, Component } from 'react'
 import MultipleChoice from '../Variation/Items/MultipleChoice'
 
 class MultipleChoiceAttachment extends Component {
@@ -38,7 +38,6 @@ class MultipleChoiceAttachment extends Component {
   }
 
   handleChangeItemQuantity(itemName, quantity) {
-    console.log('chagning', itemName, quantity)
     const { name, onAttachmentChange } = this.props
     if (this.canChangeItemQuantity(itemName, quantity)) {
       const quantities = this.getUpdatedQuantities(itemName, quantity)

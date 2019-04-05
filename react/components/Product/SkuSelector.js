@@ -1,4 +1,4 @@
-import { Fragment } from 'react'
+import React, { Fragment } from 'react'
 import { FormattedMessage } from 'react-intl'
 import { ExtensionPoint } from 'vtex.render-runtime'
 import { find, pathOr, prop, propEq, sort } from 'ramda'
@@ -30,13 +30,7 @@ const getSkuItems = items => sort(compareSku, items)
 const getSelectedItem = (items, selectedSku) =>
   selectedSku ? find(propEq('name', selectedSku), items) : null
 
-const saveSkuSelector = (
-  onSkuChange,
-  skuId,
-  items,
-  isMainVariation,
-  isSecondaryPicked
-) => {
+const saveSkuSelector = (onSkuChange, skuId, items) => {
   const name = prop('name', find(propEq('itemId', skuId), items))
   onSkuChange(name, false)
 }
@@ -57,15 +51,7 @@ const SelectorOptions = ({
           skuItems={getSkuItems(items)}
           skuSelected={getSelectedItem(items, selectedSku)}
           productSlug={productQuery.product.linkText}
-          onSKUSelected={(skuId, isMainVariation, isSecondaryPicked) =>
-            saveSkuSelector(
-              onSkuChange,
-              skuId,
-              items,
-              isMainVariation,
-              isSecondaryPicked
-            )
-          }
+          onSKUSelected={skuId => saveSkuSelector(onSkuChange, skuId, items)}
           alwaysShowSecondary={false}
         />
       </div>

@@ -5,6 +5,7 @@ import { Checkbox } from 'vtex.styleguide'
 import '../../../global.css'
 
 const ToggledChoice = ({ imageUrl, name, selected, onChange, disabled }) => (
+  // eslint-disable-next-line jsx-a11y/label-has-associated-control
   <label
     className={`vtex-product-customizer__toggled-choice ${
       selected ? 'selected bg-washed-blue' : 'hover-bg-near-white'
@@ -34,6 +35,7 @@ ToggledChoice.propTypes = {
   selected: PropTypes.bool,
   /* Trigger function to handle changes on inputs  */
   onChange: PropTypes.func,
+  disabled: PropTypes.bool,
   name: PropTypes.string.isRequired,
   imageUrl: PropTypes.string,
 }

@@ -5,8 +5,6 @@ import ProductCustomizerWrapper from './ProductCustomizerWrapper'
 
 class ProductCustomizerContainer extends Component {
   parseProduct(product) {
-    console.log('RAW PROD', product)
-
     const compositionPrices = this.getPriceMap(product.itemMetadata.priceTable)
 
     const items = product.itemMetadata.items.reduce(
@@ -20,6 +18,7 @@ class ProductCustomizerContainer extends Component {
     return {
       productName: product.productName,
       imageUrl: product.items[0].images[0].imageUrl,
+      imageText: product.items[0].images[0].imageText,
       items,
     }
   }

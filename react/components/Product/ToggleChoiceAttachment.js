@@ -7,7 +7,7 @@ const parseItem = ({ id, quantity, seller, name }) => ({
 })
 
 class ToggleChoiceAttachment extends Component {
-  onChange = itemName => {
+  handleChange = itemName => {
     const { items, name, onAttachmentChange } = this.props
     onAttachmentChange(name, parseItem(items[itemName]), false)
   }
@@ -22,7 +22,7 @@ class ToggleChoiceAttachment extends Component {
             name={item.name}
             selected={item.quantity === 1}
             disabled={item.minQuantity === 1}
-            onChange={this.onChange}
+            onChange={this.handleChange}
             key={itemName}
           />
         ))}

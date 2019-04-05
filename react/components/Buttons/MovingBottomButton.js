@@ -43,7 +43,7 @@ class MovingBottomButton extends PureComponent {
   }
 
   render() {
-    const { ready, total, handleSubmitAddToCart, isLoading } = this.props
+    const { ready, total, onSubmitAddToCart, isLoading } = this.props
     return (
       <Fragment>
         <div
@@ -53,7 +53,7 @@ class MovingBottomButton extends PureComponent {
           <AddToCart
             ready={ready}
             total={total}
-            onClick={handleSubmitAddToCart}
+            onClick={onSubmitAddToCart}
             isLoading={isLoading}
           />
         </div>
@@ -64,7 +64,7 @@ class MovingBottomButton extends PureComponent {
           <AddToCart
             ready={ready}
             total={total}
-            onClick={handleSubmitAddToCart}
+            onClick={onSubmitAddToCart}
             isLoading={isLoading}
           />
         </div>
