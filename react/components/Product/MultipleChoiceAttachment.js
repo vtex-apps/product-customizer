@@ -1,11 +1,17 @@
-import { Fragment, Component } from 'react'
-import MultipleChoice from '../Variation/Items/MultipleChoice';
+import React, { Fragment, Component } from 'react'
+import MultipleChoice from '../Variation/Items/MultipleChoice'
 
 class MultipleChoiceAttachment extends Component {
-
   getUpdatedQuantities(updatedItem, quantity) {
     const quantities = Object.values(this.props.items).reduce(
-      (quantities, item) => ({ ...quantities, [item.name]: { id: item.id, quantity: item.quantity, seller: item.seller }}),
+      (quantities, item) => ({
+        ...quantities,
+        [item.name]: {
+          id: item.id,
+          quantity: item.quantity,
+          seller: item.seller,
+        },
+      }),
       {}
     )
     quantities[updatedItem].quantity = quantity
@@ -24,13 +30,14 @@ class MultipleChoiceAttachment extends Component {
 
   canChangeItemQuantity(itemName, newQuantity) {
     const { minQuantity, quantity, maxQuantity } = this.props.items[itemName]
-    return minQuantity <= newQuantity
-      && newQuantity <= maxQuantity
-      && this.canChangeTotalItems(newQuantity - quantity)
+    return (
+      minQuantity <= newQuantity &&
+      newQuantity <= maxQuantity &&
+      this.canChangeTotalItems(newQuantity - quantity)
+    )
   }
 
   handleChangeItemQuantity(itemName, quantity) {
-    console.log('chagning', itemName, quantity)
     const { name, onAttachmentChange } = this.props
     if (this.canChangeItemQuantity(itemName, quantity)) {
       const quantities = this.getUpdatedQuantities(itemName, quantity)
@@ -38,7 +45,8 @@ class MultipleChoiceAttachment extends Component {
     }
   }
 
-  handleOnChange = (value, itemName) => this.handleChangeItemQuantity(itemName, value)
+  handleOnChange = (value, itemName) =>
+    this.handleChangeItemQuantity(itemName, value)
 
   getItemProps(itemName) {
     const { items } = this.props
@@ -60,7 +68,9 @@ class MultipleChoiceAttachment extends Component {
 
     return (
       <Fragment>
-        {itemsNames.map(itemName => <MultipleChoice {...this.getItemProps(itemName)} key={itemName} />)}
+        {itemsNames.map(itemName => (
+          <MultipleChoice {...this.getItemProps(itemName)} key={itemName} />
+        ))}
       </Fragment>
     )
   }

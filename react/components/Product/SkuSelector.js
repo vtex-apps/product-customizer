@@ -1,4 +1,4 @@
-import { Fragment } from 'react'
+import React, { Fragment } from 'react'
 import { FormattedMessage } from 'react-intl'
 import { ExtensionPoint } from 'vtex.render-runtime'
 import { find, pathOr, prop, propEq, sort } from 'ramda'
@@ -15,35 +15,32 @@ const compareSku = (item, otherItem) => {
   ] = item.sellers
   const [
     {
-      commertialOffer: {
-        AvailableQuantity: otherQuantity,
-        Price: otherPrice,
-      },
+      commertialOffer: { AvailableQuantity: otherQuantity, Price: otherPrice },
     },
   ] = otherItem.sellers
 
-  return quantity === 0
-    ? 1
-    : (otherQuantity === 0 && -1) || price - otherPrice
+  return quantity === 0 ? 1 : (otherQuantity === 0 && -1) || price - otherPrice
 }
 
-const moreThanVariations = (items, count) => pathOr(0, ['0', 'variations', 'length'], items) > count
+const moreThanVariations = (items, count) =>
+  pathOr(0, ['0', 'variations', 'length'], items) > count
 
 const getSkuItems = items => sort(compareSku, items)
 
-const getSelectedItem = (items, selectedSku) => selectedSku ? find(propEq('name', selectedSku), items) : null
+const getSelectedItem = (items, selectedSku) =>
+  selectedSku ? find(propEq('name', selectedSku), items) : null
 
-const saveSkuSelector = (onSkuChange, skuId, items, isMainVariation, isSecondaryPicked) => {
-  const shouldReset = moreThanVariations(items, 1) && !isSecondaryPicked
-  // If we are picking a new main variation and there are more than one secondary options for this variation, unselect SKU on parent component
-  if (isMainVariation && shouldReset) {
-    return onSkuChange(null, false)
-  }
-  const name = prop('name', find(propEq('itemId', skuId), items)) 
+const saveSkuSelector = (onSkuChange, skuId, items) => {
+  const name = prop('name', find(propEq('itemId', skuId), items))
   onSkuChange(name, false)
 }
 
-const SelectorOptions = ({ productQuery, selectedSku, onSkuChange, parsedItems }) => {
+const SelectorOptions = ({
+  productQuery,
+  selectedSku,
+  onSkuChange,
+  parsedItems,
+}) => {
   const items = pathOr([], ['product', 'items'], productQuery)
   // If item has variations field, show SKUSelector
   if (moreThanVariations(items, 0)) {
@@ -54,8 +51,7 @@ const SelectorOptions = ({ productQuery, selectedSku, onSkuChange, parsedItems }
           skuItems={getSkuItems(items)}
           skuSelected={getSelectedItem(items, selectedSku)}
           productSlug={productQuery.product.linkText}
-          onSKUSelected={(skuId, isMainVariation, isSecondaryPicked) => 
-            saveSkuSelector(onSkuChange, skuId, items, isMainVariation, isSecondaryPicked)}
+          onSKUSelected={skuId => saveSkuSelector(onSkuChange, skuId, items)}
           alwaysShowSecondary={false}
         />
       </div>
@@ -68,8 +64,8 @@ const SelectorOptions = ({ productQuery, selectedSku, onSkuChange, parsedItems }
       <div className="ph5 pb4 c-muted-2 t-small">
         <FormattedMessage id="product-customizer.pick-size" />
       </div>
-      {Object.entries(parsedItems).map(([name, item]) =>
-        <SingleChoice 
+      {Object.entries(parsedItems).map(([name, item]) => (
+        <SingleChoice
           price={item.price * 100}
           imageUrl={item.imageUrl}
           name={name}
@@ -78,9 +74,9 @@ const SelectorOptions = ({ productQuery, selectedSku, onSkuChange, parsedItems }
           key={name}
           showPlus={false}
         />
-      )}
-      </Fragment>
-    )
+      ))}
+    </Fragment>
+  )
 }
 
 function SkuSelector({ items, selectedSku, onSkuChange, productQuery }) {
@@ -89,7 +85,7 @@ function SkuSelector({ items, selectedSku, onSkuChange, productQuery }) {
       <div className="ph5 pt4 pb2 pb4-ns">
         {selectedSku && (
           <ProductPrice
-            showListPrice={true}
+            showListPrice
             showLabels={false}
             sellingPrice={items[selectedSku].commertialOffer.Price}
             listPrice={items[selectedSku].commertialOffer.ListPrice}
@@ -99,7 +95,12 @@ function SkuSelector({ items, selectedSku, onSkuChange, productQuery }) {
           />
         )}
       </div>
-      <SelectorOptions productQuery={productQuery} selectedSku={selectedSku} onSkuChange={onSkuChange} parsedItems={items} />
+      <SelectorOptions
+        productQuery={productQuery}
+        selectedSku={selectedSku}
+        onSkuChange={onSkuChange}
+        parsedItems={items}
+      />
     </Fragment>
   )
 }

@@ -5,8 +5,8 @@ import Radio from 'vtex.styleguide/Radio'
 import ItemDescription from './ItemDescription'
 
 const SingleChoice = ({
-  imageUrl, 
-  name, 
+  imageUrl,
+  name,
   price,
   selected,
   onChange,
@@ -15,14 +15,30 @@ const SingleChoice = ({
   const calculatedPrice = (price / 100).toFixed(2)
   const parsedPrice = parseFloat(calculatedPrice)
 
-  const description = parsedPrice &&
-    <div className={'single-choice__price flex t-small fw5 c-action-primary mt1'}>
+  const description = parsedPrice && (
+    <div
+      className={'single-choice__price flex t-small fw5 c-action-primary mt1'}
+    >
       {showPlus && <div>+ </div>}
-      <ProductPrice {...{ showLabels: false, showListPrice: false, sellingPrice: parsedPrice }} />
+      <ProductPrice
+        {...{
+          showLabels: false,
+          showListPrice: false,
+          sellingPrice: parsedPrice,
+        }}
+      />
     </div>
+  )
 
   return (
-    <div onClick={() => onChange(name, true)} className={`${selected && 'selected bg-muted-5'} hover-bg-muted-5 ph4 pointer bb b--muted-5 bw1`}>
+    <div
+      role="button"
+      tabIndex={0}
+      onKeyDown={e => e.key === ' ' && onChange(name, true)}
+      onClick={() => onChange(name, true)}
+      className={`${selected &&
+        'selected bg-muted-5'} hover-bg-muted-5 ph4 pointer bb b--muted-5 bw1`}
+    >
       <div className="relative flex items-center justify-between pv5">
         <ItemDescription {...{ description, imageUrl, name }} />
         <div className="mt3">
