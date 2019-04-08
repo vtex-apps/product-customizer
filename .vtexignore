@@ -7,4 +7,7 @@ README.md
 CHANGELOG.md
 react/**/__tests__/**
 react/**/__mocks__/**
-react/setupTests.js
+react/**/__snapshots__/**
+react/**/*.test.js
+react/**/*.test.ts
+react/**/*.test.tsx

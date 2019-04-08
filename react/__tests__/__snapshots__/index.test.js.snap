@@ -1,0 +1,1134 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProductCustomizer components  render with no variations 1`] = `
+<DocumentFragment>
+  <div
+    class="flex-ns pv6-ns justify-center-ns"
+  >
+    <div
+      class="w-100 w-third-ns flex tc items-center-ns h-100-ns ph2-ns"
+    >
+      <img
+        alt="Suprema"
+        class="vtex-product-customizer__image"
+        src="https://delivery.vteximg.com.br/arquivos/ids/155442/super-supreme.e34cdf7984831c25c4eda14a2d361a20.1.jpg?v=636770452538570000"
+      />
+    </div>
+    <div
+      class="w-40-ns ph2-ns"
+    >
+      <div
+        class="t-heading-4 c-on-base ph5 pt5-s"
+      >
+        Super Suprema
+      </div>
+      <div
+        class="ph5 pt4 pb2 pb4-ns"
+      />
+      <div
+        class="ph5 pb4 c-muted-2 t-small"
+      >
+        <span>
+          Pick one size
+        </span>
+      </div>
+      <div
+        class="false hover-bg-muted-5 ph4 pointer bb b--muted-5 bw1"
+        role="button"
+        tabindex="0"
+      >
+        <div
+          class="relative flex items-center justify-between pv5"
+        >
+          <div
+            class="flex"
+          >
+            <div />
+            <div
+              class="multiple-choice__title flex flex-column justify-center"
+            >
+              <div
+                class="multiple-choice__name t-heading-5 c-on-base"
+              >
+                Small
+              </div>
+              <div
+                class="single-choice__description"
+              >
+                <div
+                  class="single-choice__price flex t-small fw5 c-action-primary mt1"
+                >
+                  <div>
+                    ProductPrice
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="mt3"
+          >
+            <div>
+              Radio
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="false hover-bg-muted-5 ph4 pointer bb b--muted-5 bw1"
+        role="button"
+        tabindex="0"
+      >
+        <div
+          class="relative flex items-center justify-between pv5"
+        >
+          <div
+            class="flex"
+          >
+            <div />
+            <div
+              class="multiple-choice__title flex flex-column justify-center"
+            >
+              <div
+                class="multiple-choice__name t-heading-5 c-on-base"
+              >
+                Medium
+              </div>
+              <div
+                class="single-choice__description"
+              >
+                <div
+                  class="single-choice__price flex t-small fw5 c-action-primary mt1"
+                >
+                  <div>
+                    ProductPrice
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="mt3"
+          >
+            <div>
+              Radio
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="false hover-bg-muted-5 ph4 pointer bb b--muted-5 bw1"
+        role="button"
+        tabindex="0"
+      >
+        <div
+          class="relative flex items-center justify-between pv5"
+        >
+          <div
+            class="flex"
+          >
+            <div />
+            <div
+              class="multiple-choice__title flex flex-column justify-center"
+            >
+              <div
+                class="multiple-choice__name t-heading-5 c-on-base"
+              >
+                Large
+              </div>
+              <div
+                class="single-choice__description"
+              >
+                <div
+                  class="single-choice__price flex t-small fw5 c-action-primary mt1"
+                >
+                  <div>
+                    ProductPrice
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="mt3"
+          >
+            <div>
+              Radio
+            </div>
+          </div>
+        </div>
+      </div>
+      <div />
+      <div
+        class="vtex-product-customizer__actions w-100"
+      />
+      <div
+        class="vtex-product-customizer__actions z-2 fixed bg-white bottom-0 w-40-ns ph1-ns w-100 bt b--light-gray"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`ProductCustomizer components  render with no variations 2`] = `
+<DocumentFragment>
+  <div
+    class="flex-ns pv6-ns justify-center-ns"
+  >
+    <div
+      class="w-100 w-third-ns flex tc items-center-ns h-100-ns ph2-ns"
+    >
+      <img
+        alt="Suprema"
+        class="vtex-product-customizer__image"
+        src="https://delivery.vteximg.com.br/arquivos/ids/155442/super-supreme.e34cdf7984831c25c4eda14a2d361a20.1.jpg?v=636770452538570000"
+      />
+    </div>
+    <div
+      class="w-40-ns ph2-ns"
+    >
+      <div
+        class="t-heading-4 c-on-base ph5 pt5-s"
+      >
+        Super Suprema
+      </div>
+      <div
+        class="ph5 pt4 pb2 pb4-ns"
+      >
+        <div>
+          ProductPrice
+        </div>
+      </div>
+      <div
+        class="ph5 pb4 c-muted-2 t-small"
+      >
+        <span>
+          Pick one size
+        </span>
+      </div>
+      <div
+        class="selected bg-muted-5 hover-bg-muted-5 ph4 pointer bb b--muted-5 bw1"
+        role="button"
+        tabindex="0"
+      >
+        <div
+          class="relative flex items-center justify-between pv5"
+        >
+          <div
+            class="flex"
+          >
+            <div />
+            <div
+              class="multiple-choice__title flex flex-column justify-center"
+            >
+              <div
+                class="multiple-choice__name t-heading-5 c-on-base"
+              >
+                Small
+              </div>
+              <div
+                class="single-choice__description"
+              >
+                <div
+                  class="single-choice__price flex t-small fw5 c-action-primary mt1"
+                >
+                  <div>
+                    ProductPrice
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="mt3"
+          >
+            <div>
+              Radio
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="false hover-bg-muted-5 ph4 pointer bb b--muted-5 bw1"
+        role="button"
+        tabindex="0"
+      >
+        <div
+          class="relative flex items-center justify-between pv5"
+        >
+          <div
+            class="flex"
+          >
+            <div />
+            <div
+              class="multiple-choice__title flex flex-column justify-center"
+            >
+              <div
+                class="multiple-choice__name t-heading-5 c-on-base"
+              >
+                Medium
+              </div>
+              <div
+                class="single-choice__description"
+              >
+                <div
+                  class="single-choice__price flex t-small fw5 c-action-primary mt1"
+                >
+                  <div>
+                    ProductPrice
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="mt3"
+          >
+            <div>
+              Radio
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="false hover-bg-muted-5 ph4 pointer bb b--muted-5 bw1"
+        role="button"
+        tabindex="0"
+      >
+        <div
+          class="relative flex items-center justify-between pv5"
+        >
+          <div
+            class="flex"
+          >
+            <div />
+            <div
+              class="multiple-choice__title flex flex-column justify-center"
+            >
+              <div
+                class="multiple-choice__name t-heading-5 c-on-base"
+              >
+                Large
+              </div>
+              <div
+                class="single-choice__description"
+              >
+                <div
+                  class="single-choice__price flex t-small fw5 c-action-primary mt1"
+                >
+                  <div>
+                    ProductPrice
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="mt3"
+          >
+            <div>
+              Radio
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div
+          class=""
+        >
+          <div
+            class="ph5 pv4 c-muted-2 t-small"
+          >
+            <span>
+              Pick one crust
+            </span>
+          </div>
+          <div
+            class="false hover-bg-muted-5 ph4 pointer bb b--muted-5 bw1"
+            role="button"
+            tabindex="0"
+          >
+            <div
+              class="relative flex items-center justify-between pv5"
+            >
+              <div
+                class="flex"
+              >
+                <div>
+                  <img
+                    class="br3 mr4"
+                    src="https://delivery.vteximg.com.br/arquivos/ids/155411/cheesy-bites.png?v=636759865607400000"
+                    style="height: 54px; width: 54px;"
+                  />
+                </div>
+                <div
+                  class="multiple-choice__title flex flex-column justify-center"
+                >
+                  <div
+                    class="multiple-choice__name t-heading-5 c-on-base"
+                  >
+                    Cheesy Bites
+                  </div>
+                  <div
+                    class="single-choice__description"
+                  >
+                    <div
+                      class="single-choice__price flex t-small fw5 c-action-primary mt1"
+                    >
+                      <div>
+                        + 
+                      </div>
+                      <div>
+                        ProductPrice
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="mt3"
+              >
+                <div>
+                  Radio
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="false hover-bg-muted-5 ph4 pointer bb b--muted-5 bw1"
+            role="button"
+            tabindex="0"
+          >
+            <div
+              class="relative flex items-center justify-between pv5"
+            >
+              <div
+                class="flex"
+              >
+                <div>
+                  <img
+                    class="br3 mr4"
+                    src="https://delivery.vteximg.com.br/arquivos/ids/155412/stuffed-crust.png?v=636759865852770000"
+                    style="height: 54px; width: 54px;"
+                  />
+                </div>
+                <div
+                  class="multiple-choice__title flex flex-column justify-center"
+                >
+                  <div
+                    class="multiple-choice__name t-heading-5 c-on-base"
+                  >
+                    Stuffed Crust
+                  </div>
+                  <div
+                    class="single-choice__description"
+                  >
+                    <div
+                      class="single-choice__price flex t-small fw5 c-action-primary mt1"
+                    >
+                      <div>
+                        + 
+                      </div>
+                      <div>
+                        ProductPrice
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="mt3"
+              >
+                <div>
+                  Radio
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="false hover-bg-muted-5 ph4 pointer bb b--muted-5 bw1"
+            role="button"
+            tabindex="0"
+          >
+            <div
+              class="relative flex items-center justify-between pv5"
+            >
+              <div
+                class="flex"
+              >
+                <div>
+                  <img
+                    class="br3 mr4"
+                    src="https://delivery.vteximg.com.br/arquivos/ids/155413/classic.png?v=636759866429100000"
+                    style="height: 54px; width: 54px;"
+                  />
+                </div>
+                <div
+                  class="multiple-choice__title flex flex-column justify-center"
+                >
+                  <div
+                    class="multiple-choice__name t-heading-5 c-on-base"
+                  >
+                    Classic Crust
+                  </div>
+                  <div
+                    class="single-choice__description"
+                  />
+                </div>
+              </div>
+              <div
+                class="mt3"
+              >
+                <div>
+                  Radio
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="dn"
+        >
+          <div
+            class="ph5 pv4 c-muted-2 t-small"
+          >
+            <span>
+              Basic ingredients
+            </span>
+          </div>
+          <label
+            class="vtex-product-customizer__toggled-choice selected bg-washed-blue db pa4 pointer bb b--light-gray"
+          >
+            <div
+              class="relative flex items-center"
+            >
+              <div
+                class="flex-none pv2"
+              >
+                <img
+                  class="br3"
+                  src="https://delivery.vteximg.com.br/arquivos/ids/155431/PIMIENTO-VERDE.png?v=636766050771230000"
+                  width="48"
+                />
+              </div>
+              <div
+                class="flex-auto ml5"
+              >
+                <div
+                  class="toggled-choice__name t-heading-5"
+                >
+                  Green Pepper
+                </div>
+              </div>
+              <div
+                class=""
+              >
+                <div>
+                  Checkbox props={"disabled":false,"name":"Green Pepper","checked":true}
+                </div>
+              </div>
+            </div>
+          </label>
+          <label
+            class="vtex-product-customizer__toggled-choice selected bg-washed-blue db pa4 pointer bb b--light-gray"
+          >
+            <div
+              class="relative flex items-center"
+            >
+              <div
+                class="flex-none pv2"
+              >
+                <img
+                  class="br3"
+                  src="https://delivery.vteximg.com.br/arquivos/ids/155430/Topping_Aceitunas-Negras.jpg.png?v=636766049376970000"
+                  width="48"
+                />
+              </div>
+              <div
+                class="flex-auto ml5"
+              >
+                <div
+                  class="toggled-choice__name t-heading-5"
+                >
+                  Black Olives
+                </div>
+              </div>
+              <div
+                class=""
+              >
+                <div>
+                  Checkbox props={"disabled":false,"name":"Black Olives","checked":true}
+                </div>
+              </div>
+            </div>
+          </label>
+          <label
+            class="vtex-product-customizer__toggled-choice selected bg-washed-blue db pa4 pointer bb b--light-gray"
+          >
+            <div
+              class="relative flex items-center"
+            >
+              <div
+                class="flex-none pv2"
+              >
+                <img
+                  class="br3"
+                  src="https://delivery.vteximg.com.br/arquivos/ids/155432/Topping_Jamon.jpg.png?v=636766052579200000"
+                  width="48"
+                />
+              </div>
+              <div
+                class="flex-auto ml5"
+              >
+                <div
+                  class="toggled-choice__name t-heading-5"
+                >
+                  Ham
+                </div>
+              </div>
+              <div
+                class=""
+              >
+                <div>
+                  Checkbox props={"disabled":false,"name":"Ham","checked":true}
+                </div>
+              </div>
+            </div>
+          </label>
+          <label
+            class="vtex-product-customizer__toggled-choice selected bg-washed-blue db pa4 pointer bb b--light-gray"
+          >
+            <div
+              class="relative flex items-center"
+            >
+              <div
+                class="flex-none pv2"
+              >
+                <img
+                  class="br3"
+                  src="https://delivery.vteximg.com.br/arquivos/ids/155428/Topping_Pepperoni.jpg.png?v=636766047561270000"
+                  width="48"
+                />
+              </div>
+              <div
+                class="flex-auto ml5"
+              >
+                <div
+                  class="toggled-choice__name t-heading-5"
+                >
+                  Pepperoni
+                </div>
+              </div>
+              <div
+                class=""
+              >
+                <div>
+                  Checkbox props={"disabled":false,"name":"Pepperoni","checked":true}
+                </div>
+              </div>
+            </div>
+          </label>
+          <label
+            class="vtex-product-customizer__toggled-choice selected bg-washed-blue db pa4 pointer bb b--light-gray"
+          >
+            <div
+              class="relative flex items-center"
+            >
+              <div
+                class="flex-none pv2"
+              >
+                <img
+                  class="br3"
+                  src="https://delivery.vteximg.com.br/arquivos/ids/155436/Topping_Champinones.png?v=636766057405600000"
+                  width="48"
+                />
+              </div>
+              <div
+                class="flex-auto ml5"
+              >
+                <div
+                  class="toggled-choice__name t-heading-5"
+                >
+                  Champignon
+                </div>
+              </div>
+              <div
+                class=""
+              >
+                <div>
+                  Checkbox props={"disabled":false,"name":"Champignon","checked":true}
+                </div>
+              </div>
+            </div>
+          </label>
+          <label
+            class="vtex-product-customizer__toggled-choice selected bg-washed-blue db pa4 pointer bb b--light-gray"
+          >
+            <div
+              class="relative flex items-center"
+            >
+              <div
+                class="flex-none pv2"
+              >
+                <img
+                  class="br3"
+                  src="https://delivery.vteximg.com.br/arquivos/ids/155427/Topping_Cebolla.jpg.png?v=636766046799500000"
+                  width="48"
+                />
+              </div>
+              <div
+                class="flex-auto ml5"
+              >
+                <div
+                  class="toggled-choice__name t-heading-5"
+                >
+                  Onion
+                </div>
+              </div>
+              <div
+                class=""
+              >
+                <div>
+                  Checkbox props={"disabled":false,"name":"Onion","checked":true}
+                </div>
+              </div>
+            </div>
+          </label>
+        </div>
+        <div
+          class="dn"
+        >
+          <div
+            class="ph5 pv4 c-muted-2 t-small"
+          >
+            <span>
+              Extra ingredients
+            </span>
+          </div>
+          <div
+            class="vtex-product-customizer__multiple-choice false hover-bg-muted-5 w-100 ph4 pv5 bb b--muted-5"
+          >
+            <div
+              class="relative flex justify-between items-center"
+            >
+              <div
+                class="flex"
+              >
+                <div>
+                  <img
+                    class="br3 mr4"
+                    src="https://delivery.vteximg.com.br/arquivos/ids/155432/Topping_Jamon.jpg.png?v=636766052579200000"
+                    style="height: 54px; width: 54px;"
+                  />
+                </div>
+                <div
+                  class="multiple-choice__title flex flex-column justify-center"
+                >
+                  <div
+                    class="multiple-choice__name t-heading-5 c-on-base"
+                  >
+                    Ham
+                  </div>
+                  <div
+                    class="single-choice__description"
+                  >
+                    <div
+                      class="multiple-choice__price flex items-center c-action-primary t-small fw5 mt1"
+                    >
+                      <div>
+                        + 
+                      </div>
+                      <div>
+                        ProductPrice
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="flex-auto flex-none-ns flex justify-end"
+              >
+                <div
+                  class="multiple-choice__actions flex-none ml4 c-action-primary t-body fw5 z-1"
+                >
+                  <div>
+                    NumericStepper
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="vtex-product-customizer__multiple-choice false hover-bg-muted-5 w-100 ph4 pv5 bb b--muted-5"
+          >
+            <div
+              class="relative flex justify-between items-center"
+            >
+              <div
+                class="flex"
+              >
+                <div>
+                  <img
+                    class="br3 mr4"
+                    src="https://delivery.vteximg.com.br/arquivos/ids/155428/Topping_Pepperoni.jpg.png?v=636766047561270000"
+                    style="height: 54px; width: 54px;"
+                  />
+                </div>
+                <div
+                  class="multiple-choice__title flex flex-column justify-center"
+                >
+                  <div
+                    class="multiple-choice__name t-heading-5 c-on-base"
+                  >
+                    Pepperoni
+                  </div>
+                  <div
+                    class="single-choice__description"
+                  >
+                    <div
+                      class="multiple-choice__price flex items-center c-action-primary t-small fw5 mt1"
+                    >
+                      <div>
+                        + 
+                      </div>
+                      <div>
+                        ProductPrice
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="flex-auto flex-none-ns flex justify-end"
+              >
+                <div
+                  class="multiple-choice__actions flex-none ml4 c-action-primary t-body fw5 z-1"
+                >
+                  <div>
+                    NumericStepper
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="vtex-product-customizer__multiple-choice false hover-bg-muted-5 w-100 ph4 pv5 bb b--muted-5"
+          >
+            <div
+              class="relative flex justify-between items-center"
+            >
+              <div
+                class="flex"
+              >
+                <div>
+                  <img
+                    class="br3 mr4"
+                    src="https://delivery.vteximg.com.br/arquivos/ids/155436/Topping_Champinones.png?v=636766057405600000"
+                    style="height: 54px; width: 54px;"
+                  />
+                </div>
+                <div
+                  class="multiple-choice__title flex flex-column justify-center"
+                >
+                  <div
+                    class="multiple-choice__name t-heading-5 c-on-base"
+                  >
+                    Champignon
+                  </div>
+                  <div
+                    class="single-choice__description"
+                  >
+                    <div
+                      class="multiple-choice__price flex items-center c-action-primary t-small fw5 mt1"
+                    >
+                      <div>
+                        + 
+                      </div>
+                      <div>
+                        ProductPrice
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="flex-auto flex-none-ns flex justify-end"
+              >
+                <div
+                  class="multiple-choice__actions flex-none ml4 c-action-primary t-body fw5 z-1"
+                >
+                  <div>
+                    NumericStepper
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="vtex-product-customizer__multiple-choice false hover-bg-muted-5 w-100 ph4 pv5 bb b--muted-5"
+          >
+            <div
+              class="relative flex justify-between items-center"
+            >
+              <div
+                class="flex"
+              >
+                <div>
+                  <img
+                    class="br3 mr4"
+                    src="https://delivery.vteximg.com.br/arquivos/ids/155427/Topping_Cebolla.jpg.png?v=636766046799500000"
+                    style="height: 54px; width: 54px;"
+                  />
+                </div>
+                <div
+                  class="multiple-choice__title flex flex-column justify-center"
+                >
+                  <div
+                    class="multiple-choice__name t-heading-5 c-on-base"
+                  >
+                    Onion
+                  </div>
+                  <div
+                    class="single-choice__description"
+                  >
+                    <div
+                      class="multiple-choice__price flex items-center c-action-primary t-small fw5 mt1"
+                    >
+                      <div>
+                        + 
+                      </div>
+                      <div>
+                        ProductPrice
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="flex-auto flex-none-ns flex justify-end"
+              >
+                <div
+                  class="multiple-choice__actions flex-none ml4 c-action-primary t-body fw5 z-1"
+                >
+                  <div>
+                    NumericStepper
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="vtex-product-customizer__multiple-choice false hover-bg-muted-5 w-100 ph4 pv5 bb b--muted-5"
+          >
+            <div
+              class="relative flex justify-between items-center"
+            >
+              <div
+                class="flex"
+              >
+                <div>
+                  <img
+                    class="br3 mr4"
+                    src="https://delivery.vteximg.com.br/arquivos/ids/155430/Topping_Aceitunas-Negras.jpg.png?v=636766049376970000"
+                    style="height: 54px; width: 54px;"
+                  />
+                </div>
+                <div
+                  class="multiple-choice__title flex flex-column justify-center"
+                >
+                  <div
+                    class="multiple-choice__name t-heading-5 c-on-base"
+                  >
+                    Black Olives
+                  </div>
+                  <div
+                    class="single-choice__description"
+                  >
+                    <div
+                      class="multiple-choice__price flex items-center c-action-primary t-small fw5 mt1"
+                    >
+                      <div>
+                        + 
+                      </div>
+                      <div>
+                        ProductPrice
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="flex-auto flex-none-ns flex justify-end"
+              >
+                <div
+                  class="multiple-choice__actions flex-none ml4 c-action-primary t-body fw5 z-1"
+                >
+                  <div>
+                    NumericStepper
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="vtex-product-customizer__multiple-choice false hover-bg-muted-5 w-100 ph4 pv5 bb b--muted-5"
+          >
+            <div
+              class="relative flex justify-between items-center"
+            >
+              <div
+                class="flex"
+              >
+                <div>
+                  <img
+                    class="br3 mr4"
+                    src="https://delivery.vteximg.com.br/arquivos/ids/155431/PIMIENTO-VERDE.png?v=636766050771230000"
+                    style="height: 54px; width: 54px;"
+                  />
+                </div>
+                <div
+                  class="multiple-choice__title flex flex-column justify-center"
+                >
+                  <div
+                    class="multiple-choice__name t-heading-5 c-on-base"
+                  >
+                    Green Pepper
+                  </div>
+                  <div
+                    class="single-choice__description"
+                  >
+                    <div
+                      class="multiple-choice__price flex items-center c-action-primary t-small fw5 mt1"
+                    >
+                      <div>
+                        + 
+                      </div>
+                      <div>
+                        ProductPrice
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="flex-auto flex-none-ns flex justify-end"
+              >
+                <div
+                  class="multiple-choice__actions flex-none ml4 c-action-primary t-body fw5 z-1"
+                >
+                  <div>
+                    NumericStepper
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="vtex-product-customizer__multiple-choice false hover-bg-muted-5 w-100 ph4 pv5 bb b--muted-5"
+          >
+            <div
+              class="relative flex justify-between items-center"
+            >
+              <div
+                class="flex"
+              >
+                <div>
+                  <img
+                    class="br3 mr4"
+                    src="https://delivery.vteximg.com.br/arquivos/ids/155435/Topping_Pina.jpg.png?v=636766056177370000"
+                    style="height: 54px; width: 54px;"
+                  />
+                </div>
+                <div
+                  class="multiple-choice__title flex flex-column justify-center"
+                >
+                  <div
+                    class="multiple-choice__name t-heading-5 c-on-base"
+                  >
+                    Pineapple
+                  </div>
+                  <div
+                    class="single-choice__description"
+                  >
+                    <div
+                      class="multiple-choice__price flex items-center c-action-primary t-small fw5 mt1"
+                    >
+                      <div>
+                        + 
+                      </div>
+                      <div>
+                        ProductPrice
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="flex-auto flex-none-ns flex justify-end"
+              >
+                <div
+                  class="multiple-choice__actions flex-none ml4 c-action-primary t-body fw5 z-1"
+                >
+                  <div>
+                    NumericStepper
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="vtex-product-customizer__actions w-100"
+      />
+      <div
+        class="vtex-product-customizer__actions z-2 fixed bg-white bottom-0 w-40-ns ph1-ns w-100 bt b--light-gray"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`ProductCustomizer components  render with variations example 1`] = `
+<DocumentFragment>
+  <div
+    class="flex-ns pv6-ns justify-center-ns"
+  >
+    <div
+      class="w-100 w-third-ns flex tc items-center-ns h-100-ns ph2-ns"
+    >
+      <img
+        alt="PARRILLADA"
+        class="vtex-product-customizer__image"
+        src="https://phmex.vteximg.com.br/arquivos/ids/155565/PARRILLADA.jpg?v=636834183659030000"
+      />
+    </div>
+    <div
+      class="w-40-ns ph2-ns"
+    >
+      <div
+        class="t-heading-4 c-on-base ph5 pt5-s"
+      >
+        Parrillada
+      </div>
+      <div
+        class="ph5 pt4 pb2 pb4-ns"
+      />
+      <div
+        class="ph5"
+      >
+        <div>
+          ExtensionPoint id="sku-selector"
+        </div>
+      </div>
+      <div />
+      <div
+        class="vtex-product-customizer__actions w-100"
+      />
+      <div
+        class="vtex-product-customizer__actions z-2 fixed bg-white bottom-0 w-40-ns ph1-ns w-100 bt b--light-gray"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;
