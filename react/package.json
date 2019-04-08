@@ -1,7 +1,9 @@
 {
   "private": true,
   "scripts": {
-    "lint": "eslint --ext ts,tsx,js,jsx ."
+    "lint": "eslint --ext ts,tsx,js,jsx .",
+    "pretest": "yarn",
+    "test": "vtex-test-tools test"
   },
   "dependencies": {
     "classnames": "^2.2.6",
@@ -13,6 +15,9 @@
     "smoothscroll-polyfill": "^0.4.3"
   },
   "devDependencies": {
+    "@vtex/test-tools": "^0.2.0",
+    "apollo-cache-inmemory": "^1.5.1",
+    "apollo-client": "^2.5.1",
     "eslint": "^5.16.0",
     "eslint-config-vtex-react": "^4.0.0",
     "prettier": "^1.16.4",
