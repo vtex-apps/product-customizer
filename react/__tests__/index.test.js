@@ -6,7 +6,7 @@ import productQueryWithVariation from '../__mocks__/productQueryWithVariation.js
 import productQueryNoVariation from '../__mocks__/productQuery.json'
 
 describe('ProductCustomizer components ', () => {
-  it('render with variations example', () => {
+  it('render with variations example, show sku selector', () => {
     const productQuery = { ...productQueryWithVariation.data }
     const component = render(<ProductCustomizer productQuery={productQuery} />)
     expect(component).toBeDefined()
