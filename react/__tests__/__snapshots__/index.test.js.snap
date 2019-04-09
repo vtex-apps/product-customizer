@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ProductCustomizer components  render with no variations 1`] = `
+exports[`ProductCustomizer components  render with no variations and press on Small SKU 1`] = `
 <DocumentFragment>
   <div
     class="flex-ns pv6-ns justify-center-ns"
@@ -10,15 +10,16 @@ exports[`ProductCustomizer components  render with no variations 1`] = `
     >
       <img
         alt="Suprema"
-        class="vtex-product-customizer__image"
+        class="image"
         src="https://delivery.vteximg.com.br/arquivos/ids/155442/super-supreme.e34cdf7984831c25c4eda14a2d361a20.1.jpg?v=636770452538570000"
+        style="object-fit: cover;"
       />
     </div>
     <div
       class="w-40-ns ph2-ns"
     >
       <div
-        class="t-heading-4 c-on-base ph5 pt5-s"
+        class="productName t-heading-4 c-on-base ph5 pt5-s"
       >
         Super Suprema
       </div>
@@ -33,7 +34,7 @@ exports[`ProductCustomizer components  render with no variations 1`] = `
         </span>
       </div>
       <div
-        class="false hover-bg-muted-5 ph4 pointer bb b--muted-5 bw1"
+        class="false singleChoiceContainer hover-bg-muted-5 ph4 pointer bb b--muted-5 bw1"
         role="button"
         tabindex="0"
       >
@@ -41,32 +42,28 @@ exports[`ProductCustomizer components  render with no variations 1`] = `
           class="relative flex items-center justify-between pv5"
         >
           <div
-            class="flex"
+            class="itemDescriptionContainer itemDescriptionContainerSingle flex"
           >
             <div />
             <div
-              class="multiple-choice__title flex flex-column justify-center"
+              class="flex flex-column justify-center"
             >
               <div
-                class="multiple-choice__name t-heading-5 c-on-base"
+                class="itemDescriptionName itemDescriptionNameSingle t-heading-5 c-on-base"
               >
                 Small
               </div>
               <div
-                class="single-choice__description"
+                class="itemDescription itemDescriptionSingle flex t-small fw5 c-action-primary mt1"
               >
-                <div
-                  class="single-choice__price flex t-small fw5 c-action-primary mt1"
-                >
-                  <div>
-                    ProductPrice
-                  </div>
+                <div>
+                  ProductPrice
                 </div>
               </div>
             </div>
           </div>
           <div
-            class="mt3"
+            class="singleChoiceActions mt3"
           >
             <div>
               Radio
@@ -75,7 +72,7 @@ exports[`ProductCustomizer components  render with no variations 1`] = `
         </div>
       </div>
       <div
-        class="false hover-bg-muted-5 ph4 pointer bb b--muted-5 bw1"
+        class="false singleChoiceContainer hover-bg-muted-5 ph4 pointer bb b--muted-5 bw1"
         role="button"
         tabindex="0"
       >
@@ -83,32 +80,28 @@ exports[`ProductCustomizer components  render with no variations 1`] = `
           class="relative flex items-center justify-between pv5"
         >
           <div
-            class="flex"
+            class="itemDescriptionContainer itemDescriptionContainerSingle flex"
           >
             <div />
             <div
-              class="multiple-choice__title flex flex-column justify-center"
+              class="flex flex-column justify-center"
             >
               <div
-                class="multiple-choice__name t-heading-5 c-on-base"
+                class="itemDescriptionName itemDescriptionNameSingle t-heading-5 c-on-base"
               >
                 Medium
               </div>
               <div
-                class="single-choice__description"
+                class="itemDescription itemDescriptionSingle flex t-small fw5 c-action-primary mt1"
               >
-                <div
-                  class="single-choice__price flex t-small fw5 c-action-primary mt1"
-                >
-                  <div>
-                    ProductPrice
-                  </div>
+                <div>
+                  ProductPrice
                 </div>
               </div>
             </div>
           </div>
           <div
-            class="mt3"
+            class="singleChoiceActions mt3"
           >
             <div>
               Radio
@@ -117,7 +110,7 @@ exports[`ProductCustomizer components  render with no variations 1`] = `
         </div>
       </div>
       <div
-        class="false hover-bg-muted-5 ph4 pointer bb b--muted-5 bw1"
+        class="false singleChoiceContainer hover-bg-muted-5 ph4 pointer bb b--muted-5 bw1"
         role="button"
         tabindex="0"
       >
@@ -125,32 +118,28 @@ exports[`ProductCustomizer components  render with no variations 1`] = `
           class="relative flex items-center justify-between pv5"
         >
           <div
-            class="flex"
+            class="itemDescriptionContainer itemDescriptionContainerSingle flex"
           >
             <div />
             <div
-              class="multiple-choice__title flex flex-column justify-center"
+              class="flex flex-column justify-center"
             >
               <div
-                class="multiple-choice__name t-heading-5 c-on-base"
+                class="itemDescriptionName itemDescriptionNameSingle t-heading-5 c-on-base"
               >
                 Large
               </div>
               <div
-                class="single-choice__description"
+                class="itemDescription itemDescriptionSingle flex t-small fw5 c-action-primary mt1"
               >
-                <div
-                  class="single-choice__price flex t-small fw5 c-action-primary mt1"
-                >
-                  <div>
-                    ProductPrice
-                  </div>
+                <div>
+                  ProductPrice
                 </div>
               </div>
             </div>
           </div>
           <div
-            class="mt3"
+            class="singleChoiceActions mt3"
           >
             <div>
               Radio
@@ -160,17 +149,17 @@ exports[`ProductCustomizer components  render with no variations 1`] = `
       </div>
       <div />
       <div
-        class="vtex-product-customizer__actions w-100"
+        class="w-100"
       />
       <div
-        class="vtex-product-customizer__actions z-2 fixed bg-white bottom-0 w-40-ns ph1-ns w-100 bt b--light-gray"
+        class="z-2 fixed bg-white bottom-0 w-40-ns ph1-ns w-100 bt b--light-gray"
       />
     </div>
   </div>
 </DocumentFragment>
 `;
 
-exports[`ProductCustomizer components  render with no variations 2`] = `
+exports[`ProductCustomizer components  render with no variations and press on Small SKU 2`] = `
 <DocumentFragment>
   <div
     class="flex-ns pv6-ns justify-center-ns"
@@ -180,15 +169,16 @@ exports[`ProductCustomizer components  render with no variations 2`] = `
     >
       <img
         alt="Suprema"
-        class="vtex-product-customizer__image"
+        class="image"
         src="https://delivery.vteximg.com.br/arquivos/ids/155442/super-supreme.e34cdf7984831c25c4eda14a2d361a20.1.jpg?v=636770452538570000"
+        style="object-fit: cover;"
       />
     </div>
     <div
       class="w-40-ns ph2-ns"
     >
       <div
-        class="t-heading-4 c-on-base ph5 pt5-s"
+        class="productName t-heading-4 c-on-base ph5 pt5-s"
       >
         Super Suprema
       </div>
@@ -207,7 +197,7 @@ exports[`ProductCustomizer components  render with no variations 2`] = `
         </span>
       </div>
       <div
-        class="selected bg-muted-5 hover-bg-muted-5 ph4 pointer bb b--muted-5 bw1"
+        class="selected bg-muted-5 singleChoiceContainer hover-bg-muted-5 ph4 pointer bb b--muted-5 bw1"
         role="button"
         tabindex="0"
       >
@@ -215,32 +205,28 @@ exports[`ProductCustomizer components  render with no variations 2`] = `
           class="relative flex items-center justify-between pv5"
         >
           <div
-            class="flex"
+            class="itemDescriptionContainer itemDescriptionContainerSingle flex"
           >
             <div />
             <div
-              class="multiple-choice__title flex flex-column justify-center"
+              class="flex flex-column justify-center"
             >
               <div
-                class="multiple-choice__name t-heading-5 c-on-base"
+                class="itemDescriptionName itemDescriptionNameSingle t-heading-5 c-on-base"
               >
                 Small
               </div>
               <div
-                class="single-choice__description"
+                class="itemDescription itemDescriptionSingle flex t-small fw5 c-action-primary mt1"
               >
-                <div
-                  class="single-choice__price flex t-small fw5 c-action-primary mt1"
-                >
-                  <div>
-                    ProductPrice
-                  </div>
+                <div>
+                  ProductPrice
                 </div>
               </div>
             </div>
           </div>
           <div
-            class="mt3"
+            class="singleChoiceActions mt3"
           >
             <div>
               Radio
@@ -249,7 +235,7 @@ exports[`ProductCustomizer components  render with no variations 2`] = `
         </div>
       </div>
       <div
-        class="false hover-bg-muted-5 ph4 pointer bb b--muted-5 bw1"
+        class="false singleChoiceContainer hover-bg-muted-5 ph4 pointer bb b--muted-5 bw1"
         role="button"
         tabindex="0"
       >
@@ -257,32 +243,28 @@ exports[`ProductCustomizer components  render with no variations 2`] = `
           class="relative flex items-center justify-between pv5"
         >
           <div
-            class="flex"
+            class="itemDescriptionContainer itemDescriptionContainerSingle flex"
           >
             <div />
             <div
-              class="multiple-choice__title flex flex-column justify-center"
+              class="flex flex-column justify-center"
             >
               <div
-                class="multiple-choice__name t-heading-5 c-on-base"
+                class="itemDescriptionName itemDescriptionNameSingle t-heading-5 c-on-base"
               >
                 Medium
               </div>
               <div
-                class="single-choice__description"
+                class="itemDescription itemDescriptionSingle flex t-small fw5 c-action-primary mt1"
               >
-                <div
-                  class="single-choice__price flex t-small fw5 c-action-primary mt1"
-                >
-                  <div>
-                    ProductPrice
-                  </div>
+                <div>
+                  ProductPrice
                 </div>
               </div>
             </div>
           </div>
           <div
-            class="mt3"
+            class="singleChoiceActions mt3"
           >
             <div>
               Radio
@@ -291,7 +273,7 @@ exports[`ProductCustomizer components  render with no variations 2`] = `
         </div>
       </div>
       <div
-        class="false hover-bg-muted-5 ph4 pointer bb b--muted-5 bw1"
+        class="false singleChoiceContainer hover-bg-muted-5 ph4 pointer bb b--muted-5 bw1"
         role="button"
         tabindex="0"
       >
@@ -299,32 +281,28 @@ exports[`ProductCustomizer components  render with no variations 2`] = `
           class="relative flex items-center justify-between pv5"
         >
           <div
-            class="flex"
+            class="itemDescriptionContainer itemDescriptionContainerSingle flex"
           >
             <div />
             <div
-              class="multiple-choice__title flex flex-column justify-center"
+              class="flex flex-column justify-center"
             >
               <div
-                class="multiple-choice__name t-heading-5 c-on-base"
+                class="itemDescriptionName itemDescriptionNameSingle t-heading-5 c-on-base"
               >
                 Large
               </div>
               <div
-                class="single-choice__description"
+                class="itemDescription itemDescriptionSingle flex t-small fw5 c-action-primary mt1"
               >
-                <div
-                  class="single-choice__price flex t-small fw5 c-action-primary mt1"
-                >
-                  <div>
-                    ProductPrice
-                  </div>
+                <div>
+                  ProductPrice
                 </div>
               </div>
             </div>
           </div>
           <div
-            class="mt3"
+            class="singleChoiceActions mt3"
           >
             <div>
               Radio
@@ -344,7 +322,7 @@ exports[`ProductCustomizer components  render with no variations 2`] = `
             </span>
           </div>
           <div
-            class="false hover-bg-muted-5 ph4 pointer bb b--muted-5 bw1"
+            class="false singleChoiceContainer hover-bg-muted-5 ph4 pointer bb b--muted-5 bw1"
             role="button"
             tabindex="0"
           >
@@ -352,7 +330,7 @@ exports[`ProductCustomizer components  render with no variations 2`] = `
               class="relative flex items-center justify-between pv5"
             >
               <div
-                class="flex"
+                class="itemDescriptionContainer itemDescriptionContainerSingle flex"
               >
                 <div>
                   <img
@@ -362,31 +340,27 @@ exports[`ProductCustomizer components  render with no variations 2`] = `
                   />
                 </div>
                 <div
-                  class="multiple-choice__title flex flex-column justify-center"
+                  class="flex flex-column justify-center"
                 >
                   <div
-                    class="multiple-choice__name t-heading-5 c-on-base"
+                    class="itemDescriptionName itemDescriptionNameSingle t-heading-5 c-on-base"
                   >
                     Cheesy Bites
                   </div>
                   <div
-                    class="single-choice__description"
+                    class="itemDescription itemDescriptionSingle flex t-small fw5 c-action-primary mt1"
                   >
-                    <div
-                      class="single-choice__price flex t-small fw5 c-action-primary mt1"
-                    >
-                      <div>
-                        + 
-                      </div>
-                      <div>
-                        ProductPrice
-                      </div>
+                    <div>
+                      + 
+                    </div>
+                    <div>
+                      ProductPrice
                     </div>
                   </div>
                 </div>
               </div>
               <div
-                class="mt3"
+                class="singleChoiceActions mt3"
               >
                 <div>
                   Radio
@@ -395,7 +369,7 @@ exports[`ProductCustomizer components  render with no variations 2`] = `
             </div>
           </div>
           <div
-            class="false hover-bg-muted-5 ph4 pointer bb b--muted-5 bw1"
+            class="false singleChoiceContainer hover-bg-muted-5 ph4 pointer bb b--muted-5 bw1"
             role="button"
             tabindex="0"
           >
@@ -403,7 +377,7 @@ exports[`ProductCustomizer components  render with no variations 2`] = `
               class="relative flex items-center justify-between pv5"
             >
               <div
-                class="flex"
+                class="itemDescriptionContainer itemDescriptionContainerSingle flex"
               >
                 <div>
                   <img
@@ -413,31 +387,27 @@ exports[`ProductCustomizer components  render with no variations 2`] = `
                   />
                 </div>
                 <div
-                  class="multiple-choice__title flex flex-column justify-center"
+                  class="flex flex-column justify-center"
                 >
                   <div
-                    class="multiple-choice__name t-heading-5 c-on-base"
+                    class="itemDescriptionName itemDescriptionNameSingle t-heading-5 c-on-base"
                   >
                     Stuffed Crust
                   </div>
                   <div
-                    class="single-choice__description"
+                    class="itemDescription itemDescriptionSingle flex t-small fw5 c-action-primary mt1"
                   >
-                    <div
-                      class="single-choice__price flex t-small fw5 c-action-primary mt1"
-                    >
-                      <div>
-                        + 
-                      </div>
-                      <div>
-                        ProductPrice
-                      </div>
+                    <div>
+                      + 
+                    </div>
+                    <div>
+                      ProductPrice
                     </div>
                   </div>
                 </div>
               </div>
               <div
-                class="mt3"
+                class="singleChoiceActions mt3"
               >
                 <div>
                   Radio
@@ -446,7 +416,7 @@ exports[`ProductCustomizer components  render with no variations 2`] = `
             </div>
           </div>
           <div
-            class="false hover-bg-muted-5 ph4 pointer bb b--muted-5 bw1"
+            class="false singleChoiceContainer hover-bg-muted-5 ph4 pointer bb b--muted-5 bw1"
             role="button"
             tabindex="0"
           >
@@ -454,7 +424,7 @@ exports[`ProductCustomizer components  render with no variations 2`] = `
               class="relative flex items-center justify-between pv5"
             >
               <div
-                class="flex"
+                class="itemDescriptionContainer itemDescriptionContainerSingle flex"
               >
                 <div>
                   <img
@@ -464,20 +434,17 @@ exports[`ProductCustomizer components  render with no variations 2`] = `
                   />
                 </div>
                 <div
-                  class="multiple-choice__title flex flex-column justify-center"
+                  class="flex flex-column justify-center"
                 >
                   <div
-                    class="multiple-choice__name t-heading-5 c-on-base"
+                    class="itemDescriptionName itemDescriptionNameSingle t-heading-5 c-on-base"
                   >
                     Classic Crust
                   </div>
-                  <div
-                    class="single-choice__description"
-                  />
                 </div>
               </div>
               <div
-                class="mt3"
+                class="singleChoiceActions mt3"
               >
                 <div>
                   Radio
@@ -496,204 +463,216 @@ exports[`ProductCustomizer components  render with no variations 2`] = `
               Basic ingredients
             </span>
           </div>
-          <label
-            class="vtex-product-customizer__toggled-choice selected bg-washed-blue db pa4 pointer bb b--light-gray"
+          <div
+            class="toggleChoiceContainer selected bg-washed-blue db pa4 pointer bb b--light-gray"
           >
             <div
-              class="relative flex items-center"
+              class="relative flex justify-between items-center"
             >
               <div
-                class="flex-none pv2"
+                class="itemDescriptionContainer itemDescriptionContainerToggle flex"
               >
-                <img
-                  class="br3"
-                  src="https://delivery.vteximg.com.br/arquivos/ids/155431/PIMIENTO-VERDE.png?v=636766050771230000"
-                  width="48"
-                />
-              </div>
-              <div
-                class="flex-auto ml5"
-              >
+                <div>
+                  <img
+                    class="br3 mr4"
+                    src="https://delivery.vteximg.com.br/arquivos/ids/155431/PIMIENTO-VERDE.png?v=636766050771230000"
+                    style="height: 54px; width: 54px;"
+                  />
+                </div>
                 <div
-                  class="toggled-choice__name t-heading-5"
+                  class="flex flex-column justify-center"
                 >
-                  Green Pepper
+                  <div
+                    class="itemDescriptionName itemDescriptionNameToggle t-heading-5 c-on-base"
+                  >
+                    Green Pepper
+                  </div>
                 </div>
               </div>
               <div
-                class=""
+                class="toggleChoiceActions "
               >
                 <div>
                   Checkbox props={"disabled":false,"name":"Green Pepper","checked":true}
                 </div>
               </div>
             </div>
-          </label>
-          <label
-            class="vtex-product-customizer__toggled-choice selected bg-washed-blue db pa4 pointer bb b--light-gray"
+          </div>
+          <div
+            class="toggleChoiceContainer selected bg-washed-blue db pa4 pointer bb b--light-gray"
           >
             <div
-              class="relative flex items-center"
+              class="relative flex justify-between items-center"
             >
               <div
-                class="flex-none pv2"
+                class="itemDescriptionContainer itemDescriptionContainerToggle flex"
               >
-                <img
-                  class="br3"
-                  src="https://delivery.vteximg.com.br/arquivos/ids/155430/Topping_Aceitunas-Negras.jpg.png?v=636766049376970000"
-                  width="48"
-                />
-              </div>
-              <div
-                class="flex-auto ml5"
-              >
+                <div>
+                  <img
+                    class="br3 mr4"
+                    src="https://delivery.vteximg.com.br/arquivos/ids/155430/Topping_Aceitunas-Negras.jpg.png?v=636766049376970000"
+                    style="height: 54px; width: 54px;"
+                  />
+                </div>
                 <div
-                  class="toggled-choice__name t-heading-5"
+                  class="flex flex-column justify-center"
                 >
-                  Black Olives
+                  <div
+                    class="itemDescriptionName itemDescriptionNameToggle t-heading-5 c-on-base"
+                  >
+                    Black Olives
+                  </div>
                 </div>
               </div>
               <div
-                class=""
+                class="toggleChoiceActions "
               >
                 <div>
                   Checkbox props={"disabled":false,"name":"Black Olives","checked":true}
                 </div>
               </div>
             </div>
-          </label>
-          <label
-            class="vtex-product-customizer__toggled-choice selected bg-washed-blue db pa4 pointer bb b--light-gray"
+          </div>
+          <div
+            class="toggleChoiceContainer selected bg-washed-blue db pa4 pointer bb b--light-gray"
           >
             <div
-              class="relative flex items-center"
+              class="relative flex justify-between items-center"
             >
               <div
-                class="flex-none pv2"
+                class="itemDescriptionContainer itemDescriptionContainerToggle flex"
               >
-                <img
-                  class="br3"
-                  src="https://delivery.vteximg.com.br/arquivos/ids/155432/Topping_Jamon.jpg.png?v=636766052579200000"
-                  width="48"
-                />
-              </div>
-              <div
-                class="flex-auto ml5"
-              >
+                <div>
+                  <img
+                    class="br3 mr4"
+                    src="https://delivery.vteximg.com.br/arquivos/ids/155432/Topping_Jamon.jpg.png?v=636766052579200000"
+                    style="height: 54px; width: 54px;"
+                  />
+                </div>
                 <div
-                  class="toggled-choice__name t-heading-5"
+                  class="flex flex-column justify-center"
                 >
-                  Ham
+                  <div
+                    class="itemDescriptionName itemDescriptionNameToggle t-heading-5 c-on-base"
+                  >
+                    Ham
+                  </div>
                 </div>
               </div>
               <div
-                class=""
+                class="toggleChoiceActions "
               >
                 <div>
                   Checkbox props={"disabled":false,"name":"Ham","checked":true}
                 </div>
               </div>
             </div>
-          </label>
-          <label
-            class="vtex-product-customizer__toggled-choice selected bg-washed-blue db pa4 pointer bb b--light-gray"
+          </div>
+          <div
+            class="toggleChoiceContainer selected bg-washed-blue db pa4 pointer bb b--light-gray"
           >
             <div
-              class="relative flex items-center"
+              class="relative flex justify-between items-center"
             >
               <div
-                class="flex-none pv2"
+                class="itemDescriptionContainer itemDescriptionContainerToggle flex"
               >
-                <img
-                  class="br3"
-                  src="https://delivery.vteximg.com.br/arquivos/ids/155428/Topping_Pepperoni.jpg.png?v=636766047561270000"
-                  width="48"
-                />
-              </div>
-              <div
-                class="flex-auto ml5"
-              >
+                <div>
+                  <img
+                    class="br3 mr4"
+                    src="https://delivery.vteximg.com.br/arquivos/ids/155428/Topping_Pepperoni.jpg.png?v=636766047561270000"
+                    style="height: 54px; width: 54px;"
+                  />
+                </div>
                 <div
-                  class="toggled-choice__name t-heading-5"
+                  class="flex flex-column justify-center"
                 >
-                  Pepperoni
+                  <div
+                    class="itemDescriptionName itemDescriptionNameToggle t-heading-5 c-on-base"
+                  >
+                    Pepperoni
+                  </div>
                 </div>
               </div>
               <div
-                class=""
+                class="toggleChoiceActions "
               >
                 <div>
                   Checkbox props={"disabled":false,"name":"Pepperoni","checked":true}
                 </div>
               </div>
             </div>
-          </label>
-          <label
-            class="vtex-product-customizer__toggled-choice selected bg-washed-blue db pa4 pointer bb b--light-gray"
+          </div>
+          <div
+            class="toggleChoiceContainer selected bg-washed-blue db pa4 pointer bb b--light-gray"
           >
             <div
-              class="relative flex items-center"
+              class="relative flex justify-between items-center"
             >
               <div
-                class="flex-none pv2"
+                class="itemDescriptionContainer itemDescriptionContainerToggle flex"
               >
-                <img
-                  class="br3"
-                  src="https://delivery.vteximg.com.br/arquivos/ids/155436/Topping_Champinones.png?v=636766057405600000"
-                  width="48"
-                />
-              </div>
-              <div
-                class="flex-auto ml5"
-              >
+                <div>
+                  <img
+                    class="br3 mr4"
+                    src="https://delivery.vteximg.com.br/arquivos/ids/155436/Topping_Champinones.png?v=636766057405600000"
+                    style="height: 54px; width: 54px;"
+                  />
+                </div>
                 <div
-                  class="toggled-choice__name t-heading-5"
+                  class="flex flex-column justify-center"
                 >
-                  Champignon
+                  <div
+                    class="itemDescriptionName itemDescriptionNameToggle t-heading-5 c-on-base"
+                  >
+                    Champignon
+                  </div>
                 </div>
               </div>
               <div
-                class=""
+                class="toggleChoiceActions "
               >
                 <div>
                   Checkbox props={"disabled":false,"name":"Champignon","checked":true}
                 </div>
               </div>
             </div>
-          </label>
-          <label
-            class="vtex-product-customizer__toggled-choice selected bg-washed-blue db pa4 pointer bb b--light-gray"
+          </div>
+          <div
+            class="toggleChoiceContainer selected bg-washed-blue db pa4 pointer bb b--light-gray"
           >
             <div
-              class="relative flex items-center"
+              class="relative flex justify-between items-center"
             >
               <div
-                class="flex-none pv2"
+                class="itemDescriptionContainer itemDescriptionContainerToggle flex"
               >
-                <img
-                  class="br3"
-                  src="https://delivery.vteximg.com.br/arquivos/ids/155427/Topping_Cebolla.jpg.png?v=636766046799500000"
-                  width="48"
-                />
-              </div>
-              <div
-                class="flex-auto ml5"
-              >
+                <div>
+                  <img
+                    class="br3 mr4"
+                    src="https://delivery.vteximg.com.br/arquivos/ids/155427/Topping_Cebolla.jpg.png?v=636766046799500000"
+                    style="height: 54px; width: 54px;"
+                  />
+                </div>
                 <div
-                  class="toggled-choice__name t-heading-5"
+                  class="flex flex-column justify-center"
                 >
-                  Onion
+                  <div
+                    class="itemDescriptionName itemDescriptionNameToggle t-heading-5 c-on-base"
+                  >
+                    Onion
+                  </div>
                 </div>
               </div>
               <div
-                class=""
+                class="toggleChoiceActions "
               >
                 <div>
                   Checkbox props={"disabled":false,"name":"Onion","checked":true}
                 </div>
               </div>
             </div>
-          </label>
+          </div>
         </div>
         <div
           class="dn"
@@ -706,13 +685,13 @@ exports[`ProductCustomizer components  render with no variations 2`] = `
             </span>
           </div>
           <div
-            class="vtex-product-customizer__multiple-choice false hover-bg-muted-5 w-100 ph4 pv5 bb b--muted-5"
+            class="multipleChoiceContainer false hover-bg-muted-5 w-100 ph4 pv5 bb b--muted-5"
           >
             <div
               class="relative flex justify-between items-center"
             >
               <div
-                class="flex"
+                class="itemDescriptionContainer itemDescriptionContainerMultiple flex"
               >
                 <div>
                   <img
@@ -722,25 +701,21 @@ exports[`ProductCustomizer components  render with no variations 2`] = `
                   />
                 </div>
                 <div
-                  class="multiple-choice__title flex flex-column justify-center"
+                  class="flex flex-column justify-center"
                 >
                   <div
-                    class="multiple-choice__name t-heading-5 c-on-base"
+                    class="itemDescriptionName itemDescriptionNameMultiple t-heading-5 c-on-base"
                   >
                     Ham
                   </div>
                   <div
-                    class="single-choice__description"
+                    class="itemDescription itemDescriptionMultiple flex items-center c-action-primary t-small fw5 mt1"
                   >
-                    <div
-                      class="multiple-choice__price flex items-center c-action-primary t-small fw5 mt1"
-                    >
-                      <div>
-                        + 
-                      </div>
-                      <div>
-                        ProductPrice
-                      </div>
+                    <div>
+                      + 
+                    </div>
+                    <div>
+                      ProductPrice
                     </div>
                   </div>
                 </div>
@@ -749,7 +724,7 @@ exports[`ProductCustomizer components  render with no variations 2`] = `
                 class="flex-auto flex-none-ns flex justify-end"
               >
                 <div
-                  class="multiple-choice__actions flex-none ml4 c-action-primary t-body fw5 z-1"
+                  class="multipleChoiceActions flex-none ml4 c-action-primary t-body fw5 z-1"
                 >
                   <div>
                     NumericStepper
@@ -759,13 +734,13 @@ exports[`ProductCustomizer components  render with no variations 2`] = `
             </div>
           </div>
           <div
-            class="vtex-product-customizer__multiple-choice false hover-bg-muted-5 w-100 ph4 pv5 bb b--muted-5"
+            class="multipleChoiceContainer false hover-bg-muted-5 w-100 ph4 pv5 bb b--muted-5"
           >
             <div
               class="relative flex justify-between items-center"
             >
               <div
-                class="flex"
+                class="itemDescriptionContainer itemDescriptionContainerMultiple flex"
               >
                 <div>
                   <img
@@ -775,25 +750,21 @@ exports[`ProductCustomizer components  render with no variations 2`] = `
                   />
                 </div>
                 <div
-                  class="multiple-choice__title flex flex-column justify-center"
+                  class="flex flex-column justify-center"
                 >
                   <div
-                    class="multiple-choice__name t-heading-5 c-on-base"
+                    class="itemDescriptionName itemDescriptionNameMultiple t-heading-5 c-on-base"
                   >
                     Pepperoni
                   </div>
                   <div
-                    class="single-choice__description"
+                    class="itemDescription itemDescriptionMultiple flex items-center c-action-primary t-small fw5 mt1"
                   >
-                    <div
-                      class="multiple-choice__price flex items-center c-action-primary t-small fw5 mt1"
-                    >
-                      <div>
-                        + 
-                      </div>
-                      <div>
-                        ProductPrice
-                      </div>
+                    <div>
+                      + 
+                    </div>
+                    <div>
+                      ProductPrice
                     </div>
                   </div>
                 </div>
@@ -802,7 +773,7 @@ exports[`ProductCustomizer components  render with no variations 2`] = `
                 class="flex-auto flex-none-ns flex justify-end"
               >
                 <div
-                  class="multiple-choice__actions flex-none ml4 c-action-primary t-body fw5 z-1"
+                  class="multipleChoiceActions flex-none ml4 c-action-primary t-body fw5 z-1"
                 >
                   <div>
                     NumericStepper
@@ -812,13 +783,13 @@ exports[`ProductCustomizer components  render with no variations 2`] = `
             </div>
           </div>
           <div
-            class="vtex-product-customizer__multiple-choice false hover-bg-muted-5 w-100 ph4 pv5 bb b--muted-5"
+            class="multipleChoiceContainer false hover-bg-muted-5 w-100 ph4 pv5 bb b--muted-5"
           >
             <div
               class="relative flex justify-between items-center"
             >
               <div
-                class="flex"
+                class="itemDescriptionContainer itemDescriptionContainerMultiple flex"
               >
                 <div>
                   <img
@@ -828,25 +799,21 @@ exports[`ProductCustomizer components  render with no variations 2`] = `
                   />
                 </div>
                 <div
-                  class="multiple-choice__title flex flex-column justify-center"
+                  class="flex flex-column justify-center"
                 >
                   <div
-                    class="multiple-choice__name t-heading-5 c-on-base"
+                    class="itemDescriptionName itemDescriptionNameMultiple t-heading-5 c-on-base"
                   >
                     Champignon
                   </div>
                   <div
-                    class="single-choice__description"
+                    class="itemDescription itemDescriptionMultiple flex items-center c-action-primary t-small fw5 mt1"
                   >
-                    <div
-                      class="multiple-choice__price flex items-center c-action-primary t-small fw5 mt1"
-                    >
-                      <div>
-                        + 
-                      </div>
-                      <div>
-                        ProductPrice
-                      </div>
+                    <div>
+                      + 
+                    </div>
+                    <div>
+                      ProductPrice
                     </div>
                   </div>
                 </div>
@@ -855,7 +822,7 @@ exports[`ProductCustomizer components  render with no variations 2`] = `
                 class="flex-auto flex-none-ns flex justify-end"
               >
                 <div
-                  class="multiple-choice__actions flex-none ml4 c-action-primary t-body fw5 z-1"
+                  class="multipleChoiceActions flex-none ml4 c-action-primary t-body fw5 z-1"
                 >
                   <div>
                     NumericStepper
@@ -865,13 +832,13 @@ exports[`ProductCustomizer components  render with no variations 2`] = `
             </div>
           </div>
           <div
-            class="vtex-product-customizer__multiple-choice false hover-bg-muted-5 w-100 ph4 pv5 bb b--muted-5"
+            class="multipleChoiceContainer false hover-bg-muted-5 w-100 ph4 pv5 bb b--muted-5"
           >
             <div
               class="relative flex justify-between items-center"
             >
               <div
-                class="flex"
+                class="itemDescriptionContainer itemDescriptionContainerMultiple flex"
               >
                 <div>
                   <img
@@ -881,25 +848,21 @@ exports[`ProductCustomizer components  render with no variations 2`] = `
                   />
                 </div>
                 <div
-                  class="multiple-choice__title flex flex-column justify-center"
+                  class="flex flex-column justify-center"
                 >
                   <div
-                    class="multiple-choice__name t-heading-5 c-on-base"
+                    class="itemDescriptionName itemDescriptionNameMultiple t-heading-5 c-on-base"
                   >
                     Onion
                   </div>
                   <div
-                    class="single-choice__description"
+                    class="itemDescription itemDescriptionMultiple flex items-center c-action-primary t-small fw5 mt1"
                   >
-                    <div
-                      class="multiple-choice__price flex items-center c-action-primary t-small fw5 mt1"
-                    >
-                      <div>
-                        + 
-                      </div>
-                      <div>
-                        ProductPrice
-                      </div>
+                    <div>
+                      + 
+                    </div>
+                    <div>
+                      ProductPrice
                     </div>
                   </div>
                 </div>
@@ -908,7 +871,7 @@ exports[`ProductCustomizer components  render with no variations 2`] = `
                 class="flex-auto flex-none-ns flex justify-end"
               >
                 <div
-                  class="multiple-choice__actions flex-none ml4 c-action-primary t-body fw5 z-1"
+                  class="multipleChoiceActions flex-none ml4 c-action-primary t-body fw5 z-1"
                 >
                   <div>
                     NumericStepper
@@ -918,13 +881,13 @@ exports[`ProductCustomizer components  render with no variations 2`] = `
             </div>
           </div>
           <div
-            class="vtex-product-customizer__multiple-choice false hover-bg-muted-5 w-100 ph4 pv5 bb b--muted-5"
+            class="multipleChoiceContainer false hover-bg-muted-5 w-100 ph4 pv5 bb b--muted-5"
           >
             <div
               class="relative flex justify-between items-center"
             >
               <div
-                class="flex"
+                class="itemDescriptionContainer itemDescriptionContainerMultiple flex"
               >
                 <div>
                   <img
@@ -934,25 +897,21 @@ exports[`ProductCustomizer components  render with no variations 2`] = `
                   />
                 </div>
                 <div
-                  class="multiple-choice__title flex flex-column justify-center"
+                  class="flex flex-column justify-center"
                 >
                   <div
-                    class="multiple-choice__name t-heading-5 c-on-base"
+                    class="itemDescriptionName itemDescriptionNameMultiple t-heading-5 c-on-base"
                   >
                     Black Olives
                   </div>
                   <div
-                    class="single-choice__description"
+                    class="itemDescription itemDescriptionMultiple flex items-center c-action-primary t-small fw5 mt1"
                   >
-                    <div
-                      class="multiple-choice__price flex items-center c-action-primary t-small fw5 mt1"
-                    >
-                      <div>
-                        + 
-                      </div>
-                      <div>
-                        ProductPrice
-                      </div>
+                    <div>
+                      + 
+                    </div>
+                    <div>
+                      ProductPrice
                     </div>
                   </div>
                 </div>
@@ -961,7 +920,7 @@ exports[`ProductCustomizer components  render with no variations 2`] = `
                 class="flex-auto flex-none-ns flex justify-end"
               >
                 <div
-                  class="multiple-choice__actions flex-none ml4 c-action-primary t-body fw5 z-1"
+                  class="multipleChoiceActions flex-none ml4 c-action-primary t-body fw5 z-1"
                 >
                   <div>
                     NumericStepper
@@ -971,13 +930,13 @@ exports[`ProductCustomizer components  render with no variations 2`] = `
             </div>
           </div>
           <div
-            class="vtex-product-customizer__multiple-choice false hover-bg-muted-5 w-100 ph4 pv5 bb b--muted-5"
+            class="multipleChoiceContainer false hover-bg-muted-5 w-100 ph4 pv5 bb b--muted-5"
           >
             <div
               class="relative flex justify-between items-center"
             >
               <div
-                class="flex"
+                class="itemDescriptionContainer itemDescriptionContainerMultiple flex"
               >
                 <div>
                   <img
@@ -987,25 +946,21 @@ exports[`ProductCustomizer components  render with no variations 2`] = `
                   />
                 </div>
                 <div
-                  class="multiple-choice__title flex flex-column justify-center"
+                  class="flex flex-column justify-center"
                 >
                   <div
-                    class="multiple-choice__name t-heading-5 c-on-base"
+                    class="itemDescriptionName itemDescriptionNameMultiple t-heading-5 c-on-base"
                   >
                     Green Pepper
                   </div>
                   <div
-                    class="single-choice__description"
+                    class="itemDescription itemDescriptionMultiple flex items-center c-action-primary t-small fw5 mt1"
                   >
-                    <div
-                      class="multiple-choice__price flex items-center c-action-primary t-small fw5 mt1"
-                    >
-                      <div>
-                        + 
-                      </div>
-                      <div>
-                        ProductPrice
-                      </div>
+                    <div>
+                      + 
+                    </div>
+                    <div>
+                      ProductPrice
                     </div>
                   </div>
                 </div>
@@ -1014,7 +969,7 @@ exports[`ProductCustomizer components  render with no variations 2`] = `
                 class="flex-auto flex-none-ns flex justify-end"
               >
                 <div
-                  class="multiple-choice__actions flex-none ml4 c-action-primary t-body fw5 z-1"
+                  class="multipleChoiceActions flex-none ml4 c-action-primary t-body fw5 z-1"
                 >
                   <div>
                     NumericStepper
@@ -1024,13 +979,13 @@ exports[`ProductCustomizer components  render with no variations 2`] = `
             </div>
           </div>
           <div
-            class="vtex-product-customizer__multiple-choice false hover-bg-muted-5 w-100 ph4 pv5 bb b--muted-5"
+            class="multipleChoiceContainer false hover-bg-muted-5 w-100 ph4 pv5 bb b--muted-5"
           >
             <div
               class="relative flex justify-between items-center"
             >
               <div
-                class="flex"
+                class="itemDescriptionContainer itemDescriptionContainerMultiple flex"
               >
                 <div>
                   <img
@@ -1040,25 +995,21 @@ exports[`ProductCustomizer components  render with no variations 2`] = `
                   />
                 </div>
                 <div
-                  class="multiple-choice__title flex flex-column justify-center"
+                  class="flex flex-column justify-center"
                 >
                   <div
-                    class="multiple-choice__name t-heading-5 c-on-base"
+                    class="itemDescriptionName itemDescriptionNameMultiple t-heading-5 c-on-base"
                   >
                     Pineapple
                   </div>
                   <div
-                    class="single-choice__description"
+                    class="itemDescription itemDescriptionMultiple flex items-center c-action-primary t-small fw5 mt1"
                   >
-                    <div
-                      class="multiple-choice__price flex items-center c-action-primary t-small fw5 mt1"
-                    >
-                      <div>
-                        + 
-                      </div>
-                      <div>
-                        ProductPrice
-                      </div>
+                    <div>
+                      + 
+                    </div>
+                    <div>
+                      ProductPrice
                     </div>
                   </div>
                 </div>
@@ -1067,7 +1018,7 @@ exports[`ProductCustomizer components  render with no variations 2`] = `
                 class="flex-auto flex-none-ns flex justify-end"
               >
                 <div
-                  class="multiple-choice__actions flex-none ml4 c-action-primary t-body fw5 z-1"
+                  class="multipleChoiceActions flex-none ml4 c-action-primary t-body fw5 z-1"
                 >
                   <div>
                     NumericStepper
@@ -1079,17 +1030,17 @@ exports[`ProductCustomizer components  render with no variations 2`] = `
         </div>
       </div>
       <div
-        class="vtex-product-customizer__actions w-100"
+        class="w-100"
       />
       <div
-        class="vtex-product-customizer__actions z-2 fixed bg-white bottom-0 w-40-ns ph1-ns w-100 bt b--light-gray"
+        class="z-2 fixed bg-white bottom-0 w-40-ns ph1-ns w-100 bt b--light-gray"
       />
     </div>
   </div>
 </DocumentFragment>
 `;
 
-exports[`ProductCustomizer components  render with variations example 1`] = `
+exports[`ProductCustomizer components  render with variations example, show sku selector 1`] = `
 <DocumentFragment>
   <div
     class="flex-ns pv6-ns justify-center-ns"
@@ -1099,15 +1050,16 @@ exports[`ProductCustomizer components  render with variations example 1`] = `
     >
       <img
         alt="PARRILLADA"
-        class="vtex-product-customizer__image"
+        class="image"
         src="https://phmex.vteximg.com.br/arquivos/ids/155565/PARRILLADA.jpg?v=636834183659030000"
+        style="object-fit: cover;"
       />
     </div>
     <div
       class="w-40-ns ph2-ns"
     >
       <div
-        class="t-heading-4 c-on-base ph5 pt5-s"
+        class="productName t-heading-4 c-on-base ph5 pt5-s"
       >
         Parrillada
       </div>
@@ -1123,10 +1075,10 @@ exports[`ProductCustomizer components  render with variations example 1`] = `
       </div>
       <div />
       <div
-        class="vtex-product-customizer__actions w-100"
+        class="w-100"
       />
       <div
-        class="vtex-product-customizer__actions z-2 fixed bg-white bottom-0 w-40-ns ph1-ns w-100 bt b--light-gray"
+        class="z-2 fixed bg-white bottom-0 w-40-ns ph1-ns w-100 bt b--light-gray"
       />
     </div>
   </div>

@@ -1,8 +1,10 @@
 import PropTypes from 'prop-types'
-import React, { memo } from 'react'
+import React, { Fragment, memo } from 'react'
 import ProductPrice from 'vtex.store-components/ProductPrice'
 import Radio from 'vtex.styleguide/Radio'
 import ItemDescription from './ItemDescription'
+
+import styles from '../../../styles.css'
 
 const SingleChoice = ({
   imageUrl,
@@ -15,10 +17,9 @@ const SingleChoice = ({
   const calculatedPrice = (price / 100).toFixed(2)
   const parsedPrice = parseFloat(calculatedPrice)
 
-  const description = parsedPrice && (
-    <div
-      className={'single-choice__price flex t-small fw5 c-action-primary mt1'}
-    >
+  const description = parsedPrice === 0 ? null :
+   (
+    <Fragment>
       {showPlus && <div>+ </div>}
       <ProductPrice
         {...{
@@ -27,7 +28,7 @@ const SingleChoice = ({
           sellingPrice: parsedPrice,
         }}
       />
-    </div>
+    </Fragment>
   )
 
   return (
@@ -37,11 +38,18 @@ const SingleChoice = ({
       onKeyDown={e => e.key === ' ' && onChange(name, true)}
       onClick={() => onChange(name, true)}
       className={`${selected &&
-        'selected bg-muted-5'} hover-bg-muted-5 ph4 pointer bb b--muted-5 bw1`}
+        'selected bg-muted-5'} ${styles.singleChoiceContainer} hover-bg-muted-5 ph4 pointer bb b--muted-5 bw1`}
     >
       <div className="relative flex items-center justify-between pv5">
-        <ItemDescription {...{ description, imageUrl, name }} />
-        <div className="mt3">
+        <ItemDescription 
+          description={description}
+          name={name}
+          imageUrl={imageUrl}
+          containerClass={styles.itemDescriptionContainerSingle}
+          nameClass={styles.itemDescriptionNameSingle}
+          descriptionClass={`${styles.itemDescriptionSingle} flex t-small fw5 c-action-primary mt1`}
+        />
+        <div className={`${styles.singleChoiceActions} mt3`}>
           <Radio
             checked={selected}
             // Required but useless props

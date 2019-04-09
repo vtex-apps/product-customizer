@@ -12,6 +12,8 @@ import { scrollToElementTop } from '../../utils/scroll'
 
 import ADD_TO_CART_MUTATION from '../../mutations/addToCart.gql'
 
+import styles from '../../styles.css'
+
 class ProductCustomizerWrapper extends Component {
   state = {
     selectedSku: null,
@@ -281,13 +283,14 @@ class ProductCustomizerWrapper extends Component {
         <div className="flex-ns pv6-ns justify-center-ns">
           <div className="w-100 w-third-ns flex tc items-center-ns h-100-ns ph2-ns">
             <img
-              className="vtex-product-customizer__image"
+              className={styles.image}
+              style={{ objectFit: 'cover' }}
               src={imageUrl}
               alt={imageText}
             />
           </div>
           <div className="w-40-ns ph2-ns">
-            <div className="t-heading-4 c-on-base ph5 pt5-s">{productName}</div>
+            <div className={`${styles.productName} t-heading-4 c-on-base ph5 pt5-s`}>{productName}</div>
             <SkuSelector
               items={items}
               selectedSku={selectedSku}

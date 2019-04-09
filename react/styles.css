@@ -1,0 +1,46 @@
+.image {}
+
+.productName {}
+
+.itemDescriptionContainer {}
+
+.itemDescriptionContainerMultiple {}
+
+.itemDescriptionContainerToggle {}
+
+.itemDescriptionContainerSingle {}
+
+.itemDescriptionName {}
+
+.itemDescriptionNameMultiple {}
+
+.itemDescriptionNameToggle {}
+
+.itemDescriptionNameSingle {}
+
+.itemDescription {}
+
+.itemDescriptionMultiple {}
+
+.itemDescriptionToggle {}
+
+.itemDescriptionSingle {}
+
+.singleChoiceContainer {}
+
+.multipleChoiceContainer {}
+
+.toggleChoiceContainer {}
+
+.multipleChoiceActions {}
+
+.multipleChoiceActions button {
+  background: transparent;
+  width: 1.75rem !important; 
+}
+
+.singleChoiceActions {}
+
+.toggleChoiceActions {}
+
+.addToCartButton {}

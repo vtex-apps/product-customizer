@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types'
-import React, { memo } from 'react'
+import React, { Fragment, memo } from 'react'
 import NumericStepper from 'vtex.styleguide/NumericStepper'
 import ProductPrice from 'vtex.store-components/ProductPrice'
 import ItemDescription from './ItemDescription'
 
-import '../../../global.css'
+import styles from '../../../styles.css'
 
 const MultipleChoice = ({
   imageUrl,
@@ -22,11 +22,7 @@ const MultipleChoice = ({
   const sellingPriceClass = 'c-action-primary t-small fw5'
 
   const description = !!parsedPrice && (
-    <div
-      className={
-        'multiple-choice__price flex items-center c-action-primary t-small fw5 mt1'
-      }
-    >
+    <Fragment>
       <div>+ </div>
       <ProductPrice
         {...{
@@ -36,18 +32,25 @@ const MultipleChoice = ({
           sellingPriceClass,
         }}
       />
-    </div>
+    </Fragment>
   )
 
   return (
     <div
-      className={`vtex-product-customizer__multiple-choice ${isSelected &&
+      className={`${styles.multipleChoiceContainer} ${isSelected &&
         'selected bg-muted-5'} hover-bg-muted-5 w-100 ph4 pv5 bb b--muted-5`}
     >
       <div className="relative flex justify-between items-center">
-        <ItemDescription {...{ imageUrl, name, description }} />
+        <ItemDescription 
+          description={description}
+          name={name}
+          imageUrl={imageUrl}
+          containerClass={styles.itemDescriptionContainerMultiple}
+          nameClass={styles.itemDescriptionNameMultiple}
+          descriptionClass={`${styles.itemDescriptionMultiple} flex items-center c-action-primary t-small fw5 mt1`}
+        />
         <div className="flex-auto flex-none-ns flex justify-end">
-          <div className="multiple-choice__actions flex-none ml4 c-action-primary t-body fw5 z-1">
+          <div className={`${styles.multipleChoiceActions} flex-none ml4 c-action-primary t-body fw5 z-1`}>
             <NumericStepper
               lean
               value={chosenAmount}

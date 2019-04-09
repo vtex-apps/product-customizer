@@ -2,23 +2,25 @@ import React, { memo } from 'react'
 import PropTypes from 'prop-types'
 import { Checkbox } from 'vtex.styleguide'
 
-import '../../../global.css'
+import ItemDescription from './ItemDescription'
+
+import styles from '../../../styles.css'
 
 const ToggledChoice = ({ imageUrl, name, selected, onChange, disabled }) => (
-  // eslint-disable-next-line jsx-a11y/label-has-associated-control
-  <label
-    className={`vtex-product-customizer__toggled-choice ${
+  <div
+    className={`${styles.toggleChoiceContainer} ${
       selected ? 'selected bg-washed-blue' : 'hover-bg-near-white'
     } db pa4 pointer bb b--light-gray`}
   >
-    <div className="relative flex items-center">
-      <div className="flex-none pv2">
-        <img src={imageUrl} width="48" className="br3" />
-      </div>
-      <div className="flex-auto ml5">
-        <div className="toggled-choice__name t-heading-5">{name}</div>
-      </div>
-      <div className={`${disabled ? 'o-70' : ''}`}>
+    <div className="relative flex justify-between items-center">
+      <ItemDescription 
+          name={name}
+          imageUrl={imageUrl}
+          containerClass={styles.itemDescriptionContainerToggle}
+          nameClass={styles.itemDescriptionNameToggle}
+          descriptionClass={styles.itemDescriptionToggle}
+        />
+      <div className={`${styles.toggleChoiceActions} ${disabled ? 'o-70' : ''}`}>
         <Checkbox
           disabled={disabled}
           name={name}
@@ -27,7 +29,7 @@ const ToggledChoice = ({ imageUrl, name, selected, onChange, disabled }) => (
         />
       </div>
     </div>
-  </label>
+  </div>
 )
 
 ToggledChoice.propTypes = {
