@@ -4,12 +4,14 @@ import Button from 'vtex.styleguide/Button'
 import { FormattedMessage } from 'react-intl'
 import ProductPrice from 'vtex.store-components/ProductPrice'
 
+import styles from '../../styles.css'
+
 const AddToCart = ({ total, ready, onClick, isLoading }) => {
   if (!ready) return null
   const calculatedTotal = (total / 100).toFixed(2)
 
   return (
-    <div className="actions--add-to-cart tc pa5">
+    <div className={`${styles.addToCartButton} tc pa5`}>
       <Button type="submit" onClick={onClick} isLoading={isLoading} block>
         <div className="flex w-100 justify-between items-center">
           <FormattedMessage id="product-customizer.add-to-cart" />
