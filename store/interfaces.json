@@ -1,8 +1,6 @@
 {
   "product-details.customizer": {
-    "allowed": [
-      "product-details"
-    ],
+    "allowed": ["product-details"],
     "required": [
       "product-name",
       "product-images",
@@ -15,5 +13,44 @@
       "product-specifications"
     ],
     "component": "index"
+  },
+  "product-assembly-options": {
+    "component": "ProductAssemblyOptions",
+    "composition": "children",
+    "allowed": [
+      "product-assembly-options.image",
+      "product-assembly-options.quantity-selector",
+      "product-assembly-options.name",
+      "product-assembly-options.price",
+      "product-assembly-options.customize",
+      "product-assembly-options.children-description"
+    ]
+  },
+  "product-assembly-options.image": {
+    "component": "ProductAssemblyOptionItemImage"
+  },
+  "product-assembly-options.quantity-selector": {
+    "component": "ProductAssemblyOptionItemQuantity"
+  },
+  "product-assembly-options.name": {
+    "component": "ProductAssemblyOptionItemName"
+  },
+  "product-assembly-options.price": {
+    "component": "ProductAssemblyOptionItemPrice"
+  },
+  "product-assembly-options.customize": {
+    "component": "ProductAssemblyOptionItemCustomize",
+    "composition": "children",
+    "allowed": [
+      "product-assembly-options.image",
+      "product-assembly-options.quantity-selector",
+      "product-assembly-options.name",
+      "product-assembly-options.price",
+      "product-assembly-options.customize",
+      "product-assembly-options.children-description"
+    ]
+  },
+  "product-assembly-options.children-description": {
+    "component": "ProductAssemblyOptionItemChildrenDescription"
   }
 }
