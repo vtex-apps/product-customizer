@@ -1,5 +1,6 @@
 import React, { useMemo, FC } from 'react'
 import { ProductAssemblyItemContext } from '../ProductAssemblyContext'
+import styles from './styles.css'
 
 interface Props {
   groupType: string
@@ -37,13 +38,10 @@ const ProductAssemblyItem: FC<Props> = ({
       groupPath,
     ]
   )
-  const hasQuantity = item.quantity > 0
   return (
     <ProductAssemblyItemContext.Provider value={childState}>
       <div
-        className={`hover-bg-muted-5 bb b--muted-5 ${
-          hasQuantity ? 'bg-muted-5' : ''
-        }`}
+        className={`${styles.itemContainer} hover-bg-muted-5 bb b--muted-5 pa3`}
       >
         {children}
       </div>

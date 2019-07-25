@@ -2,6 +2,7 @@ import React, { Fragment, useState, FC } from 'react'
 import { useProductAssemblyItem } from '../ProductAssemblyContext'
 import { Button, Modal } from 'vtex.styleguide'
 import ProductPrice from 'vtex.store-components/ProductPrice'
+import { useDevice } from 'vtex.device-detector'
 import ProductAssemblyOptionsGroup from './ProductAssemblyOptionsGroup'
 import { imageUrlForSize } from './ProductAssemblyOptionItemImage'
 
@@ -40,15 +41,18 @@ const ModalView: FC<{ closeAction: () => void }> = ({
           </ProductAssemblyOptionsGroup>
         )
       })}
-      <Button className="mt4" block onClick={closeAction}>
-        <div className="c-on-action-primary">DONE</div>
-      </Button>
+      <div className="mt3">
+        <Button block onClick={closeAction}>
+          <div className="c-on-action-primary">DONE</div>
+        </Button>
+      </div>
     </div>
   )
 }
 
 const ProductAssemblyOptionItemCustomize: FC = ({ children }) => {
   const { item } = useProductAssemblyItem()
+  const { isMobile } = useDevice()
   const [modalOpen, setModalOpen] = useState(false)
 
   if (!item.children) {
@@ -64,8 +68,8 @@ const ProductAssemblyOptionItemCustomize: FC = ({ children }) => {
       </Button>
       <Modal
         isOpen={modalOpen}
-        centered
         onClose={closeAction}
+        centered={!isMobile}
         title={'Customize your ' + item.name}
       >
         <ModalView closeAction={closeAction}>{children}</ModalView>

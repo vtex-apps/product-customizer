@@ -48,7 +48,9 @@ const ProductAssemblyOptionsGroup: FC<Props> = ({
 
   return (
     <Fragment>
-      <div className="ttc">{assemblyOptionState.groupName}</div>
+      <div className="ttc-s pv4 c-muted-2 t-small ">
+        {assemblyOptionState.groupName}
+      </div>
       {Object.values(assemblyOptionState.items).map(item => {
         return (
           <ProductAssemblyItem
