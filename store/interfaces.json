@@ -18,39 +18,39 @@
     "component": "ProductAssemblyOptions",
     "composition": "children",
     "allowed": [
-      "product-assembly-options.image",
-      "product-assembly-options.quantity-selector",
-      "product-assembly-options.name",
-      "product-assembly-options.price",
-      "product-assembly-options.customize",
-      "product-assembly-options.children-description"
+      "assembly-option-item-image",
+      "assembly-option-item-quantity-selector",
+      "assembly-option-item-name",
+      "assembly-option-item-price",
+      "assembly-option-item-customize",
+      "assembly-option-item-children-description"
     ]
   },
-  "product-assembly-options.image": {
+  "assembly-option-item-image": {
     "component": "ProductAssemblyOptionItemImage"
   },
-  "product-assembly-options.quantity-selector": {
+  "assembly-option-item-quantity-selector": {
     "component": "ProductAssemblyOptionItemQuantity"
   },
-  "product-assembly-options.name": {
+  "assembly-option-item-name": {
     "component": "ProductAssemblyOptionItemName"
   },
-  "product-assembly-options.price": {
+  "assembly-option-item-price": {
     "component": "ProductAssemblyOptionItemPrice"
   },
-  "product-assembly-options.customize": {
+  "assembly-option-item-customize": {
     "component": "ProductAssemblyOptionItemCustomize",
     "composition": "children",
     "allowed": [
-      "product-assembly-options.image",
-      "product-assembly-options.quantity-selector",
-      "product-assembly-options.name",
-      "product-assembly-options.price",
-      "product-assembly-options.customize",
-      "product-assembly-options.children-description"
+      "assembly-option-item-image",
+      "assembly-option-item-quantity-selector",
+      "assembly-option-item-name",
+      "assembly-option-item-price",
+      "assembly-option-item-customize",
+      "assembly-option-item-children-description"
     ]
   },
-  "product-assembly-options.children-description": {
+  "assembly-option-item-children-description": {
     "component": "ProductAssemblyOptionItemChildrenDescription"
   }
 }
