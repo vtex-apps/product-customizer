@@ -65,10 +65,12 @@ const parseAssemblyOptions = (
       const optionMetadata = findItemMetadata(assemblyItem.id)(
         product.itemMetadata.items
       )
-
+      if (!optionMetadata) {
+        continue
+      }
       // Recursively parse children of this assembly option
       const children =
-        optionMetadata!.assemblyOptions.length > 0
+        optionMetadata.assemblyOptions.length > 0
           ? parseAssemblyOptions(
               optionMetadata!.assemblyOptions,
               priceMap,
@@ -78,8 +80,8 @@ const parseAssemblyOptions = (
             )
           : null
       items[assemblyItem.id] = {
-        image: optionMetadata!.imageUrl,
-        name: optionMetadata!.name,
+        image: optionMetadata.imageUrl,
+        name: optionMetadata.name,
         id: assemblyItem.id,
         price: pathOr(
           0,
