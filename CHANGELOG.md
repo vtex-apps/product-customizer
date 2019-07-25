@@ -7,7 +7,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 ### Added
-- Many components for flexible.
 - Support recursive assembly options.
 - New components:
 	- `assembly-option-item-image`
