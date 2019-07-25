@@ -26,10 +26,14 @@ const Single: FC = () => {
         }
       }}
     >
+      {/* TODO: Properly use Radio from Styleguide */}
       <Radio
         checked={selected}
-        // Required but useless props
-        {...{ id: '', label: '', name: '', value: '', onChange: () => {} }}
+        id=""
+        label=""
+        name=""
+        value=""
+        onChange={() => {}}
       />
     </div>
   )
@@ -43,7 +47,7 @@ const Toggle: FC = () => {
   return (
     <Checkbox
       disabled={disabled}
-      name={''}
+      name={`selected-${item.id}`}
       checked={selected}
       onChange={() => {
         dispatch({

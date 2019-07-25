@@ -1,7 +1,7 @@
 import React, { useMemo, FC, Fragment } from 'react'
 import useProduct from 'vtex.product-context/useProduct'
 import { find, propEq, compose, last, split, pathOr } from 'ramda'
-import ProductAssemblyOptionsGroupStateManager from './components/ProductAssemblyOptions/ProductAssemblyOptionsGroupStateManager'
+import StateManager from './components/ProductAssemblyOptions/StateManager'
 
 type PriceMap = Record<string, Record<string, Record<string, number>>>
 
@@ -40,7 +40,7 @@ const parseAssemblyOptions = (
   assemblyOptions: AssemblyOption[],
   priceMap: PriceMap,
   product: Product,
-  fatherItemId?: string,
+  parentItemId?: string,
   treePath?: TreePath[]
 ) => {
   const assemblyOptionsParsed = {} as Record<string, AssemblyOptionGroup>
@@ -49,8 +49,8 @@ const parseAssemblyOptions = (
       continue
     }
     const currentTreePath =
-      fatherItemId && treePath
-        ? [...treePath, { itemId: fatherItemId, groupId: assemblyOption.id }]
+      parentItemId && treePath
+        ? [...treePath, { itemId: parentItemId, groupId: assemblyOption.id }]
         : []
     assemblyOptionsParsed[assemblyOption.id] = {
       id: assemblyOption.id,
@@ -128,12 +128,12 @@ const ProductAssemblyOptions: FC = ({ children }) => {
     <Fragment>
       {Object.keys(assemblyOptions).map(assemblyOptionId => {
         return (
-          <ProductAssemblyOptionsGroupStateManager
+          <StateManager
             key={assemblyOptionId}
             assemblyOption={assemblyOptions[assemblyOptionId]}
           >
             {children}
-          </ProductAssemblyOptionsGroupStateManager>
+          </StateManager>
         )
       })}
     </Fragment>

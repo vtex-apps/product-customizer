@@ -1,6 +1,9 @@
-import { createContext, useContext, Dispatch } from 'react'
+import { createContext, useContext, Dispatch, useReducer } from 'react'
+import { path, mapObjIndexed } from 'ramda'
 
-export type DispatchAction = {
+export type GroupState = AssemblyOptionGroup
+
+type DispatchAction = {
   type: 'SET_QUANTITY'
   args: {
     itemId: string
@@ -18,6 +21,37 @@ interface ItemState {
   groupQuantitySum: number
   groupPath: string[]
 }
+
+const removeAllItems = mapObjIndexed<AssemblyItem, AssemblyItem>(item => ({
+  ...item,
+  quantity: 0,
+}))
+
+function reducer(state: GroupState, action: DispatchAction) {
+  const args = action.args || {}
+  switch (action.type) {
+    case 'SET_QUANTITY':
+      const { itemId, newQuantity, type, groupPath } = args
+      const groupState = path(groupPath, state) as AssemblyOptionGroup
+      let newItems = groupState.items
+      if (type === 'SINGLE') {
+        newItems = removeAllItems(newItems)
+      }
+      groupState.items = {
+        ...newItems,
+        [itemId]: {
+          ...newItems[itemId],
+          quantity: newQuantity,
+        },
+      }
+      return { ...state }
+    default:
+      return state
+  }
+}
+
+export const useGroupContextReducer = (assemblyOption: AssemblyOptionGroup) =>
+  useReducer(reducer, assemblyOption)
 
 export const ProductAssemblyDispatchContext = createContext<
   Dispatch<DispatchAction>

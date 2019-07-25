@@ -1,13 +1,12 @@
-import React, { useReducer, useEffect, FC } from 'react'
-import { propEq, mapObjIndexed, pick, path } from 'ramda'
+import React, { useEffect, FC } from 'react'
+import { propEq, pick } from 'ramda'
 import { useProductDispatch } from 'vtex.product-context/ProductDispatchContext'
 import ProductAssemblyOptionsGroup from './ProductAssemblyOptionsGroup'
 import {
   ProductAssemblyDispatchContext,
-  DispatchAction,
+  useGroupContextReducer,
+  GroupState,
 } from '../ProductAssemblyContext'
-
-type State = AssemblyOptionGroup
 
 interface BuyButtonItem {
   name: string
@@ -32,34 +31,6 @@ const getGroupType = (assemblyOption: AssemblyOptionGroup) => {
   }
 
   return 'MULTIPLE'
-}
-
-const removeAllItems = mapObjIndexed<AssemblyItem, AssemblyItem>(item => ({
-  ...item,
-  quantity: 0,
-}))
-
-function reducer(state: State, action: DispatchAction) {
-  const args = action.args || {}
-  switch (action.type) {
-    case 'SET_QUANTITY':
-      const { itemId, newQuantity, type, groupPath } = args
-      const groupState = path(groupPath, state) as AssemblyOptionGroup
-      let newItems = groupState.items
-      if (type === 'SINGLE') {
-        newItems = removeAllItems(newItems)
-      }
-      groupState.items = {
-        ...newItems,
-        [itemId]: {
-          ...newItems[itemId],
-          quantity: newQuantity,
-        },
-      }
-      return { ...state }
-    default:
-      return state
-  }
 }
 
 const parseItemChildren = (children: Record<string, AssemblyOptionGroup>) => {
@@ -99,23 +70,24 @@ const isGroupValid = (group: AssemblyOptionGroup) => {
       return true
     }
     const childrenGroups = Object.values(item.children)
-    const areChildrenValids = childrenGroups.every(childGroup =>
+    const areChildrenValid = childrenGroups.every(childGroup =>
       isGroupValid(childGroup)
     )
-    return areChildrenValids
+    return areChildrenValid
   })
   return areItemsValid
 }
 
-function useAssemblyOptionsModifications(localState: State, groupType: string) {
+function useAssemblyOptionsModifications(
+  localState: GroupState,
+  groupType: string
+) {
   const dispatch = useProductDispatch()
 
   useEffect(() => {
     const { items: localItems, id } = localState
     const items = Object.values(localItems).map(parseItem(groupType))
     const isValid = isGroupValid(localState)
-    console.log('teste setting isValid: ', isValid)
-    console.log('teste setting localState: ', localState)
     dispatch({
       type: 'SET_ASSEMBLY_OPTIONS',
       args: {
@@ -131,11 +103,8 @@ interface Props {
   assemblyOption: AssemblyOptionGroup
 }
 
-const ProductAssemblyOptionsGroupStateManager: FC<Props> = ({
-  assemblyOption,
-  children,
-}) => {
-  const [state, dispatch] = useReducer(reducer, assemblyOption)
+const StateManager: FC<Props> = ({ assemblyOption, children }) => {
+  const [state, dispatch] = useGroupContextReducer(assemblyOption)
   const groupType = getGroupType(assemblyOption)
   useAssemblyOptionsModifications(state, groupType)
   return (
@@ -147,4 +116,4 @@ const ProductAssemblyOptionsGroupStateManager: FC<Props> = ({
   )
 }
 
-export default ProductAssemblyOptionsGroupStateManager
+export default StateManager
