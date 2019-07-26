@@ -1,21 +1,6 @@
 import React, { Fragment, FC } from 'react'
-import { propEq } from 'ramda'
 
 import ProductAssemblyItem from './ProductAssemblyItem'
-
-const maxIsOne = propEq('maxQuantity', 1)
-
-const getGroupType = (assemblyOption: AssemblyOptionGroup) => {
-  if (assemblyOption.maxQuantity === 1) {
-    return 'SINGLE'
-  }
-
-  if (Object.values(assemblyOption.items).every(maxIsOne)) {
-    return 'TOGGLE'
-  }
-
-  return 'MULTIPLE'
-}
 
 const getGroupPath = (assemblyTreePath?: TreePath[]) => {
   let groupPath = [] as string[]
@@ -44,7 +29,6 @@ const ProductAssemblyOptionsGroup: FC<Props> = ({
     (acc, { quantity }) => acc + quantity,
     0
   )
-  const groupType = getGroupType(assemblyOptionState)
 
   return (
     <Fragment>
@@ -54,7 +38,7 @@ const ProductAssemblyOptionsGroup: FC<Props> = ({
       {Object.values(assemblyOptionState.items).map(item => {
         return (
           <ProductAssemblyItem
-            groupType={groupType}
+            groupType={assemblyOptionState.type}
             groupQuantitySum={groupQuantitySum}
             item={item}
             groupMaxQuantity={assemblyOptionState.maxQuantity}

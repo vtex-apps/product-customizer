@@ -5,6 +5,7 @@ import {
 } from '../ProductAssemblyContext'
 import { Checkbox, Radio, NumericStepper } from 'vtex.styleguide'
 import styles from './styles.css'
+import { GROUP_TYPES } from '../../utils'
 
 const Single: FC = () => {
   const { item, groupPath } = useProductAssemblyItem()
@@ -19,7 +20,7 @@ const Single: FC = () => {
             args: {
               itemId: item.id,
               newQuantity: 1,
-              type: 'SINGLE',
+              type: GROUP_TYPES.SINGLE,
               groupPath,
             },
           })
@@ -55,7 +56,7 @@ const Toggle: FC = () => {
           args: {
             itemId: item.id,
             newQuantity: item.quantity === 1 ? 0 : 1,
-            type: 'TOGGLE',
+            type: GROUP_TYPES.TOGGLE,
             groupPath,
           },
         })
@@ -89,7 +90,7 @@ const Multiple: FC = () => {
             args: {
               itemId: item.id,
               newQuantity: value,
-              type: 'MULTIPLE',
+              type: GROUP_TYPES.MULTIPLE,
               groupPath,
             },
           })

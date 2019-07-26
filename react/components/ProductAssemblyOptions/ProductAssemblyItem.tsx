@@ -3,7 +3,7 @@ import { ProductAssemblyItemContext } from '../ProductAssemblyContext'
 import styles from './styles.css'
 
 interface Props {
-  groupType: string
+  groupType: GroupTypes
   groupQuantitySum: number
   item: AssemblyItem
   groupMaxQuantity: number

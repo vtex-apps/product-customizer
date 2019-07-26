@@ -2,6 +2,7 @@ import React, { useMemo, FC, Fragment } from 'react'
 import useProduct from 'vtex.product-context/useProduct'
 import { find, propEq, compose, last, split, pathOr } from 'ramda'
 import StateManager from './components/ProductAssemblyOptions/StateManager'
+import { getGroupType } from './utils'
 
 type PriceMap = Record<string, Record<string, Record<string, number>>>
 
@@ -59,6 +60,7 @@ const parseAssemblyOptions = (
       items: {},
       groupName: splitGroupName(assemblyOption.id),
       treePath: currentTreePath,
+      type: getGroupType(assemblyOption),
     }
     const items = {} as Record<string, AssemblyItem>
     for (const assemblyItem of assemblyOption.composition.items) {
