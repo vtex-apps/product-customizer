@@ -16,12 +16,15 @@
     "smoothscroll-polyfill": "^0.4.3"
   },
   "devDependencies": {
+    "@types/classnames": "^2.2.9",
+    "@types/ramda": "^0.26.18",
+    "@types/react": "^16.8.23",
     "@vtex/test-tools": "^0.2.0",
-    "apollo-cache-inmemory": "^1.5.1",
     "apollo-client": "^2.5.1",
     "eslint": "^5.16.0",
-    "eslint-config-vtex-react": "^4.0.0",
-    "prettier": "^1.16.4",
-    "typescript": "^3.4.1"
+    "eslint-config-vtex-react": "^5.0.0",
+    "prettier": "^1.18.2",
+    "tslint-eslint-rules": "^5.4.0",
+    "typescript": "3.5.2"
   }
 }

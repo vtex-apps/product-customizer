@@ -2,12 +2,10 @@
   "compilerOptions": {
     "alwaysStrict": true,
     "esModuleInterop": true,
-    "allowJs": true,
     "jsx": "react",
     "lib": ["es2017", "dom", "es2018.promise"],
     "module": "es6",
     "moduleResolution": "node",
-    "noEmitOnError": true,
     "noImplicitAny": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
@@ -23,7 +21,7 @@
     "types": ["node", "jest", "graphql"]
   },
   "exclude": ["node_modules"],
-  "include": ["./typings/*.d.ts", "./**/*.tsx"],
+  "include": ["./typings/*.d.ts", "./**/*.tsx", "./**/*.ts"],
   "typeAcquisition": {
     "enable": false
   }

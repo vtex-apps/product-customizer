@@ -11,11 +11,14 @@
   "dependencies": {
     "vtex.styleguide": "9.x",
     "vtex.store-components": "3.x",
-    "vtex.product-details": "1.x"
+    "vtex.product-details": "1.x",
+    "vtex.product-context": "0.x",
+    "vtex.device-detector": "0.x"
   },
   "builders": {
     "store": "0.x",
     "messages": "1.x",
     "react": "3.x"
-  }
+  },
+  "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
 }

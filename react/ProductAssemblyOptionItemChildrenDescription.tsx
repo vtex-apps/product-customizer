@@ -1,0 +1,3 @@
+import ProductAssemblyOptionItemChildrenDescription from './components/ProductAssemblyOptions/ProductAssemblyOptionItemChildrenDescription'
+
+export default ProductAssemblyOptionItemChildrenDescription
