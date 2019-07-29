@@ -1,5 +1,5 @@
 import React, { useEffect, FC } from 'react'
-import { propEq, pick } from 'ramda'
+import { pick } from 'ramda'
 import { useProductDispatch } from 'vtex.product-context/ProductDispatchContext'
 import ProductAssemblyOptionsGroup from './ProductAssemblyOptionsGroup'
 import {
@@ -15,22 +15,8 @@ interface BuyButtonItem {
   quantity: number
   seller: string
   price: number
-  choiceType: string
+  choiceType: GroupTypes
   children: Record<string, BuyButtonItem[]> | null
-}
-
-const maxIsOne = propEq('maxQuantity', 1)
-
-const getGroupType = (assemblyOption: AssemblyOptionGroup) => {
-  if (assemblyOption.maxQuantity === 1) {
-    return 'SINGLE'
-  }
-
-  if (Object.values(assemblyOption.items).every(maxIsOne)) {
-    return 'TOGGLE'
-  }
-
-  return 'MULTIPLE'
 }
 
 const parseItemChildren = (children: Record<string, AssemblyOptionGroup>) => {
@@ -38,15 +24,14 @@ const parseItemChildren = (children: Record<string, AssemblyOptionGroup>) => {
   const result = {} as Record<string, BuyButtonItem[]>
   for (const groupId of groupIds) {
     const childrenAssemblyOption = children[groupId]
-    const groupType = getGroupType(childrenAssemblyOption)
     result[groupId] = Object.values(childrenAssemblyOption.items).map(
-      parseItem(groupType)
+      parseItem(childrenAssemblyOption.type)
     )
   }
   return result
 }
 
-const parseItem = (groupType: string) => (item: AssemblyItem) => ({
+const parseItem = (groupType: GroupTypes) => (item: AssemblyItem) => ({
   ...pick(['name', 'id', 'initialQuantity', 'quantity', 'seller'], item),
   price: item.price / 100,
   choiceType: groupType,
@@ -78,15 +63,12 @@ const isGroupValid = (group: AssemblyOptionGroup) => {
   return areItemsValid
 }
 
-function useAssemblyOptionsModifications(
-  localState: GroupState,
-  groupType: string
-) {
+function useAssemblyOptionsModifications(localState: GroupState) {
   const dispatch = useProductDispatch()
 
   useEffect(() => {
-    const { items: localItems, id } = localState
-    const items = Object.values(localItems).map(parseItem(groupType))
+    const { items: localItems, id, type } = localState
+    const items = Object.values(localItems).map(parseItem(type))
     const isValid = isGroupValid(localState)
     dispatch({
       type: 'SET_ASSEMBLY_OPTIONS',
@@ -96,7 +78,7 @@ function useAssemblyOptionsModifications(
         isValid,
       },
     })
-  }, [localState, groupType, dispatch])
+  }, [localState, dispatch])
 }
 
 interface Props {
@@ -105,8 +87,7 @@ interface Props {
 
 const StateManager: FC<Props> = ({ assemblyOption, children }) => {
   const [state, dispatch] = useGroupContextReducer(assemblyOption)
-  const groupType = getGroupType(assemblyOption)
-  useAssemblyOptionsModifications(state, groupType)
+  useAssemblyOptionsModifications(state)
   return (
     <ProductAssemblyDispatchContext.Provider value={dispatch}>
       <ProductAssemblyOptionsGroup assemblyOptionState={state}>

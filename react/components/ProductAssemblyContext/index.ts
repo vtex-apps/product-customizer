@@ -1,5 +1,6 @@
 import { createContext, useContext, Dispatch, useReducer } from 'react'
 import { path, mapObjIndexed } from 'ramda'
+import { GROUP_TYPES } from '../../utils'
 
 export type GroupState = AssemblyOptionGroup
 
@@ -17,7 +18,7 @@ interface ItemState {
   groupMaxQuantity: number
   groupMinQuantity: number
   item: AssemblyItem
-  groupType: string
+  groupType: GroupTypes
   groupQuantitySum: number
   groupPath: string[]
 }
@@ -34,7 +35,7 @@ function reducer(state: GroupState, action: DispatchAction) {
       const { itemId, newQuantity, type, groupPath } = args
       const groupState = path(groupPath, state) as AssemblyOptionGroup
       let newItems = groupState.items
-      if (type === 'SINGLE') {
+      if (type === GROUP_TYPES.SINGLE) {
         newItems = removeAllItems(newItems)
       }
       groupState.items = {
@@ -74,7 +75,7 @@ export const ProductAssemblyItemContext = createContext<ItemState>({
     quantity: 0,
     children: null,
   },
-  groupType: '',
+  groupType: 'MULTIPLE',
   groupQuantitySum: 0,
   groupPath: [],
 })

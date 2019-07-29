@@ -53,6 +53,8 @@ interface TreePath {
   groupId: string
 }
 
+type GroupTypes = 'SINGLE' | 'TOGGLE' | 'MULTIPLE'
+
 interface AssemblyOptionGroup {
   id: string
   minQuantity: number
@@ -60,6 +62,7 @@ interface AssemblyOptionGroup {
   items: Record<string, AssemblyItem>
   groupName: string
   treePath: TreePath[]
+  type: GroupTypes
 }
 
 interface AssemblyItem {
