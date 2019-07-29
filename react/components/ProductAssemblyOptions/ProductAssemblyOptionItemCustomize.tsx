@@ -50,9 +50,21 @@ const ModalView: FC<{ closeAction: () => void }> = ({
   )
 }
 
-const ProductAssemblyOptionItemCustomize: FC = ({ children }) => {
+interface Props {
+  buttonProps?: ButtonProps
+}
+
+interface ButtonProps {
+  collapse?: 'left' | 'right' | 'none'
+}
+
+const ProductAssemblyOptionItemCustomize: FC<Props> = ({
+  children,
+  buttonProps = {},
+}) => {
   const { item } = useProductAssemblyItem()
   const { isMobile } = useDevice()
+  const buttonCollapse = buttonProps.collapse
   const [modalOpen, setModalOpen] = useState(false)
 
   if (!item.children) {
@@ -63,7 +75,12 @@ const ProductAssemblyOptionItemCustomize: FC = ({ children }) => {
 
   return (
     <Fragment>
-      <Button variation="tertiary" onClick={() => setModalOpen(true)}>
+      <Button
+        variation="tertiary"
+        onClick={() => setModalOpen(true)}
+        collapseLeft={buttonCollapse === 'left'}
+        collapseRight={buttonCollapse === 'right'}
+      >
         <div className="c-action-primary t-action">Customize</div>
       </Button>
       <Modal
