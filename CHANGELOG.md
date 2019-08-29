@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.1.2] - 2019-08-29
+
 ## [2.1.1] - 2019-07-29
 ### Fixed
 - Fix text type to show at `assembly-option-item-children-description`.
