@@ -1,56 +1,38 @@
-import React, { Fragment, FC } from 'react'
+import React, { FC, Fragment } from 'react'
 
-import ProductAssemblyItem from './ProductAssemblyItem'
+import { useProductAssemblyGroupState, GroupState } from '../ProductAssemblyContext/Group'
+import useAssemblyOptionsModifications from '../../modules/useAssemblyOptionsModifications'
+import ProductAssemblyOptionItemAttachment from './ProductAssemblyOptionItemAttachment'
+import { ProductAssemblyItemProvider } from '../ProductAssemblyContext/Item'
+import styles from './styles.css'
 
-const getGroupPath = (assemblyTreePath?: TreePath[]) => {
-  let groupPath = [] as string[]
-  const treePath = assemblyTreePath || []
-  for (const currentPath of treePath) {
-    groupPath = groupPath.concat([
-      'items',
-      currentPath.itemId,
-      'children',
-      currentPath.groupId,
-    ])
-  }
-  return groupPath
-}
+const ProductAssemblyOptionsGroup: FC = ({ children }) => {
+  const assemblyOptionGroup = useProductAssemblyGroupState() as GroupState
 
-interface Props {
-  assemblyOptionState: AssemblyOptionGroup
-}
-
-const ProductAssemblyOptionsGroup: FC<Props> = ({
-  assemblyOptionState,
-  children,
-}) => {
-  const groupPath = getGroupPath(assemblyOptionState.treePath)
-  const groupQuantitySum = Object.values(assemblyOptionState.items).reduce(
-    (acc, { quantity }) => acc + quantity,
-    0
-  )
+  useAssemblyOptionsModifications(assemblyOptionGroup)
 
   return (
     <Fragment>
-      <div className="ttc-s pv4 c-muted-2 t-small ">
-        {assemblyOptionState.groupName}
+      <div className="ttc-s pv4 c-muted-2 t-small">
+        {assemblyOptionGroup.groupName}
       </div>
-      {Object.values(assemblyOptionState.items).map(item => {
-        return (
-          <ProductAssemblyItem
-            groupType={assemblyOptionState.type}
-            groupQuantitySum={groupQuantitySum}
-            item={item}
-            groupMaxQuantity={assemblyOptionState.maxQuantity}
-            groupMinQuantity={assemblyOptionState.minQuantity}
-            groupPath={groupPath}
-          >
-            {children}
-          </ProductAssemblyItem>
-        )
-      })}
+      {assemblyOptionGroup.items
+        ? Object.values(assemblyOptionGroup.items).map(item => {
+            return (
+              <ProductAssemblyItemProvider item={item} key={item.id}>
+                <div
+                  className={`${styles.itemContainer} hover-bg-muted-5 bb b--muted-5 pa3`}
+                >
+                  {children}
+                </div>
+              </ProductAssemblyItemProvider>
+            )
+          })
+        : <ProductAssemblyOptionItemAttachment />
+      }
     </Fragment>
   )
 }
+
 
 export default ProductAssemblyOptionsGroup

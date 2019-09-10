@@ -18,6 +18,7 @@
     "component": "ProductAssemblyOptions",
     "composition": "children",
     "allowed": [
+      "flex-layout",
       "assembly-option-item-image",
       "assembly-option-item-quantity-selector",
       "assembly-option-item-name",
@@ -42,6 +43,7 @@
     "component": "ProductAssemblyOptionItemCustomize",
     "composition": "children",
     "allowed": [
+      "flex-layout",
       "assembly-option-item-image",
       "assembly-option-item-quantity-selector",
       "assembly-option-item-name",

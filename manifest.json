@@ -13,7 +13,8 @@
     "vtex.store-components": "3.x",
     "vtex.product-details": "1.x",
     "vtex.product-context": "0.x",
-    "vtex.device-detector": "0.x"
+    "vtex.device-detector": "0.x",
+    "vtex.flex-layout": "0.x"
   },
   "builders": {
     "store": "0.x",

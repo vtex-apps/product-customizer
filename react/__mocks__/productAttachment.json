@@ -1,0 +1,1418 @@
+{
+  "data": {
+    "product": {
+      "cacheId": "star-color-top",
+      "productName": "Star colors top",
+      "productId": "2000024",
+      "description": "Colorful star on a tank top",
+      "titleTag": "Star Color Top",
+      "metaTagDescription": "Colorful star on a tank top",
+      "linkText": "star-color-top",
+      "productReference": "998765",
+      "categories": [
+        "/Apparel & Accessories/Clothing/Tops/",
+        "/Apparel & Accessories/Clothing/",
+        "/Apparel & Accessories/"
+      ],
+      "categoryId": "48",
+      "categoriesIds": [
+        "/25/47/48/",
+        "/25/47/",
+        "/25/"
+      ],
+      "categoryTree": [
+        {
+          "id": 25,
+          "name": "Apparel & Accessories",
+          "href": "/apparel---accessories",
+          "__typename": "Category"
+        },
+        {
+          "id": 47,
+          "name": "Clothing",
+          "href": "/apparel---accessories/clothing",
+          "__typename": "Category"
+        },
+        {
+          "id": 48,
+          "name": "Tops",
+          "href": "/apparel---accessories/clothing/tops",
+          "__typename": "Category"
+        }
+      ],
+      "brand": "Kawasaki",
+      "brandId": 2000001,
+      "properties": [
+        {
+          "name": "Sleeve type",
+          "values": [
+            "Sleeveless"
+          ],
+          "__typename": "Property"
+        }
+      ],
+      "specificationGroups": [
+        {
+          "name": "Specifications",
+          "specifications": [
+            {
+              "name": "Sleeve type",
+              "values": [
+                "Sleeveless"
+              ],
+              "__typename": "SpecificationGroupProperty"
+            }
+          ],
+          "__typename": "SpecificationGroup"
+        },
+        {
+          "name": "allSpecifications",
+          "specifications": [
+            {
+              "name": "Sleeve type",
+              "values": [
+                "Sleeveless"
+              ],
+              "__typename": "SpecificationGroupProperty"
+            }
+          ],
+          "__typename": "SpecificationGroup"
+        }
+      ],
+      "items": [
+        {
+          "itemId": "2000564",
+          "name": "Red star",
+          "nameComplete": "Star colors top Red star",
+          "complementName": "Tank top with star",
+          "ean": "",
+          "referenceId": [
+            {
+              "Key": "RefId",
+              "Value": "987134",
+              "__typename": "Reference"
+            }
+          ],
+          "measurementUnit": "un",
+          "unitMultiplier": 1,
+          "images": [
+            {
+              "imageId": "155518",
+              "imageLabel": "red",
+              "imageTag": "<img src=\"~/arquivos/ids/155518-#width#-#height#/download--40-.png?v=636942495289870000\" width=\"#width#\" height=\"#height#\" alt=\"red\" id=\"\" />",
+              "imageUrl": "https://storecomponents.vteximg.com.br/arquivos/ids/155518/download--40-.png?v=636942495289870000",
+              "imageText": "red",
+              "__typename": "Image"
+            }
+          ],
+          "videos": [],
+          "sellers": [
+            {
+              "sellerId": "1",
+              "sellerName": "VTEX",
+              "addToCartLink": "https://portal.vtexcommercestable.com.br/checkout/cart/add?sku=2000564&qty=1&seller=1&sc=1&price=3500&cv=dda206766ea0c9fad5bda76076173024_&sc=1",
+              "sellerDefault": true,
+              "commertialOffer": {
+                "discountHighlights": [],
+                "teasers": [],
+                "Price": 35,
+                "ListPrice": 35,
+                "PriceWithoutDiscount": 35,
+                "RewardValue": 0,
+                "PriceValidUntil": "2020-08-28T19:13:46.6323591Z",
+                "AvailableQuantity": 2000000,
+                "Tax": 0,
+                "CacheVersionUsedToCallCheckout": "dda206766ea0c9fad5bda76076173024_",
+                "Installments": [
+                  {
+                    "Value": 35,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 35,
+                    "NumberOfInstallments": 1,
+                    "Name": "American Express à vista",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 35,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 35,
+                    "NumberOfInstallments": 1,
+                    "Name": "Visa à vista",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 17.5,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 35,
+                    "NumberOfInstallments": 2,
+                    "Name": "Visa 2 vezes sem juros",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 11.7,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 35,
+                    "NumberOfInstallments": 3,
+                    "Name": "Visa 3 vezes sem juros",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 35,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 35,
+                    "NumberOfInstallments": 1,
+                    "Name": "Mastercard à vista",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 17.5,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 35,
+                    "NumberOfInstallments": 2,
+                    "Name": "Mastercard 2 vezes sem juros",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 11.7,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 35,
+                    "NumberOfInstallments": 3,
+                    "Name": "Mastercard 3 vezes sem juros",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 35,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 35,
+                    "NumberOfInstallments": 1,
+                    "Name": "Boleto Bancário à vista",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 35,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 35,
+                    "NumberOfInstallments": 1,
+                    "Name": "Promissory à vista",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 35,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 35,
+                    "NumberOfInstallments": 1,
+                    "Name": "Customer Credit à vista",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 17.5,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 35,
+                    "NumberOfInstallments": 2,
+                    "Name": "Customer Credit 2 vezes sem juros",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 11.7,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 35,
+                    "NumberOfInstallments": 3,
+                    "Name": "Customer Credit 3 vezes sem juros",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 35,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 35,
+                    "NumberOfInstallments": 1,
+                    "Name": "Free à vista",
+                    "__typename": "Installment"
+                  }
+                ],
+                "__typename": "Offer"
+              },
+              "__typename": "Seller"
+            }
+          ],
+          "variations": [
+            {
+              "name": "Color",
+              "values": [
+                "Red"
+              ],
+              "__typename": "Property"
+            }
+          ],
+          "kitItems": [],
+          "attachments": [
+            {
+              "id": "10",
+              "name": "1-3-lines",
+              "required": false,
+              "__typename": "Attachment"
+            },
+            {
+              "id": "13",
+              "name": "Font",
+              "required": false,
+              "__typename": "Attachment"
+            }
+          ],
+          "calculatedAttachments": null,
+          "__typename": "SKU"
+        },
+        {
+          "itemId": "2000565",
+          "name": "Magento",
+          "nameComplete": "Star colors top Magento",
+          "complementName": "Tank top with star",
+          "ean": "",
+          "referenceId": [
+            {
+              "Key": "RefId",
+              "Value": "66678",
+              "__typename": "Reference"
+            }
+          ],
+          "measurementUnit": "un",
+          "unitMultiplier": 1,
+          "images": [
+            {
+              "imageId": "155519",
+              "imageLabel": "magenta",
+              "imageTag": "<img src=\"~/arquivos/ids/155519-#width#-#height#/download--51-.png?v=636942496232070000\" width=\"#width#\" height=\"#height#\" alt=\"magenta\" id=\"\" />",
+              "imageUrl": "https://storecomponents.vteximg.com.br/arquivos/ids/155519/download--51-.png?v=636942496232070000",
+              "imageText": "magenta",
+              "__typename": "Image"
+            }
+          ],
+          "videos": [],
+          "sellers": [
+            {
+              "sellerId": "1",
+              "sellerName": "VTEX",
+              "addToCartLink": "https://portal.vtexcommercestable.com.br/checkout/cart/add?sku=2000565&qty=1&seller=1&sc=1&price=0&cv=dda206766ea0c9fad5bda76076173024_&sc=1",
+              "sellerDefault": true,
+              "commertialOffer": {
+                "discountHighlights": [],
+                "teasers": [],
+                "Price": 0,
+                "ListPrice": 0,
+                "PriceWithoutDiscount": 0,
+                "RewardValue": 0,
+                "PriceValidUntil": null,
+                "AvailableQuantity": 0,
+                "Tax": 0,
+                "CacheVersionUsedToCallCheckout": "dda206766ea0c9fad5bda76076173024_",
+                "Installments": [],
+                "__typename": "Offer"
+              },
+              "__typename": "Seller"
+            }
+          ],
+          "variations": [],
+          "kitItems": [],
+          "attachments": [],
+          "calculatedAttachments": null,
+          "__typename": "SKU"
+        },
+        {
+          "itemId": "2000566",
+          "name": "Dark blue",
+          "nameComplete": "Star colors top Dark blue",
+          "complementName": "Tank top with star",
+          "ean": "",
+          "referenceId": [
+            {
+              "Key": "RefId",
+              "Value": "590",
+              "__typename": "Reference"
+            }
+          ],
+          "measurementUnit": "un",
+          "unitMultiplier": 1,
+          "images": [
+            {
+              "imageId": "155520",
+              "imageLabel": "darkblue",
+              "imageTag": "<img src=\"~/arquivos/ids/155520-#width#-#height#/download--52-.png?v=636942497381500000\" width=\"#width#\" height=\"#height#\" alt=\"dark-blue\" id=\"\" />",
+              "imageUrl": "https://storecomponents.vteximg.com.br/arquivos/ids/155520/download--52-.png?v=636942497381500000",
+              "imageText": "dark-blue",
+              "__typename": "Image"
+            }
+          ],
+          "videos": [],
+          "sellers": [
+            {
+              "sellerId": "1",
+              "sellerName": "VTEX",
+              "addToCartLink": "https://portal.vtexcommercestable.com.br/checkout/cart/add?sku=2000566&qty=1&seller=1&sc=1&price=3500&cv=dda206766ea0c9fad5bda76076173024_&sc=1",
+              "sellerDefault": true,
+              "commertialOffer": {
+                "discountHighlights": [],
+                "teasers": [],
+                "Price": 35,
+                "ListPrice": 35,
+                "PriceWithoutDiscount": 35,
+                "RewardValue": 0,
+                "PriceValidUntil": "2020-08-28T19:13:46.6139514Z",
+                "AvailableQuantity": 2000000,
+                "Tax": 0,
+                "CacheVersionUsedToCallCheckout": "dda206766ea0c9fad5bda76076173024_",
+                "Installments": [
+                  {
+                    "Value": 35,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 35,
+                    "NumberOfInstallments": 1,
+                    "Name": "American Express à vista",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 35,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 35,
+                    "NumberOfInstallments": 1,
+                    "Name": "Visa à vista",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 17.5,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 35,
+                    "NumberOfInstallments": 2,
+                    "Name": "Visa 2 vezes sem juros",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 11.7,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 35,
+                    "NumberOfInstallments": 3,
+                    "Name": "Visa 3 vezes sem juros",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 35,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 35,
+                    "NumberOfInstallments": 1,
+                    "Name": "Mastercard à vista",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 17.5,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 35,
+                    "NumberOfInstallments": 2,
+                    "Name": "Mastercard 2 vezes sem juros",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 11.7,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 35,
+                    "NumberOfInstallments": 3,
+                    "Name": "Mastercard 3 vezes sem juros",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 35,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 35,
+                    "NumberOfInstallments": 1,
+                    "Name": "Boleto Bancário à vista",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 35,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 35,
+                    "NumberOfInstallments": 1,
+                    "Name": "Promissory à vista",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 35,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 35,
+                    "NumberOfInstallments": 1,
+                    "Name": "Customer Credit à vista",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 17.5,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 35,
+                    "NumberOfInstallments": 2,
+                    "Name": "Customer Credit 2 vezes sem juros",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 11.7,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 35,
+                    "NumberOfInstallments": 3,
+                    "Name": "Customer Credit 3 vezes sem juros",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 35,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 35,
+                    "NumberOfInstallments": 1,
+                    "Name": "Free à vista",
+                    "__typename": "Installment"
+                  }
+                ],
+                "__typename": "Offer"
+              },
+              "__typename": "Seller"
+            }
+          ],
+          "variations": [
+            {
+              "name": "Color",
+              "values": [
+                "Blue"
+              ],
+              "__typename": "Property"
+            }
+          ],
+          "kitItems": [],
+          "attachments": [
+            {
+              "id": "11",
+              "name": "4-lines",
+              "required": true,
+              "__typename": "Attachment"
+            },
+            {
+              "id": "13",
+              "name": "Font",
+              "required": false,
+              "__typename": "Attachment"
+            }
+          ],
+          "calculatedAttachments": null,
+          "__typename": "SKU"
+        },
+        {
+          "itemId": "2000567",
+          "name": "Light blue",
+          "nameComplete": "Star colors top Light blue",
+          "complementName": "Tank top with star",
+          "ean": "",
+          "referenceId": [
+            {
+              "Key": "RefId",
+              "Value": "9888",
+              "__typename": "Reference"
+            }
+          ],
+          "measurementUnit": "un",
+          "unitMultiplier": 1,
+          "images": [
+            {
+              "imageId": "155521",
+              "imageLabel": "lightblue",
+              "imageTag": "<img src=\"~/arquivos/ids/155521-#width#-#height#/download--53-.png?v=636943145000300000\" width=\"#width#\" height=\"#height#\" alt=\"light-blue\" id=\"\" />",
+              "imageUrl": "https://storecomponents.vteximg.com.br/arquivos/ids/155521/download--53-.png?v=636943145000300000",
+              "imageText": "light-blue",
+              "__typename": "Image"
+            }
+          ],
+          "videos": [],
+          "sellers": [
+            {
+              "sellerId": "1",
+              "sellerName": "VTEX",
+              "addToCartLink": "https://portal.vtexcommercestable.com.br/checkout/cart/add?sku=2000567&qty=1&seller=1&sc=1&price=0&cv=dda206766ea0c9fad5bda76076173024_&sc=1",
+              "sellerDefault": true,
+              "commertialOffer": {
+                "discountHighlights": [],
+                "teasers": [],
+                "Price": 0,
+                "ListPrice": 0,
+                "PriceWithoutDiscount": 0,
+                "RewardValue": 0,
+                "PriceValidUntil": null,
+                "AvailableQuantity": 0,
+                "Tax": 0,
+                "CacheVersionUsedToCallCheckout": "dda206766ea0c9fad5bda76076173024_",
+                "Installments": [],
+                "__typename": "Offer"
+              },
+              "__typename": "Seller"
+            }
+          ],
+          "variations": [],
+          "kitItems": [],
+          "attachments": [],
+          "calculatedAttachments": null,
+          "__typename": "SKU"
+        },
+        {
+          "itemId": "2000568",
+          "name": "lilac",
+          "nameComplete": "Star colors top lilac",
+          "complementName": "Tank top with star",
+          "ean": "",
+          "referenceId": [
+            {
+              "Key": "RefId",
+              "Value": "121299",
+              "__typename": "Reference"
+            }
+          ],
+          "measurementUnit": "un",
+          "unitMultiplier": 1,
+          "images": [
+            {
+              "imageId": "155522",
+              "imageLabel": "lilac",
+              "imageTag": "<img src=\"~/arquivos/ids/155522-#width#-#height#/download--42-.png?v=636943145798400000\" width=\"#width#\" height=\"#height#\" alt=\"lilac\" id=\"\" />",
+              "imageUrl": "https://storecomponents.vteximg.com.br/arquivos/ids/155522/download--42-.png?v=636943145798400000",
+              "imageText": "lilac",
+              "__typename": "Image"
+            }
+          ],
+          "videos": [],
+          "sellers": [
+            {
+              "sellerId": "1",
+              "sellerName": "VTEX",
+              "addToCartLink": "https://portal.vtexcommercestable.com.br/checkout/cart/add?sku=2000568&qty=1&seller=1&sc=1&price=0&cv=dda206766ea0c9fad5bda76076173024_&sc=1",
+              "sellerDefault": true,
+              "commertialOffer": {
+                "discountHighlights": [],
+                "teasers": [],
+                "Price": 0,
+                "ListPrice": 0,
+                "PriceWithoutDiscount": 0,
+                "RewardValue": 0,
+                "PriceValidUntil": null,
+                "AvailableQuantity": 0,
+                "Tax": 0,
+                "CacheVersionUsedToCallCheckout": "dda206766ea0c9fad5bda76076173024_",
+                "Installments": [],
+                "__typename": "Offer"
+              },
+              "__typename": "Seller"
+            }
+          ],
+          "variations": [],
+          "kitItems": [],
+          "attachments": [],
+          "calculatedAttachments": null,
+          "__typename": "SKU"
+        },
+        {
+          "itemId": "2000569",
+          "name": "baby pink",
+          "nameComplete": "Star colors top baby pink",
+          "complementName": "Tank top with star",
+          "ean": "",
+          "referenceId": [
+            {
+              "Key": "RefId",
+              "Value": "77721",
+              "__typename": "Reference"
+            }
+          ],
+          "measurementUnit": "un",
+          "unitMultiplier": 1,
+          "images": [
+            {
+              "imageId": "155523",
+              "imageLabel": "babypink",
+              "imageTag": "<img src=\"~/arquivos/ids/155523-#width#-#height#/download--45-.png?v=636943146718200000\" width=\"#width#\" height=\"#height#\" alt=\"baby-pink\" id=\"\" />",
+              "imageUrl": "https://storecomponents.vteximg.com.br/arquivos/ids/155523/download--45-.png?v=636943146718200000",
+              "imageText": "baby-pink",
+              "__typename": "Image"
+            }
+          ],
+          "videos": [],
+          "sellers": [
+            {
+              "sellerId": "1",
+              "sellerName": "VTEX",
+              "addToCartLink": "https://portal.vtexcommercestable.com.br/checkout/cart/add?sku=2000569&qty=1&seller=1&sc=1&price=0&cv=dda206766ea0c9fad5bda76076173024_&sc=1",
+              "sellerDefault": true,
+              "commertialOffer": {
+                "discountHighlights": [],
+                "teasers": [],
+                "Price": 0,
+                "ListPrice": 0,
+                "PriceWithoutDiscount": 0,
+                "RewardValue": 0,
+                "PriceValidUntil": null,
+                "AvailableQuantity": 0,
+                "Tax": 0,
+                "CacheVersionUsedToCallCheckout": "dda206766ea0c9fad5bda76076173024_",
+                "Installments": [],
+                "__typename": "Offer"
+              },
+              "__typename": "Seller"
+            }
+          ],
+          "variations": [],
+          "kitItems": [],
+          "attachments": [],
+          "calculatedAttachments": null,
+          "__typename": "SKU"
+        },
+        {
+          "itemId": "2000570",
+          "name": "White",
+          "nameComplete": "Star colors top White",
+          "complementName": "Tank top with star",
+          "ean": "",
+          "referenceId": [
+            {
+              "Key": "RefId",
+              "Value": "0009",
+              "__typename": "Reference"
+            }
+          ],
+          "measurementUnit": "un",
+          "unitMultiplier": 1,
+          "images": [
+            {
+              "imageId": "155524",
+              "imageLabel": "white",
+              "imageTag": "<img src=\"~/arquivos/ids/155524-#width#-#height#/download--43-.png?v=636943147443270000\" width=\"#width#\" height=\"#height#\" alt=\"WHITE\" id=\"\" />",
+              "imageUrl": "https://storecomponents.vteximg.com.br/arquivos/ids/155524/download--43-.png?v=636943147443270000",
+              "imageText": "WHITE",
+              "__typename": "Image"
+            }
+          ],
+          "videos": [],
+          "sellers": [
+            {
+              "sellerId": "1",
+              "sellerName": "VTEX",
+              "addToCartLink": "https://portal.vtexcommercestable.com.br/checkout/cart/add?sku=2000570&qty=1&seller=1&sc=1&price=3500&cv=dda206766ea0c9fad5bda76076173024_&sc=1",
+              "sellerDefault": true,
+              "commertialOffer": {
+                "discountHighlights": [],
+                "teasers": [],
+                "Price": 35,
+                "ListPrice": 35,
+                "PriceWithoutDiscount": 35,
+                "RewardValue": 0,
+                "PriceValidUntil": "2020-08-28T19:13:46.5429491Z",
+                "AvailableQuantity": 2000000,
+                "Tax": 0,
+                "CacheVersionUsedToCallCheckout": "dda206766ea0c9fad5bda76076173024_",
+                "Installments": [
+                  {
+                    "Value": 35,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 35,
+                    "NumberOfInstallments": 1,
+                    "Name": "American Express à vista",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 35,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 35,
+                    "NumberOfInstallments": 1,
+                    "Name": "Visa à vista",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 17.5,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 35,
+                    "NumberOfInstallments": 2,
+                    "Name": "Visa 2 vezes sem juros",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 11.7,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 35,
+                    "NumberOfInstallments": 3,
+                    "Name": "Visa 3 vezes sem juros",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 35,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 35,
+                    "NumberOfInstallments": 1,
+                    "Name": "Mastercard à vista",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 17.5,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 35,
+                    "NumberOfInstallments": 2,
+                    "Name": "Mastercard 2 vezes sem juros",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 11.7,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 35,
+                    "NumberOfInstallments": 3,
+                    "Name": "Mastercard 3 vezes sem juros",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 35,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 35,
+                    "NumberOfInstallments": 1,
+                    "Name": "Boleto Bancário à vista",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 35,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 35,
+                    "NumberOfInstallments": 1,
+                    "Name": "Promissory à vista",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 35,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 35,
+                    "NumberOfInstallments": 1,
+                    "Name": "Customer Credit à vista",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 17.5,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 35,
+                    "NumberOfInstallments": 2,
+                    "Name": "Customer Credit 2 vezes sem juros",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 11.7,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 35,
+                    "NumberOfInstallments": 3,
+                    "Name": "Customer Credit 3 vezes sem juros",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 35,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 35,
+                    "NumberOfInstallments": 1,
+                    "Name": "Free à vista",
+                    "__typename": "Installment"
+                  }
+                ],
+                "__typename": "Offer"
+              },
+              "__typename": "Seller"
+            }
+          ],
+          "variations": [
+            {
+              "name": "Color",
+              "values": [
+                "White"
+              ],
+              "__typename": "Property"
+            }
+          ],
+          "kitItems": [],
+          "attachments": [
+            {
+              "id": "10",
+              "name": "1-3-lines",
+              "required": false,
+              "__typename": "Attachment"
+            },
+            {
+              "id": "13",
+              "name": "Font",
+              "required": false,
+              "__typename": "Attachment"
+            }
+          ],
+          "calculatedAttachments": null,
+          "__typename": "SKU"
+        },
+        {
+          "itemId": "2000571",
+          "name": "brown",
+          "nameComplete": "Star colors top brown",
+          "complementName": "Tank top with star",
+          "ean": "",
+          "referenceId": [
+            {
+              "Key": "RefId",
+              "Value": "2002",
+              "__typename": "Reference"
+            }
+          ],
+          "measurementUnit": "un",
+          "unitMultiplier": 1,
+          "images": [
+            {
+              "imageId": "155525",
+              "imageLabel": "brown",
+              "imageTag": "<img src=\"~/arquivos/ids/155525-#width#-#height#/download--48-.png?v=636943148698470000\" width=\"#width#\" height=\"#height#\" alt=\"brown\" id=\"\" />",
+              "imageUrl": "https://storecomponents.vteximg.com.br/arquivos/ids/155525/download--48-.png?v=636943148698470000",
+              "imageText": "brown",
+              "__typename": "Image"
+            }
+          ],
+          "videos": [],
+          "sellers": [
+            {
+              "sellerId": "1",
+              "sellerName": "VTEX",
+              "addToCartLink": "https://portal.vtexcommercestable.com.br/checkout/cart/add?sku=2000571&qty=1&seller=1&sc=1&price=0&cv=dda206766ea0c9fad5bda76076173024_&sc=1",
+              "sellerDefault": true,
+              "commertialOffer": {
+                "discountHighlights": [],
+                "teasers": [],
+                "Price": 0,
+                "ListPrice": 0,
+                "PriceWithoutDiscount": 0,
+                "RewardValue": 0,
+                "PriceValidUntil": null,
+                "AvailableQuantity": 0,
+                "Tax": 0,
+                "CacheVersionUsedToCallCheckout": "dda206766ea0c9fad5bda76076173024_",
+                "Installments": [],
+                "__typename": "Offer"
+              },
+              "__typename": "Seller"
+            }
+          ],
+          "variations": [],
+          "kitItems": [],
+          "attachments": [],
+          "calculatedAttachments": null,
+          "__typename": "SKU"
+        },
+        {
+          "itemId": "2000572",
+          "name": "grey",
+          "nameComplete": "Star colors top grey",
+          "complementName": "Tank top with star",
+          "ean": "",
+          "referenceId": [
+            {
+              "Key": "RefId",
+              "Value": "8888888",
+              "__typename": "Reference"
+            }
+          ],
+          "measurementUnit": "un",
+          "unitMultiplier": 1,
+          "images": [
+            {
+              "imageId": "155526",
+              "imageLabel": "grey",
+              "imageTag": "<img src=\"~/arquivos/ids/155526-#width#-#height#/download--44-.png?v=636943150013700000\" width=\"#width#\" height=\"#height#\" alt=\"grey\" id=\"\" />",
+              "imageUrl": "https://storecomponents.vteximg.com.br/arquivos/ids/155526/download--44-.png?v=636943150013700000",
+              "imageText": "grey",
+              "__typename": "Image"
+            }
+          ],
+          "videos": [],
+          "sellers": [
+            {
+              "sellerId": "1",
+              "sellerName": "VTEX",
+              "addToCartLink": "https://portal.vtexcommercestable.com.br/checkout/cart/add?sku=2000572&qty=1&seller=1&sc=1&price=0&cv=dda206766ea0c9fad5bda76076173024_&sc=1",
+              "sellerDefault": true,
+              "commertialOffer": {
+                "discountHighlights": [],
+                "teasers": [],
+                "Price": 0,
+                "ListPrice": 0,
+                "PriceWithoutDiscount": 0,
+                "RewardValue": 0,
+                "PriceValidUntil": null,
+                "AvailableQuantity": 0,
+                "Tax": 0,
+                "CacheVersionUsedToCallCheckout": "dda206766ea0c9fad5bda76076173024_",
+                "Installments": [],
+                "__typename": "Offer"
+              },
+              "__typename": "Seller"
+            }
+          ],
+          "variations": [],
+          "kitItems": [],
+          "attachments": [],
+          "calculatedAttachments": null,
+          "__typename": "SKU"
+        },
+        {
+          "itemId": "2000573",
+          "name": "yellow",
+          "nameComplete": "Star colors top yellow",
+          "complementName": "Tank top with star",
+          "ean": "",
+          "referenceId": [
+            {
+              "Key": "RefId",
+              "Value": "33242",
+              "__typename": "Reference"
+            }
+          ],
+          "measurementUnit": "un",
+          "unitMultiplier": 1,
+          "images": [
+            {
+              "imageId": "155527",
+              "imageLabel": "yellow",
+              "imageTag": "<img src=\"~/arquivos/ids/155527-#width#-#height#/download--41-.png?v=636943151158800000\" width=\"#width#\" height=\"#height#\" alt=\"yellow\" id=\"\" />",
+              "imageUrl": "https://storecomponents.vteximg.com.br/arquivos/ids/155527/download--41-.png?v=636943151158800000",
+              "imageText": "yellow",
+              "__typename": "Image"
+            }
+          ],
+          "videos": [],
+          "sellers": [
+            {
+              "sellerId": "1",
+              "sellerName": "VTEX",
+              "addToCartLink": "https://portal.vtexcommercestable.com.br/checkout/cart/add?sku=2000573&qty=1&seller=1&sc=1&price=0&cv=dda206766ea0c9fad5bda76076173024_&sc=1",
+              "sellerDefault": true,
+              "commertialOffer": {
+                "discountHighlights": [],
+                "teasers": [],
+                "Price": 0,
+                "ListPrice": 0,
+                "PriceWithoutDiscount": 0,
+                "RewardValue": 0,
+                "PriceValidUntil": null,
+                "AvailableQuantity": 0,
+                "Tax": 0,
+                "CacheVersionUsedToCallCheckout": "dda206766ea0c9fad5bda76076173024_",
+                "Installments": [],
+                "__typename": "Offer"
+              },
+              "__typename": "Seller"
+            }
+          ],
+          "variations": [],
+          "kitItems": [],
+          "attachments": [],
+          "calculatedAttachments": null,
+          "__typename": "SKU"
+        },
+        {
+          "itemId": "2000574",
+          "name": "green",
+          "nameComplete": "Star colors top green",
+          "complementName": "Tank top with star",
+          "ean": "",
+          "referenceId": [
+            {
+              "Key": "RefId",
+              "Value": "8300134",
+              "__typename": "Reference"
+            }
+          ],
+          "measurementUnit": "un",
+          "unitMultiplier": 1,
+          "images": [
+            {
+              "imageId": "155528",
+              "imageLabel": "green",
+              "imageTag": "<img src=\"~/arquivos/ids/155528-#width#-#height#/download--46-.png?v=636943152112800000\" width=\"#width#\" height=\"#height#\" alt=\"green\" id=\"\" />",
+              "imageUrl": "https://storecomponents.vteximg.com.br/arquivos/ids/155528/download--46-.png?v=636943152112800000",
+              "imageText": "green",
+              "__typename": "Image"
+            }
+          ],
+          "videos": [],
+          "sellers": [
+            {
+              "sellerId": "1",
+              "sellerName": "VTEX",
+              "addToCartLink": "https://portal.vtexcommercestable.com.br/checkout/cart/add?sku=2000574&qty=1&seller=1&sc=1&price=0&cv=dda206766ea0c9fad5bda76076173024_&sc=1",
+              "sellerDefault": true,
+              "commertialOffer": {
+                "discountHighlights": [],
+                "teasers": [],
+                "Price": 0,
+                "ListPrice": 0,
+                "PriceWithoutDiscount": 0,
+                "RewardValue": 0,
+                "PriceValidUntil": null,
+                "AvailableQuantity": 0,
+                "Tax": 0,
+                "CacheVersionUsedToCallCheckout": "dda206766ea0c9fad5bda76076173024_",
+                "Installments": [],
+                "__typename": "Offer"
+              },
+              "__typename": "Seller"
+            }
+          ],
+          "variations": [],
+          "kitItems": [],
+          "attachments": [],
+          "calculatedAttachments": null,
+          "__typename": "SKU"
+        },
+        {
+          "itemId": "2000575",
+          "name": "light green",
+          "nameComplete": "Star colors top light green",
+          "complementName": "Tank top with star",
+          "ean": "",
+          "referenceId": [
+            {
+              "Key": "RefId",
+              "Value": "282222111",
+              "__typename": "Reference"
+            }
+          ],
+          "measurementUnit": "un",
+          "unitMultiplier": 1,
+          "images": [
+            {
+              "imageId": "155529",
+              "imageLabel": "lightgreen",
+              "imageTag": "<img src=\"~/arquivos/ids/155529-#width#-#height#/download--47-.png?v=636943152742270000\" width=\"#width#\" height=\"#height#\" alt=\"light--green\" id=\"\" />",
+              "imageUrl": "https://storecomponents.vteximg.com.br/arquivos/ids/155529/download--47-.png?v=636943152742270000",
+              "imageText": "light--green",
+              "__typename": "Image"
+            }
+          ],
+          "videos": [],
+          "sellers": [
+            {
+              "sellerId": "1",
+              "sellerName": "VTEX",
+              "addToCartLink": "https://portal.vtexcommercestable.com.br/checkout/cart/add?sku=2000575&qty=1&seller=1&sc=1&price=0&cv=dda206766ea0c9fad5bda76076173024_&sc=1",
+              "sellerDefault": true,
+              "commertialOffer": {
+                "discountHighlights": [],
+                "teasers": [],
+                "Price": 0,
+                "ListPrice": 0,
+                "PriceWithoutDiscount": 0,
+                "RewardValue": 0,
+                "PriceValidUntil": null,
+                "AvailableQuantity": 0,
+                "Tax": 0,
+                "CacheVersionUsedToCallCheckout": "dda206766ea0c9fad5bda76076173024_",
+                "Installments": [],
+                "__typename": "Offer"
+              },
+              "__typename": "Seller"
+            }
+          ],
+          "variations": [],
+          "kitItems": [],
+          "attachments": [],
+          "calculatedAttachments": null,
+          "__typename": "SKU"
+        },
+        {
+          "itemId": "2000576",
+          "name": "turquoise",
+          "nameComplete": "Star colors top turquoise",
+          "complementName": "Tank top with star",
+          "ean": "",
+          "referenceId": [
+            {
+              "Key": "RefId",
+              "Value": "01010122",
+              "__typename": "Reference"
+            }
+          ],
+          "measurementUnit": "un",
+          "unitMultiplier": 1,
+          "images": [
+            {
+              "imageId": "155530",
+              "imageLabel": "turquoise",
+              "imageTag": "<img src=\"~/arquivos/ids/155530-#width#-#height#/download--50-.png?v=636943153871900000\" width=\"#width#\" height=\"#height#\" alt=\"turquoise\" id=\"\" />",
+              "imageUrl": "https://storecomponents.vteximg.com.br/arquivos/ids/155530/download--50-.png?v=636943153871900000",
+              "imageText": "turquoise",
+              "__typename": "Image"
+            }
+          ],
+          "videos": [],
+          "sellers": [
+            {
+              "sellerId": "1",
+              "sellerName": "VTEX",
+              "addToCartLink": "https://portal.vtexcommercestable.com.br/checkout/cart/add?sku=2000576&qty=1&seller=1&sc=1&price=0&cv=dda206766ea0c9fad5bda76076173024_&sc=1",
+              "sellerDefault": true,
+              "commertialOffer": {
+                "discountHighlights": [],
+                "teasers": [],
+                "Price": 0,
+                "ListPrice": 0,
+                "PriceWithoutDiscount": 0,
+                "RewardValue": 0,
+                "PriceValidUntil": null,
+                "AvailableQuantity": 0,
+                "Tax": 0,
+                "CacheVersionUsedToCallCheckout": "dda206766ea0c9fad5bda76076173024_",
+                "Installments": [],
+                "__typename": "Offer"
+              },
+              "__typename": "Seller"
+            }
+          ],
+          "variations": [],
+          "kitItems": [],
+          "attachments": [],
+          "calculatedAttachments": null,
+          "__typename": "SKU"
+        },
+        {
+          "itemId": "2000577",
+          "name": "orange",
+          "nameComplete": "Star colors top orange",
+          "complementName": "Tank top with star",
+          "ean": "",
+          "referenceId": [
+            {
+              "Key": "RefId",
+              "Value": "49444",
+              "__typename": "Reference"
+            }
+          ],
+          "measurementUnit": "un",
+          "unitMultiplier": 1,
+          "images": [
+            {
+              "imageId": "155531",
+              "imageLabel": "orange",
+              "imageTag": "<img src=\"~/arquivos/ids/155531-#width#-#height#/download--49-.png?v=636943154698270000\" width=\"#width#\" height=\"#height#\" alt=\"orange\" id=\"\" />",
+              "imageUrl": "https://storecomponents.vteximg.com.br/arquivos/ids/155531/download--49-.png?v=636943154698270000",
+              "imageText": "orange",
+              "__typename": "Image"
+            }
+          ],
+          "videos": [],
+          "sellers": [
+            {
+              "sellerId": "1",
+              "sellerName": "VTEX",
+              "addToCartLink": "https://portal.vtexcommercestable.com.br/checkout/cart/add?sku=2000577&qty=1&seller=1&sc=1&price=0&cv=dda206766ea0c9fad5bda76076173024_&sc=1",
+              "sellerDefault": true,
+              "commertialOffer": {
+                "discountHighlights": [],
+                "teasers": [],
+                "Price": 0,
+                "ListPrice": 0,
+                "PriceWithoutDiscount": 0,
+                "RewardValue": 0,
+                "PriceValidUntil": null,
+                "AvailableQuantity": 0,
+                "Tax": 0,
+                "CacheVersionUsedToCallCheckout": "dda206766ea0c9fad5bda76076173024_",
+                "Installments": [],
+                "__typename": "Offer"
+              },
+              "__typename": "Seller"
+            }
+          ],
+          "variations": [],
+          "kitItems": [],
+          "attachments": [],
+          "calculatedAttachments": null,
+          "__typename": "SKU"
+        }
+      ],
+      "itemMetadata": {
+        "items": [
+          {
+            "id": "2000564",
+            "name": "Star colors top Red star",
+            "imageUrl": "https://storecomponents.vteximg.com.br/arquivos/ids/155518/download--40-.png?v=636942495289870000",
+            "seller": "1",
+            "assemblyOptions": [
+              {
+                "id": "Font",
+                "name": "Font",
+                "inputValues": [
+                  {
+                    "label": "Font",
+                    "maxLength": null,
+                    "type": "OPTIONS",
+                    "domain": [
+                      "Sans serif",
+                      "Roman"
+                    ],
+                    "__typename": "AttachmentField"
+                  }
+                ],
+                "composition": null,
+                "__typename": "AssemblyOption"
+              },
+              {
+                "id": "1-3-lines",
+                "name": "1-3-lines",
+                "inputValues": [
+                  {
+                    "label": "Line 1",
+                    "maxLength": 200,
+                    "type": "TEXT",
+                    "domain": null,
+                    "__typename": "AttachmentField"
+                  },
+                  {
+                    "label": "Line 2",
+                    "maxLength": 200,
+                    "type": "TEXT",
+                    "domain": null,
+                    "__typename": "AttachmentField"
+                  },
+                  {
+                    "label": "Line 3",
+                    "maxLength": 200,
+                    "type": "TEXT",
+                    "domain": null,
+                    "__typename": "AttachmentField"
+                  }
+                ],
+                "composition": null,
+                "__typename": "AssemblyOption"
+              }
+            ],
+            "__typename": "ItemMetadataUnit"
+          },
+          {
+            "id": "2000566",
+            "name": "Star colors top Dark blue",
+            "imageUrl": "https://storecomponents.vteximg.com.br/arquivos/ids/155520/download--52-.png?v=636942497381500000",
+            "seller": "1",
+            "assemblyOptions": [
+              {
+                "id": "Font",
+                "name": "Font",
+                "inputValues": [
+                  {
+                    "label": "Font",
+                    "maxLength": null,
+                    "type": "OPTIONS",
+                    "domain": [
+                      "Sans serif",
+                      "Roman"
+                    ],
+                    "__typename": "AttachmentField"
+                  }
+                ],
+                "composition": null,
+                "__typename": "AssemblyOption"
+              },
+              {
+                "id": "4-lines",
+                "name": "4-lines",
+                "inputValues": [
+                  {
+                    "label": "Line 1",
+                    "maxLength": 200,
+                    "type": "TEXT",
+                    "domain": null,
+                    "__typename": "AttachmentField"
+                  },
+                  {
+                    "label": "Line 2",
+                    "maxLength": 200,
+                    "type": "TEXT",
+                    "domain": null,
+                    "__typename": "AttachmentField"
+                  },
+                  {
+                    "label": "Line 3",
+                    "maxLength": 200,
+                    "type": "TEXT",
+                    "domain": null,
+                    "__typename": "AttachmentField"
+                  },
+                  {
+                    "label": "Line 4",
+                    "maxLength": 200,
+                    "type": "TEXT",
+                    "domain": null,
+                    "__typename": "AttachmentField"
+                  }
+                ],
+                "composition": null,
+                "__typename": "AssemblyOption"
+              }
+            ],
+            "__typename": "ItemMetadataUnit"
+          },
+          {
+            "id": "2000570",
+            "name": "Star colors top White",
+            "imageUrl": "https://storecomponents.vteximg.com.br/arquivos/ids/155524/download--43-.png?v=636943147443270000",
+            "seller": "1",
+            "assemblyOptions": [
+              {
+                "id": "Font",
+                "name": "Font",
+                "inputValues": [
+                  {
+                    "label": "Font",
+                    "maxLength": null,
+                    "type": "OPTIONS",
+                    "domain": [
+                      "Sans serif",
+                      "Roman"
+                    ],
+                    "__typename": "AttachmentField"
+                  }
+                ],
+                "composition": null,
+                "__typename": "AssemblyOption"
+              },
+              {
+                "id": "1-3-lines",
+                "name": "1-3-lines",
+                "inputValues": [
+                  {
+                    "label": "Line 1",
+                    "maxLength": 200,
+                    "type": "TEXT",
+                    "domain": null,
+                    "__typename": "AttachmentField"
+                  },
+                  {
+                    "label": "Line 2",
+                    "maxLength": 200,
+                    "type": "TEXT",
+                    "domain": null,
+                    "__typename": "AttachmentField"
+                  },
+                  {
+                    "label": "Line 3",
+                    "maxLength": 200,
+                    "type": "TEXT",
+                    "domain": null,
+                    "__typename": "AttachmentField"
+                  }
+                ],
+                "composition": null,
+                "__typename": "AssemblyOption"
+              }
+            ],
+            "__typename": "ItemMetadataUnit"
+          }
+        ],
+        "priceTable": [],
+        "__typename": "ItemMetadata"
+      },
+      "productClusters": [],
+      "clusterHighlights": [],
+      "__typename": "Product"
+    }
+  }
+}
