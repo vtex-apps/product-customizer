@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
-import { useProductAssemblyItem } from '../ProductAssemblyContext'
-import { GROUP_TYPES } from '../../utils'
+import { useProductAssemblyItem } from '../ProductAssemblyContext/Item'
+import { GROUP_TYPES } from '../../modules/assemblyGroupType'
 
 const getItemText = (item: AssemblyItem, groupType: GroupTypes) => {
   const deltaQuantity = item.quantity - item.initialQuantity
@@ -20,25 +20,31 @@ const getItemText = (item: AssemblyItem, groupType: GroupTypes) => {
 }
 
 const ProductAssemblyOptionItemChildrenDescription: FC = () => {
-  const { item } = useProductAssemblyItem()
-  if (!item.children) {
+  const { children } = useProductAssemblyItem()
+
+  if (!children) {
     return null
   }
-  const groups = Object.values(item.children)
+
+  const groups = Object.values(children)
   return (
     <div>
       {groups.map(group => {
-        const items = Object.values(group.items).filter(
+        const assemblyGroup = group as AssemblyOptionGroup
+
+        const items = Object.values(assemblyGroup.items).filter(
           ({ quantity, initialQuantity }) => quantity !== initialQuantity
         )
+
         if (items.length === 0) {
           return null
         }
+
         return (
-          <div className="flex" key={group.id}>
+          <div className="flex" key={assemblyGroup.id}>
             <div className="mh2">
               {items.map(item => {
-                const itemText = getItemText(item, group.type)
+                const itemText = getItemText(item, assemblyGroup.type)
                 return (
                   itemText && (
                     <div key={itemText} className="c-on-base t-body">

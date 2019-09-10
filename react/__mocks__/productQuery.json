@@ -434,6 +434,7 @@
                     {  
                        "id":"Super Suprema - Small_Toppings",
                        "name":"Super Suprema - Small",
+                       "inputValues": [],
                        "composition":{  
                           "minQuantity":0,
                           "maxQuantity":10,
@@ -509,6 +510,7 @@
                     {  
                        "id":"Super Suprema - Small_Basic Toppings",
                        "name":"Super Suprema - Small",
+                       "inputValues": [],
                        "composition":{  
                           "minQuantity":0,
                           "maxQuantity":6,
@@ -575,6 +577,7 @@
                     {  
                        "id":"Super Suprema - Small_Crust",
                        "name":"Super Suprema - Small",
+                       "inputValues": [],
                        "composition":{  
                           "minQuantity":1,
                           "maxQuantity":1,
@@ -723,6 +726,7 @@
                     {  
                        "id":"Super Suprema - Medium_Toppings",
                        "name":"Super Suprema - Medium",
+                       "inputValues": [],
                        "composition":{  
                           "minQuantity":0,
                           "maxQuantity":10,
@@ -798,6 +802,7 @@
                     {  
                        "id":"Super Suprema - Medium_Basic Toppings",
                        "name":"Super Suprema - Medium",
+                       "inputValues": [],
                        "composition":{  
                           "minQuantity":0,
                           "maxQuantity":6,
@@ -864,6 +869,7 @@
                     {  
                        "id":"Super Suprema - Medium_Crust",
                        "name":"Super Suprema - Medium",
+                       "inputValues": [],
                        "composition":{  
                           "minQuantity":1,
                           "maxQuantity":1,
@@ -931,6 +937,7 @@
                     {  
                        "id":"Super Suprema - Large_Toppings",
                        "name":"Super Suprema - Large",
+                       "inputValues": [],
                        "composition":{  
                           "minQuantity":0,
                           "maxQuantity":10,
@@ -1006,6 +1013,7 @@
                     {  
                        "id":"Super Suprema - Large_Basic Toppings",
                        "name":"Super Suprema - Large",
+                       "inputValues": [],
                        "composition":{  
                           "minQuantity":0,
                           "maxQuantity":6,
@@ -1072,6 +1080,7 @@
                     {  
                        "id":"Super Suprema - Large_Crust",
                        "name":"Super Suprema - Large",
+                       "inputValues": [],
                        "composition":{  
                           "minQuantity":1,
                           "maxQuantity":1,

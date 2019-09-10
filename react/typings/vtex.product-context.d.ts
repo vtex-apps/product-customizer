@@ -15,7 +15,7 @@ declare module 'vtex.product-context/useProduct' {
   const useProduct: () => ProductContext
   export default useProduct
 
-  interface ProductContext {
+  export interface ProductContext {
     selectedQuantity: number
     product: Product | null
     selectedItem: SelectedItem | null

@@ -1,0 +1,539 @@
+{
+  "data": {
+    "product": {
+      "cacheId": "combo-pizza-drink",
+      "productName": "Pizza Meal",
+      "productId": "5102",
+      "description": "",
+      "titleTag": "",
+      "metaTagDescription": "",
+      "linkText": "combo-pizza-drink",
+      "productReference": "905",
+      "categories": [
+        "/Combos/"
+      ],
+      "categoryId": "5",
+      "categoriesIds": [
+        "/5/"
+      ],
+      "brand": "KFC",
+      "brandId": 2000001,
+      "properties": [],
+      "specificationGroups": [
+        {
+          "name": "allSpecifications",
+          "specifications": [],
+          "__typename": "SpecificationGroup"
+        }
+      ],
+      "items": [
+        {
+          "itemId": "5102",
+          "name": "+ Drinks",
+          "nameComplete": "Pizza Meal + Drinks",
+          "complementName": "",
+          "ean": "905",
+          "referenceId": [
+            {
+              "Key": "RefId",
+              "Value": "9595",
+              "__typename": "Reference"
+            }
+          ],
+          "measurementUnit": "un",
+          "unitMultiplier": 1,
+          "images": [
+            {
+              "imageId": "155538",
+              "imageLabel": "principal",
+              "imageTag": "<img src=\"~/arquivos/ids/155538-#width#-#height#/Frame-25.6.png?v=636996732661800000\" width=\"#width#\" height=\"#height#\" alt=\"combo-pizza\" id=\"\" />",
+              "imageUrl": "https://delivery.vteximg.com.br/arquivos/ids/155538/Frame-25.6.png?v=636996732661800000",
+              "imageText": "combo-pizza",
+              "__typename": "Image"
+            }
+          ],
+          "videos": [],
+          "sellers": [
+            {
+              "sellerId": "1",
+              "sellerName": "VTEX",
+              "addToCartLink": "https://portal.vtexcommercestable.com.br/checkout/cart/add?sku=5102&qty=1&seller=1&sc=3&price=4800&cv=8b7701ba6694f2eec71c348e373fe963_&sc=3",
+              "sellerDefault": true,
+              "commertialOffer": {
+                "discountHighlights": [],
+                "teasers": [],
+                "Price": 48,
+                "ListPrice": 48,
+                "PriceWithoutDiscount": 48,
+                "RewardValue": 0,
+                "PriceValidUntil": "2020-08-30T15:16:40.9420325Z",
+                "AvailableQuantity": 1000000,
+                "Tax": 0,
+                "CacheVersionUsedToCallCheckout": "8b7701ba6694f2eec71c348e373fe963_",
+                "Installments": [
+                  {
+                    "Value": 48,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 48,
+                    "NumberOfInstallments": 1,
+                    "Name": "American Express à vista",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 48,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 48,
+                    "NumberOfInstallments": 1,
+                    "Name": "Visa à vista",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 24,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 48,
+                    "NumberOfInstallments": 2,
+                    "Name": "Visa 2 vezes sem juros",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 16,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 48,
+                    "NumberOfInstallments": 3,
+                    "Name": "Visa 3 vezes sem juros",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 12,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 48,
+                    "NumberOfInstallments": 4,
+                    "Name": "Visa 4 vezes sem juros",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 48,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 48,
+                    "NumberOfInstallments": 1,
+                    "Name": "Mastercard à vista",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 48,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 48,
+                    "NumberOfInstallments": 1,
+                    "Name": "Vale à vista",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 48,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 48,
+                    "NumberOfInstallments": 1,
+                    "Name": "Promissory à vista",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 48,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 48,
+                    "NumberOfInstallments": 1,
+                    "Name": "Deposito à vista",
+                    "__typename": "Installment"
+                  }
+                ],
+                "__typename": "Offer"
+              },
+              "__typename": "Seller"
+            }
+          ],
+          "variations": [],
+          "kitItems": [],
+          "attachments": [
+            {
+              "id": "44",
+              "name": "drinks_size_double",
+              "required": true,
+              "__typename": "Attachment"
+            },
+            {
+              "id": "45",
+              "name": "pizza_composition",
+              "required": true,
+              "__typename": "Attachment"
+            }
+          ],
+          "calculatedAttachments": null,
+          "__typename": "SKU"
+        }
+      ],
+      "itemMetadata": {
+        "items": [
+          {
+            "id": "5102",
+            "name": "Pizza Meal + Drinks",
+            "imageUrl": "https://delivery.vteximg.com.br/arquivos/ids/155538/Frame-25.6.png?v=636996732661800000",
+            "seller": "1",
+            "assemblyOptions": [
+              {
+                "id": "pizza_composition_Pizza flavor",
+                "name": "pizza_composition",
+                "inputValues": [],
+                "composition": {
+                  "minQuantity": 1,
+                  "maxQuantity": 1,
+                  "items": [
+                    {
+                      "id": "5101",
+                      "minQuantity": 1,
+                      "maxQuantity": 1,
+                      "priceTable": "promo",
+                      "seller": "1",
+                      "initialQuantity": 1,
+                      "__typename": "CompositionItem"
+                    }
+                  ],
+                  "__typename": "CompositionType"
+                },
+                "__typename": "AssemblyOption"
+              },
+              {
+                "id": "drinks_size_double_Choose 2 drinks",
+                "name": "drinks_size_double",
+                "inputValues": [],
+                "composition": {
+                  "minQuantity": 2,
+                  "maxQuantity": 2,
+                  "items": [
+                    {
+                      "id": "110",
+                      "minQuantity": 0,
+                      "maxQuantity": 2,
+                      "priceTable": "promo",
+                      "seller": "1",
+                      "initialQuantity": 2,
+                      "__typename": "CompositionItem"
+                    },
+                    {
+                      "id": "120",
+                      "minQuantity": 0,
+                      "maxQuantity": 2,
+                      "priceTable": "promo",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "CompositionItem"
+                    },
+                    {
+                      "id": "180",
+                      "minQuantity": 0,
+                      "maxQuantity": 2,
+                      "priceTable": "promo",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "CompositionItem"
+                    }
+                  ],
+                  "__typename": "CompositionType"
+                },
+                "__typename": "AssemblyOption"
+              }
+            ],
+            "__typename": "ItemMetadataUnit"
+          },
+          {
+            "id": "5101",
+            "name": "Pizza Monster promo",
+            "imageUrl": "https://delivery.vteximg.com.br/arquivos/ids/155537/Frame-25.6.png?v=636996727081600000",
+            "seller": "1",
+            "assemblyOptions": [
+              {
+                "id": "pizza_extra_ingredients_Extra",
+                "name": "pizza_extra_ingredients",
+                "inputValues": [],
+                "composition": {
+                  "minQuantity": 0,
+                  "maxQuantity": 10,
+                  "items": [
+                    {
+                      "id": "602",
+                      "minQuantity": 0,
+                      "maxQuantity": 1,
+                      "priceTable": "Pizza",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "CompositionItem"
+                    },
+                    {
+                      "id": "603",
+                      "minQuantity": 0,
+                      "maxQuantity": 2,
+                      "priceTable": "Pizza",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "CompositionItem"
+                    },
+                    {
+                      "id": "605",
+                      "minQuantity": 0,
+                      "maxQuantity": 2,
+                      "priceTable": "Pizza",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "CompositionItem"
+                    },
+                    {
+                      "id": "606",
+                      "minQuantity": 0,
+                      "maxQuantity": 1,
+                      "priceTable": "Pizza",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "CompositionItem"
+                    },
+                    {
+                      "id": "607",
+                      "minQuantity": 0,
+                      "maxQuantity": 2,
+                      "priceTable": "Pizza",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "CompositionItem"
+                    },
+                    {
+                      "id": "609",
+                      "minQuantity": 0,
+                      "maxQuantity": 1,
+                      "priceTable": "Pizza",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "CompositionItem"
+                    }
+                  ],
+                  "__typename": "CompositionType"
+                },
+                "__typename": "AssemblyOption"
+              },
+              {
+                "id": "pizza_basic_ingredients_pizza_basic_ingredients",
+                "name": "pizza_basic_ingredients",
+                "inputValues": [],
+                "composition": {
+                  "minQuantity": 0,
+                  "maxQuantity": 3,
+                  "items": [
+                    {
+                      "id": "602",
+                      "minQuantity": 0,
+                      "maxQuantity": 1,
+                      "priceTable": "promo",
+                      "seller": "1",
+                      "initialQuantity": 1,
+                      "__typename": "CompositionItem"
+                    },
+                    {
+                      "id": "606",
+                      "minQuantity": 0,
+                      "maxQuantity": 1,
+                      "priceTable": "promo",
+                      "seller": "1",
+                      "initialQuantity": 1,
+                      "__typename": "CompositionItem"
+                    },
+                    {
+                      "id": "609",
+                      "minQuantity": 0,
+                      "maxQuantity": 1,
+                      "priceTable": "promo",
+                      "seller": "1",
+                      "initialQuantity": 1,
+                      "__typename": "CompositionItem"
+                    }
+                  ],
+                  "__typename": "CompositionType"
+                },
+                "__typename": "AssemblyOption"
+              }
+            ],
+            "__typename": "ItemMetadataUnit"
+          },
+          {
+            "id": "602",
+            "name": "Ingredients bacon",
+            "imageUrl": "https://delivery.vteximg.com.br/arquivos/ids/155510/bacon.jpg?v=636994902213600000",
+            "seller": "1",
+            "assemblyOptions": [],
+            "__typename": "ItemMetadataUnit"
+          },
+          {
+            "id": "603",
+            "name": "Ingredients herb",
+            "imageUrl": "https://delivery.vteximg.com.br/arquivos/ids/155511/herb.jpg?v=636994902219830000",
+            "seller": "1",
+            "assemblyOptions": [],
+            "__typename": "ItemMetadataUnit"
+          },
+          {
+            "id": "605",
+            "name": "Ingredients mushroom",
+            "imageUrl": "https://delivery.vteximg.com.br/arquivos/ids/155513/mushroom.jpg?v=636994902231830000",
+            "seller": "1",
+            "assemblyOptions": [],
+            "__typename": "ItemMetadataUnit"
+          },
+          {
+            "id": "606",
+            "name": "Ingredients onion",
+            "imageUrl": "https://delivery.vteximg.com.br/arquivos/ids/155514/onion.jpg?v=636994902239030000",
+            "seller": "1",
+            "assemblyOptions": [],
+            "__typename": "ItemMetadataUnit"
+          },
+          {
+            "id": "607",
+            "name": "Ingredients pepper",
+            "imageUrl": "https://delivery.vteximg.com.br/arquivos/ids/155515/pepper.jpg?v=636994902245430000",
+            "seller": "1",
+            "assemblyOptions": [],
+            "__typename": "ItemMetadataUnit"
+          },
+          {
+            "id": "609",
+            "name": "Ingredients tomato",
+            "imageUrl": "https://delivery.vteximg.com.br/arquivos/ids/155517/tomato.jpg?v=636994902257170000",
+            "seller": "1",
+            "assemblyOptions": [],
+            "__typename": "ItemMetadataUnit"
+          },
+          {
+            "id": "110",
+            "name": "Cola 600ml",
+            "imageUrl": "https://delivery.vteximg.com.br/arquivos/ids/155496/soda_regular.jpg?v=636994902115300000",
+            "seller": "1",
+            "assemblyOptions": [],
+            "__typename": "ItemMetadataUnit"
+          },
+          {
+            "id": "120",
+            "name": "Cola diet 600ml",
+            "imageUrl": "https://delivery.vteximg.com.br/arquivos/ids/155498/soda_diet.jpg?v=636994902128130000",
+            "seller": "1",
+            "assemblyOptions": [],
+            "__typename": "ItemMetadataUnit"
+          },
+          {
+            "id": "180",
+            "name": "Orange Juice 600ml",
+            "imageUrl": "https://delivery.vteximg.com.br/arquivos/ids/155502/orange_juice.jpg?v=636994902154270000",
+            "seller": "1",
+            "assemblyOptions": [],
+            "__typename": "ItemMetadataUnit"
+          }
+        ],
+        "priceTable": [
+          {
+            "type": "promo",
+            "values": [
+              {
+                "id": "5101",
+                "assemblyId": "pizza_composition_Pizza flavor",
+                "price": 0,
+                "__typename": "PriceTableItem"
+              },
+              {
+                "id": "110",
+                "assemblyId": "drinks_size_double_Choose 2 drinks",
+                "price": 0,
+                "__typename": "PriceTableItem"
+              },
+              {
+                "id": "120",
+                "assemblyId": "drinks_size_double_Choose 2 drinks",
+                "price": 0,
+                "__typename": "PriceTableItem"
+              },
+              {
+                "id": "180",
+                "assemblyId": "drinks_size_double_Choose 2 drinks",
+                "price": 300,
+                "__typename": "PriceTableItem"
+              },
+              {
+                "id": "602",
+                "assemblyId": "pizza_basic_ingredients_pizza_basic_ingredients",
+                "price": 0,
+                "__typename": "PriceTableItem"
+              },
+              {
+                "id": "606",
+                "assemblyId": "pizza_basic_ingredients_pizza_basic_ingredients",
+                "price": 0,
+                "__typename": "PriceTableItem"
+              },
+              {
+                "id": "609",
+                "assemblyId": "pizza_basic_ingredients_pizza_basic_ingredients",
+                "price": 0,
+                "__typename": "PriceTableItem"
+              }
+            ],
+            "__typename": "ItemPriceTable"
+          },
+          {
+            "type": "Pizza",
+            "values": [
+              {
+                "id": "602",
+                "assemblyId": "pizza_extra_ingredients_Extra",
+                "price": 100,
+                "__typename": "PriceTableItem"
+              },
+              {
+                "id": "603",
+                "assemblyId": "pizza_extra_ingredients_Extra",
+                "price": 100,
+                "__typename": "PriceTableItem"
+              },
+              {
+                "id": "605",
+                "assemblyId": "pizza_extra_ingredients_Extra",
+                "price": 100,
+                "__typename": "PriceTableItem"
+              },
+              {
+                "id": "606",
+                "assemblyId": "pizza_extra_ingredients_Extra",
+                "price": 100,
+                "__typename": "PriceTableItem"
+              },
+              {
+                "id": "607",
+                "assemblyId": "pizza_extra_ingredients_Extra",
+                "price": 100,
+                "__typename": "PriceTableItem"
+              },
+              {
+                "id": "609",
+                "assemblyId": "pizza_extra_ingredients_Extra",
+                "price": 100,
+                "__typename": "PriceTableItem"
+              }
+            ],
+            "__typename": "ItemPriceTable"
+          }
+        ],
+        "__typename": "ItemMetadata"
+      },
+      "productClusters": [
+        {
+          "id": "138",
+          "name": "For Sharing",
+          "__typename": "ProductClusters"
+        }
+      ],
+      "clusterHighlights": [],
+      "__typename": "Product"
+    }
+  }
+}
