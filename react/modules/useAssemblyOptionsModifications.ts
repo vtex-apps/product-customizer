@@ -26,8 +26,7 @@ export default function useAssemblyOptionsModifications(localState: GroupState) 
 
 function isGroupValid(group: AssemblyOptionGroupType) {
   const items = Object.values(group.items || {})
-  const groupSum = items.reduce((acc, { quantity }) => acc + quantity, 0)
-  const itemsToBeAdded = groupSum
+  const itemsToBeAdded = items.reduce((acc, { quantity }) => acc + quantity, 0)
   const isValid = (
     (group.maxQuantity !== undefined &&
     group.maxQuantity >= itemsToBeAdded &&
