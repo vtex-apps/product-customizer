@@ -1,5 +1,3 @@
-import React from 'react'
-
-const Radio = () => <div>Radio</div>
+import Radio from '@vtex/styleguide/lib/Radio'
 
 export default Radio

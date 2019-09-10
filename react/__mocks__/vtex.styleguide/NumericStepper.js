@@ -1,5 +1,3 @@
-import React from 'react'
-
-const NumericStepper = () => <div>NumericStepper</div>
+import NumericStepper from '@vtex/styleguide/lib/NumericStepper'
 
 export default NumericStepper

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ProductCustomizer components  render with no variations 1`] = `
+exports[`ProductCustomizer components  render with no variations and press on Small SKU 1`] = `
 <DocumentFragment>
   <div
     class="flex-ns pv6-ns justify-center-ns"
@@ -68,8 +68,33 @@ exports[`ProductCustomizer components  render with no variations 1`] = `
           <div
             class="mt3"
           >
-            <div>
-              Radio
+            <div
+              class="flex items-start mb3 relative pointer"
+            >
+              <div>
+                <div
+                  class="fake-radio relative ba br-100 mr3 flex justify-center items-center b--muted-4 pointer"
+                  style="border-width: 3px; height: 1.25rem; width: 1.25rem; transition: border 100ms ease-in-out;"
+                >
+                  <div
+                    class="br-100 bg-action-primary"
+                    style="height: 0.5rem; width: 0.5rem; transform: scale(0); transition: transform 80ms ease-in;"
+                  />
+                </div>
+              </div>
+              <input
+                class="absolute o-0 pointer"
+                id=""
+                name=""
+                style="height: 1.5rem; width: 1.5rem;"
+                type="radio"
+                value=""
+              />
+              <label
+                class="c-on-base pointer flex flex-auto"
+                for=""
+                style="word-break: break-word;"
+              />
             </div>
           </div>
         </div>
@@ -110,8 +135,33 @@ exports[`ProductCustomizer components  render with no variations 1`] = `
           <div
             class="mt3"
           >
-            <div>
-              Radio
+            <div
+              class="flex items-start mb3 relative pointer"
+            >
+              <div>
+                <div
+                  class="fake-radio relative ba br-100 mr3 flex justify-center items-center b--muted-4 pointer"
+                  style="border-width: 3px; height: 1.25rem; width: 1.25rem; transition: border 100ms ease-in-out;"
+                >
+                  <div
+                    class="br-100 bg-action-primary"
+                    style="height: 0.5rem; width: 0.5rem; transform: scale(0); transition: transform 80ms ease-in;"
+                  />
+                </div>
+              </div>
+              <input
+                class="absolute o-0 pointer"
+                id=""
+                name=""
+                style="height: 1.5rem; width: 1.5rem;"
+                type="radio"
+                value=""
+              />
+              <label
+                class="c-on-base pointer flex flex-auto"
+                for=""
+                style="word-break: break-word;"
+              />
             </div>
           </div>
         </div>
@@ -152,8 +202,33 @@ exports[`ProductCustomizer components  render with no variations 1`] = `
           <div
             class="mt3"
           >
-            <div>
-              Radio
+            <div
+              class="flex items-start mb3 relative pointer"
+            >
+              <div>
+                <div
+                  class="fake-radio relative ba br-100 mr3 flex justify-center items-center b--muted-4 pointer"
+                  style="border-width: 3px; height: 1.25rem; width: 1.25rem; transition: border 100ms ease-in-out;"
+                >
+                  <div
+                    class="br-100 bg-action-primary"
+                    style="height: 0.5rem; width: 0.5rem; transform: scale(0); transition: transform 80ms ease-in;"
+                  />
+                </div>
+              </div>
+              <input
+                class="absolute o-0 pointer"
+                id=""
+                name=""
+                style="height: 1.5rem; width: 1.5rem;"
+                type="radio"
+                value=""
+              />
+              <label
+                class="c-on-base pointer flex flex-auto"
+                for=""
+                style="word-break: break-word;"
+              />
             </div>
           </div>
         </div>
@@ -170,7 +245,7 @@ exports[`ProductCustomizer components  render with no variations 1`] = `
 </DocumentFragment>
 `;
 
-exports[`ProductCustomizer components  render with no variations 2`] = `
+exports[`ProductCustomizer components  render with no variations and press on Small SKU 2`] = `
 <DocumentFragment>
   <div
     class="flex-ns pv6-ns justify-center-ns"
@@ -242,8 +317,33 @@ exports[`ProductCustomizer components  render with no variations 2`] = `
           <div
             class="mt3"
           >
-            <div>
-              Radio
+            <div
+              class="flex items-start mb3 relative pointer"
+            >
+              <div>
+                <div
+                  class="fake-radio relative ba br-100 mr3 flex justify-center items-center b--action-primary pointer"
+                  style="border-width: 3px; height: 1.25rem; width: 1.25rem; transition: border 100ms ease-in-out;"
+                >
+                  <div
+                    class="br-100 bg-action-primary"
+                    style="height: 0.5rem; width: 0.5rem; transform: scale(1); transition: transform 80ms ease-out;"
+                  />
+                </div>
+              </div>
+              <input
+                class="absolute o-0 pointer"
+                id=""
+                name=""
+                style="height: 1.5rem; width: 1.5rem;"
+                type="radio"
+                value=""
+              />
+              <label
+                class="c-on-base pointer flex flex-auto"
+                for=""
+                style="word-break: break-word;"
+              />
             </div>
           </div>
         </div>
@@ -284,8 +384,33 @@ exports[`ProductCustomizer components  render with no variations 2`] = `
           <div
             class="mt3"
           >
-            <div>
-              Radio
+            <div
+              class="flex items-start mb3 relative pointer"
+            >
+              <div>
+                <div
+                  class="fake-radio relative ba br-100 mr3 flex justify-center items-center b--muted-4 pointer"
+                  style="border-width: 3px; height: 1.25rem; width: 1.25rem; transition: border 100ms ease-in-out;"
+                >
+                  <div
+                    class="br-100 bg-action-primary"
+                    style="height: 0.5rem; width: 0.5rem; transform: scale(0); transition: transform 80ms ease-in;"
+                  />
+                </div>
+              </div>
+              <input
+                class="absolute o-0 pointer"
+                id=""
+                name=""
+                style="height: 1.5rem; width: 1.5rem;"
+                type="radio"
+                value=""
+              />
+              <label
+                class="c-on-base pointer flex flex-auto"
+                for=""
+                style="word-break: break-word;"
+              />
             </div>
           </div>
         </div>
@@ -326,8 +451,33 @@ exports[`ProductCustomizer components  render with no variations 2`] = `
           <div
             class="mt3"
           >
-            <div>
-              Radio
+            <div
+              class="flex items-start mb3 relative pointer"
+            >
+              <div>
+                <div
+                  class="fake-radio relative ba br-100 mr3 flex justify-center items-center b--muted-4 pointer"
+                  style="border-width: 3px; height: 1.25rem; width: 1.25rem; transition: border 100ms ease-in-out;"
+                >
+                  <div
+                    class="br-100 bg-action-primary"
+                    style="height: 0.5rem; width: 0.5rem; transform: scale(0); transition: transform 80ms ease-in;"
+                  />
+                </div>
+              </div>
+              <input
+                class="absolute o-0 pointer"
+                id=""
+                name=""
+                style="height: 1.5rem; width: 1.5rem;"
+                type="radio"
+                value=""
+              />
+              <label
+                class="c-on-base pointer flex flex-auto"
+                for=""
+                style="word-break: break-word;"
+              />
             </div>
           </div>
         </div>
@@ -388,8 +538,33 @@ exports[`ProductCustomizer components  render with no variations 2`] = `
               <div
                 class="mt3"
               >
-                <div>
-                  Radio
+                <div
+                  class="flex items-start mb3 relative pointer"
+                >
+                  <div>
+                    <div
+                      class="fake-radio relative ba br-100 mr3 flex justify-center items-center b--muted-4 pointer"
+                      style="border-width: 3px; height: 1.25rem; width: 1.25rem; transition: border 100ms ease-in-out;"
+                    >
+                      <div
+                        class="br-100 bg-action-primary"
+                        style="height: 0.5rem; width: 0.5rem; transform: scale(0); transition: transform 80ms ease-in;"
+                      />
+                    </div>
+                  </div>
+                  <input
+                    class="absolute o-0 pointer"
+                    id=""
+                    name=""
+                    style="height: 1.5rem; width: 1.5rem;"
+                    type="radio"
+                    value=""
+                  />
+                  <label
+                    class="c-on-base pointer flex flex-auto"
+                    for=""
+                    style="word-break: break-word;"
+                  />
                 </div>
               </div>
             </div>
@@ -439,8 +614,33 @@ exports[`ProductCustomizer components  render with no variations 2`] = `
               <div
                 class="mt3"
               >
-                <div>
-                  Radio
+                <div
+                  class="flex items-start mb3 relative pointer"
+                >
+                  <div>
+                    <div
+                      class="fake-radio relative ba br-100 mr3 flex justify-center items-center b--muted-4 pointer"
+                      style="border-width: 3px; height: 1.25rem; width: 1.25rem; transition: border 100ms ease-in-out;"
+                    >
+                      <div
+                        class="br-100 bg-action-primary"
+                        style="height: 0.5rem; width: 0.5rem; transform: scale(0); transition: transform 80ms ease-in;"
+                      />
+                    </div>
+                  </div>
+                  <input
+                    class="absolute o-0 pointer"
+                    id=""
+                    name=""
+                    style="height: 1.5rem; width: 1.5rem;"
+                    type="radio"
+                    value=""
+                  />
+                  <label
+                    class="c-on-base pointer flex flex-auto"
+                    for=""
+                    style="word-break: break-word;"
+                  />
                 </div>
               </div>
             </div>
@@ -479,8 +679,33 @@ exports[`ProductCustomizer components  render with no variations 2`] = `
               <div
                 class="mt3"
               >
-                <div>
-                  Radio
+                <div
+                  class="flex items-start mb3 relative pointer"
+                >
+                  <div>
+                    <div
+                      class="fake-radio relative ba br-100 mr3 flex justify-center items-center b--muted-4 pointer"
+                      style="border-width: 3px; height: 1.25rem; width: 1.25rem; transition: border 100ms ease-in-out;"
+                    >
+                      <div
+                        class="br-100 bg-action-primary"
+                        style="height: 0.5rem; width: 0.5rem; transform: scale(0); transition: transform 80ms ease-in;"
+                      />
+                    </div>
+                  </div>
+                  <input
+                    class="absolute o-0 pointer"
+                    id=""
+                    name=""
+                    style="height: 1.5rem; width: 1.5rem;"
+                    type="radio"
+                    value=""
+                  />
+                  <label
+                    class="c-on-base pointer flex flex-auto"
+                    for=""
+                    style="word-break: break-word;"
+                  />
                 </div>
               </div>
             </div>
@@ -523,8 +748,49 @@ exports[`ProductCustomizer components  render with no variations 2`] = `
               <div
                 class=""
               >
-                <div>
-                  Checkbox props={"disabled":false,"name":"Green Pepper","checked":true}
+                <div
+                  class="flex items-center relative pointer"
+                >
+                  <div
+                    class="relative w1 h1"
+                  >
+                    <div
+                      class="h1 w1 absolute ba bw1 br1  b--action-primary bg-action-primary"
+                      style="transition: background 20ms, border 100ms;"
+                    />
+                    <div
+                      class="absolute w1 h1 flex o-100"
+                      style="left: 0px;"
+                    >
+                      <div
+                        class="absolute top-0 left-0 bottom-0 overflow-hidden w-100 flex items-center align-center justify-center c-on-action-primary"
+                        style="transition: right 110ms ease-in-out 30ms;"
+                      >
+                        <svg
+                          class="vtex__icon-check  "
+                          fill="none"
+                          height="12"
+                          viewBox="0 0 12 12"
+                          width="12"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M10.8 4.4L9.4 3L5.4 7L3.4 5L2 6.4L5.4 9.8L10.8 4.4Z"
+                            fill="currentColor"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                    <input
+                      checked=""
+                      class="h1 w1 absolute o-0 pointer"
+                      id="Green Pepper-choice"
+                      name="Green Pepper"
+                      tabindex="0"
+                      type="checkbox"
+                      value=""
+                    />
+                  </div>
                 </div>
               </div>
             </div>
@@ -556,8 +822,49 @@ exports[`ProductCustomizer components  render with no variations 2`] = `
               <div
                 class=""
               >
-                <div>
-                  Checkbox props={"disabled":false,"name":"Black Olives","checked":true}
+                <div
+                  class="flex items-center relative pointer"
+                >
+                  <div
+                    class="relative w1 h1"
+                  >
+                    <div
+                      class="h1 w1 absolute ba bw1 br1  b--action-primary bg-action-primary"
+                      style="transition: background 20ms, border 100ms;"
+                    />
+                    <div
+                      class="absolute w1 h1 flex o-100"
+                      style="left: 0px;"
+                    >
+                      <div
+                        class="absolute top-0 left-0 bottom-0 overflow-hidden w-100 flex items-center align-center justify-center c-on-action-primary"
+                        style="transition: right 110ms ease-in-out 30ms;"
+                      >
+                        <svg
+                          class="vtex__icon-check  "
+                          fill="none"
+                          height="12"
+                          viewBox="0 0 12 12"
+                          width="12"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M10.8 4.4L9.4 3L5.4 7L3.4 5L2 6.4L5.4 9.8L10.8 4.4Z"
+                            fill="currentColor"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                    <input
+                      checked=""
+                      class="h1 w1 absolute o-0 pointer"
+                      id="Black Olives-choice"
+                      name="Black Olives"
+                      tabindex="0"
+                      type="checkbox"
+                      value=""
+                    />
+                  </div>
                 </div>
               </div>
             </div>
@@ -589,8 +896,49 @@ exports[`ProductCustomizer components  render with no variations 2`] = `
               <div
                 class=""
               >
-                <div>
-                  Checkbox props={"disabled":false,"name":"Ham","checked":true}
+                <div
+                  class="flex items-center relative pointer"
+                >
+                  <div
+                    class="relative w1 h1"
+                  >
+                    <div
+                      class="h1 w1 absolute ba bw1 br1  b--action-primary bg-action-primary"
+                      style="transition: background 20ms, border 100ms;"
+                    />
+                    <div
+                      class="absolute w1 h1 flex o-100"
+                      style="left: 0px;"
+                    >
+                      <div
+                        class="absolute top-0 left-0 bottom-0 overflow-hidden w-100 flex items-center align-center justify-center c-on-action-primary"
+                        style="transition: right 110ms ease-in-out 30ms;"
+                      >
+                        <svg
+                          class="vtex__icon-check  "
+                          fill="none"
+                          height="12"
+                          viewBox="0 0 12 12"
+                          width="12"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M10.8 4.4L9.4 3L5.4 7L3.4 5L2 6.4L5.4 9.8L10.8 4.4Z"
+                            fill="currentColor"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                    <input
+                      checked=""
+                      class="h1 w1 absolute o-0 pointer"
+                      id="Ham-choice"
+                      name="Ham"
+                      tabindex="0"
+                      type="checkbox"
+                      value=""
+                    />
+                  </div>
                 </div>
               </div>
             </div>
@@ -622,8 +970,49 @@ exports[`ProductCustomizer components  render with no variations 2`] = `
               <div
                 class=""
               >
-                <div>
-                  Checkbox props={"disabled":false,"name":"Pepperoni","checked":true}
+                <div
+                  class="flex items-center relative pointer"
+                >
+                  <div
+                    class="relative w1 h1"
+                  >
+                    <div
+                      class="h1 w1 absolute ba bw1 br1  b--action-primary bg-action-primary"
+                      style="transition: background 20ms, border 100ms;"
+                    />
+                    <div
+                      class="absolute w1 h1 flex o-100"
+                      style="left: 0px;"
+                    >
+                      <div
+                        class="absolute top-0 left-0 bottom-0 overflow-hidden w-100 flex items-center align-center justify-center c-on-action-primary"
+                        style="transition: right 110ms ease-in-out 30ms;"
+                      >
+                        <svg
+                          class="vtex__icon-check  "
+                          fill="none"
+                          height="12"
+                          viewBox="0 0 12 12"
+                          width="12"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M10.8 4.4L9.4 3L5.4 7L3.4 5L2 6.4L5.4 9.8L10.8 4.4Z"
+                            fill="currentColor"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                    <input
+                      checked=""
+                      class="h1 w1 absolute o-0 pointer"
+                      id="Pepperoni-choice"
+                      name="Pepperoni"
+                      tabindex="0"
+                      type="checkbox"
+                      value=""
+                    />
+                  </div>
                 </div>
               </div>
             </div>
@@ -655,8 +1044,49 @@ exports[`ProductCustomizer components  render with no variations 2`] = `
               <div
                 class=""
               >
-                <div>
-                  Checkbox props={"disabled":false,"name":"Champignon","checked":true}
+                <div
+                  class="flex items-center relative pointer"
+                >
+                  <div
+                    class="relative w1 h1"
+                  >
+                    <div
+                      class="h1 w1 absolute ba bw1 br1  b--action-primary bg-action-primary"
+                      style="transition: background 20ms, border 100ms;"
+                    />
+                    <div
+                      class="absolute w1 h1 flex o-100"
+                      style="left: 0px;"
+                    >
+                      <div
+                        class="absolute top-0 left-0 bottom-0 overflow-hidden w-100 flex items-center align-center justify-center c-on-action-primary"
+                        style="transition: right 110ms ease-in-out 30ms;"
+                      >
+                        <svg
+                          class="vtex__icon-check  "
+                          fill="none"
+                          height="12"
+                          viewBox="0 0 12 12"
+                          width="12"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M10.8 4.4L9.4 3L5.4 7L3.4 5L2 6.4L5.4 9.8L10.8 4.4Z"
+                            fill="currentColor"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                    <input
+                      checked=""
+                      class="h1 w1 absolute o-0 pointer"
+                      id="Champignon-choice"
+                      name="Champignon"
+                      tabindex="0"
+                      type="checkbox"
+                      value=""
+                    />
+                  </div>
                 </div>
               </div>
             </div>
@@ -688,8 +1118,49 @@ exports[`ProductCustomizer components  render with no variations 2`] = `
               <div
                 class=""
               >
-                <div>
-                  Checkbox props={"disabled":false,"name":"Onion","checked":true}
+                <div
+                  class="flex items-center relative pointer"
+                >
+                  <div
+                    class="relative w1 h1"
+                  >
+                    <div
+                      class="h1 w1 absolute ba bw1 br1  b--action-primary bg-action-primary"
+                      style="transition: background 20ms, border 100ms;"
+                    />
+                    <div
+                      class="absolute w1 h1 flex o-100"
+                      style="left: 0px;"
+                    >
+                      <div
+                        class="absolute top-0 left-0 bottom-0 overflow-hidden w-100 flex items-center align-center justify-center c-on-action-primary"
+                        style="transition: right 110ms ease-in-out 30ms;"
+                      >
+                        <svg
+                          class="vtex__icon-check  "
+                          fill="none"
+                          height="12"
+                          viewBox="0 0 12 12"
+                          width="12"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M10.8 4.4L9.4 3L5.4 7L3.4 5L2 6.4L5.4 9.8L10.8 4.4Z"
+                            fill="currentColor"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                    <input
+                      checked=""
+                      class="h1 w1 absolute o-0 pointer"
+                      id="Onion-choice"
+                      name="Onion"
+                      tabindex="0"
+                      type="checkbox"
+                      value=""
+                    />
+                  </div>
                 </div>
               </div>
             </div>
@@ -752,7 +1223,50 @@ exports[`ProductCustomizer components  render with no variations 2`] = `
                   class="multiple-choice__actions flex-none ml4 c-action-primary t-body fw5 z-1"
                 >
                   <div>
-                    NumericStepper
+                    <div
+                      class="flex self-start"
+                    >
+                      <input
+                        class="z-1 order-1 tc bw1 b--transparent  br0 h-regular t-small w2 br2 hover-b--muted-4 ba outline-transparent hideDecorators"
+                        type="tel"
+                        value="0"
+                      />
+                      <div
+                        class="z-2 order-2 flex-none"
+                      >
+                        <button
+                          aria-label="+"
+                          class="br2 pa0 bl-0 flex items-center justify-center b--transparent  h-regular f4  pointer bg-base c-action-primary outline-0 "
+                          style="border-top-left-radius: 0; border-bottom-left-radius: 0; width: 2em; transition: opacity 150ms;"
+                          tabindex="0"
+                          type="button"
+                        >
+                          <div
+                            class="b"
+                          >
+                            ＋
+                          </div>
+                        </button>
+                      </div>
+                      <div
+                        class="z-2 order-0 flex-none"
+                      >
+                        <button
+                          aria-label="−"
+                          class="br2 pa0 br-0 flex items-center justify-center b--transparent  h-regular f4  c-disabled bg-transparent "
+                          disabled=""
+                          style="border-top-right-radius: 0; border-bottom-right-radius: 0; width: 2em; transition: opacity 150ms;"
+                          tabindex="0"
+                          type="button"
+                        >
+                          <span
+                            class="b"
+                          >
+                            －
+                          </span>
+                        </button>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -805,7 +1319,50 @@ exports[`ProductCustomizer components  render with no variations 2`] = `
                   class="multiple-choice__actions flex-none ml4 c-action-primary t-body fw5 z-1"
                 >
                   <div>
-                    NumericStepper
+                    <div
+                      class="flex self-start"
+                    >
+                      <input
+                        class="z-1 order-1 tc bw1 b--transparent  br0 h-regular t-small w2 br2 hover-b--muted-4 ba outline-transparent hideDecorators"
+                        type="tel"
+                        value="0"
+                      />
+                      <div
+                        class="z-2 order-2 flex-none"
+                      >
+                        <button
+                          aria-label="+"
+                          class="br2 pa0 bl-0 flex items-center justify-center b--transparent  h-regular f4  pointer bg-base c-action-primary outline-0 "
+                          style="border-top-left-radius: 0; border-bottom-left-radius: 0; width: 2em; transition: opacity 150ms;"
+                          tabindex="0"
+                          type="button"
+                        >
+                          <div
+                            class="b"
+                          >
+                            ＋
+                          </div>
+                        </button>
+                      </div>
+                      <div
+                        class="z-2 order-0 flex-none"
+                      >
+                        <button
+                          aria-label="−"
+                          class="br2 pa0 br-0 flex items-center justify-center b--transparent  h-regular f4  c-disabled bg-transparent "
+                          disabled=""
+                          style="border-top-right-radius: 0; border-bottom-right-radius: 0; width: 2em; transition: opacity 150ms;"
+                          tabindex="0"
+                          type="button"
+                        >
+                          <span
+                            class="b"
+                          >
+                            －
+                          </span>
+                        </button>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -858,7 +1415,50 @@ exports[`ProductCustomizer components  render with no variations 2`] = `
                   class="multiple-choice__actions flex-none ml4 c-action-primary t-body fw5 z-1"
                 >
                   <div>
-                    NumericStepper
+                    <div
+                      class="flex self-start"
+                    >
+                      <input
+                        class="z-1 order-1 tc bw1 b--transparent  br0 h-regular t-small w2 br2 hover-b--muted-4 ba outline-transparent hideDecorators"
+                        type="tel"
+                        value="0"
+                      />
+                      <div
+                        class="z-2 order-2 flex-none"
+                      >
+                        <button
+                          aria-label="+"
+                          class="br2 pa0 bl-0 flex items-center justify-center b--transparent  h-regular f4  pointer bg-base c-action-primary outline-0 "
+                          style="border-top-left-radius: 0; border-bottom-left-radius: 0; width: 2em; transition: opacity 150ms;"
+                          tabindex="0"
+                          type="button"
+                        >
+                          <div
+                            class="b"
+                          >
+                            ＋
+                          </div>
+                        </button>
+                      </div>
+                      <div
+                        class="z-2 order-0 flex-none"
+                      >
+                        <button
+                          aria-label="−"
+                          class="br2 pa0 br-0 flex items-center justify-center b--transparent  h-regular f4  c-disabled bg-transparent "
+                          disabled=""
+                          style="border-top-right-radius: 0; border-bottom-right-radius: 0; width: 2em; transition: opacity 150ms;"
+                          tabindex="0"
+                          type="button"
+                        >
+                          <span
+                            class="b"
+                          >
+                            －
+                          </span>
+                        </button>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -911,7 +1511,50 @@ exports[`ProductCustomizer components  render with no variations 2`] = `
                   class="multiple-choice__actions flex-none ml4 c-action-primary t-body fw5 z-1"
                 >
                   <div>
-                    NumericStepper
+                    <div
+                      class="flex self-start"
+                    >
+                      <input
+                        class="z-1 order-1 tc bw1 b--transparent  br0 h-regular t-small w2 br2 hover-b--muted-4 ba outline-transparent hideDecorators"
+                        type="tel"
+                        value="0"
+                      />
+                      <div
+                        class="z-2 order-2 flex-none"
+                      >
+                        <button
+                          aria-label="+"
+                          class="br2 pa0 bl-0 flex items-center justify-center b--transparent  h-regular f4  pointer bg-base c-action-primary outline-0 "
+                          style="border-top-left-radius: 0; border-bottom-left-radius: 0; width: 2em; transition: opacity 150ms;"
+                          tabindex="0"
+                          type="button"
+                        >
+                          <div
+                            class="b"
+                          >
+                            ＋
+                          </div>
+                        </button>
+                      </div>
+                      <div
+                        class="z-2 order-0 flex-none"
+                      >
+                        <button
+                          aria-label="−"
+                          class="br2 pa0 br-0 flex items-center justify-center b--transparent  h-regular f4  c-disabled bg-transparent "
+                          disabled=""
+                          style="border-top-right-radius: 0; border-bottom-right-radius: 0; width: 2em; transition: opacity 150ms;"
+                          tabindex="0"
+                          type="button"
+                        >
+                          <span
+                            class="b"
+                          >
+                            －
+                          </span>
+                        </button>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -964,7 +1607,50 @@ exports[`ProductCustomizer components  render with no variations 2`] = `
                   class="multiple-choice__actions flex-none ml4 c-action-primary t-body fw5 z-1"
                 >
                   <div>
-                    NumericStepper
+                    <div
+                      class="flex self-start"
+                    >
+                      <input
+                        class="z-1 order-1 tc bw1 b--transparent  br0 h-regular t-small w2 br2 hover-b--muted-4 ba outline-transparent hideDecorators"
+                        type="tel"
+                        value="0"
+                      />
+                      <div
+                        class="z-2 order-2 flex-none"
+                      >
+                        <button
+                          aria-label="+"
+                          class="br2 pa0 bl-0 flex items-center justify-center b--transparent  h-regular f4  pointer bg-base c-action-primary outline-0 "
+                          style="border-top-left-radius: 0; border-bottom-left-radius: 0; width: 2em; transition: opacity 150ms;"
+                          tabindex="0"
+                          type="button"
+                        >
+                          <div
+                            class="b"
+                          >
+                            ＋
+                          </div>
+                        </button>
+                      </div>
+                      <div
+                        class="z-2 order-0 flex-none"
+                      >
+                        <button
+                          aria-label="−"
+                          class="br2 pa0 br-0 flex items-center justify-center b--transparent  h-regular f4  c-disabled bg-transparent "
+                          disabled=""
+                          style="border-top-right-radius: 0; border-bottom-right-radius: 0; width: 2em; transition: opacity 150ms;"
+                          tabindex="0"
+                          type="button"
+                        >
+                          <span
+                            class="b"
+                          >
+                            －
+                          </span>
+                        </button>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1017,7 +1703,50 @@ exports[`ProductCustomizer components  render with no variations 2`] = `
                   class="multiple-choice__actions flex-none ml4 c-action-primary t-body fw5 z-1"
                 >
                   <div>
-                    NumericStepper
+                    <div
+                      class="flex self-start"
+                    >
+                      <input
+                        class="z-1 order-1 tc bw1 b--transparent  br0 h-regular t-small w2 br2 hover-b--muted-4 ba outline-transparent hideDecorators"
+                        type="tel"
+                        value="0"
+                      />
+                      <div
+                        class="z-2 order-2 flex-none"
+                      >
+                        <button
+                          aria-label="+"
+                          class="br2 pa0 bl-0 flex items-center justify-center b--transparent  h-regular f4  pointer bg-base c-action-primary outline-0 "
+                          style="border-top-left-radius: 0; border-bottom-left-radius: 0; width: 2em; transition: opacity 150ms;"
+                          tabindex="0"
+                          type="button"
+                        >
+                          <div
+                            class="b"
+                          >
+                            ＋
+                          </div>
+                        </button>
+                      </div>
+                      <div
+                        class="z-2 order-0 flex-none"
+                      >
+                        <button
+                          aria-label="−"
+                          class="br2 pa0 br-0 flex items-center justify-center b--transparent  h-regular f4  c-disabled bg-transparent "
+                          disabled=""
+                          style="border-top-right-radius: 0; border-bottom-right-radius: 0; width: 2em; transition: opacity 150ms;"
+                          tabindex="0"
+                          type="button"
+                        >
+                          <span
+                            class="b"
+                          >
+                            －
+                          </span>
+                        </button>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1070,7 +1799,50 @@ exports[`ProductCustomizer components  render with no variations 2`] = `
                   class="multiple-choice__actions flex-none ml4 c-action-primary t-body fw5 z-1"
                 >
                   <div>
-                    NumericStepper
+                    <div
+                      class="flex self-start"
+                    >
+                      <input
+                        class="z-1 order-1 tc bw1 b--transparent  br0 h-regular t-small w2 br2 hover-b--muted-4 ba outline-transparent hideDecorators"
+                        type="tel"
+                        value="0"
+                      />
+                      <div
+                        class="z-2 order-2 flex-none"
+                      >
+                        <button
+                          aria-label="+"
+                          class="br2 pa0 bl-0 flex items-center justify-center b--transparent  h-regular f4  pointer bg-base c-action-primary outline-0 "
+                          style="border-top-left-radius: 0; border-bottom-left-radius: 0; width: 2em; transition: opacity 150ms;"
+                          tabindex="0"
+                          type="button"
+                        >
+                          <div
+                            class="b"
+                          >
+                            ＋
+                          </div>
+                        </button>
+                      </div>
+                      <div
+                        class="z-2 order-0 flex-none"
+                      >
+                        <button
+                          aria-label="−"
+                          class="br2 pa0 br-0 flex items-center justify-center b--transparent  h-regular f4  c-disabled bg-transparent "
+                          disabled=""
+                          style="border-top-right-radius: 0; border-bottom-right-radius: 0; width: 2em; transition: opacity 150ms;"
+                          tabindex="0"
+                          type="button"
+                        >
+                          <span
+                            class="b"
+                          >
+                            －
+                          </span>
+                        </button>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1089,7 +1861,7 @@ exports[`ProductCustomizer components  render with no variations 2`] = `
 </DocumentFragment>
 `;
 
-exports[`ProductCustomizer components  render with variations example 1`] = `
+exports[`ProductCustomizer components  render with variations example, show sku selector 1`] = `
 <DocumentFragment>
   <div
     class="flex-ns pv6-ns justify-center-ns"

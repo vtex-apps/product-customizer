@@ -1,5 +1,3 @@
-import React from 'react'
-
-const Button = () => <div>Button</div>
+import Button from '@vtex/styleguide/lib/Button'
 
 export default Button
