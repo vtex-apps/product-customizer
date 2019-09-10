@@ -1,27 +1,29 @@
 import React, { FC } from 'react'
 import {
   useProductAssemblyItem,
-  useProductAssemblyDispatch,
-} from '../ProductAssemblyContext'
+} from '../ProductAssemblyContext/Item'
 import { Checkbox, Radio, NumericStepper } from 'vtex.styleguide'
 import styles from './styles.css'
-import { GROUP_TYPES } from '../../utils'
+import { GROUP_TYPES } from '../../modules/assemblyGroupType'
+import { useProductAssemblyGroupState, useProductAssemblyGroupDispatch, GroupState, GroupComputedParams } from '../ProductAssemblyContext/Group'
 
 const Single: FC = () => {
-  const { item, groupPath } = useProductAssemblyItem()
-  const dispatch = useProductAssemblyDispatch()
-  const selected = item.quantity === 1
+  const { id, quantity } = useProductAssemblyItem()
+  const { path } = useProductAssemblyGroupState() as GroupState
+  const dispatch = useProductAssemblyGroupDispatch()
+  const selected = quantity === 1
+
   return (
     <div
       onClick={() => {
-        if (item.quantity === 0) {
+        if (quantity === 0) {
           dispatch({
             type: 'SET_QUANTITY',
             args: {
-              itemId: item.id,
+              itemId: id,
               newQuantity: 1,
               type: GROUP_TYPES.SINGLE,
-              groupPath,
+              groupPath: path,
             },
           })
         }
@@ -34,30 +36,33 @@ const Single: FC = () => {
         label=""
         name=""
         value=""
-        onChange={() => {}}
+        onChange={() => { }}
       />
     </div>
   )
 }
 
 const Toggle: FC = () => {
-  const { item, groupPath } = useProductAssemblyItem()
-  const dispatch = useProductAssemblyDispatch()
-  const selected = item.quantity === 1
-  const disabled = item.minQuantity === 1
+  const { id, quantity, minQuantity } = useProductAssemblyItem()
+  const { path } = useProductAssemblyGroupState() as GroupState
+  const dispatch = useProductAssemblyGroupDispatch()
+
+  const selected = quantity === 1
+  const disabled = minQuantity === 1
+
   return (
     <Checkbox
       disabled={disabled}
-      name={`selected-${item.id}`}
+      name={`selected-${id}`}
       checked={selected}
       onChange={() => {
         dispatch({
           type: 'SET_QUANTITY',
           args: {
-            itemId: item.id,
-            newQuantity: item.quantity === 1 ? 0 : 1,
+            itemId: id,
+            newQuantity: quantity === 1 ? 0 : 1,
             type: GROUP_TYPES.TOGGLE,
-            groupPath,
+            groupPath: path,
           },
         })
       }}
@@ -67,31 +72,35 @@ const Toggle: FC = () => {
 
 const Multiple: FC = () => {
   const {
-    item,
-    groupQuantitySum,
-    groupMaxQuantity,
-    groupPath,
+    quantity, maxQuantity, minQuantity, id
   } = useProductAssemblyItem()
-  const dispatch = useProductAssemblyDispatch()
+  const {
+    path,
+    maxQuantity: groupMaxQuantity,
+    quantitySum
+  } = useProductAssemblyGroupState() as (AssemblyOptionGroup & GroupComputedParams)
+
+  const dispatch = useProductAssemblyGroupDispatch()
+
   const canIncrease =
-    item.quantity + 1 <= item.maxQuantity &&
-    groupQuantitySum + 1 <= groupMaxQuantity
+    quantity + 1 <= maxQuantity &&
+    quantitySum + 1 <= groupMaxQuantity
 
   return (
-    <div className={styles.multipleItemQuantitySelector}>
+    <div className={styles.multipleItemQuantitySelector} data-testid={`multipleItemQuantitySelector-${id}`}>
       <NumericStepper
         lean
-        value={item.quantity}
-        minValue={item.minQuantity}
-        maxValue={canIncrease ? undefined : item.quantity}
+        value={quantity}
+        minValue={minQuantity}
+        maxValue={canIncrease ? undefined : quantity}
         onChange={({ value }: { value: number }) => {
           dispatch({
             type: 'SET_QUANTITY',
             args: {
-              itemId: item.id,
+              itemId: id,
               newQuantity: value,
               type: GROUP_TYPES.MULTIPLE,
-              groupPath,
+              groupPath: path,
             },
           })
         }}
@@ -101,14 +110,16 @@ const Multiple: FC = () => {
 }
 
 const Quantity: FC = () => {
-  const { groupType } = useProductAssemblyItem()
+  const { type } = useProductAssemblyGroupState() as GroupState
 
-  if (groupType === 'SINGLE') {
+  if (type === 'SINGLE') {
     return <Single />
   }
-  if (groupType === 'TOGGLE') {
+
+  if (type === 'TOGGLE') {
     return <Toggle />
   }
+
   return <Multiple />
 }
 

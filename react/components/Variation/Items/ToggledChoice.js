@@ -20,6 +20,7 @@ const ToggledChoice = ({ imageUrl, name, selected, onChange, disabled }) => (
       </div>
       <div className={`${disabled ? 'o-70' : ''}`}>
         <Checkbox
+          id={`${name}-choice`}
           disabled={disabled}
           name={name}
           checked={selected}

@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import { head } from 'ramda'
-import { useProductAssemblyItem } from '../ProductAssemblyContext'
+import { useProductAssemblyItem } from '../ProductAssemblyContext/Item'
 
 const IMAGE_SIZE = 54
 
@@ -26,15 +26,16 @@ export const imageUrlForSize = (imageUrl: string, size: number) => {
   ].join('/')
 }
 
-const Image: FC = () => {
-  const { item } = useProductAssemblyItem()
+const ProductAssemblyOptionItemImage: FC = () => {
+  const { image } = useProductAssemblyItem()
+
   return (
     <img
-      src={imageUrlForSize(item.image, IMAGE_SIZE)}
+      src={imageUrlForSize(image, IMAGE_SIZE)}
       width={IMAGE_SIZE}
       height={IMAGE_SIZE}
     />
   )
 }
 
-export default Image
+export default ProductAssemblyOptionItemImage

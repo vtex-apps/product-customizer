@@ -21,19 +21,24 @@ interface AssemblyOption {
   id: string
   name: string
   composition: Composition | null
+  inputValues: AttachmentField[]
 }
+
+interface AttachmentField {
+  label: string
+  maxLength: number | null
+  type: AttachmentType | string // Accepting string so JSON imports work
+  domain: string[] | null
+}
+
+type AttachmentType = 'TEXT' | 'BOOLEAN' | 'OPTIONS'
 
 interface MetadataItem {
   id: string
   name: string
   imageUrl: string
-  detailUrl: string
   seller: string
   assemblyOptions: AssemblyOption[]
-  skuName: string
-  productId: string
-  refId: string
-  ean: string | null
 }
 
 interface ItemMetadata {
@@ -63,7 +68,21 @@ interface AssemblyOptionGroup {
   groupName: string
   treePath: TreePath[]
   type: GroupTypes
+  inputValues: AttachmentField[]
 }
+
+interface AssemblyOptionGroupAttachment {
+  id: string
+  minQuantity: undefined
+  maxQuantity: undefined
+  items: undefined
+  groupName: string
+  treePath: TreePath[]
+  type: GroupTypes
+  inputValues: AttachmentField[]
+}
+
+type AssemblyOptionGroupType = AssemblyOptionGroup | AssemblyOptionGroupAttachment
 
 interface AssemblyItem {
   image: string
@@ -75,5 +94,5 @@ interface AssemblyItem {
   seller: string
   initialQuantity: number
   quantity: number
-  children: Record<string, AssemblyOptionGroup> | null
+  children: Record<string, AssemblyOptionGroupType> | null
 }

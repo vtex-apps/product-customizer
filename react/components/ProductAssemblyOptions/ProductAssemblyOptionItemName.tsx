@@ -1,9 +1,9 @@
 import React, { FC } from 'react'
-import { useProductAssemblyItem } from '../ProductAssemblyContext'
+import { useProductAssemblyItem } from '../ProductAssemblyContext/Item'
 
-const Name: FC = () => {
-  const { item } = useProductAssemblyItem()
-  return <span className="t-heading-5 c-on-base">{item.name}</span>
+const ProductAssemblyOptionItemName: FC = () => {
+  const { name } = useProductAssemblyItem()
+  return <span className="t-heading-5 c-on-base">{name}</span>
 }
 
-export default Name
+export default ProductAssemblyOptionItemName
