@@ -2,12 +2,6 @@ import React, { createContext, useContext, Dispatch, useReducer, FC } from 'reac
 import { path } from 'ramda'
 import { GROUP_TYPES } from '../../modules/assemblyGroupType'
 
-export interface GroupComputedParams {
-  path: string[]
-  quantitySum: number
-}
-
-export type GroupState = AssemblyOptionGroupType & GroupComputedParams
 
 type DispatchAction = {
   type: 'SET_QUANTITY'
@@ -21,7 +15,7 @@ type DispatchAction = {
 
 export const ProductAssemblyDispatchContext = createContext<Dispatch<DispatchAction>>(() => { })
 
-export const ProductAssemblyGroupContext = createContext<GroupState | undefined>(undefined)
+export const ProductAssemblyGroupContext = createContext<AssemblyOptionGroupType | undefined>(undefined)
 
 export const ProductAssemblyGroupContextProvider: FC<ProductAssemblyGroupContextProviderProps> = ({ assemblyOption, children }) => {
   const path = getGroupPath(assemblyOption.treePath)
@@ -30,7 +24,7 @@ export const ProductAssemblyGroupContextProvider: FC<ProductAssemblyGroupContext
     0
   )
 
-  const initialState: GroupState = {
+  const initialState: AssemblyOptionGroupType = {
     ...assemblyOption,
     path,
     quantitySum: quantitySum,
@@ -76,7 +70,7 @@ export const useProductAssemblyGroupDispatch = () =>
 export const useProductAssemblyGroupState = () =>
   useContext(ProductAssemblyGroupContext)
 
-function reducer(state: GroupState, action: DispatchAction): GroupState {
+function reducer(state: AssemblyOptionGroupType, action: DispatchAction): AssemblyOptionGroupType {
   switch (action.type) {
     case 'SET_QUANTITY':
       if (!state.items) {
@@ -84,20 +78,16 @@ function reducer(state: GroupState, action: DispatchAction): GroupState {
       }
 
       const { itemId, newQuantity, type, groupPath } = action.args
-      const groupState = path(groupPath, state) as AssemblyOptionGroup
+      let groupState = path(groupPath, state) as AssemblyOptionGroup
 
       if (type === GROUP_TYPES.SINGLE) {
-        return {
-          ...state,
-          quantitySum: 0,
-          items: removeAllItems(groupState.items)
-        }
+        groupState.items = removeAllItems(groupState.items)
       }
 
       const newItems = {
-        ...state.items,
-        ...(itemId && state.items && state.items[itemId]
-          ? { [itemId]: { ...state.items[itemId], quantity: newQuantity } }
+        ...groupState.items,
+        ...(itemId && groupState.items && groupState.items[itemId]
+          ? { [itemId]: { ...groupState.items[itemId], quantity: newQuantity } }
           : {}
         )
       }
@@ -107,17 +97,16 @@ function reducer(state: GroupState, action: DispatchAction): GroupState {
         0
       )
 
-      return {
-        ...state,
-        quantitySum: newQuantitySum,
-        items: newItems,
-      }
+      groupState.quantitySum = newQuantitySum
+      groupState.items = newItems
+
+      return { ...state }
     default:
       return state
   }
 }
 
-const removeAllItems = (items: Record<string, AssemblyItem>) => {
+function removeAllItems(items: Record<string, AssemblyItem>) {
   return Object.keys(items).reduce<Record<string, AssemblyItem>>((acc, itemId) => {
     acc[itemId] = {
       ...items[itemId],

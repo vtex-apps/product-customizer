@@ -1,13 +1,13 @@
 import React, { FC, Fragment } from 'react'
 
-import { useProductAssemblyGroupState, GroupState } from '../ProductAssemblyContext/Group'
+import { useProductAssemblyGroupState } from '../ProductAssemblyContext/Group'
 import useAssemblyOptionsModifications from '../../modules/useAssemblyOptionsModifications'
 import ProductAssemblyOptionItemAttachment from './ProductAssemblyOptionItemAttachment'
 import { ProductAssemblyItemProvider } from '../ProductAssemblyContext/Item'
 import styles from './styles.css'
 
 const ProductAssemblyOptionsGroup: FC = ({ children }) => {
-  const assemblyOptionGroup = useProductAssemblyGroupState() as GroupState
+  const assemblyOptionGroup = useProductAssemblyGroupState() as AssemblyOptionGroupType
 
   useAssemblyOptionsModifications(assemblyOptionGroup)
 

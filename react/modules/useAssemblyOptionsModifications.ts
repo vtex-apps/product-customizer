@@ -1,11 +1,8 @@
 import { useEffect } from 'react'
 import { pick } from 'ramda'
 import { useProductDispatch } from 'vtex.product-context/ProductDispatchContext'
-import {
-  GroupState,
-} from '../components/ProductAssemblyContext/Group'
 
-export default function useAssemblyOptionsModifications(localState: GroupState) {
+export default function useAssemblyOptionsModifications(localState: AssemblyOptionGroupType) {
   const dispatch = useProductDispatch()
 
   useEffect(() => {
