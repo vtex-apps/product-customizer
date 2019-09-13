@@ -69,6 +69,9 @@ interface AssemblyOptionGroup {
   treePath: TreePath[]
   type: GroupTypes
   inputValues: AttachmentField[]
+
+  path: string[]
+  quantitySum: number
 }
 
 interface AssemblyOptionGroupAttachment {
@@ -80,6 +83,9 @@ interface AssemblyOptionGroupAttachment {
   treePath: TreePath[]
   type: GroupTypes
   inputValues: AttachmentField[]
+
+  path: string[]
+  quantitySum: number
 }
 
 type AssemblyOptionGroupType = AssemblyOptionGroup | AssemblyOptionGroupAttachment
