@@ -89,8 +89,14 @@ function reducer(state: GroupState, action: DispatchAction): GroupState {
       if (type === GROUP_TYPES.SINGLE) {
         return {
           ...state,
-          quantitySum: 0,
-          items: removeAllItems(groupState.items)
+          quantitySum: 1,
+          items: {
+            ...removeAllItems(groupState.items),
+            ...(itemId && state.items && state.items[itemId]
+              ? { [itemId]: { ...state.items[itemId], quantity: newQuantity } }
+              : {}
+            )
+          }
         }
       }
 
@@ -117,7 +123,7 @@ function reducer(state: GroupState, action: DispatchAction): GroupState {
   }
 }
 
-const removeAllItems = (items: Record<string, AssemblyItem>) => {
+function removeAllItems(items: Record<string, AssemblyItem>) {
   return Object.keys(items).reduce<Record<string, AssemblyItem>>((acc, itemId) => {
     acc[itemId] = {
       ...items[itemId],

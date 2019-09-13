@@ -32,7 +32,7 @@ const ProductAssemblyOptionItemChildrenDescription: FC = () => {
       {groups.map(group => {
         const assemblyGroup = group as AssemblyOptionGroup
 
-        const items = Object.values(assemblyGroup.items).filter(
+        const items = Object.values(assemblyGroup.items || []).filter(
           ({ quantity, initialQuantity }) => quantity !== initialQuantity
         )
 
