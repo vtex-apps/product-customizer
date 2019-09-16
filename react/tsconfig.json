@@ -5,5 +5,5 @@
     "resolveJsonModule": true,
     "types": ["node", "jest", "graphql"]
   },
-  "include": ["./typings/*.d.ts", "./**/*.tsx", "./**/*.ts", "__tests__/index.test.js"]
+  "include": ["./typings/*.d.ts", "./**/*.tsx", "./**/*.ts"]
 }

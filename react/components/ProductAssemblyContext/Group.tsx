@@ -2,13 +2,23 @@ import React, { createContext, useContext, Dispatch, useReducer, FC } from 'reac
 import { path } from 'ramda'
 import { GROUP_TYPES } from '../../modules/assemblyGroupType'
 
+type DispatchAction = SetQuantityAction | SetInputValueAction
 
-type DispatchAction = {
+type SetQuantityAction = {
   type: 'SET_QUANTITY'
   args: {
     itemId: string
     newQuantity: number
     type: string
+    groupPath: string[]
+  }
+}
+
+type SetInputValueAction = {
+  type: 'SET_INPUT_VALUE'
+  args: {
+    inputValueLabel: string
+    inputValue: string
     groupPath: string[]
   }
 }
@@ -24,10 +34,16 @@ export const ProductAssemblyGroupContextProvider: FC<ProductAssemblyGroupContext
     0
   )
 
+  const valuesOfInputValues = assemblyOption.inputValues.reduce<Record<string,string>>((acc, inputValue) => {
+    acc[inputValue.label] = ''
+    return acc
+  }, {})
+
   const initialState: AssemblyOptionGroupType = {
     ...assemblyOption,
     path,
     quantitySum: quantitySum,
+    valuesOfInputValues,
   }
 
   const [state, dispatch] = useReducer(
@@ -72,6 +88,17 @@ export const useProductAssemblyGroupState = () =>
 
 function reducer(state: AssemblyOptionGroupType, action: DispatchAction): AssemblyOptionGroupType {
   switch (action.type) {
+    case 'SET_INPUT_VALUE': {
+      const { groupPath, inputValue, inputValueLabel } = action.args
+      let groupState = path(groupPath, state) as AssemblyOptionGroupType
+
+      groupState.valuesOfInputValues = {
+        ...groupState.valuesOfInputValues,
+        [inputValueLabel]: inputValue,
+      }
+
+      return { ...state }
+    }
     case 'SET_QUANTITY':
       if (!state.items) {
         return state

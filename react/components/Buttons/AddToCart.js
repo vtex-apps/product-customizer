@@ -12,7 +12,7 @@ const AddToCart = ({ total, ready, onClick, isLoading }) => {
     <div className="actions--add-to-cart tc pa5">
       <Button type="submit" onClick={onClick} isLoading={isLoading} block>
         <div className="flex w-100 justify-between items-center">
-          <FormattedMessage id="product-customizer.add-to-cart" />
+          <FormattedMessage id="store/product-customizer.add-to-cart" />
           <ProductPrice
             showLabels={false}
             showListPrice={false}

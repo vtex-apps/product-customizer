@@ -6,7 +6,7 @@ export default function useAssemblyOptionsModifications(localState: AssemblyOpti
   const dispatch = useProductDispatch()
 
   useEffect(() => {
-    const { items: localItems, id, type } = localState
+    const { items: localItems, id, type, valuesOfInputValues } = localState
     const items = Object.values(localItems || {}).map(parseItem(type))
     const isValid = isGroupValid(localState)
 
@@ -15,6 +15,7 @@ export default function useAssemblyOptionsModifications(localState: AssemblyOpti
       args: {
         groupId: id,
         groupItems: items,
+        groupInputValues: valuesOfInputValues,
         isValid,
       },
     })

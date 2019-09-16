@@ -16,3 +16,9 @@ export const Radio = StyleguideRadio
 
 import StyleguideNumericStepper from '@vtex/styleguide/lib/NumericStepper'
 export const NumericStepper = StyleguideNumericStepper
+
+import StyleguideInput from '@vtex/styleguide/lib/Input'
+export const Input = StyleguideInput
+
+import StyleguideDropdown from '@vtex/styleguide/lib/Dropdown'
+export const Dropdown = StyleguideDropdown
