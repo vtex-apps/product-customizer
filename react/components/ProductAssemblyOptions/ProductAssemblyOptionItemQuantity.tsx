@@ -5,11 +5,11 @@ import {
 import { Checkbox, Radio, NumericStepper } from 'vtex.styleguide'
 import styles from './styles.css'
 import { GROUP_TYPES } from '../../modules/assemblyGroupType'
-import { useProductAssemblyGroupState, useProductAssemblyGroupDispatch, GroupState, GroupComputedParams } from '../ProductAssemblyContext/Group'
+import { useProductAssemblyGroupState, useProductAssemblyGroupDispatch } from '../ProductAssemblyContext/Group'
 
 const Single: FC = () => {
   const { id, quantity } = useProductAssemblyItem()
-  const { path } = useProductAssemblyGroupState() as GroupState
+  const { path } = useProductAssemblyGroupState() as AssemblyOptionGroup
   const dispatch = useProductAssemblyGroupDispatch()
   const selected = quantity === 1
 
@@ -44,7 +44,7 @@ const Single: FC = () => {
 
 const Toggle: FC = () => {
   const { id, quantity, minQuantity } = useProductAssemblyItem()
-  const { path } = useProductAssemblyGroupState() as GroupState
+  const { path } = useProductAssemblyGroupState() as AssemblyOptionGroup
   const dispatch = useProductAssemblyGroupDispatch()
 
   const selected = quantity === 1
@@ -78,7 +78,7 @@ const Multiple: FC = () => {
     path,
     maxQuantity: groupMaxQuantity,
     quantitySum
-  } = useProductAssemblyGroupState() as (AssemblyOptionGroup & GroupComputedParams)
+  } = useProductAssemblyGroupState() as AssemblyOptionGroup
 
   const dispatch = useProductAssemblyGroupDispatch()
 
@@ -110,7 +110,7 @@ const Multiple: FC = () => {
 }
 
 const Quantity: FC = () => {
-  const { type } = useProductAssemblyGroupState() as GroupState
+  const { type } = useProductAssemblyGroupState() as AssemblyOptionGroup
 
   if (type === 'SINGLE') {
     return <Single />

@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import useProduct from 'vtex.product-context/useProduct'
+import useProduct, { SelectedItem, Product } from 'vtex.product-context/useProduct'
 import { find, propEq, compose, last, split, pathOr } from 'ramda'
 import { getGroupType } from './assemblyGroupType'
 

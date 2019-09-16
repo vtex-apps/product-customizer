@@ -3,6 +3,7 @@ import { useProductAssemblyGroupState } from '../ProductAssemblyContext/Group'
 import TextInputValue from './InputValue/TextInputValue'
 import OptionsInputValue from './InputValue/OptionsInputValue'
 import BooleanInputValue from './InputValue/BooleanInputValue'
+import { InputValueType } from '../../modules/inputValueType'
 
 const ProductAssemblyOptionItemInputValues: FC = () => {
   const { inputValues } = useProductAssemblyGroupState() as AssemblyOptionGroupType
@@ -10,16 +11,16 @@ const ProductAssemblyOptionItemInputValues: FC = () => {
   return (
     <Fragment>
       {inputValues.map((inputValue, index) => {
-        if (inputValue.type === 'TEXT') {
-          return <TextInputValue key={index} inputValueInfo={inputValue as TextInputValue} />
+        if (inputValue.type === InputValueType.TEXT) {
+          return <TextInputValue key={index} inputValueInfo={inputValue} />
         }
 
-        if (inputValue.type === 'OPTIONS') {
-          return <OptionsInputValue key={index} inputValueInfo={inputValue as OptionsInputValue} />
+        if (inputValue.type === InputValueType.OPTIONS) {
+          return <OptionsInputValue key={index} inputValueInfo={inputValue} />
         }
 
-        if (inputValue.type === 'BOOLEAN') {
-          return <BooleanInputValue key={index} inputValueInfo={inputValue as BooleanInputValue} />
+        if (inputValue.type === InputValueType.BOOLEAN) {
+          return <BooleanInputValue key={index} inputValueInfo={inputValue} />
         }
 
         return null

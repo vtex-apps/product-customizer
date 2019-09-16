@@ -4,8 +4,8 @@ import ProductAssemblyOptions from '../../ProductAssemblyOptions'
 import InputValue from './ProductAssemblyOptionItemInputValues'
 import productAttachment from '../../__mocks__/productAttachment.json'
 import useProduct, { ProductContext } from 'vtex.product-context/useProduct'
-import ProductAssemblyOptionItemName from './ProductAssemblyOptionItemName'
 import { useProductDispatch } from 'vtex.product-context/ProductDispatchContext'
+import ProductAssemblyOptionItemName from './ProductAssemblyOptionItemName'
 
 const mockedUseProductDispatch = useProductDispatch as jest.Mock<() => jest.Mock>
 const mockUseProduct = useProduct as jest.Mock<ProductContext>

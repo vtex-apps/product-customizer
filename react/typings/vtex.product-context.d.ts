@@ -1,17 +1,19 @@
-interface SelectedItem {
-  itemId: string
-  sellers: {
-    commertialOffer: {
-      AvailableQuantity: number
-    }
-  }[]
-}
-
-interface Product {
-  itemMetadata: ItemMetadata
-}
-
 declare module 'vtex.product-context/useProduct' {
+  import { ItemMetadata } from '../modules/AssemblyTypings'
+
+  export interface SelectedItem {
+    itemId: string
+    sellers: {
+      commertialOffer: {
+        AvailableQuantity: number
+      }
+    }[]
+  }
+
+  export interface Product {
+    itemMetadata: ItemMetadata
+  }
+
   const useProduct: () => ProductContext
   export default useProduct
 
