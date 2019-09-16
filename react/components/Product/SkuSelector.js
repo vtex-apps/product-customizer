@@ -62,7 +62,7 @@ const SelectorOptions = ({
   return (
     <Fragment>
       <div className="ph5 pb4 c-muted-2 t-small">
-        <FormattedMessage id="product-customizer.pick-size" />
+        <FormattedMessage id="store/product-customizer.pick-size" />
       </div>
       {Object.entries(parsedItems).map(([name, item]) => (
         <SingleChoice

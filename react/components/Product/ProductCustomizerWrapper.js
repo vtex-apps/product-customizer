@@ -208,7 +208,7 @@ class ProductCustomizerWrapper extends Component {
   showToast = success => {
     const suffix = success ? 'buy-success' : 'add-failure'
     const message = this.props.intl.formatMessage({
-      id: `product-customizer.${suffix}`,
+      id: `store/product-customizer.${suffix}`,
     })
     this.props.showToast({ message })
   }

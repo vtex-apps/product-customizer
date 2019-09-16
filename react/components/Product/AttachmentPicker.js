@@ -9,7 +9,7 @@ function getTitleId({ name }) {
     .toLowerCase()
     .split(' ')
     .join('-')
-  return `product-customizer.${key}-title`
+  return `store/product-customizer.${key}-title`
 }
 
 function AttachmentPicker({
