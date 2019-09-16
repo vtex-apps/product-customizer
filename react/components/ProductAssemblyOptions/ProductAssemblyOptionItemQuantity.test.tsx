@@ -29,13 +29,13 @@ function queryQuantityIncreaseButton(container: HTMLElement, itemId: string|numb
   return container.querySelector(`[data-testid="multipleItemQuantitySelector-${itemId}"] [aria-label="+"]`) as HTMLButtonElement
 }
 
-mockUseProduct.mockImplementation(() => ({
-  product: productPizza.data.product,
-  selectedItem: productPizza.data.product.items[0],
-  selectedQuantity: 1
-}))
-
 test('should allow changing quantity respecting the min and max quantity', () => {
+  mockUseProduct.mockImplementation(() => ({
+    product: productPizza.data.product,
+    selectedItem: productPizza.data.product.items[0],
+    selectedQuantity: 1
+  }))
+
   const { container } = renderComponent()
 
   const colaId = 110

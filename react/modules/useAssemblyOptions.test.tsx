@@ -16,10 +16,8 @@ test('it should return inputValues', () => {
   const { result } = renderHook(() => parseAssemblyOptions())
   const value = result.current!
 
-  expect(value['Font']).toBeDefined()
-  expect(value['1-3-lines']).toBeDefined()
-
-  expect(value['Font'].inputValues).toBe(
+  expect(value['Customization']).toBeDefined()
+  expect(value['Customization'].inputValues).toBe(
     productAttachment.data.product.itemMetadata.items[0].assemblyOptions[0].inputValues
   )
 })
