@@ -102,7 +102,7 @@ const parseAssemblyOptions = (
           type: getGroupType(assemblyOption),
           inputValues: assemblyOption.inputValues,
           items: undefined,
-        } as AssemblyOptionGroupAttachment
+        } as AssemblyOptionGroupInputValue
       }
 
       return assemblyOptionsParsed

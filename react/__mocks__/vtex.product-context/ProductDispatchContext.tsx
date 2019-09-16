@@ -1,2 +1,2 @@
-const noop = () => {}
-export const useProductDispatch = () => noop
+const dispatch = jest.fn()
+export const useProductDispatch = jest.fn(() => dispatch)

@@ -2,7 +2,7 @@ import React, { FC, Fragment } from 'react'
 
 import { useProductAssemblyGroupState } from '../ProductAssemblyContext/Group'
 import useAssemblyOptionsModifications from '../../modules/useAssemblyOptionsModifications'
-import ProductAssemblyOptionItemAttachment from './ProductAssemblyOptionItemAttachment'
+import ProductAssemblyOptionItemInputValues from './ProductAssemblyOptionItemInputValues'
 import { ProductAssemblyItemProvider } from '../ProductAssemblyContext/Item'
 import styles from './styles.css'
 
@@ -28,7 +28,7 @@ const ProductAssemblyOptionsGroup: FC = ({ children }) => {
               </ProductAssemblyItemProvider>
             )
           })
-        : <ProductAssemblyOptionItemAttachment />
+        : <ProductAssemblyOptionItemInputValues />
       }
     </Fragment>
   )

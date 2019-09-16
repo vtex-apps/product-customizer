@@ -21,17 +21,31 @@ interface AssemblyOption {
   id: string
   name: string
   composition: Composition | null
-  inputValues: AttachmentField[]
+  inputValues: InputValue[]
 }
 
-interface AttachmentField {
+type InputValue = TextInputValue | BooleanInputValue | OptionsInputValue
+
+interface TextInputValue {
+  type: 'TEXT'|string
   label: string
-  maxLength: number | null
-  type: AttachmentType | string // Accepting string so JSON imports work
-  domain: string[] | null
+  maxLength: number
+  domain: null
 }
 
-type AttachmentType = 'TEXT' | 'BOOLEAN' | 'OPTIONS'
+interface BooleanInputValue {
+  type: 'BOOLEAN'|string
+  label: string
+  maxLength: null
+  domain: null
+}
+
+interface OptionsInputValue {
+  type: 'OPTIONS'|string
+  label: string
+  maxLength: null
+  domain: string[]
+}
 
 interface MetadataItem {
   id: string
@@ -68,13 +82,14 @@ interface AssemblyOptionGroup {
   groupName: string
   treePath: TreePath[]
   type: GroupTypes
-  inputValues: AttachmentField[]
+  valuesOfInputValues: Record<string, string>
+  inputValues: InputValue[]
 
   path: string[]
   quantitySum: number
 }
 
-interface AssemblyOptionGroupAttachment {
+interface AssemblyOptionGroupInputValue {
   id: string
   minQuantity: undefined
   maxQuantity: undefined
@@ -82,13 +97,14 @@ interface AssemblyOptionGroupAttachment {
   groupName: string
   treePath: TreePath[]
   type: GroupTypes
-  inputValues: AttachmentField[]
+  valuesOfInputValues: Record<string, string>
+  inputValues: InputValue[]
 
   path: string[]
   quantitySum: number
 }
 
-type AssemblyOptionGroupType = AssemblyOptionGroup | AssemblyOptionGroupAttachment
+type AssemblyOptionGroupType = AssemblyOptionGroup | AssemblyOptionGroupInputValue
 
 interface AssemblyItem {
   image: string

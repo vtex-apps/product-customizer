@@ -1,0 +1,943 @@
+{
+  "data": {
+    "product": {
+      "cacheId": "custom-bell",
+      "productName": "Custom Bell",
+      "productId": "2000032",
+      "description": "",
+      "titleTag": "",
+      "metaTagDescription": "",
+      "linkText": "custom-bell",
+      "productReference": "222444",
+      "categoryId": "72",
+      "categories": [
+        "/Bells/"
+      ],
+      "brand": "Kawasaki",
+      "brandId": 2000001,
+      "properties": [],
+      "specificationGroups": [
+        {
+          "name": "allSpecifications",
+          "specifications": [],
+          "__typename": "SpecificationGroup"
+        }
+      ],
+      "items": [
+        {
+          "itemId": "2000584",
+          "name": "Gold Bell",
+          "nameComplete": "Custom Bell Gold Bell",
+          "complementName": "",
+          "ean": "222444",
+          "referenceId": [
+            {
+              "Key": "RefId",
+              "Value": "1212121444",
+              "__typename": "Reference"
+            }
+          ],
+          "measurementUnit": "un",
+          "unitMultiplier": 1,
+          "images": [
+            {
+              "imageId": "155545",
+              "imageLabel": "main",
+              "imageTag": "<img src=\"~/arquivos/ids/155545-#width#-#height#/gold_bell.jpg?v=637020789145570000\" width=\"#width#\" height=\"#height#\" alt=\"gold-bell\" id=\"\" />",
+              "imageUrl": "https://storecomponents.vteximg.com.br/arquivos/ids/155545/gold_bell.jpg?v=637020789145570000",
+              "imageText": "gold-bell",
+              "__typename": "Image"
+            }
+          ],
+          "videos": [],
+          "sellers": [
+            {
+              "sellerId": "1",
+              "sellerName": "VTEX",
+              "addToCartLink": "https://portal.vtexcommercestable.com.br/checkout/cart/add?sku=2000584&qty=1&seller=1&sc=1&price=45000&cv=32ec470227a8cb87413acc13edbecea8_&sc=1",
+              "sellerDefault": true,
+              "commertialOffer": {
+                "discountHighlights": [],
+                "teasers": [],
+                "Price": 450,
+                "ListPrice": 450,
+                "PriceWithoutDiscount": 450,
+                "RewardValue": 0,
+                "PriceValidUntil": "2020-09-13T17:57:06.474625Z",
+                "AvailableQuantity": 2000000,
+                "Tax": 0,
+                "CacheVersionUsedToCallCheckout": "32ec470227a8cb87413acc13edbecea8_",
+                "Installments": [
+                  {
+                    "Value": 450,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 450,
+                    "NumberOfInstallments": 1,
+                    "Name": "American Express à vista",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 450,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 450,
+                    "NumberOfInstallments": 1,
+                    "Name": "Visa à vista",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 225,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 450,
+                    "NumberOfInstallments": 2,
+                    "Name": "Visa 2 vezes sem juros",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 150,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 450,
+                    "NumberOfInstallments": 3,
+                    "Name": "Visa 3 vezes sem juros",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 112.5,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 450,
+                    "NumberOfInstallments": 4,
+                    "Name": "Visa 4 vezes sem juros",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 90,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 450,
+                    "NumberOfInstallments": 5,
+                    "Name": "Visa 5 vezes sem juros",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 75,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 450,
+                    "NumberOfInstallments": 6,
+                    "Name": "Visa 6 vezes sem juros",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 450,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 450,
+                    "NumberOfInstallments": 1,
+                    "Name": "Mastercard à vista",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 225,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 450,
+                    "NumberOfInstallments": 2,
+                    "Name": "Mastercard 2 vezes sem juros",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 150,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 450,
+                    "NumberOfInstallments": 3,
+                    "Name": "Mastercard 3 vezes sem juros",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 112.5,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 450,
+                    "NumberOfInstallments": 4,
+                    "Name": "Mastercard 4 vezes sem juros",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 90,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 450,
+                    "NumberOfInstallments": 5,
+                    "Name": "Mastercard 5 vezes sem juros",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 75,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 450,
+                    "NumberOfInstallments": 6,
+                    "Name": "Mastercard 6 vezes sem juros",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 450,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 450,
+                    "NumberOfInstallments": 1,
+                    "Name": "Boleto Bancário à vista",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 450,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 450,
+                    "NumberOfInstallments": 1,
+                    "Name": "Promissory à vista",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 450,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 450,
+                    "NumberOfInstallments": 1,
+                    "Name": "Customer Credit à vista",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 225,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 450,
+                    "NumberOfInstallments": 2,
+                    "Name": "Customer Credit 2 vezes sem juros",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 150,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 450,
+                    "NumberOfInstallments": 3,
+                    "Name": "Customer Credit 3 vezes sem juros",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 450,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 450,
+                    "NumberOfInstallments": 1,
+                    "Name": "Free à vista",
+                    "__typename": "Installment"
+                  }
+                ],
+                "__typename": "Offer"
+              },
+              "__typename": "Seller"
+            }
+          ],
+          "variations": [
+            {
+              "name": "Color",
+              "values": [
+                "Gold"
+              ],
+              "__typename": "Property"
+            }
+          ],
+          "kitItems": [],
+          "attachments": [
+            {
+              "id": "7",
+              "name": "engraving",
+              "required": true,
+              "__typename": "Attachment"
+            },
+            {
+              "id": "8",
+              "name": "text_style",
+              "required": true,
+              "__typename": "Attachment"
+            },
+            {
+              "id": "9",
+              "name": "add-on",
+              "required": true,
+              "__typename": "Attachment"
+            }
+          ],
+          "__typename": "SKU"
+        },
+        {
+          "itemId": "2000585",
+          "name": "Silver Bell",
+          "nameComplete": "Custom Bell Silver Bell",
+          "complementName": "",
+          "ean": "9078655",
+          "referenceId": [
+            {
+              "Key": "RefId",
+              "Value": "7788909",
+              "__typename": "Reference"
+            }
+          ],
+          "measurementUnit": "un",
+          "unitMultiplier": 1,
+          "images": [
+            {
+              "imageId": "155546",
+              "imageLabel": "main",
+              "imageTag": "<img src=\"~/arquivos/ids/155546-#width#-#height#/silver_bell.jpg?v=637020789985930000\" width=\"#width#\" height=\"#height#\" alt=\"silver-bell\" id=\"\" />",
+              "imageUrl": "https://storecomponents.vteximg.com.br/arquivos/ids/155546/silver_bell.jpg?v=637020789985930000",
+              "imageText": "silver-bell",
+              "__typename": "Image"
+            }
+          ],
+          "videos": [],
+          "sellers": [
+            {
+              "sellerId": "1",
+              "sellerName": "VTEX",
+              "addToCartLink": "https://portal.vtexcommercestable.com.br/checkout/cart/add?sku=2000585&qty=1&seller=1&sc=1&price=27000&cv=32ec470227a8cb87413acc13edbecea8_&sc=1",
+              "sellerDefault": true,
+              "commertialOffer": {
+                "discountHighlights": [],
+                "teasers": [],
+                "Price": 270,
+                "ListPrice": 270,
+                "PriceWithoutDiscount": 270,
+                "RewardValue": 0,
+                "PriceValidUntil": "2020-09-13T17:57:06.8690455Z",
+                "AvailableQuantity": 2000000,
+                "Tax": 0,
+                "CacheVersionUsedToCallCheckout": "32ec470227a8cb87413acc13edbecea8_",
+                "Installments": [
+                  {
+                    "Value": 270,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 270,
+                    "NumberOfInstallments": 1,
+                    "Name": "American Express à vista",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 270,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 270,
+                    "NumberOfInstallments": 1,
+                    "Name": "Visa à vista",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 135,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 270,
+                    "NumberOfInstallments": 2,
+                    "Name": "Visa 2 vezes sem juros",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 90,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 270,
+                    "NumberOfInstallments": 3,
+                    "Name": "Visa 3 vezes sem juros",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 67.5,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 270,
+                    "NumberOfInstallments": 4,
+                    "Name": "Visa 4 vezes sem juros",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 54,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 270,
+                    "NumberOfInstallments": 5,
+                    "Name": "Visa 5 vezes sem juros",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 45,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 270,
+                    "NumberOfInstallments": 6,
+                    "Name": "Visa 6 vezes sem juros",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 270,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 270,
+                    "NumberOfInstallments": 1,
+                    "Name": "Mastercard à vista",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 135,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 270,
+                    "NumberOfInstallments": 2,
+                    "Name": "Mastercard 2 vezes sem juros",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 90,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 270,
+                    "NumberOfInstallments": 3,
+                    "Name": "Mastercard 3 vezes sem juros",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 67.5,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 270,
+                    "NumberOfInstallments": 4,
+                    "Name": "Mastercard 4 vezes sem juros",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 54,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 270,
+                    "NumberOfInstallments": 5,
+                    "Name": "Mastercard 5 vezes sem juros",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 45,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 270,
+                    "NumberOfInstallments": 6,
+                    "Name": "Mastercard 6 vezes sem juros",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 270,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 270,
+                    "NumberOfInstallments": 1,
+                    "Name": "Boleto Bancário à vista",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 270,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 270,
+                    "NumberOfInstallments": 1,
+                    "Name": "Promissory à vista",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 270,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 270,
+                    "NumberOfInstallments": 1,
+                    "Name": "Customer Credit à vista",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 135,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 270,
+                    "NumberOfInstallments": 2,
+                    "Name": "Customer Credit 2 vezes sem juros",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 90,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 270,
+                    "NumberOfInstallments": 3,
+                    "Name": "Customer Credit 3 vezes sem juros",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 270,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 270,
+                    "NumberOfInstallments": 1,
+                    "Name": "Free à vista",
+                    "__typename": "Installment"
+                  }
+                ],
+                "__typename": "Offer"
+              },
+              "__typename": "Seller"
+            }
+          ],
+          "variations": [
+            {
+              "name": "Color",
+              "values": [
+                "Silver"
+              ],
+              "__typename": "Property"
+            }
+          ],
+          "kitItems": [],
+          "attachments": [
+            {
+              "id": "7",
+              "name": "engraving",
+              "required": true,
+              "__typename": "Attachment"
+            },
+            {
+              "id": "8",
+              "name": "text_style",
+              "required": true,
+              "__typename": "Attachment"
+            },
+            {
+              "id": "9",
+              "name": "add-on",
+              "required": true,
+              "__typename": "Attachment"
+            }
+          ],
+          "__typename": "SKU"
+        }
+      ],
+      "itemMetadata": {
+        "items": [
+          {
+            "id": "2000584",
+            "name": "Custom Bell Gold Bell",
+            "imageUrl": "https://storecomponents.vteximg.com.br/arquivos/ids/155545/gold_bell.jpg?v=637020789145570000",
+            "seller": "1",
+            "assemblyOptions": [
+              {
+                "id": "add-on_Add-on",
+                "name": "add-on",
+                "inputValues": [],
+                "composition": {
+                  "minQuantity": 0,
+                  "maxQuantity": 3,
+                  "items": [
+                    {
+                      "id": "2000588",
+                      "minQuantity": 0,
+                      "maxQuantity": 1,
+                      "priceTable": "vip",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "CompositionItem"
+                    },
+                    {
+                      "id": "2000589",
+                      "minQuantity": 0,
+                      "maxQuantity": 1,
+                      "priceTable": "vip",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "CompositionItem"
+                    },
+                    {
+                      "id": "2000590",
+                      "minQuantity": 0,
+                      "maxQuantity": 1,
+                      "priceTable": "vip",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "CompositionItem"
+                    }
+                  ],
+                  "__typename": "CompositionType"
+                },
+                "__typename": "AssemblyOption"
+              },
+              {
+                "id": "text_style_Text Style",
+                "name": "text_style",
+                "inputValues": [],
+                "composition": {
+                  "minQuantity": 1,
+                  "maxQuantity": 1,
+                  "items": [
+                    {
+                      "id": "2000591",
+                      "minQuantity": 0,
+                      "maxQuantity": 1,
+                      "priceTable": "vip",
+                      "seller": "1",
+                      "initialQuantity": 1,
+                      "__typename": "CompositionItem"
+                    },
+                    {
+                      "id": "2000592",
+                      "minQuantity": 0,
+                      "maxQuantity": 1,
+                      "priceTable": "vip",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "CompositionItem"
+                    }
+                  ],
+                  "__typename": "CompositionType"
+                },
+                "__typename": "AssemblyOption"
+              },
+              {
+                "id": "engraving_Engraving",
+                "name": "engraving",
+                "inputValues": [],
+                "composition": {
+                  "minQuantity": 0,
+                  "maxQuantity": 1,
+                  "items": [
+                    {
+                      "id": "2000586",
+                      "minQuantity": 0,
+                      "maxQuantity": 1,
+                      "priceTable": "vip",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "CompositionItem"
+                    },
+                    {
+                      "id": "2000587",
+                      "minQuantity": 0,
+                      "maxQuantity": 1,
+                      "priceTable": "vip",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "CompositionItem"
+                    }
+                  ],
+                  "__typename": "CompositionType"
+                },
+                "__typename": "AssemblyOption"
+              }
+            ],
+            "__typename": "ItemMetadataUnit"
+          },
+          {
+            "id": "2000588",
+            "name": "Bells add-ons Logo small",
+            "imageUrl": "https://storecomponents.vteximg.com.br/arquivos/ids/155549/logo-bell.jpg?v=637020801573330000",
+            "seller": "1",
+            "assemblyOptions": [],
+            "__typename": "ItemMetadataUnit"
+          },
+          {
+            "id": "2000589",
+            "name": "Bells add-ons Logo big",
+            "imageUrl": "https://storecomponents.vteximg.com.br/arquivos/ids/155549/logo-bell.jpg?v=637020801573330000",
+            "seller": "1",
+            "assemblyOptions": [],
+            "__typename": "ItemMetadataUnit"
+          },
+          {
+            "id": "2000590",
+            "name": "Bells add-ons Plaque",
+            "imageUrl": "https://storecomponents.vteximg.com.br/arquivos/ids/155550/Plaque.jpg?v=637020802611500000",
+            "seller": "1",
+            "assemblyOptions": [],
+            "__typename": "ItemMetadataUnit"
+          },
+          {
+            "id": "2000591",
+            "name": "Bells add-ons Roman",
+            "imageUrl": "https://storecomponents.vteximg.com.br/arquivos/ids/155551/roman.png?v=637020804802370000",
+            "seller": "1",
+            "assemblyOptions": [],
+            "__typename": "ItemMetadataUnit"
+          },
+          {
+            "id": "2000592",
+            "name": "Bells add-ons Script",
+            "imageUrl": "https://storecomponents.vteximg.com.br/arquivos/ids/155551/roman.png?v=637020804802370000",
+            "seller": "1",
+            "assemblyOptions": [],
+            "__typename": "ItemMetadataUnit"
+          },
+          {
+            "id": "2000586",
+            "name": "Bells add-ons 1-3 lines",
+            "imageUrl": "https://storecomponents.vteximg.com.br/arquivos/ids/155547/3-lins.jpg?v=637020796905600000",
+            "seller": "1",
+            "assemblyOptions": [
+              {
+                "id": "1-3-lines",
+                "name": "1-3-lines",
+                "inputValues": [
+                  {
+                    "label": "Line 1",
+                    "maxLength": 200,
+                    "type": "TEXT",
+                    "domain": null,
+                    "__typename": "InputValue"
+                  },
+                  {
+                    "label": "Line 2",
+                    "maxLength": 200,
+                    "type": "TEXT",
+                    "domain": null,
+                    "__typename": "InputValue"
+                  },
+                  {
+                    "label": "Line 3",
+                    "maxLength": 200,
+                    "type": "TEXT",
+                    "domain": null,
+                    "__typename": "InputValue"
+                  }
+                ],
+                "composition": null,
+                "__typename": "AssemblyOption"
+              }
+            ],
+            "__typename": "ItemMetadataUnit"
+          },
+          {
+            "id": "2000587",
+            "name": "Bells add-ons 4 lines",
+            "imageUrl": "https://storecomponents.vteximg.com.br/arquivos/ids/155548/3-lins.jpg?v=637020800571470000",
+            "seller": "1",
+            "assemblyOptions": [
+              {
+                "id": "4-lines",
+                "name": "4-lines",
+                "inputValues": [
+                  {
+                    "label": "Line 1",
+                    "maxLength": 200,
+                    "type": "TEXT",
+                    "domain": null,
+                    "__typename": "InputValue"
+                  },
+                  {
+                    "label": "Line 2",
+                    "maxLength": 200,
+                    "type": "TEXT",
+                    "domain": null,
+                    "__typename": "InputValue"
+                  },
+                  {
+                    "label": "Line 3",
+                    "maxLength": 200,
+                    "type": "TEXT",
+                    "domain": null,
+                    "__typename": "InputValue"
+                  },
+                  {
+                    "label": "Line 4",
+                    "maxLength": 200,
+                    "type": "TEXT",
+                    "domain": null,
+                    "__typename": "InputValue"
+                  }
+                ],
+                "composition": null,
+                "__typename": "AssemblyOption"
+              }
+            ],
+            "__typename": "ItemMetadataUnit"
+          },
+          {
+            "id": "2000585",
+            "name": "Custom Bell Silver Bell",
+            "imageUrl": "https://storecomponents.vteximg.com.br/arquivos/ids/155546/silver_bell.jpg?v=637020789985930000",
+            "seller": "1",
+            "assemblyOptions": [
+              {
+                "id": "add-on_Add-on",
+                "name": "add-on",
+                "inputValues": [],
+                "composition": {
+                  "minQuantity": 0,
+                  "maxQuantity": 3,
+                  "items": [
+                    {
+                      "id": "2000588",
+                      "minQuantity": 0,
+                      "maxQuantity": 1,
+                      "priceTable": "vip",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "CompositionItem"
+                    },
+                    {
+                      "id": "2000589",
+                      "minQuantity": 0,
+                      "maxQuantity": 1,
+                      "priceTable": "vip",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "CompositionItem"
+                    },
+                    {
+                      "id": "2000590",
+                      "minQuantity": 0,
+                      "maxQuantity": 1,
+                      "priceTable": "vip",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "CompositionItem"
+                    }
+                  ],
+                  "__typename": "CompositionType"
+                },
+                "__typename": "AssemblyOption"
+              },
+              {
+                "id": "text_style_Text Style",
+                "name": "text_style",
+                "inputValues": [],
+                "composition": {
+                  "minQuantity": 1,
+                  "maxQuantity": 1,
+                  "items": [
+                    {
+                      "id": "2000591",
+                      "minQuantity": 0,
+                      "maxQuantity": 1,
+                      "priceTable": "vip",
+                      "seller": "1",
+                      "initialQuantity": 1,
+                      "__typename": "CompositionItem"
+                    },
+                    {
+                      "id": "2000592",
+                      "minQuantity": 0,
+                      "maxQuantity": 1,
+                      "priceTable": "vip",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "CompositionItem"
+                    }
+                  ],
+                  "__typename": "CompositionType"
+                },
+                "__typename": "AssemblyOption"
+              },
+              {
+                "id": "engraving_Engraving",
+                "name": "engraving",
+                "inputValues": [],
+                "composition": {
+                  "minQuantity": 0,
+                  "maxQuantity": 1,
+                  "items": [
+                    {
+                      "id": "2000586",
+                      "minQuantity": 0,
+                      "maxQuantity": 1,
+                      "priceTable": "vip",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "CompositionItem"
+                    },
+                    {
+                      "id": "2000587",
+                      "minQuantity": 0,
+                      "maxQuantity": 1,
+                      "priceTable": "vip",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "CompositionItem"
+                    }
+                  ],
+                  "__typename": "CompositionType"
+                },
+                "__typename": "AssemblyOption"
+              }
+            ],
+            "__typename": "ItemMetadataUnit"
+          }
+        ],
+        "priceTable": [
+          {
+            "type": "vip",
+            "values": [
+              {
+                "id": "2000588",
+                "assemblyId": "add-on_Add-on",
+                "price": 7500,
+                "__typename": "PriceTableItem"
+              },
+              {
+                "id": "2000589",
+                "assemblyId": "add-on_Add-on",
+                "price": 9000,
+                "__typename": "PriceTableItem"
+              },
+              {
+                "id": "2000590",
+                "assemblyId": "add-on_Add-on",
+                "price": 6000,
+                "__typename": "PriceTableItem"
+              },
+              {
+                "id": "2000591",
+                "assemblyId": "text_style_Text Style",
+                "price": 0,
+                "__typename": "PriceTableItem"
+              },
+              {
+                "id": "2000592",
+                "assemblyId": "text_style_Text Style",
+                "price": 1500,
+                "__typename": "PriceTableItem"
+              },
+              {
+                "id": "2000586",
+                "assemblyId": "engraving_Engraving",
+                "price": 2600,
+                "__typename": "PriceTableItem"
+              },
+              {
+                "id": "2000587",
+                "assemblyId": "engraving_Engraving",
+                "price": 3000,
+                "__typename": "PriceTableItem"
+              },
+              {
+                "id": "2000588",
+                "assemblyId": "add-on_Add-on",
+                "price": 7500,
+                "__typename": "PriceTableItem"
+              },
+              {
+                "id": "2000589",
+                "assemblyId": "add-on_Add-on",
+                "price": 9000,
+                "__typename": "PriceTableItem"
+              },
+              {
+                "id": "2000590",
+                "assemblyId": "add-on_Add-on",
+                "price": 6000,
+                "__typename": "PriceTableItem"
+              },
+              {
+                "id": "2000591",
+                "assemblyId": "text_style_Text Style",
+                "price": 0,
+                "__typename": "PriceTableItem"
+              },
+              {
+                "id": "2000592",
+                "assemblyId": "text_style_Text Style",
+                "price": 1500,
+                "__typename": "PriceTableItem"
+              },
+              {
+                "id": "2000586",
+                "assemblyId": "engraving_Engraving",
+                "price": 2600,
+                "__typename": "PriceTableItem"
+              },
+              {
+                "id": "2000587",
+                "assemblyId": "engraving_Engraving",
+                "price": 3000,
+                "__typename": "PriceTableItem"
+              }
+            ],
+            "__typename": "ItemPriceTable"
+          }
+        ],
+        "__typename": "ItemMetadata"
+      },
+      "productClusters": [],
+      "clusterHighlights": [],
+      "__typename": "Product"
+    }
+  }
+}
