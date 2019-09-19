@@ -21,6 +21,7 @@ declare global {
   interface AssemblyOption {
     id: string
     name: string
+    required: boolean
     composition: Composition | null
     inputValues: InputValue[]
   }
@@ -77,6 +78,7 @@ declare global {
 
   interface AssemblyOptionGroup {
     id: string
+    required: boolean
     minQuantity: number
     maxQuantity: number
     items: Record<string, AssemblyItem>
@@ -92,6 +94,7 @@ declare global {
 
   interface AssemblyOptionGroupInputValue {
     id: string
+    required: boolean
     minQuantity: undefined
     maxQuantity: undefined
     items: undefined

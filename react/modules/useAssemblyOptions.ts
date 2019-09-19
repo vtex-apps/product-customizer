@@ -90,6 +90,7 @@ const parseAssemblyOptions = (
           treePath: currentTreePath,
           type: getGroupType(assemblyOption),
           inputValues: assemblyOption.inputValues,
+          required: assemblyOption.required,
           items,
         } as AssemblyOptionGroup
       } else {
@@ -101,6 +102,7 @@ const parseAssemblyOptions = (
           treePath: currentTreePath,
           type: getGroupType(assemblyOption),
           inputValues: assemblyOption.inputValues,
+          required: assemblyOption.required,
           items: undefined,
         } as AssemblyOptionGroupInputValue
       }

@@ -20,4 +20,5 @@ test('it should return inputValues', () => {
   expect(value['Customization'].inputValues).toBe(
     productAttachment.data.product.itemMetadata.items[0].assemblyOptions[0].inputValues
   )
+  expect(value['Customization'].required).toBe(false)
 })

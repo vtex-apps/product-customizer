@@ -180,6 +180,7 @@
               {
                 "id": "pizza_composition_Pizza flavor",
                 "name": "pizza_composition",
+                "required": false,
                 "inputValues": [],
                 "composition": {
                   "minQuantity": 1,
@@ -202,6 +203,7 @@
               {
                 "id": "drinks_size_double_Choose 2 drinks",
                 "name": "drinks_size_double",
+                "required": false,
                 "inputValues": [],
                 "composition": {
                   "minQuantity": 2,
@@ -251,6 +253,7 @@
               {
                 "id": "pizza_extra_ingredients_Extra",
                 "name": "pizza_extra_ingredients",
+                "required": false,
                 "inputValues": [],
                 "composition": {
                   "minQuantity": 0,
