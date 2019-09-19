@@ -25,7 +25,7 @@ type SetInputValueAction = {
 
 export const ProductAssemblyDispatchContext = createContext<Dispatch<DispatchAction>>(() => { })
 
-export const ProductAssemblyGroupContext = createContext<AssemblyOptionGroupType | undefined>(undefined)
+export const ProductAssemblyGroupContext = createContext<AssemblyOptionGroupState | undefined>(undefined)
 
 export const ProductAssemblyGroupContextProvider: FC<ProductAssemblyGroupContextProviderProps> = ({ assemblyOption, children }) => {
   const path = getGroupPath(assemblyOption.treePath)
@@ -39,7 +39,7 @@ export const ProductAssemblyGroupContextProvider: FC<ProductAssemblyGroupContext
     return acc
   }, {})
 
-  const initialState: AssemblyOptionGroupType = {
+  const initialState: AssemblyOptionGroupState = {
     ...assemblyOption,
     path,
     quantitySum: quantitySum,
@@ -77,7 +77,7 @@ function getGroupPath(assemblyTreePath?: TreePath[]) {
 }
 
 interface ProductAssemblyGroupContextProviderProps {
-  assemblyOption: AssemblyOptionGroupType
+  assemblyOption: AssemblyOptionGroupState
 }
 
 export const useProductAssemblyGroupDispatch = () =>
@@ -86,11 +86,11 @@ export const useProductAssemblyGroupDispatch = () =>
 export const useProductAssemblyGroupState = () =>
   useContext(ProductAssemblyGroupContext)
 
-function reducer(state: AssemblyOptionGroupType, action: DispatchAction): AssemblyOptionGroupType {
+function reducer(state: AssemblyOptionGroupState, action: DispatchAction): AssemblyOptionGroupState {
   switch (action.type) {
     case 'SET_INPUT_VALUE': {
       const { groupPath, inputValue, inputValueLabel } = action.args
-      let groupState = path(groupPath, state) as AssemblyOptionGroupType
+      let groupState = path(groupPath, state) as AssemblyOptionGroupState
 
       groupState.valuesOfInputValues = {
         ...groupState.valuesOfInputValues,

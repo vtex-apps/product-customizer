@@ -7,7 +7,7 @@ import { ProductAssemblyItemProvider } from '../ProductAssemblyContext/Item'
 import styles from './styles.css'
 
 const ProductAssemblyOptionsGroup: FC = ({ children }) => {
-  const assemblyOptionGroup = useProductAssemblyGroupState() as AssemblyOptionGroupType
+  const assemblyOptionGroup = useProductAssemblyGroupState() as AssemblyOptionGroupState
 
   useAssemblyOptionsModifications(assemblyOptionGroup)
 

@@ -4,7 +4,7 @@ import ProductPrice from 'vtex.store-components/ProductPrice'
 import { useProductAssemblyItem } from '../ProductAssemblyContext/Item'
 
 const sumAssembliesPrice = (
-  assemblyOptions: Record<string, AssemblyOptionGroupType>
+  assemblyOptions: Record<string, AssemblyOptionGroupState>
 ): number => {
   const assembliesGroupItems = Object.values(assemblyOptions)
 

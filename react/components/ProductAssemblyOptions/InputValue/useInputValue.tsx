@@ -5,7 +5,7 @@ interface OnChangeParams {
 }
 
 export default function useInputValue(inputValueInfo: InputValue): [string, (param: OnChangeParams) => void] {
-  const { path, valuesOfInputValues } = useProductAssemblyGroupState() as AssemblyOptionGroupType
+  const { path, valuesOfInputValues } = useProductAssemblyGroupState() as AssemblyOptionGroupState
   const dispatch = useProductAssemblyGroupDispatch()
 
   const onChange = ({ value }: OnChangeParams) => {
@@ -25,7 +25,7 @@ export default function useInputValue(inputValueInfo: InputValue): [string, (par
 }
 
 export function useInputValueId(inputValueInfo: InputValue) {
-  const { path } = useProductAssemblyGroupState() as AssemblyOptionGroupType
+  const { path } = useProductAssemblyGroupState() as AssemblyOptionGroupState
 
   return inputValueInfo.label + path.join('-')
 }

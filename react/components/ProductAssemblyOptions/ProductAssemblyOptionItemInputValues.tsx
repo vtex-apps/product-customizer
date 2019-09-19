@@ -6,7 +6,7 @@ import BooleanInputValue from './InputValue/BooleanInputValue'
 import { InputValueType } from '../../modules/inputValueType'
 
 const ProductAssemblyOptionItemInputValues: FC = () => {
-  const { inputValues } = useProductAssemblyGroupState() as AssemblyOptionGroupType
+  const { inputValues } = useProductAssemblyGroupState() as AssemblyOptionGroupState
 
   return (
     <Fragment>

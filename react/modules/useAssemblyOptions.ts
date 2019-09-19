@@ -9,7 +9,7 @@ const splitGroupName = compose(
 )
 
 type PriceMap = Record<string, Record<string, Record<string, number>>>
-type ParsedAssemblyOptions = Record<string, AssemblyOptionGroupType>
+type ParsedAssemblyOptions = Record<string, AssemblyOptionGroupState>
 
 const findItemMetadata = (id: string) => find<MetadataItem>(propEq('id', id))
 

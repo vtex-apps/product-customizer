@@ -108,7 +108,7 @@ declare global {
     quantitySum: number
   }
 
-  type AssemblyOptionGroupType = AssemblyOptionGroup | AssemblyOptionGroupInputValue
+  type AssemblyOptionGroupState = AssemblyOptionGroup | AssemblyOptionGroupInputValue
 
   interface AssemblyItem {
     image: string
@@ -120,6 +120,6 @@ declare global {
     seller: string
     initialQuantity: number
     quantity: number
-    children: Record<string, AssemblyOptionGroupType> | null
+    children: Record<string, AssemblyOptionGroupState> | null
   }
 }
