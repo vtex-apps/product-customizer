@@ -1281,7 +1281,7 @@
               {
                 "id": "Customization",
                 "name": "Customization",
-                "required": false,
+                "required": true,
                 "inputValues": [
                   {
                     "label": "Font",

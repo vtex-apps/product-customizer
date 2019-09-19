@@ -21,7 +21,7 @@ function renderComponent() {
 
 mockUseProduct.mockImplementation(() => ({
   product: productAttachment.data.product,
-  selectedItem: productAttachment.data.product.items[0],
+  selectedItem: productAttachment.data.product.items[6],
   selectedQuantity: 1
 }))
 

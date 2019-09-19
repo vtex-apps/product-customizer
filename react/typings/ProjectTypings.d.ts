@@ -85,9 +85,10 @@ declare global {
     groupName: string
     treePath: TreePath[]
     type: GroupTypes
-    valuesOfInputValues: Record<string, string>
     inputValues: InputValue[]
 
+    valuesOfInputValues: Record<string, string>
+    optin: boolean
     path: string[]
     quantitySum: number
   }
@@ -101,9 +102,10 @@ declare global {
     groupName: string
     treePath: TreePath[]
     type: GroupTypes
-    valuesOfInputValues: Record<string, string>
     inputValues: InputValue[]
 
+    valuesOfInputValues: Record<string, string>
+    optin: boolean
     path: string[]
     quantitySum: number
   }

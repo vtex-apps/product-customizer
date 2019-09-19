@@ -22,3 +22,20 @@ test('it should return inputValues', () => {
   )
   expect(value['Customization'].required).toBe(false)
 })
+
+test('it should return inputValues of the selected SKU', () => {
+  mockUseProduct.mockImplementation(() => ({
+    product: productAttachment.data.product,
+    selectedItem: productAttachment.data.product.items[6],
+    selectedQuantity: 1
+  }))
+
+  const { result } = renderHook(() => parseAssemblyOptions())
+  const value = result.current!
+
+  expect(value['Customization']).toBeDefined()
+  expect(value['Customization'].inputValues).toBe(
+    productAttachment.data.product.itemMetadata.items[2].assemblyOptions[0].inputValues
+  )
+  expect(value['Customization'].required).toBe(true)
+})

@@ -2,7 +2,7 @@ import React, { createContext, useContext, Dispatch, useReducer, FC } from 'reac
 import { path } from 'ramda'
 import { GROUP_TYPES } from '../../modules/assemblyGroupType'
 
-type DispatchAction = SetQuantityAction | SetInputValueAction
+type DispatchAction = SetQuantityAction | SetInputValueAction | OptinAction
 
 type SetQuantityAction = {
   type: 'SET_QUANTITY'
@@ -19,6 +19,13 @@ type SetInputValueAction = {
   args: {
     inputValueLabel: string
     inputValue: string
+    groupPath: string[]
+  }
+}
+
+type OptinAction = {
+  type: 'OPTIN',
+  args: {
     groupPath: string[]
   }
 }
@@ -43,6 +50,7 @@ export const ProductAssemblyGroupContextProvider: FC<ProductAssemblyGroupContext
     ...assemblyOption,
     path,
     quantitySum: quantitySum,
+    optin: assemblyOption.required,
     valuesOfInputValues,
   }
 
@@ -88,6 +96,14 @@ export const useProductAssemblyGroupState = () =>
 
 function reducer(state: AssemblyOptionGroupState, action: DispatchAction): AssemblyOptionGroupState {
   switch (action.type) {
+    case 'OPTIN': {
+      const { groupPath } = action.args
+      let groupState = path(groupPath, state) as AssemblyOptionGroupState
+
+      groupState.optin = !groupState.optin
+
+      return { ...state }
+    }
     case 'SET_INPUT_VALUE': {
       const { groupPath, inputValue, inputValueLabel } = action.args
       let groupState = path(groupPath, state) as AssemblyOptionGroupState
