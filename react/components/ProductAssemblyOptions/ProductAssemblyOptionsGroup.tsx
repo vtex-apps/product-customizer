@@ -41,6 +41,7 @@ const ProductAssemblyOptionsGroup: FC = ({ children }) => {
               {assemblyOptionGroup.required === false &&
                 <div>
                   <Button
+                    size="small"
                     collapseRight
                     variation="tertiary"
                     onClick={changeOptinInput}>
