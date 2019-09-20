@@ -10,11 +10,11 @@ import ProductAssemblyOptionItemName from './ProductAssemblyOptionItemName'
 const mockedUseProductDispatch = useProductDispatch as jest.Mock<() => jest.Mock>
 const mockUseProduct = useProduct as jest.Mock<ProductContext>
 
-function renderComponent() {
+function renderComponent(customProps = {}) {
   return render(
     <ProductAssemblyOptions>
       <ProductAssemblyOptionItemName />
-      <InputValue />
+      <InputValue {...customProps}/>
     </ProductAssemblyOptions>
   )
 }
@@ -56,6 +56,18 @@ test('should handle Boolean input value', () => {
   fireEvent.click(glossyPrint)
 
   expect(glossyPrint.checked).toBe(false)
+})
+
+test('should show other type of options', () => {
+  const { getByText} = renderComponent({ optionsDisplay: 'box' })
+
+  getByText(/Sans serif/)
+
+  const romanOption = getByText(/Roman/)
+  fireEvent.click(romanOption)
+
+  const lastCall = mockedDispatch.mock.calls[mockedDispatch.mock.calls.length - 1]
+  expect(lastCall[0].args.groupInputValues['Font']).toBe('Roman')
 })
 
 test('should trigger changes to Product Context', () => {
