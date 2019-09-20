@@ -1,10 +1,10 @@
 import { useProductAssemblyGroupState, useProductAssemblyGroupDispatch } from '../../ProductAssemblyContext/Group'
 
 interface OnChangeParams {
-  value: string
+  value: string | boolean
 }
 
-export default function useInputValue(inputValueInfo: InputValue): [string, (param: OnChangeParams) => void] {
+export default function useInputValue(inputValueInfo: InputValue): [string|boolean, (param: OnChangeParams) => void] {
   const { path, valuesOfInputValues } = useProductAssemblyGroupState() as AssemblyOptionGroupState
   const dispatch = useProductAssemblyGroupDispatch()
 

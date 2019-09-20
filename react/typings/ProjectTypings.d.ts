@@ -30,6 +30,7 @@ declare global {
 
   interface TextInputValue {
     type: InputValueType.TEXT
+    defaultValue: ''
     label: string
     maxLength: number
     domain: null
@@ -37,6 +38,7 @@ declare global {
 
   interface BooleanInputValue {
     type: InputValueType.BOOLEAN
+    defaultValue: boolean
     label: string
     maxLength: null
     domain: null
@@ -44,6 +46,7 @@ declare global {
 
   interface OptionsInputValue {
     type: InputValueType.OPTIONS
+    defaultValue: string
     label: string
     maxLength: null
     domain: string[]
@@ -87,7 +90,7 @@ declare global {
     type: GroupTypes
     inputValues: InputValue[]
 
-    valuesOfInputValues: Record<string, string>
+    valuesOfInputValues: Record<string, string|boolean>
     optin: boolean
     path: string[]
     quantitySum: number
@@ -104,7 +107,7 @@ declare global {
     type: GroupTypes
     inputValues: InputValue[]
 
-    valuesOfInputValues: Record<string, string>
+    valuesOfInputValues: Record<string, string|boolean>
     optin: boolean
     path: string[]
     quantitySum: number

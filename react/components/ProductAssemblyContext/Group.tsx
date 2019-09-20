@@ -18,7 +18,7 @@ type SetInputValueAction = {
   type: 'SET_INPUT_VALUE'
   args: {
     inputValueLabel: string
-    inputValue: string
+    inputValue: string | boolean
     groupPath: string[]
   }
 }
@@ -41,8 +41,8 @@ export const ProductAssemblyGroupContextProvider: FC<ProductAssemblyGroupContext
     0
   )
 
-  const valuesOfInputValues = assemblyOption.inputValues.reduce<Record<string,string>>((acc, inputValue) => {
-    acc[inputValue.label] = ''
+  const valuesOfInputValues = assemblyOption.inputValues.reduce<Record<string, string | boolean>>((acc, inputValue) => {
+    acc[inputValue.label] = inputValue.defaultValue
     return acc
   }, {})
 
