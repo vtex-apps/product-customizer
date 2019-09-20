@@ -6,9 +6,10 @@ import { Checkbox, Radio, NumericStepper } from 'vtex.styleguide'
 import styles from './styles.css'
 import { GROUP_TYPES } from '../../modules/assemblyGroupType'
 import { useProductAssemblyGroupState, useProductAssemblyGroupDispatch } from '../ProductAssemblyContext/Group'
+import { withItem } from './withItem'
 
 const Single: FC = () => {
-  const { id, quantity } = useProductAssemblyItem()
+  const { id, quantity } = useProductAssemblyItem() as AssemblyItem
   const { path } = useProductAssemblyGroupState() as AssemblyOptionGroup
   const dispatch = useProductAssemblyGroupDispatch()
   const selected = quantity === 1
@@ -43,7 +44,7 @@ const Single: FC = () => {
 }
 
 const Toggle: FC = () => {
-  const { id, quantity, minQuantity } = useProductAssemblyItem()
+  const { id, quantity, minQuantity } = useProductAssemblyItem() as AssemblyItem
   const { path } = useProductAssemblyGroupState() as AssemblyOptionGroup
   const dispatch = useProductAssemblyGroupDispatch()
 
@@ -73,7 +74,7 @@ const Toggle: FC = () => {
 const Multiple: FC = () => {
   const {
     quantity, maxQuantity, minQuantity, id
-  } = useProductAssemblyItem()
+  } = useProductAssemblyItem() as AssemblyItem
   const {
     path,
     maxQuantity: groupMaxQuantity,
@@ -123,4 +124,4 @@ const Quantity: FC = () => {
   return <Multiple />
 }
 
-export default Quantity
+export default withItem(Quantity)

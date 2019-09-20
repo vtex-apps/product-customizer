@@ -2,7 +2,6 @@ import React, { FC, Fragment } from 'react'
 
 import { useProductAssemblyGroupState, useProductAssemblyGroupDispatch } from '../ProductAssemblyContext/Group'
 import useAssemblyOptionsModifications from '../../modules/useAssemblyOptionsModifications'
-import ProductAssemblyOptionItemInputValues from './ProductAssemblyOptionItemInputValues'
 import { ProductAssemblyItemProvider } from '../ProductAssemblyContext/Item'
 import { Button } from 'vtex.styleguide'
 import styles from './styles.css'
@@ -62,7 +61,11 @@ const ProductAssemblyOptionsGroup: FC = ({ children }) => {
                   </ProductAssemblyItemProvider>
                 )
               })
-              : <ProductAssemblyOptionItemInputValues />
+              : (
+                <ProductAssemblyItemProvider item={null}>
+                  {children}
+                </ProductAssemblyItemProvider>
+              )
             }
           </Fragment>
         )
