@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { pick } from 'ramda'
 import { useProductDispatch } from 'vtex.product-context/ProductDispatchContext'
 
-export default function useAssemblyOptionsModifications(localState: AssemblyOptionGroupType) {
+export default function useAssemblyOptionsModifications(localState: AssemblyOptionGroupState) {
   const dispatch = useProductDispatch()
 
   useEffect(() => {
@@ -22,7 +22,7 @@ export default function useAssemblyOptionsModifications(localState: AssemblyOpti
   }, [localState, dispatch])
 }
 
-function isGroupValid(group: AssemblyOptionGroupType) {
+function isGroupValid(group: AssemblyOptionGroupState) {
   const items = Object.values(group.items || {})
   const itemsToBeAdded = items.reduce((acc, { quantity }) => acc + quantity, 0)
   const isValid = (
@@ -71,7 +71,7 @@ interface BuyButtonItem {
   children: Record<string, BuyButtonItem[]> | null
 }
 
-function parseItemChildren(children: Record<string, AssemblyOptionGroupType>) {
+function parseItemChildren(children: Record<string, AssemblyOptionGroupState>) {
   const groupIds = Object.keys(children)
   const result: Record<string, BuyButtonItem[]> = {}
 

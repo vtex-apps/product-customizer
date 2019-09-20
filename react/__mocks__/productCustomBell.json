@@ -504,6 +504,7 @@
               {
                 "id": "add-on_Add-on",
                 "name": "add-on",
+                "required": false,
                 "inputValues": [],
                 "composition": {
                   "minQuantity": 0,
@@ -544,6 +545,7 @@
               {
                 "id": "text_style_Text Style",
                 "name": "text_style",
+                "required": false,
                 "inputValues": [],
                 "composition": {
                   "minQuantity": 1,
@@ -575,6 +577,7 @@
               {
                 "id": "engraving_Engraving",
                 "name": "engraving",
+                "required": false,
                 "inputValues": [],
                 "composition": {
                   "minQuantity": 0,
@@ -655,6 +658,7 @@
               {
                 "id": "1-3-lines",
                 "name": "1-3-lines",
+                "required": false,
                 "inputValues": [
                   {
                     "label": "Line 1",
@@ -693,6 +697,7 @@
               {
                 "id": "4-lines",
                 "name": "4-lines",
+                "required": false,
                 "inputValues": [
                   {
                     "label": "Line 1",
@@ -738,6 +743,7 @@
               {
                 "id": "add-on_Add-on",
                 "name": "add-on",
+                "required": false,
                 "inputValues": [],
                 "composition": {
                   "minQuantity": 0,
@@ -778,6 +784,7 @@
               {
                 "id": "text_style_Text Style",
                 "name": "text_style",
+                "required": false,
                 "inputValues": [],
                 "composition": {
                   "minQuantity": 1,
@@ -809,6 +816,7 @@
               {
                 "id": "engraving_Engraving",
                 "name": "engraving",
+                "required": false,
                 "inputValues": [],
                 "composition": {
                   "minQuantity": 0,

@@ -1183,6 +1183,7 @@
               {
                 "id": "Customization",
                 "name": "Customization",
+                "required": false,
                 "inputValues": [
                   {
                     "label": "Font",
@@ -1231,6 +1232,7 @@
               {
                 "id": "Customization",
                 "name": "Customization",
+                "required": false,
                 "inputValues": [
                   {
                     "label": "Font",
@@ -1279,6 +1281,7 @@
               {
                 "id": "Customization",
                 "name": "Customization",
+                "required": true,
                 "inputValues": [
                   {
                     "label": "Font",

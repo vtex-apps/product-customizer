@@ -21,6 +21,7 @@ declare global {
   interface AssemblyOption {
     id: string
     name: string
+    required: boolean
     composition: Composition | null
     inputValues: InputValue[]
   }
@@ -77,35 +78,39 @@ declare global {
 
   interface AssemblyOptionGroup {
     id: string
+    required: boolean
     minQuantity: number
     maxQuantity: number
     items: Record<string, AssemblyItem>
     groupName: string
     treePath: TreePath[]
     type: GroupTypes
-    valuesOfInputValues: Record<string, string>
     inputValues: InputValue[]
 
+    valuesOfInputValues: Record<string, string>
+    optin: boolean
     path: string[]
     quantitySum: number
   }
 
   interface AssemblyOptionGroupInputValue {
     id: string
+    required: boolean
     minQuantity: undefined
     maxQuantity: undefined
     items: undefined
     groupName: string
     treePath: TreePath[]
     type: GroupTypes
-    valuesOfInputValues: Record<string, string>
     inputValues: InputValue[]
 
+    valuesOfInputValues: Record<string, string>
+    optin: boolean
     path: string[]
     quantitySum: number
   }
 
-  type AssemblyOptionGroupType = AssemblyOptionGroup | AssemblyOptionGroupInputValue
+  type AssemblyOptionGroupState = AssemblyOptionGroup | AssemblyOptionGroupInputValue
 
   interface AssemblyItem {
     image: string
@@ -117,6 +122,6 @@ declare global {
     seller: string
     initialQuantity: number
     quantity: number
-    children: Record<string, AssemblyOptionGroupType> | null
+    children: Record<string, AssemblyOptionGroupState> | null
   }
 }

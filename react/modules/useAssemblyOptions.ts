@@ -9,7 +9,7 @@ const splitGroupName = compose(
 )
 
 type PriceMap = Record<string, Record<string, Record<string, number>>>
-type ParsedAssemblyOptions = Record<string, AssemblyOptionGroupType>
+type ParsedAssemblyOptions = Record<string, AssemblyOptionGroupState>
 
 const findItemMetadata = (id: string) => find<MetadataItem>(propEq('id', id))
 
@@ -90,6 +90,7 @@ const parseAssemblyOptions = (
           treePath: currentTreePath,
           type: getGroupType(assemblyOption),
           inputValues: assemblyOption.inputValues,
+          required: assemblyOption.required,
           items,
         } as AssemblyOptionGroup
       } else {
@@ -101,6 +102,7 @@ const parseAssemblyOptions = (
           treePath: currentTreePath,
           type: getGroupType(assemblyOption),
           inputValues: assemblyOption.inputValues,
+          required: assemblyOption.required,
           items: undefined,
         } as AssemblyOptionGroupInputValue
       }
