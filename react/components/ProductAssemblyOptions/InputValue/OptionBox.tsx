@@ -3,18 +3,18 @@ import classNames from 'classnames'
 import slugify from '../../../modules/slugify'
 import styles from '../styles.css'
 
-const OptionBox: FC<Props> = ({ option, selected, onClick }) => {
+const OptionBox: FC<Props> = ({ option, selected, onClick, onKeyDown }) => {
   return (
     <div
       role="button"
       tabIndex={0}
       className={classNames(
-        styles.skuSelectorItem,
-        `${styles.skuSelectorItem}--${slugify(option)}`,
+        styles.inputValueOptionBox,
+        `${styles.inputValueOptionBox}--${slugify(option)}`,
         'relative di pointer flex items-center outline-0 mr4',
       )}
       onClick={onClick}
-      onKeyDown={e => e.key === 'Enter' && onClick(e)}
+      onKeyDown={onKeyDown}
     >
       <div
         className={classNames(
@@ -45,6 +45,7 @@ interface Props {
   option: string
   selected: boolean
   onClick: (e: any) => void
+  onKeyDown: (e: any) => void
 }
 
 export default OptionBox
