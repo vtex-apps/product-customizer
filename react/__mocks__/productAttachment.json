@@ -1189,6 +1189,7 @@
                     "label": "Font",
                     "maxLength": null,
                     "type": "OPTIONS",
+                    "defaultValue": "Sans serif",
                     "domain": [
                       "Sans serif",
                       "Roman"
@@ -1199,6 +1200,7 @@
                     "label": "Front text",
                     "maxLength": 200,
                     "type": "TEXT",
+                    "defaultValue": "",
                     "domain": null,
                     "__typename": "InputValue"
                   },
@@ -1206,6 +1208,7 @@
                     "label": "Back text",
                     "maxLength": 200,
                     "type": "TEXT",
+                    "defaultValue": "",
                     "domain": null,
                     "__typename": "InputValue"
                   },
@@ -1213,6 +1216,7 @@
                     "label": "Glossy print",
                     "maxLength": null,
                     "type": "BOOLEAN",
+                    "defaultValue": true,
                     "domain": null,
                     "__typename": "InputValue"
                   }
@@ -1238,6 +1242,7 @@
                     "label": "Font",
                     "maxLength": null,
                     "type": "OPTIONS",
+                    "defaultValue": "Sans serif",
                     "domain": [
                       "Sans serif",
                       "Roman"
@@ -1248,6 +1253,7 @@
                     "label": "Front text",
                     "maxLength": 200,
                     "type": "TEXT",
+                    "defaultValue": "",
                     "domain": null,
                     "__typename": "InputValue"
                   },
@@ -1255,6 +1261,7 @@
                     "label": "Back text",
                     "maxLength": 200,
                     "type": "TEXT",
+                    "defaultValue": "",
                     "domain": null,
                     "__typename": "InputValue"
                   },
@@ -1262,6 +1269,7 @@
                     "label": "Glossy print",
                     "maxLength": null,
                     "type": "BOOLEAN",
+                    "defaultValue": true,
                     "domain": null,
                     "__typename": "InputValue"
                   }
@@ -1287,6 +1295,7 @@
                     "label": "Font",
                     "maxLength": null,
                     "type": "OPTIONS",
+                    "defaultValue": "Sans serif",
                     "domain": [
                       "Sans serif",
                       "Roman"
@@ -1297,6 +1306,7 @@
                     "label": "Front text",
                     "maxLength": 200,
                     "type": "TEXT",
+                    "defaultValue": "",
                     "domain": null,
                     "__typename": "InputValue"
                   },
@@ -1304,6 +1314,7 @@
                     "label": "Back text",
                     "maxLength": 200,
                     "type": "TEXT",
+                    "defaultValue": "",
                     "domain": null,
                     "__typename": "InputValue"
                   },
@@ -1311,6 +1322,7 @@
                     "label": "Glossy print",
                     "maxLength": null,
                     "type": "BOOLEAN",
+                    "defaultValue": true,
                     "domain": null,
                     "__typename": "InputValue"
                   }

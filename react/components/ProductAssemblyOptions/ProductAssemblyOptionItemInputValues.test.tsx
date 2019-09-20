@@ -55,7 +55,7 @@ test('should handle Boolean input value', () => {
   const glossyPrint = getByLabelText(/Glossy print/) as HTMLInputElement
   fireEvent.click(glossyPrint)
 
-  expect(glossyPrint.checked).toBe(true)
+  expect(glossyPrint.checked).toBe(false)
 })
 
 test('should trigger changes to Product Context', () => {
@@ -70,12 +70,12 @@ test('should trigger changes to Product Context', () => {
 
   expect(mockedDispatch.mock.calls).toHaveLength(4)
   expect(mockedDispatch.mock.calls[0][0].type).toBe('SET_ASSEMBLY_OPTIONS')
-  expect(mockedDispatch.mock.calls[0][0].args.groupInputValues.Font).toBe('')
+  expect(mockedDispatch.mock.calls[0][0].args.groupInputValues.Font).toBe('Sans serif')
   expect(mockedDispatch.mock.calls[0][0].args.groupInputValues['Front text']).toBe('')
   expect(mockedDispatch.mock.calls[0][0].args.groupInputValues['Back text']).toBe('')
-  expect(mockedDispatch.mock.calls[0][0].args.groupInputValues['Glossy print']).toBe('')
+  expect(mockedDispatch.mock.calls[0][0].args.groupInputValues['Glossy print']).toBe(true)
   
   expect(mockedDispatch.mock.calls[1][0].args.groupInputValues.Font).toBe('Roman')
   expect(mockedDispatch.mock.calls[2][0].args.groupInputValues['Front text']).toBe('Foobar')
-  expect(mockedDispatch.mock.calls[3][0].args.groupInputValues['Glossy print']).toBe(true)
+  expect(mockedDispatch.mock.calls[3][0].args.groupInputValues['Glossy print']).toBe(false)
 })

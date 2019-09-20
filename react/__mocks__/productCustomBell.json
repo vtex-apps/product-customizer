@@ -664,6 +664,7 @@
                     "label": "Line 1",
                     "maxLength": 200,
                     "type": "TEXT",
+                    "defaultValue": "",
                     "domain": null,
                     "__typename": "InputValue"
                   },
@@ -671,6 +672,7 @@
                     "label": "Line 2",
                     "maxLength": 200,
                     "type": "TEXT",
+                    "defaultValue": "",
                     "domain": null,
                     "__typename": "InputValue"
                   },
@@ -678,6 +680,7 @@
                     "label": "Line 3",
                     "maxLength": 200,
                     "type": "TEXT",
+                    "defaultValue": "",
                     "domain": null,
                     "__typename": "InputValue"
                   }
@@ -703,6 +706,7 @@
                     "label": "Line 1",
                     "maxLength": 200,
                     "type": "TEXT",
+                    "defaultValue": "",
                     "domain": null,
                     "__typename": "InputValue"
                   },
@@ -710,6 +714,7 @@
                     "label": "Line 2",
                     "maxLength": 200,
                     "type": "TEXT",
+                    "defaultValue": "",
                     "domain": null,
                     "__typename": "InputValue"
                   },
@@ -717,6 +722,7 @@
                     "label": "Line 3",
                     "maxLength": 200,
                     "type": "TEXT",
+                    "defaultValue": "",
                     "domain": null,
                     "__typename": "InputValue"
                   },
@@ -724,6 +730,7 @@
                     "label": "Line 4",
                     "maxLength": 200,
                     "type": "TEXT",
+                    "defaultValue": "",
                     "domain": null,
                     "__typename": "InputValue"
                   }
