@@ -15,7 +15,7 @@ const OptionsInputValue: FC<Props> = ({ inputValueInfo }) => {
   }, [inputValueInfo.domain])
 
   return (
-    <div>
+    <div className="mb4">
       <Dropdown
         value={state}
         onChange={handleChange}
