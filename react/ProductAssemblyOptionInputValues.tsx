@@ -1,0 +1,3 @@
+import ProductAssemblyOptionInputValues from './components/ProductAssemblyOptions/ProductAssemblyOptionInputValues'
+
+export default ProductAssemblyOptionInputValues

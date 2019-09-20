@@ -19,6 +19,7 @@
     "composition": "children",
     "allowed": [
       "flex-layout",
+      "assembly-option-input-values",
       "assembly-option-item-image",
       "assembly-option-item-quantity-selector",
       "assembly-option-item-name",
@@ -57,6 +58,9 @@
     "component": "ProductAssemblyOptionItemChildrenDescription"
   },
   "assembly-option-item-input-values": {
-    "component": "ProductAssemblyOptionItemInputValues"
+    "component": "Noop"
+  },
+  "assembly-option-input-values": {
+    "component": "ProductAssemblyOptionInputValues"
   }
 }
