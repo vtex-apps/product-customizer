@@ -12,7 +12,7 @@ const BooleanInputValue: FC<Props> = ({ inputValueInfo }) => {
   }
 
   return (
-    <div>
+    <div className="mb4">
       <Checkbox
         id={id}
         value={inputValueInfo.label}

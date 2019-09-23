@@ -1,7 +1,7 @@
 import React from 'react'
 import { render, fireEvent } from '@vtex/test-tools/react'
 import ProductAssemblyOptions from '../../ProductAssemblyOptions'
-import InputValue from './ProductAssemblyOptionItemInputValues'
+import InputValue from './ProductAssemblyOptionInputValues'
 import productAttachment from '../../__mocks__/productAttachment.json'
 import useProduct, { ProductContext } from 'vtex.product-context/useProduct'
 import { useProductDispatch } from 'vtex.product-context/ProductDispatchContext'

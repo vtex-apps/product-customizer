@@ -1,7 +1,7 @@
 import React from 'react'
 import { render, fireEvent } from '@vtex/test-tools/react'
 import ProductAssemblyOptions from '../../ProductAssemblyOptions'
-import InputValue from './ProductAssemblyOptionItemInputValues'
+import InputValue from './ProductAssemblyOptionInputValues'
 import productAttachment from '../../__mocks__/productAttachment.json'
 import useProduct, { ProductContext } from 'vtex.product-context/useProduct'
 import { useProductDispatch } from 'vtex.product-context/ProductDispatchContext'
@@ -10,11 +10,11 @@ import ProductAssemblyOptionItemName from './ProductAssemblyOptionItemName'
 const mockedUseProductDispatch = useProductDispatch as jest.Mock<() => jest.Mock>
 const mockUseProduct = useProduct as jest.Mock<ProductContext>
 
-function renderComponent() {
+function renderComponent(customProps = {}) {
   return render(
     <ProductAssemblyOptions>
       <ProductAssemblyOptionItemName />
-      <InputValue />
+      <InputValue {...customProps}/>
     </ProductAssemblyOptions>
   )
 }
@@ -58,6 +58,18 @@ test('should handle Boolean input value', () => {
   expect(glossyPrint.checked).toBe(false)
 })
 
+test('should show other type of options', () => {
+  const { getByText} = renderComponent({ optionsDisplay: 'box' })
+
+  getByText(/Sans serif/)
+
+  const romanOption = getByText(/Roman/)
+  fireEvent.click(romanOption)
+
+  const lastCall = mockedDispatch.mock.calls[mockedDispatch.mock.calls.length - 1]
+  expect(lastCall[0].args.groupInputValues['Font']).toBe('Roman')
+})
+
 test('should trigger changes to Product Context', () => {
   const { getByLabelText } = renderComponent()
 
@@ -79,3 +91,4 @@ test('should trigger changes to Product Context', () => {
   expect(mockedDispatch.mock.calls[2][0].args.groupInputValues['Front text']).toBe('Foobar')
   expect(mockedDispatch.mock.calls[3][0].args.groupInputValues['Glossy print']).toBe(false)
 })
+

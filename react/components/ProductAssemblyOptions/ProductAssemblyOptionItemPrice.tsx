@@ -2,6 +2,7 @@ import React, { FC } from 'react'
 import ProductPrice from 'vtex.store-components/ProductPrice'
 
 import { useProductAssemblyItem } from '../ProductAssemblyContext/Item'
+import { withItem } from './withItem'
 
 const sumAssembliesPrice = (
   assemblyOptions: Record<string, AssemblyOptionGroupState>
@@ -21,7 +22,7 @@ const sumAssembliesPrice = (
 }
 
 const Price: FC = () => {
-  const { price, children } = useProductAssemblyItem()
+  const { price, children } = useProductAssemblyItem() as AssemblyItem
 
   if ((price == null || price === 0) && !children) {
     return null
@@ -41,4 +42,4 @@ const Price: FC = () => {
   )
 }
 
-export default Price
+export default withItem(Price)

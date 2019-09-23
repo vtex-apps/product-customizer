@@ -1,6 +1,7 @@
 import React, { FC } from 'react'
 import { useProductAssemblyItem } from '../ProductAssemblyContext/Item'
 import { GROUP_TYPES } from '../../modules/assemblyGroupType'
+import { withItem } from './withItem'
 
 const getItemText = (item: AssemblyItem, groupType: GroupTypes) => {
   const deltaQuantity = item.quantity - item.initialQuantity
@@ -20,7 +21,7 @@ const getItemText = (item: AssemblyItem, groupType: GroupTypes) => {
 }
 
 const ProductAssemblyOptionItemChildrenDescription: FC = () => {
-  const { children } = useProductAssemblyItem()
+  const { children } = useProductAssemblyItem() as AssemblyItem
 
   if (!children) {
     return null
@@ -61,4 +62,4 @@ const ProductAssemblyOptionItemChildrenDescription: FC = () => {
   )
 }
 
-export default ProductAssemblyOptionItemChildrenDescription
+export default withItem(ProductAssemblyOptionItemChildrenDescription)

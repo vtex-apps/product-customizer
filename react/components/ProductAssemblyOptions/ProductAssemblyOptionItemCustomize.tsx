@@ -6,6 +6,7 @@ import { useDevice } from 'vtex.device-detector'
 import ProductAssemblyOptionsGroup from './ProductAssemblyOptionsGroup'
 import { imageUrlForSize } from './ProductAssemblyOptionItemImage'
 import { ProductAssemblyGroupContextProvider } from '../ProductAssemblyContext/Group'
+import { withItem } from './withItem'
 
 const IMG_SIZE = 140
 
@@ -13,7 +14,7 @@ const ModalView: FC<{ closeAction: () => void }> = ({
   children,
   closeAction,
 }) => {
-  const { image, name, children: itemChildren, price } = useProductAssemblyItem()
+  const { image, name, children: itemChildren, price } = useProductAssemblyItem() as AssemblyItem
 
   return (
     <div className="flex flex-column">
@@ -65,7 +66,7 @@ const ProductAssemblyOptionItemCustomize: FC<Props> = ({
   children,
   buttonProps = {},
 }) => {
-  const { name, children: itemChildren } = useProductAssemblyItem()
+  const { name, children: itemChildren } = useProductAssemblyItem() as AssemblyItem
   const { isMobile } = useDevice()
   const buttonCollapse = buttonProps.collapse
   const [modalOpen, setModalOpen] = useState(false)
@@ -98,4 +99,4 @@ const ProductAssemblyOptionItemCustomize: FC<Props> = ({
   )
 }
 
-export default ProductAssemblyOptionItemCustomize
+export default withItem(ProductAssemblyOptionItemCustomize)

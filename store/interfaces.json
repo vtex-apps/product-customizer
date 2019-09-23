@@ -19,13 +19,13 @@
     "composition": "children",
     "allowed": [
       "flex-layout",
+      "assembly-option-input-values",
       "assembly-option-item-image",
       "assembly-option-item-quantity-selector",
       "assembly-option-item-name",
       "assembly-option-item-price",
       "assembly-option-item-customize",
-      "assembly-option-item-children-description",
-      "assembly-option-item-input-values"
+      "assembly-option-item-children-description"
     ]
   },
   "assembly-option-item-image": {
@@ -56,7 +56,7 @@
   "assembly-option-item-children-description": {
     "component": "ProductAssemblyOptionItemChildrenDescription"
   },
-  "assembly-option-item-input-values": {
-    "component": "ProductAssemblyOptionItemInputValues"
+  "assembly-option-input-values": {
+    "component": "ProductAssemblyOptionInputValues"
   }
 }
