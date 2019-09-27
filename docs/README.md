@@ -32,15 +32,17 @@ The Product Customizer allows a product's [attachments](https://help.vtex.com/tu
 
 ## Modus Operandi 
 
-The Product Customizer takes 3 types of attachments into account, according to the [data entry](https://help.vtex.com/tutorial/adding-an-attachment?locale=en) in the catalog:
+According to the [data entry](https://help.vtex.com/tutorial/adding-an-attachment?locale=en) in the catalog, the Product Customizer takes 3 types of attachments into account when being rendered:
 
 -  **Free text** - Any text can be entered in this field. Users may or may not have a character limit, depending on what was filled in the `Maximum Number of Characters` field.
   - **Predefined options**  - Users can only choose between an attachment's predefined options, according to what's set in the `Permitted Values` field. The way these options will be displayed can be defined with the `optionsDisplay` prop.
- -  **Boolean** -  The the options that are predefined in the `Permitted Values` field are either `true` ou `false`, users can choose the attachment by simply click on a checkbox.
+ -  **Boolean** -  If the options that are predefined in the `Permitted Values` field are either `true` ou `false`, users can choose the attachment by simply click on a checkbox.
  
 Notice the example below and check out the three attachment types simultaneously displayed for the same product:
 
 ![product-customizer-select](https://user-images.githubusercontent.com/52087100/65720836-32d81080-e07f-11e9-9782-0f5a2e6934f0.png)
+
+Then, check out below how the product attachment was registered in the admin's Catalog: 
 
 ![attachment-product-customizer](https://user-images.githubusercontent.com/52087100/65720878-471c0d80-e07f-11e9-8267-27c35fb4c6b4.png)
 
