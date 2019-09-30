@@ -1,6 +1,7 @@
 import React, { FC } from 'react'
 import { Input } from 'vtex.styleguide'
 import useInputValue from './useInputValue'
+import styles from '../styles.css'
 
 const TextInputValue: FC<Props> = ({ inputValueInfo }) => {
   const [state, onChange] = useInputValue(inputValueInfo)
@@ -11,7 +12,7 @@ const TextInputValue: FC<Props> = ({ inputValueInfo }) => {
   }
 
   return (
-    <div className="mb4">
+    <div className={`${styles.textInputValue} mb4`}>
       <Input
         value={state}
         onChange={handleChange}

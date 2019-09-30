@@ -1,6 +1,7 @@
 import React, { FC } from 'react'
 import { Checkbox } from 'vtex.styleguide'
 import useInputValue, { useInputValueId } from './useInputValue'
+import styles from '../styles.css'
 
 const BooleanInputValue: FC<Props> = ({ inputValueInfo }) => {
   const [state, onChange] = useInputValue(inputValueInfo)
@@ -12,7 +13,7 @@ const BooleanInputValue: FC<Props> = ({ inputValueInfo }) => {
   }
 
   return (
-    <div className="mb4">
+    <div className={`${styles.booleanInputValue} mb4`}>
       <Checkbox
         id={id}
         value={inputValueInfo.label}

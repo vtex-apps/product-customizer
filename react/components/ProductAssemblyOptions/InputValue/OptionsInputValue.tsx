@@ -2,6 +2,7 @@ import React, { FC, useMemo } from 'react'
 import { Dropdown } from 'vtex.styleguide'
 import useInputValue from './useInputValue'
 import OptionBox from './OptionBox'
+import styles from '../styles.css'
 
 const DropdownOptions: FC<Props> = ({ inputValueInfo }) => {
   const [state, onChange] = useInputValue(inputValueInfo)
@@ -16,7 +17,7 @@ const DropdownOptions: FC<Props> = ({ inputValueInfo }) => {
   }, [inputValueInfo.domain])
 
   return (
-    <div className="mb4">
+    <div className={`${styles.optionsInputValueDropdown} mb4`}>
       <Dropdown
         value={state}
         onChange={handleChange}
@@ -66,13 +67,13 @@ const BoxOptions: FC<Props> = ({ inputValueInfo }) => {
   }
 
   return (
-    <div className="mb4">
-      <div className="mb3">
-        <span className="c-muted-1 t-small overflow-hidden">
+    <div className={`${styles.optionsInputValue} mb4`}>
+      <div className={`${styles.optionsInputValueLabelContainer} mb3`}>
+        <span className={`${styles.optionsInputValueLabel} c-muted-1 t-small overflow-hidden`}>
           {inputValueInfo.label}
         </span>
       </div>
-      <div className="inline-flex flex-wrap flex items-center">
+      <div className={`${styles.optionsInputValueOptionBoxContainer} inline-flex flex-wrap flex items-center`}>
         {inputValueInfo.domain.map(option =>
           <OptionBox
             key={option}

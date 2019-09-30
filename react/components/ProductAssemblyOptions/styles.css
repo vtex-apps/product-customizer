@@ -13,6 +13,27 @@
 
 .inputValueOptionBox {}
 
+.booleanInputValue {
+}
+
+.optionsInputValue {
+}
+
+.optionsInputValueLabelContainer{
+}
+
+.optionsInputValueLabel{
+}
+
+.optionsInputValueDropdown {
+}
+
+.optionsInputValueOptionBoxContainer {
+}
+
+.textInputValue {
+}
+
 .frameAround {
   bottom: -0.25rem;
   top: -0.25rem;
