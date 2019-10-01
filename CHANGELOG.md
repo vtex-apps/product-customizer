@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Fixed
+- Pass empty state of inoput values if optin is false to avoid adding unwanted input values.
 
 ## [2.6.2] - 2019-09-27
 
