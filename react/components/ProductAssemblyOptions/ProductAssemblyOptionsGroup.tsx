@@ -4,11 +4,16 @@ import { useProductAssemblyGroupState, useProductAssemblyGroupDispatch } from '.
 import useAssemblyOptionsModifications from '../../modules/useAssemblyOptionsModifications'
 import { ProductAssemblyItemProvider } from '../ProductAssemblyContext/Item'
 import { Button } from 'vtex.styleguide'
-import styles from './styles.css'
+import { useCssHandles } from 'vtex.css-handles'
+
+const CSS_HANDLES = [
+  'itemContainer',
+] as const
 
 const ProductAssemblyOptionsGroup: FC = ({ children }) => {
   const assemblyOptionGroup = useProductAssemblyGroupState() as AssemblyOptionGroupState
   const dispatch = useProductAssemblyGroupDispatch()
+  const handles = useCssHandles(CSS_HANDLES)
 
   useAssemblyOptionsModifications(assemblyOptionGroup)
 
@@ -54,7 +59,7 @@ const ProductAssemblyOptionsGroup: FC = ({ children }) => {
                 return (
                   <ProductAssemblyItemProvider item={item} key={item.id}>
                     <div
-                      className={`${styles.itemContainer} hover-bg-muted-5 bb b--muted-5 pa3`}
+                      className={`${handles.itemContainer} hover-bg-muted-5 bb b--muted-5 pa3`}
                     >
                       {children}
                     </div>

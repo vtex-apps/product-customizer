@@ -3,10 +3,14 @@ import {
   useProductAssemblyItem,
 } from '../ProductAssemblyContext/Item'
 import { Checkbox, Radio, NumericStepper } from 'vtex.styleguide'
-import styles from './styles.css'
 import { GROUP_TYPES } from '../../modules/assemblyGroupType'
 import { useProductAssemblyGroupState, useProductAssemblyGroupDispatch } from '../ProductAssemblyContext/Group'
 import { withItem } from './withItem'
+import { useCssHandles } from 'vtex.css-handles'
+
+const CSS_HANDLES = [
+  'multipleItemQuantitySelector',
+] as const
 
 const Single: FC = () => {
   const { id, quantity } = useProductAssemblyItem() as AssemblyItem
@@ -87,8 +91,9 @@ const Multiple: FC = () => {
     quantity + 1 <= maxQuantity &&
     quantitySum + 1 <= groupMaxQuantity
 
+  const handles = useCssHandles(CSS_HANDLES)
   return (
-    <div className={styles.multipleItemQuantitySelector} data-testid={`multipleItemQuantitySelector-${id}`}>
+    <div className={handles.multipleItemQuantitySelector} data-testid={`multipleItemQuantitySelector-${id}`}>
       <NumericStepper
         lean
         value={quantity}

@@ -1,37 +1,8 @@
-.multipleItemQuantitySelector {
-}
-
 .multipleItemQuantitySelector button {
   background: transparent;
 }
 .multipleItemQuantitySelector input {
   background: transparent;
-}
-
-.itemContainer {
-}
-
-.inputValueOptionBox {}
-
-.booleanInputValue {
-}
-
-.optionsInputValue {
-}
-
-.optionsInputValueLabelContainer{
-}
-
-.optionsInputValueLabel{
-}
-
-.optionsInputValueDropdown {
-}
-
-.optionsInputValueOptionBoxContainer {
-}
-
-.textInputValue {
 }
 
 .frameAround {
