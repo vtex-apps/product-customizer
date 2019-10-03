@@ -37,7 +37,7 @@ describe('Product with required assembly', () => {
 
   test('should NOT show Add Customization and Remove button', () => {
     const { queryByText } = renderComponent()
-  
+
     const addButton = queryByText(/Add Customization/)
     expect(addButton).toBeFalsy()
 
@@ -47,7 +47,7 @@ describe('Product with required assembly', () => {
 
   test('should show child elements', () => {
     const { getByText, getByLabelText } = renderComponent()
-  
+
     getByText(/Customization/)
     getByLabelText(/Font/)
   })
@@ -77,5 +77,26 @@ describe('Product with not required assembly', () => {
     // No child elements
     const fontInput = queryByLabelText(/Font/)
     expect(fontInput).toBeFalsy()
+  })
+
+  test('object set in product context should be empty if Add customization is not pressed or after remove is pressed', () => {
+    const { getByText } = renderComponent()
+
+    expect(mockedDispatch.mock.calls[0][0].args.groupInputValues).toMatchObject({})
+
+    const addButton = getByText(/Add Customization/)
+    fireEvent.click(addButton)
+
+    expect(mockedDispatch.mock.calls[1][0].args.groupInputValues).toMatchObject({
+      Font: 'Sans serif',
+      ['Front text']: '',
+      ['Back text']: '',
+      ['Glossy print']: true
+    })
+
+    const removeButton = getByText(/Remove/)
+    fireEvent.click(removeButton)
+
+    expect(mockedDispatch.mock.calls[2][0].args.groupInputValues).toMatchObject({})
   })
 })

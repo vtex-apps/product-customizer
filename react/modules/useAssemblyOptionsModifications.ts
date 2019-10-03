@@ -2,20 +2,29 @@ import { useEffect } from 'react'
 import { pick } from 'ramda'
 import { useProductDispatch } from 'vtex.product-context/ProductDispatchContext'
 
-export default function useAssemblyOptionsModifications(localState: AssemblyOptionGroupState) {
+export default function useAssemblyOptionsModifications(
+  localState: AssemblyOptionGroupState
+) {
   const dispatch = useProductDispatch()
 
   useEffect(() => {
-    const { items: localItems, id, type, valuesOfInputValues } = localState
+    const {
+      items: localItems,
+      id,
+      type,
+      valuesOfInputValues,
+      optin,
+    } = localState
     const items = Object.values(localItems || {}).map(parseItem(type))
     const isValid = isGroupValid(localState)
+    const groupInputValues = optin ? valuesOfInputValues : {}
 
     dispatch({
       type: 'SET_ASSEMBLY_OPTIONS',
       args: {
         groupId: id,
         groupItems: items,
-        groupInputValues: valuesOfInputValues,
+        groupInputValues,
         isValid,
       },
     })
@@ -25,12 +34,11 @@ export default function useAssemblyOptionsModifications(localState: AssemblyOpti
 function isGroupValid(group: AssemblyOptionGroupState) {
   const items = Object.values(group.items || {})
   const itemsToBeAdded = items.reduce((acc, { quantity }) => acc + quantity, 0)
-  const isValid = (
+  const isValid =
     (group.maxQuantity !== undefined &&
-    group.maxQuantity >= itemsToBeAdded &&
-    group.minQuantity <= itemsToBeAdded) ||
+      group.maxQuantity >= itemsToBeAdded &&
+      group.minQuantity <= itemsToBeAdded) ||
     group.maxQuantity === undefined
-  )
 
   if (!isValid) {
     // No need to check children if group is already invalid
@@ -51,7 +59,7 @@ function isGroupValid(group: AssemblyOptionGroupState) {
   return areItemsValid
 }
 
-function parseItem(groupType: GroupTypes){
+function parseItem(groupType: GroupTypes) {
   return (item: AssemblyItem) => ({
     ...pick(['name', 'id', 'initialQuantity', 'quantity', 'seller'], item),
     price: item.price / 100,
@@ -77,8 +85,9 @@ function parseItemChildren(children: Record<string, AssemblyOptionGroupState>) {
 
   for (const groupId of groupIds) {
     const childrenAssemblyOption = children[groupId]
-    result[groupId] = Object.values(childrenAssemblyOption.items || {})
-      .map(parseItem(childrenAssemblyOption.type))
+    result[groupId] = Object.values(childrenAssemblyOption.items || {}).map(
+      parseItem(childrenAssemblyOption.type)
+    )
   }
 
   return result
