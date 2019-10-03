@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 ### Fixed
-- Pass empty state of inoput values if optin is false to avoid adding unwanted input values.
+- Pass empty state of input values if optin is false to avoid adding unwanted input values.
 
 ## [2.6.2] - 2019-09-27
 
