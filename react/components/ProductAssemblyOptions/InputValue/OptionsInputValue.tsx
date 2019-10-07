@@ -4,10 +4,17 @@ import useInputValue from './useInputValue'
 import OptionBox from './OptionBox'
 import { useCssHandles } from 'vtex.css-handles'
 
+const DROPDOWN_OPTIONS_HANDLES = ['optionsInputValueDropdown'] as const
+const BOX_OPTIONS_HANDLES = [
+  'optionsInputValue',
+  'optionsInputValueLabelContainer',
+  'optionsInputValueLabel',
+  'optionsInputValueOptionBoxContainer',
+] as const
+
 const DropdownOptions: FC<Props> = ({ inputValueInfo }) => {
   const [state, onChange] = useInputValue(inputValueInfo)
-  const CSS_HANDLES = ['optionsInputValueDropdown'] as const
-  const handles = useCssHandles(CSS_HANDLES)
+  const handles = useCssHandles(DROPDOWN_OPTIONS_HANDLES)
 
   const handleChange = (e: any) => {
     const value = e.target.value
@@ -35,13 +42,7 @@ const DropdownOptions: FC<Props> = ({ inputValueInfo }) => {
 
 const BoxOptions: FC<Props> = ({ inputValueInfo }) => {
   const [state, onChange] = useInputValue(inputValueInfo)
-  const CSS_HANDLES = [
-    'optionsInputValue',
-    'optionsInputValueLabelContainer',
-    'optionsInputValueLabel',
-    'optionsInputValueOptionBoxContainer',
-  ] as const
-  const handles = useCssHandles(CSS_HANDLES)
+  const handles = useCssHandles(BOX_OPTIONS_HANDLES)
 
   const handleKeyDown = (event: KeyboardEvent) => {
     const selected = state as string
