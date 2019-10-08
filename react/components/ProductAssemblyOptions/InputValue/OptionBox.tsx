@@ -2,15 +2,20 @@ import React, { FC } from 'react'
 import classNames from 'classnames'
 import slugify from '../../../modules/slugify'
 import styles from '../styles.css'
+import { useCssHandles, applyModifiers } from 'vtex.css-handles'
+
+const CSS_HANDLES = [
+  'inputValueOptionBox',
+] as const
 
 const OptionBox: FC<Props> = ({ option, selected, onClick, onKeyDown }) => {
+  const handles = useCssHandles(CSS_HANDLES)
   return (
     <div
       role="button"
       tabIndex={0}
       className={classNames(
-        styles.inputValueOptionBox,
-        `${styles.inputValueOptionBox}--${slugify(option)}`,
+        applyModifiers(handles.inputValueOptionBox, slugify(option)),
         'relative di pointer flex items-center outline-0 mr4',
       )}
       onClick={onClick}

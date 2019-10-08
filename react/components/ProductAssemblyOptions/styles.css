@@ -1,17 +1,9 @@
-.multipleItemQuantitySelector {
-}
-
 .multipleItemQuantitySelector button {
   background: transparent;
 }
 .multipleItemQuantitySelector input {
   background: transparent;
 }
-
-.itemContainer {
-}
-
-.inputValueOptionBox {}
 
 .frameAround {
   bottom: -0.25rem;
