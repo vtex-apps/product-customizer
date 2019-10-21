@@ -10,7 +10,13 @@ interface Props {
 }
 
 const ProductAssemblyOptionItemInputValues: FC<Props> = ({ optionsDisplay }) => {
-  const { inputValues } = useProductAssemblyGroupState() as AssemblyOptionGroupState
+  const state = useProductAssemblyGroupState()
+
+  if (!state) {
+    return null
+  }
+
+  const inputValues = state.inputValues
 
   return (
     <Fragment>
