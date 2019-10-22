@@ -33,5 +33,6 @@
     "react-test-renderer": "^16.9.0",
     "tslint-eslint-rules": "^5.4.0",
     "typescript": "3.5.2"
-  }
+  },
+  "version": "2.6.5"
 }
