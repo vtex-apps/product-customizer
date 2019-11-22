@@ -1,8 +1,6 @@
+📢 Don't fork this project. Use, contribute or open issues in<a href="https://github.com/vtex-apps/store-discussion"> Store Discussion
+    
 # Product Customizer
-
-<div class="alert alert-warning">  
-📢 Don't fork this project. Use, contribute or open issues in<a href="https://github.com/vtex-apps/store-discussion"> Store Discussion</a>.
-</div>
 
 The Product Customizer allows a product's [attachments](https://help.vtex.com/tutorial/o-que-e-um-anexo--aGICk0RVbqKg6GYmQcWUm) to be made available and ready to be chosen by users from the product page. 
 
