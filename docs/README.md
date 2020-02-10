@@ -11,9 +11,9 @@ The Product Customizer allows a product's [attachments](https://help.vtex.com/tu
 1. Add the `product-assembly-options` block to your store's product page template.
 2. According to your store's scenario, declare the desired props.
 
-```
+```json
 "product-assembly-options": {  
-    "child": [  
+    "children": [  
       "assembly-option-input-values"  
     ]  
   },  
