@@ -11,24 +11,24 @@ The Product Customizer allows a product's [attachments](https://help.vtex.com/tu
 1. Add the `product-assembly-options` block to your store's product page template.
 2. According to your store's scenario, declare the desired props.
 
-```
-"product-assembly-options": {  
-    "child": [  
-      "assembly-option-input-values"  
-    ]  
-  },  
-  "assembly-option-input-values": {  
-    "props": {  
-      "optionsDisplay": "box"  
-    }  
- } 
+```json
+  "product-assembly-options": {
+    "children": [
+      "assembly-option-input-values"
+    ]
+  },
+  "assembly-option-input-values": {
+    "props": {
+      "optionsDisplay": "box"
+    }
+  }
 ```
 
 | Prop name | Type | Description | Default value |
 |--------------|--------|--------------| --------|
 | `optionsDisplay` | String | You should choose between “box” or “select”. This will define whether the attachment's pre-defined options will be displayed to be selected in a Checkbox (`box`) or a dropdown list (`select`) . | `select` | 
 
-## Modus Operandi 
+## Modus Operandi
 
 According to the [data entry](https://help.vtex.com/tutorial/adding-an-attachment?locale=en) in the catalog, the Product Customizer takes 3 types of attachments into account when being rendered:
 
@@ -50,6 +50,6 @@ Notice that when a product's attachment was registered as required, all attachme
 :warning: The Product Customizer uses the new Assembly Options API (the traditional Attachments API will be discontinued).  As a result, Checkout still doesn't natively render the customized product option previously selected by the user in the product page. For the product to be correctly displayed with the chosen attachment, it's necessary for now to customize the Checkout page interface for it to read the product data in its context and render it.
 </div>
 
-### Customization 
+### Customization
 
 The component still doesn't have CSS Handles for its specific customization.
