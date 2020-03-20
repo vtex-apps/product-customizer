@@ -7,5 +7,14 @@
   },
   "rules": {
     "no-restricted-imports": 0
-  }
+  },
+  "overrides": [
+    {
+      "files": ["*.js", "*.jsx"],
+      "parser": "babel-eslint",
+      "parserOptions": {
+        "sourceType": "module"
+      }
+    }
+  ]
 }
