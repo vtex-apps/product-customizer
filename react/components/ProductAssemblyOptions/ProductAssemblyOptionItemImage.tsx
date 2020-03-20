@@ -29,10 +29,11 @@ export const imageUrlForSize = (imageUrl: string, size: number) => {
 }
 
 const ProductAssemblyOptionItemImage: FC = () => {
-  const { image } = useProductAssemblyItem() as AssemblyItem
+  const { image, name } = useProductAssemblyItem() as AssemblyItem
 
   return (
     <img
+      alt={name}
       src={imageUrlForSize(image, IMAGE_SIZE)}
       width={IMAGE_SIZE}
       height={IMAGE_SIZE}

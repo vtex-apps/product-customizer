@@ -51,8 +51,8 @@ describe('Product with required assembly', () => {
   it('should show child elements', () => {
     const { getByText, getByLabelText } = renderComponent()
 
-    getByText(/Customization/)
-    getByLabelText(/Font/)
+    expect(getByText(/Customization/)).toBeTruthy()
+    expect(getByLabelText(/Font/)).toBeTruthy()
   })
 })
 

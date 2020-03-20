@@ -8,8 +8,8 @@ class ProductCustomizerContainer extends Component {
     const compositionPrices = this.getPriceMap(product.itemMetadata.priceTable)
 
     const items = product.itemMetadata.items.reduce(
-      (items, item) => ({
-        ...items,
+      (acc, item) => ({
+        ...acc,
         ...this.parseItemMetadata(item, compositionPrices, product.items),
       }),
       {}
@@ -29,6 +29,7 @@ class ProductCustomizerContainer extends Component {
    */
   getPriceMap(priceTable) {
     return priceTable.reduce((prev, curr) => {
+      // eslint-disable-next-line no-shadow
       const { type, values } = curr
       const priceMap = values.reduce(
         (currMap, itemPrice) => ({
@@ -43,7 +44,7 @@ class ProductCustomizerContainer extends Component {
 
   parseAssemblyOption(assemblyOption, prices) {
     const { composition, id } = assemblyOption
-    const [_, optionName] = id.split('_')
+    const [, optionName] = id.split('_')
     const items = composition.items.reduce(
       (prev, compCurr) => ({
         ...prev,

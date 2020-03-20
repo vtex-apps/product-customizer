@@ -1,3 +1,4 @@
+/* eslint-disable max-params */
 import React, { Fragment, Component } from 'react'
 import smoothscroll from 'smoothscroll-polyfill'
 import { withToast } from 'vtex.styleguide'
@@ -9,7 +10,6 @@ import SkuSelector from './SkuSelector'
 import AttachmentsPicker from './AttachmentsPicker'
 import MovingBottomButton from '../Buttons/MovingBottomButton'
 import { scrollToElementTop } from '../../utils/scroll'
-
 import ADD_TO_CART_MUTATION from '../../mutations/addToCart.gql'
 
 class ProductCustomizerWrapper extends Component {
@@ -62,7 +62,7 @@ class ProductCustomizerWrapper extends Component {
     quantities,
     isSingleChoice,
     callback
-  ) =>
+  ) => {
     this.setState(
       state => ({
         chosenAttachments: {
@@ -75,6 +75,7 @@ class ProductCustomizerWrapper extends Component {
       }),
       () => callback && callback(this.state.chosenAttachments)
     )
+  }
 
   getTotalPrice(attachments) {
     const { selectedSku } = this.state
@@ -105,6 +106,7 @@ class ProductCustomizerWrapper extends Component {
   getAttachmentWithQuantities(attachment, quantities) {
     const [quantity, items] = Object.entries(attachment.items).reduce(
       ([total, obj], [name, item]) => {
+        // eslint-disable-next-line no-shadow
         const quantity =
           name in quantities ? quantities[name].quantity : +item.initialQuantity
         return [total + quantity, { ...obj, [name]: { ...item, quantity } }]
@@ -144,10 +146,10 @@ class ProductCustomizerWrapper extends Component {
     const options = []
     const added = []
     const removed = []
-    Object.entries(chosenAttachments).map(([suffix, attachObj]) => {
+    Object.entries(chosenAttachments).forEach(([suffix, attachObj]) => {
       const attachmentTypeInfo = product.items[selectedSku].attachments[suffix]
       const { assemblyId } = attachmentTypeInfo
-      Object.entries(attachObj).map(([name, { id, quantity, seller }]) => {
+      Object.entries(attachObj).forEach(([name, { id, quantity, seller }]) => {
         const initialQuantity = pathOr(
           0,
           [

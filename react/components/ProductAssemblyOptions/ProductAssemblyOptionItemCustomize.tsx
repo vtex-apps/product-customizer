@@ -25,6 +25,7 @@ const ModalView: FC<{ closeAction: () => void }> = ({
   return (
     <div className="flex flex-column">
       <div className="flex">
+        {/* eslint-disable-next-line jsx-a11y/alt-text */}
         <img
           src={imageUrlForSize(image, IMG_SIZE)}
           width={IMG_SIZE}

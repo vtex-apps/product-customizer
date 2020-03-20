@@ -72,6 +72,7 @@ class AttachmentsPicker extends Component {
       attachments,
       newChosenAttachments
     )
+    // eslint-disable-next-line vtex/prefer-early-return
     if (currentAllSinglesPicked !== newSinglesPicked) {
       this.setState({ allSinglesPicked: newSinglesPicked })
       const [firstNotSingleName] = findFirstNonSingleChoice(attachments) || []

@@ -17,7 +17,7 @@ const DropdownOptions: FC<Props> = ({ inputValueInfo }) => {
   const [state, onChange] = useInputValue(inputValueInfo)
   const handles = useCssHandles(DROPDOWN_OPTIONS_HANDLES)
 
-  const handleChange = (e: any) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target
     onChange({ value })
   }
@@ -66,7 +66,7 @@ const BoxOptions: FC<Props> = ({ inputValueInfo }) => {
         break
       }
       case 'Home': {
-        const newValue = options[0]
+        const [newValue] = options
         onChange({ value: newValue })
         break
       }

@@ -9,6 +9,7 @@ const CSS_HANDLES = ['inputValueOptionBox'] as const
 
 const OptionBox: FC<Props> = ({ option, selected, onClick, onKeyDown }) => {
   const handles = useCssHandles(CSS_HANDLES)
+
   return (
     <div
       role="button"
@@ -46,8 +47,8 @@ const OptionBox: FC<Props> = ({ option, selected, onClick, onKeyDown }) => {
 interface Props {
   option: string
   selected: boolean
-  onClick: (e: any) => void
-  onKeyDown: (e: any) => void
+  onClick: React.MouseEventHandler
+  onKeyDown: React.KeyboardEventHandler
 }
 
 export default OptionBox

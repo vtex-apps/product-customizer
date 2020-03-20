@@ -9,7 +9,7 @@ const CSS_HANDLES = ['textInputValue'] as const
 const TextInputValue: FC<Props> = ({ inputValueInfo }) => {
   const [state, onChange] = useInputValue(inputValueInfo)
 
-  const handleChange = (e: any) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target
     onChange({ value })
   }

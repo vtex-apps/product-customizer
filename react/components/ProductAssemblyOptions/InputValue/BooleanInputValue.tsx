@@ -10,7 +10,7 @@ const BooleanInputValue: FC<Props> = ({ inputValueInfo }) => {
   const [state, onChange] = useInputValue(inputValueInfo)
   const id = useInputValueId(inputValueInfo)
 
-  const handleChange = (e: any) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.checked
     onChange({ value })
   }

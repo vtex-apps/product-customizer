@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-use-before-define */
 import { useMemo } from 'react'
 import useProduct, {
   SelectedItem,
@@ -60,14 +61,16 @@ function parsePriceMap(itemMetadata: ItemMetadata) {
   return result
 }
 
-const parseAssemblyOptions = (
+// eslint-disable-next-line max-params
+function parseAssemblyOptions(
   assemblyOptions: AssemblyOption[],
   priceMap: PriceMap,
   product: Product,
   parentItemId?: string,
   treePath?: TreePath[]
-): ParsedAssemblyOptions => {
+): ParsedAssemblyOptions {
   const assemblyOptionsParsed = assemblyOptions.reduce<ParsedAssemblyOptions>(
+    // eslint-disable-next-line no-shadow
     (assemblyOptionsParsed, assemblyOption) => {
       if (!assemblyOption.composition && !assemblyOption.inputValues) {
         return assemblyOptionsParsed
@@ -116,6 +119,7 @@ const parseAssemblyOptions = (
   return assemblyOptionsParsed
 }
 
+// eslint-disable-next-line max-params
 function assemblyItems(
   priceMap: PriceMap,
   product: Product,
@@ -140,6 +144,7 @@ function assemblyItems(
       const children =
         optionMetadata.assemblyOptions.length > 0
           ? parseAssemblyOptions(
+              // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
               optionMetadata!.assemblyOptions,
               priceMap,
               product,

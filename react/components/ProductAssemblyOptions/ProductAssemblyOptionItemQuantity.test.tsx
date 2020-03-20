@@ -24,15 +24,6 @@ function queryQuantityInput(container: HTMLElement, itemId: string | number) {
   )
 }
 
-function queryQuantityDecreaseButton(
-  container: HTMLElement,
-  itemId: string | number
-) {
-  return container.querySelector(
-    `[data-testid="multipleItemQuantitySelector-${itemId}"] [aria-label="-"]`
-  ) as HTMLButtonElement
-}
-
 function queryQuantityIncreaseButton(
   container: HTMLElement,
   itemId: string | number

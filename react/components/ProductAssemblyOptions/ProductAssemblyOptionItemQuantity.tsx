@@ -18,21 +18,34 @@ const Single: FC = () => {
   const dispatch = useProductAssemblyGroupDispatch()
   const selected = quantity === 1
 
+  const handleClick = () => {
+    if (quantity === 0) {
+      dispatch({
+        type: 'SET_QUANTITY',
+        args: {
+          itemId: id,
+          newQuantity: 1,
+          type: GROUP_TYPES.SINGLE,
+          groupPath: path,
+        },
+      })
+    }
+  }
+
+  const handleKey = ({ key }: React.KeyboardEvent<HTMLDivElement>) => {
+    const SPACE = ' '
+    const ENTER = 'Enter'
+    if (key === SPACE || key === ENTER) {
+      handleClick()
+    }
+  }
+
   return (
     <div
-      onClick={() => {
-        if (quantity === 0) {
-          dispatch({
-            type: 'SET_QUANTITY',
-            args: {
-              itemId: id,
-              newQuantity: 1,
-              type: GROUP_TYPES.SINGLE,
-              groupPath: path,
-            },
-          })
-        }
-      }}
+      role="button"
+      tabIndex={-1}
+      onKeyDown={handleKey}
+      onClick={handleClick}
     >
       {/* TODO: Properly use Radio from Styleguide */}
       <Radio
