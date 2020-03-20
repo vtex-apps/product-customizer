@@ -45,7 +45,7 @@ const BoxOptions: FC<Props> = ({ inputValueInfo }) => {
   const [state, onChange] = useInputValue(inputValueInfo)
   const handles = useCssHandles(BOX_OPTIONS_HANDLES)
 
-  const handleKeyDown = (event: KeyboardEvent) => {
+  const handleKeyDown = (event: React.KeyboardEvent) => {
     const selected = state as string
     const options = inputValueInfo.domain
     const selectedIndex = options.indexOf(selected)
