@@ -2,6 +2,7 @@ import PropTypes from 'prop-types'
 import React, { memo } from 'react'
 import ProductPrice from 'vtex.store-components/ProductPrice'
 import Radio from 'vtex.styleguide/Radio'
+
 import ItemDescription from './ItemDescription'
 
 const SingleChoice = ({
@@ -16,9 +17,7 @@ const SingleChoice = ({
   const parsedPrice = parseFloat(calculatedPrice)
 
   const description = parsedPrice && (
-    <div
-      className={'single-choice__price flex t-small fw5 c-action-primary mt1'}
-    >
+    <div className="single-choice__price flex t-small fw5 c-action-primary mt1">
       {showPlus && <div>+ </div>}
       <ProductPrice
         {...{

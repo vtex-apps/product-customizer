@@ -2,6 +2,7 @@
  * Assembly options related types
  */
 import { InputValueType } from '../modules/inputValueType'
+
 declare global {
   interface CompositionItem {
     id: string
@@ -62,14 +63,14 @@ declare global {
 
   interface ItemMetadata {
     items: MetadataItem[]
-    priceTable: {
+    priceTable: Array<{
       type: string
-      values: {
+      values: Array<{
         id: string
         assemblyId: string
         price: number
-      }[]
-    }[]
+      }>
+    }>
   }
 
   interface TreePath {
@@ -90,7 +91,7 @@ declare global {
     type: GroupTypes
     inputValues: InputValue[]
 
-    valuesOfInputValues: Record<string, string|boolean>
+    valuesOfInputValues: Record<string, string | boolean>
     optin: boolean
     path: string[]
     quantitySum: number
@@ -107,13 +108,15 @@ declare global {
     type: GroupTypes
     inputValues: InputValue[]
 
-    valuesOfInputValues: Record<string, string|boolean>
+    valuesOfInputValues: Record<string, string | boolean>
     optin: boolean
     path: string[]
     quantitySum: number
   }
 
-  type AssemblyOptionGroupState = AssemblyOptionGroup | AssemblyOptionGroupInputValue
+  type AssemblyOptionGroupState =
+    | AssemblyOptionGroup
+    | AssemblyOptionGroupInputValue
 
   interface AssemblyItem {
     image: string

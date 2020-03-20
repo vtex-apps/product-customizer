@@ -2,9 +2,9 @@ import React, { Fragment } from 'react'
 import { FormattedMessage } from 'react-intl'
 import { ExtensionPoint } from 'vtex.render-runtime'
 import { find, pathOr, prop, propEq, sort } from 'ramda'
+import ProductPrice from 'vtex.store-components/ProductPrice'
 
 import SingleChoice from '../Variation/Items/SingleChoice'
-import ProductPrice from 'vtex.store-components/ProductPrice'
 
 // Order by availability or by Price
 const compareSku = (item, otherItem) => {

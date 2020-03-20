@@ -10,12 +10,15 @@ const sumAssembliesPrice = (
   const assembliesGroupItems = Object.values(assemblyOptions)
 
   return assembliesGroupItems.reduce((sum, group) => {
-    const groupPrice = Object.values(group.items || {}).reduce((groupSum, item) => {
-      const childrenPrice = item.children
-        ? sumAssembliesPrice(item.children)
-        : 0
-      return groupSum + (item.price + childrenPrice) * item.quantity
-    }, 0)
+    const groupPrice = Object.values(group.items ?? {}).reduce(
+      (groupSum, item) => {
+        const childrenPrice = item.children
+          ? sumAssembliesPrice(item.children)
+          : 0
+        return groupSum + (item.price + childrenPrice) * item.quantity
+      },
+      0
+    )
 
     return groupPrice + sum
   }, 0)

@@ -1,4 +1,5 @@
 import React, { FC, Fragment } from 'react'
+
 import useAssemblyOptions from './modules/useAssemblyOptions'
 import ProductAssemblyOptionsGroup from './components/ProductAssemblyOptions/ProductAssemblyOptionsGroup'
 import { ProductAssemblyGroupContextProvider } from './components/ProductAssemblyContext/Group'
@@ -13,10 +14,11 @@ const ProductAssemblyOptions: FC = ({ children }) => {
   return (
     <Fragment>
       {Object.keys(assemblyOptions).map(assemblyOptionId => (
-        <ProductAssemblyGroupContextProvider key={assemblyOptionId} assemblyOption={assemblyOptions[assemblyOptionId]}>
-          <ProductAssemblyOptionsGroup>
-            {children}
-          </ProductAssemblyOptionsGroup>
+        <ProductAssemblyGroupContextProvider
+          key={assemblyOptionId}
+          assemblyOption={assemblyOptions[assemblyOptionId]}
+        >
+          <ProductAssemblyOptionsGroup>{children}</ProductAssemblyOptionsGroup>
         </ProductAssemblyGroupContextProvider>
       ))}
     </Fragment>

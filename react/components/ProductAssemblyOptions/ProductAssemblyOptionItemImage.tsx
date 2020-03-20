@@ -1,5 +1,6 @@
 import React, { FC } from 'react'
 import { head } from 'ramda'
+
 import { useProductAssemblyItem } from '../ProductAssemblyContext/Item'
 import { withItem } from './withItem'
 
@@ -18,7 +19,7 @@ export const imageUrlForSize = (imageUrl: string, size: number) => {
   const sizeStringIdx = idsStringIdx + 1
   const sizeString = urlSplitted[sizeStringIdx]
   const imageId = head(sizeString.split('-'))
-  const multiplier = (window && window.devicePixelRatio) || 1
+  const multiplier = window?.devicePixelRatio || 1
   const newSizeString = `${imageId}-${size * multiplier}-auto`
   return [
     ...urlSplitted.slice(0, sizeStringIdx),

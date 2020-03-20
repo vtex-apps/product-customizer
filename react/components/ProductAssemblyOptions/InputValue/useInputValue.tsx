@@ -1,11 +1,19 @@
-import { useProductAssemblyGroupState, useProductAssemblyGroupDispatch } from '../../ProductAssemblyContext/Group'
+import {
+  useProductAssemblyGroupState,
+  useProductAssemblyGroupDispatch,
+} from '../../ProductAssemblyContext/Group'
 
 interface OnChangeParams {
   value: string | boolean
 }
 
-export default function useInputValue(inputValueInfo: InputValue): [string|boolean, (param: OnChangeParams) => void] {
-  const { path, valuesOfInputValues } = useProductAssemblyGroupState() as AssemblyOptionGroupState
+export default function useInputValue(
+  inputValueInfo: InputValue
+): [string | boolean, (param: OnChangeParams) => void] {
+  const {
+    path,
+    valuesOfInputValues,
+  } = useProductAssemblyGroupState() as AssemblyOptionGroupState
   const dispatch = useProductAssemblyGroupDispatch()
 
   const onChange = ({ value }: OnChangeParams) => {
@@ -14,8 +22,8 @@ export default function useInputValue(inputValueInfo: InputValue): [string|boole
       args: {
         inputValueLabel: inputValueInfo.label,
         inputValue: value,
-        groupPath: path
-      }
+        groupPath: path,
+      },
     })
   }
 

@@ -1,12 +1,13 @@
 import { useMemo } from 'react'
-import useProduct, { SelectedItem, Product } from 'vtex.product-context/useProduct'
+import useProduct, {
+  SelectedItem,
+  Product,
+} from 'vtex.product-context/useProduct'
 import { find, propEq, compose, last, split, pathOr } from 'ramda'
+
 import { getGroupType } from './assemblyGroupType'
 
-const splitGroupName = compose(
-  last,
-  split('_')
-)
+const splitGroupName = compose(last, split('_'))
 
 type PriceMap = Record<string, Record<string, Record<string, number>>>
 type ParsedAssemblyOptions = Record<string, AssemblyOptionGroupState>
@@ -42,7 +43,7 @@ function getItemAssemblyOptions(
     return null
   }
   const metadata = findItemMetadata(selectedItem.itemId)(itemMetadata.items)
-  return metadata && metadata.assemblyOptions
+  return metadata?.assemblyOptions
 }
 
 function parsePriceMap(itemMetadata: ItemMetadata) {
@@ -108,13 +109,19 @@ const parseAssemblyOptions = (
       }
 
       return assemblyOptionsParsed
-    }
-    , {})
+    },
+    {}
+  )
 
   return assemblyOptionsParsed
 }
 
-function assemblyItems(priceMap: PriceMap, product: Product, currentTreePath: TreePath[], assemblyOption: AssemblyOption) {
+function assemblyItems(
+  priceMap: PriceMap,
+  product: Product,
+  currentTreePath: TreePath[],
+  assemblyOption: AssemblyOption
+) {
   if (!assemblyOption.composition || !assemblyOption.composition.items) {
     return undefined
   }
@@ -130,15 +137,16 @@ function assemblyItems(priceMap: PriceMap, product: Product, currentTreePath: Tr
       }
 
       // Recursively parse children of this assembly option
-      const children = optionMetadata.assemblyOptions.length > 0
-        ? parseAssemblyOptions(
-          optionMetadata!.assemblyOptions,
-          priceMap,
-          product,
-          assemblyItem.id,
-          currentTreePath
-        )
-        : null
+      const children =
+        optionMetadata.assemblyOptions.length > 0
+          ? parseAssemblyOptions(
+              optionMetadata!.assemblyOptions,
+              priceMap,
+              product,
+              assemblyItem.id,
+              currentTreePath
+            )
+          : null
 
       items[assemblyItem.id] = {
         image: optionMetadata.imageUrl,
@@ -158,10 +166,9 @@ function assemblyItems(priceMap: PriceMap, product: Product, currentTreePath: Tr
       }
 
       return items
-    }
-    , {})
+    },
+    {}
+  )
 }
-
-
 
 export default useAssemblyOptions

@@ -1,6 +1,7 @@
 import React, { memo } from 'react'
 
 import '../../../global.css'
+
 function ItemDescription({ description, name, imageUrl }) {
   return (
     <div className="flex">

@@ -1,8 +1,9 @@
 import React, { Fragment, useState, FC } from 'react'
-import { useProductAssemblyItem } from '../ProductAssemblyContext/Item'
 import { Button, Modal } from 'vtex.styleguide'
 import ProductPrice from 'vtex.store-components/ProductPrice'
 import { useDevice } from 'vtex.device-detector'
+
+import { useProductAssemblyItem } from '../ProductAssemblyContext/Item'
 import ProductAssemblyOptionsGroup from './ProductAssemblyOptionsGroup'
 import { imageUrlForSize } from './ProductAssemblyOptionItemImage'
 import { ProductAssemblyGroupContextProvider } from '../ProductAssemblyContext/Group'
@@ -14,7 +15,12 @@ const ModalView: FC<{ closeAction: () => void }> = ({
   children,
   closeAction,
 }) => {
-  const { image, name, children: itemChildren, price } = useProductAssemblyItem() as AssemblyItem
+  const {
+    image,
+    name,
+    children: itemChildren,
+    price,
+  } = useProductAssemblyItem() as AssemblyItem
 
   return (
     <div className="flex flex-column">
@@ -38,7 +44,8 @@ const ModalView: FC<{ closeAction: () => void }> = ({
         return (
           <ProductAssemblyGroupContextProvider
             key={childId}
-            assemblyOption={itemChildren![childId]}>
+            assemblyOption={itemChildren![childId]}
+          >
             <ProductAssemblyOptionsGroup>
               {children}
             </ProductAssemblyOptionsGroup>
@@ -66,7 +73,10 @@ const ProductAssemblyOptionItemCustomize: FC<Props> = ({
   children,
   buttonProps = {},
 }) => {
-  const { name, children: itemChildren } = useProductAssemblyItem() as AssemblyItem
+  const {
+    name,
+    children: itemChildren,
+  } = useProductAssemblyItem() as AssemblyItem
   const { isMobile } = useDevice()
   const buttonCollapse = buttonProps.collapse
   const [modalOpen, setModalOpen] = useState(false)
@@ -91,7 +101,7 @@ const ProductAssemblyOptionItemCustomize: FC<Props> = ({
         isOpen={modalOpen}
         onClose={closeAction}
         centered={!isMobile}
-        title={'Customize your ' + name}
+        title={`Customize your ${name}`}
       >
         <ModalView closeAction={closeAction}>{children}</ModalView>
       </Modal>

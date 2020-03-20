@@ -1,16 +1,16 @@
 import React, { FC } from 'react'
-import {
-  useProductAssemblyItem,
-} from '../ProductAssemblyContext/Item'
 import { Checkbox, Radio, NumericStepper } from 'vtex.styleguide'
-import { GROUP_TYPES } from '../../modules/assemblyGroupType'
-import { useProductAssemblyGroupState, useProductAssemblyGroupDispatch } from '../ProductAssemblyContext/Group'
-import { withItem } from './withItem'
 import { useCssHandles } from 'vtex.css-handles'
 
-const CSS_HANDLES = [
-  'multipleItemQuantitySelector',
-] as const
+import { useProductAssemblyItem } from '../ProductAssemblyContext/Item'
+import { GROUP_TYPES } from '../../modules/assemblyGroupType'
+import {
+  useProductAssemblyGroupState,
+  useProductAssemblyGroupDispatch,
+} from '../ProductAssemblyContext/Group'
+import { withItem } from './withItem'
+
+const CSS_HANDLES = ['multipleItemQuantitySelector'] as const
 
 const Single: FC = () => {
   const { id, quantity } = useProductAssemblyItem() as AssemblyItem
@@ -41,7 +41,7 @@ const Single: FC = () => {
         label=""
         name=""
         value=""
-        onChange={() => { }}
+        onChange={() => {}}
       />
     </div>
   )
@@ -77,23 +77,28 @@ const Toggle: FC = () => {
 
 const Multiple: FC = () => {
   const {
-    quantity, maxQuantity, minQuantity, id
+    quantity,
+    maxQuantity,
+    minQuantity,
+    id,
   } = useProductAssemblyItem() as AssemblyItem
   const {
     path,
     maxQuantity: groupMaxQuantity,
-    quantitySum
+    quantitySum,
   } = useProductAssemblyGroupState() as AssemblyOptionGroup
 
   const dispatch = useProductAssemblyGroupDispatch()
 
   const canIncrease =
-    quantity + 1 <= maxQuantity &&
-    quantitySum + 1 <= groupMaxQuantity
+    quantity + 1 <= maxQuantity && quantitySum + 1 <= groupMaxQuantity
 
   const handles = useCssHandles(CSS_HANDLES)
   return (
-    <div className={handles.multipleItemQuantitySelector} data-testid={`multipleItemQuantitySelector-${id}`}>
+    <div
+      className={handles.multipleItemQuantitySelector}
+      data-testid={`multipleItemQuantitySelector-${id}`}
+    >
       <NumericStepper
         lean
         value={quantity}

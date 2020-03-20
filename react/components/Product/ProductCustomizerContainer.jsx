@@ -90,7 +90,7 @@ class ProductCustomizerContainer extends Component {
     if (itemMetadata.assemblyOptions.length === 0) {
       return {}
     }
-    const name = itemMetadata.name
+    const { name } = itemMetadata
     const attachments = itemMetadata.assemblyOptions.reduce(
       (prev, option) => ({
         ...prev,

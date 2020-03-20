@@ -1,5 +1,12 @@
-import React, { createContext, useContext, Dispatch, useReducer, FC } from 'react'
+import React, {
+  createContext,
+  useContext,
+  Dispatch,
+  useReducer,
+  FC,
+} from 'react'
 import { path } from 'ramda'
+
 import { GROUP_TYPES } from '../../modules/assemblyGroupType'
 
 type DispatchAction = SetQuantityAction | SetInputValueAction | OptinAction
@@ -24,40 +31,46 @@ type SetInputValueAction = {
 }
 
 type OptinAction = {
-  type: 'OPTIN',
+  type: 'OPTIN'
   args: {
     groupPath: string[]
   }
 }
 
-export const ProductAssemblyDispatchContext = createContext<Dispatch<DispatchAction>>(() => { })
+export const ProductAssemblyDispatchContext = createContext<
+  Dispatch<DispatchAction>
+>(() => {})
 
-export const ProductAssemblyGroupContext = createContext<AssemblyOptionGroupState | undefined>(undefined)
+export const ProductAssemblyGroupContext = createContext<
+  AssemblyOptionGroupState | undefined
+>(undefined)
 
-export const ProductAssemblyGroupContextProvider: FC<ProductAssemblyGroupContextProviderProps> = ({ assemblyOption, children }) => {
-  const path = getGroupPath(assemblyOption.treePath)
-  const quantitySum = Object.values(assemblyOption.items || {}).reduce(
+export const ProductAssemblyGroupContextProvider: FC<ProductAssemblyGroupContextProviderProps> = ({
+  assemblyOption,
+  children,
+}) => {
+  const groupPath = getGroupPath(assemblyOption.treePath)
+  const quantitySum = Object.values(assemblyOption.items ?? {}).reduce(
     (acc, { quantity }) => acc + quantity,
     0
   )
 
-  const valuesOfInputValues = assemblyOption.inputValues.reduce<Record<string, string | boolean>>((acc, inputValue) => {
+  const valuesOfInputValues = assemblyOption.inputValues.reduce<
+    Record<string, string | boolean>
+  >((acc, inputValue) => {
     acc[inputValue.label] = inputValue.defaultValue
     return acc
   }, {})
 
   const initialState: AssemblyOptionGroupState = {
     ...assemblyOption,
-    path,
-    quantitySum: quantitySum,
+    path: groupPath,
+    quantitySum,
     optin: assemblyOption.required,
     valuesOfInputValues,
   }
 
-  const [state, dispatch] = useReducer(
-    reducer,
-    initialState,
-  )
+  const [state, dispatch] = useReducer(reducer, initialState)
 
   return (
     <ProductAssemblyDispatchContext.Provider value={dispatch}>
@@ -69,7 +82,7 @@ export const ProductAssemblyGroupContextProvider: FC<ProductAssemblyGroupContext
 }
 
 function getGroupPath(assemblyTreePath?: TreePath[]) {
-  const treePath = assemblyTreePath || []
+  const treePath = assemblyTreePath ?? []
 
   let groupPath: string[] = []
   for (const currentPath of treePath) {
@@ -94,11 +107,14 @@ export const useProductAssemblyGroupDispatch = () =>
 export const useProductAssemblyGroupState = () =>
   useContext(ProductAssemblyGroupContext)
 
-function reducer(state: AssemblyOptionGroupState, action: DispatchAction): AssemblyOptionGroupState {
+function reducer(
+  state: AssemblyOptionGroupState,
+  action: DispatchAction
+): AssemblyOptionGroupState {
   switch (action.type) {
     case 'OPTIN': {
       const { groupPath } = action.args
-      let groupState = path(groupPath, state) as AssemblyOptionGroupState
+      const groupState = path(groupPath, state) as AssemblyOptionGroupState
 
       groupState.optin = !groupState.optin
 
@@ -106,7 +122,7 @@ function reducer(state: AssemblyOptionGroupState, action: DispatchAction): Assem
     }
     case 'SET_INPUT_VALUE': {
       const { groupPath, inputValue, inputValueLabel } = action.args
-      let groupState = path(groupPath, state) as AssemblyOptionGroupState
+      const groupState = path(groupPath, state) as AssemblyOptionGroupState
 
       groupState.valuesOfInputValues = {
         ...groupState.valuesOfInputValues,
@@ -115,13 +131,13 @@ function reducer(state: AssemblyOptionGroupState, action: DispatchAction): Assem
 
       return { ...state }
     }
-    case 'SET_QUANTITY':
+    case 'SET_QUANTITY': {
       if (!state.items) {
         return state
       }
 
       const { itemId, newQuantity, type, groupPath } = action.args
-      let groupState = path(groupPath, state) as AssemblyOptionGroup
+      const groupState = path(groupPath, state) as AssemblyOptionGroup
 
       if (type === GROUP_TYPES.SINGLE) {
         groupState.items = removeAllItems(groupState.items)
@@ -131,8 +147,7 @@ function reducer(state: AssemblyOptionGroupState, action: DispatchAction): Assem
         ...groupState.items,
         ...(itemId && groupState.items && groupState.items[itemId]
           ? { [itemId]: { ...groupState.items[itemId], quantity: newQuantity } }
-          : {}
-        )
+          : {}),
       }
 
       const newQuantitySum = Object.values(newItems).reduce(
@@ -144,17 +159,21 @@ function reducer(state: AssemblyOptionGroupState, action: DispatchAction): Assem
       groupState.items = newItems
 
       return { ...state }
+    }
     default:
       return state
   }
 }
 
 function removeAllItems(items: Record<string, AssemblyItem>) {
-  return Object.keys(items).reduce<Record<string, AssemblyItem>>((acc, itemId) => {
-    acc[itemId] = {
-      ...items[itemId],
-      quantity: 0,
-    }
-    return acc
-  }, {})
+  return Object.keys(items).reduce<Record<string, AssemblyItem>>(
+    (acc, itemId) => {
+      acc[itemId] = {
+        ...items[itemId],
+        quantity: 0,
+      }
+      return acc
+    },
+    {}
+  )
 }

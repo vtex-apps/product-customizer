@@ -1,12 +1,11 @@
 import React, { FC } from 'react'
 import classNames from 'classnames'
-import slugify from '../../../modules/slugify'
-import styles from '../styles.css'
 import { useCssHandles, applyModifiers } from 'vtex.css-handles'
 
-const CSS_HANDLES = [
-  'inputValueOptionBox',
-] as const
+import slugify from '../../../modules/slugify'
+import styles from '../styles.css'
+
+const CSS_HANDLES = ['inputValueOptionBox'] as const
 
 const OptionBox: FC<Props> = ({ option, selected, onClick, onKeyDown }) => {
   const handles = useCssHandles(CSS_HANDLES)
@@ -16,7 +15,7 @@ const OptionBox: FC<Props> = ({ option, selected, onClick, onKeyDown }) => {
       tabIndex={0}
       className={classNames(
         applyModifiers(handles.inputValueOptionBox, slugify(option)),
-        'relative di pointer flex items-center outline-0 mr4',
+        'relative di pointer flex items-center outline-0 mr4'
       )}
       onClick={onClick}
       onKeyDown={onKeyDown}
@@ -38,9 +37,7 @@ const OptionBox: FC<Props> = ({ option, selected, onClick, onKeyDown }) => {
           }
         )}
       >
-        <div className="c-on-base center pv3 ph5 z-1 t-body">
-          {option}
-        </div>
+        <div className="c-on-base center pv3 ph5 z-1 t-body">{option}</div>
       </div>
     </div>
   )

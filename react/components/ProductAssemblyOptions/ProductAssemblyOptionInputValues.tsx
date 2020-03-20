@@ -1,7 +1,10 @@
 import React, { FC, Fragment } from 'react'
+
 import { useProductAssemblyGroupState } from '../ProductAssemblyContext/Group'
 import TextInputValue from './InputValue/TextInputValue'
-import OptionsInputValue, { OptionDisplay } from './InputValue/OptionsInputValue'
+import OptionsInputValue, {
+  OptionDisplay,
+} from './InputValue/OptionsInputValue'
 import BooleanInputValue from './InputValue/BooleanInputValue'
 import { InputValueType } from '../../modules/inputValueType'
 
@@ -9,14 +12,16 @@ interface Props {
   optionsDisplay?: OptionDisplay
 }
 
-const ProductAssemblyOptionItemInputValues: FC<Props> = ({ optionsDisplay }) => {
+const ProductAssemblyOptionItemInputValues: FC<Props> = ({
+  optionsDisplay,
+}) => {
   const state = useProductAssemblyGroupState()
 
   if (!state) {
     return null
   }
 
-  const inputValues = state.inputValues
+  const { inputValues } = state
 
   return (
     <Fragment>
@@ -26,7 +31,13 @@ const ProductAssemblyOptionItemInputValues: FC<Props> = ({ optionsDisplay }) => 
         }
 
         if (inputValue.type === InputValueType.OPTIONS) {
-          return <OptionsInputValue key={index} inputValueInfo={inputValue} optionsDisplay={optionsDisplay} />
+          return (
+            <OptionsInputValue
+              key={index}
+              inputValueInfo={inputValue}
+              optionsDisplay={optionsDisplay}
+            />
+          )
         }
 
         if (inputValue.type === InputValueType.BOOLEAN) {

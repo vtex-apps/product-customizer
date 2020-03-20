@@ -1,10 +1,10 @@
 declare module 'vtex.styleguide' {
-  export const Checkbox: any
-  export const Radio: any
-  export const NumericStepper: any
-  export const Button: any
-  export const Modal: any
-  export const Spinner: any
-  export const Input: any
-  export const Dropdown: any
+  export const Checkbox
+  export const Radio
+  export const NumericStepper
+  export const Button
+  export const Modal
+  export const Spinner
+  export const Input
+  export const Dropdown
 }

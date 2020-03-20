@@ -3,11 +3,11 @@ declare module 'vtex.product-context/useProduct' {
 
   export interface SelectedItem {
     itemId: string
-    sellers: {
+    sellers: Array<{
       commertialOffer: {
         AvailableQuantity: number
       }
-    }[]
+    }>
   }
 
   export interface Product {
@@ -25,6 +25,6 @@ declare module 'vtex.product-context/useProduct' {
 }
 
 declare module 'vtex.product-context/ProductDispatchContext' {
-  type DispatchFunction = (payload: { type: string; args?: any }) => void
+  type DispatchFunction = (payload: { type: string; args?: unknown }) => void
   export const useProductDispatch: () => DispatchFunction
 }

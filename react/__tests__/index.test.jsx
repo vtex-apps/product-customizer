@@ -2,8 +2,8 @@ import React from 'react'
 import { render, fireEvent } from '@vtex/test-tools/react'
 
 import ProductCustomizer from '../index'
-import productQueryWithVariation from '../__mocks__/productQueryWithVariation.json'
-import productQueryNoVariation from '../__mocks__/productQuery.json'
+import productQueryWithVariation from '../__fixtures__/productQueryWithVariation.json'
+import productQueryNoVariation from '../__fixtures__/productQuery.json'
 
 describe('ProductCustomizer components ', () => {
   it('render with variations example, show sku selector', () => {
