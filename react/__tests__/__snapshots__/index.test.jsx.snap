@@ -28,9 +28,7 @@ exports[`ProductCustomizer components  render with no variations and press on Sm
       <div
         class="ph5 pb4 c-muted-2 t-small"
       >
-        <span>
-          Pick one size
-        </span>
+        Pick one size
       </div>
       <div
         class="false hover-bg-muted-5 ph4 pointer bb b--muted-5 bw1"
@@ -277,9 +275,7 @@ exports[`ProductCustomizer components  render with no variations and press on Sm
       <div
         class="ph5 pb4 c-muted-2 t-small"
       >
-        <span>
-          Pick one size
-        </span>
+        Pick one size
       </div>
       <div
         class="selected bg-muted-5 hover-bg-muted-5 ph4 pointer bb b--muted-5 bw1"
@@ -489,9 +485,7 @@ exports[`ProductCustomizer components  render with no variations and press on Sm
           <div
             class="ph5 pv4 c-muted-2 t-small"
           >
-            <span>
-              Pick one crust
-            </span>
+            Pick one crust
           </div>
           <div
             class="false hover-bg-muted-5 ph4 pointer bb b--muted-5 bw1"
@@ -717,9 +711,7 @@ exports[`ProductCustomizer components  render with no variations and press on Sm
           <div
             class="ph5 pv4 c-muted-2 t-small"
           >
-            <span>
-              Basic ingredients
-            </span>
+            Basic ingredients
           </div>
           <label
             class="vtex-product-customizer__toggled-choice selected bg-washed-blue db pa4 pointer bb b--light-gray"
@@ -1178,9 +1170,7 @@ exports[`ProductCustomizer components  render with no variations and press on Sm
           <div
             class="ph5 pv4 c-muted-2 t-small"
           >
-            <span>
-              Extra ingredients
-            </span>
+            Extra ingredients
           </div>
           <div
             class="vtex-product-customizer__multiple-choice false hover-bg-muted-5 w-100 ph4 pv5 bb b--muted-5"
