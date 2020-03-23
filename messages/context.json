@@ -15,5 +15,7 @@
   "store/product-customizer.recipes-title": "product-customizer.recipes-title",
   "store/product-customizer.toppings-title": "product-customizer.toppings-title",
   "store/product-customizer.buy-success": "product-customizer.buy-success",
-  "store/product-customizer.add-failure": "product-customizer.add-failure"
+  "store/product-customizer.add-failure": "product-customizer.add-failure",
+  "store/product-customizer.add-assembly": "Add {name}",
+  "store/product-customizer.remove-assembly": "Remove"
 }

@@ -15,5 +15,7 @@
   "store/product-customizer.recipes-title": "Ingredientes básicos",
   "store/product-customizer.toppings-title": "Ingredientes extras",
   "store/product-customizer.buy-success": "Seu produto foi adicionado ao carrinho!",
-  "store/product-customizer.add-failure": "Algo deu errado e o item não pode ser adicionado ao seu carrinho!"
+  "store/product-customizer.add-failure": "Algo deu errado e o item não pode ser adicionado ao seu carrinho!",
+  "store/product-customizer.add-assembly": "Adicionar {name}",
+  "store/product-customizer.remove-assembly": "Remover"
 }

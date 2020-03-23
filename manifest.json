@@ -15,7 +15,8 @@
     "vtex.product-context": "0.x",
     "vtex.device-detector": "0.x",
     "vtex.flex-layout": "0.x",
-    "vtex.css-handles": "0.x"
+    "vtex.css-handles": "0.x",
+    "vtex.native-types": "0.x"
   },
   "builders": {
     "store": "0.x",

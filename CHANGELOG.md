@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+- Translation for Add and Remove buttons
+
 ## [2.6.6] - 2020-02-10
 ### Fixed
 - Docs.

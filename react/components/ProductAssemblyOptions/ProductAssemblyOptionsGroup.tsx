@@ -1,6 +1,7 @@
 import React, { FC, Fragment } from 'react'
 import { Button } from 'vtex.styleguide'
 import { useCssHandles } from 'vtex.css-handles'
+import { IOMessage } from 'vtex.native-types'
 
 import {
   useProductAssemblyGroupState,
@@ -31,7 +32,10 @@ const ProductAssemblyOptionsGroup: FC = ({ children }) => {
     <Fragment>
       {assemblyOptionGroup.optin === false ? (
         <Button variation="secondary" onClick={changeOptinInput}>
-          Add {assemblyOptionGroup.id}
+          <IOMessage
+            id="store/product-customizer.add-assembly"
+            values={{ name: assemblyOptionGroup.groupName }}
+          />
         </Button>
       ) : (
         <Fragment>
@@ -47,7 +51,10 @@ const ProductAssemblyOptionsGroup: FC = ({ children }) => {
                   variation="tertiary"
                   onClick={changeOptinInput}
                 >
-                  Remove
+                  <IOMessage
+                    id="store/product-customizer.remove-assembly"
+                    values={{ name: assemblyOptionGroup.groupName }}
+                  />
                 </Button>
               </div>
             )}
