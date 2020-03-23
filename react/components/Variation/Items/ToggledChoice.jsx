@@ -13,6 +13,7 @@ const ToggledChoice = ({ imageUrl, name, selected, onChange, disabled }) => (
   >
     <div className="relative flex items-center">
       <div className="flex-none pv2">
+        {/* eslint-disable-next-line jsx-a11y/alt-text */}
         <img src={imageUrl} width="48" className="br3" />
       </div>
       <div className="flex-auto ml5">

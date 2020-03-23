@@ -1,12 +1,14 @@
+/* eslint-disable @typescript-eslint/no-use-before-define */
 import { useMemo } from 'react'
-import useProduct, { SelectedItem, Product } from 'vtex.product-context/useProduct'
+import useProduct, {
+  SelectedItem,
+  Product,
+} from 'vtex.product-context/useProduct'
 import { find, propEq, compose, last, split, pathOr } from 'ramda'
+
 import { getGroupType } from './assemblyGroupType'
 
-const splitGroupName = compose(
-  last,
-  split('_')
-)
+const splitGroupName = compose(last, split('_'))
 
 type PriceMap = Record<string, Record<string, Record<string, number>>>
 type ParsedAssemblyOptions = Record<string, AssemblyOptionGroupState>
@@ -42,7 +44,7 @@ function getItemAssemblyOptions(
     return null
   }
   const metadata = findItemMetadata(selectedItem.itemId)(itemMetadata.items)
-  return metadata && metadata.assemblyOptions
+  return metadata?.assemblyOptions
 }
 
 function parsePriceMap(itemMetadata: ItemMetadata) {
@@ -59,14 +61,16 @@ function parsePriceMap(itemMetadata: ItemMetadata) {
   return result
 }
 
-const parseAssemblyOptions = (
+// eslint-disable-next-line max-params
+function parseAssemblyOptions(
   assemblyOptions: AssemblyOption[],
   priceMap: PriceMap,
   product: Product,
   parentItemId?: string,
   treePath?: TreePath[]
-): ParsedAssemblyOptions => {
+): ParsedAssemblyOptions {
   const assemblyOptionsParsed = assemblyOptions.reduce<ParsedAssemblyOptions>(
+    // eslint-disable-next-line no-shadow
     (assemblyOptionsParsed, assemblyOption) => {
       if (!assemblyOption.composition && !assemblyOption.inputValues) {
         return assemblyOptionsParsed
@@ -108,13 +112,20 @@ const parseAssemblyOptions = (
       }
 
       return assemblyOptionsParsed
-    }
-    , {})
+    },
+    {}
+  )
 
   return assemblyOptionsParsed
 }
 
-function assemblyItems(priceMap: PriceMap, product: Product, currentTreePath: TreePath[], assemblyOption: AssemblyOption) {
+// eslint-disable-next-line max-params
+function assemblyItems(
+  priceMap: PriceMap,
+  product: Product,
+  currentTreePath: TreePath[],
+  assemblyOption: AssemblyOption
+) {
   if (!assemblyOption.composition || !assemblyOption.composition.items) {
     return undefined
   }
@@ -130,15 +141,17 @@ function assemblyItems(priceMap: PriceMap, product: Product, currentTreePath: Tr
       }
 
       // Recursively parse children of this assembly option
-      const children = optionMetadata.assemblyOptions.length > 0
-        ? parseAssemblyOptions(
-          optionMetadata!.assemblyOptions,
-          priceMap,
-          product,
-          assemblyItem.id,
-          currentTreePath
-        )
-        : null
+      const children =
+        optionMetadata.assemblyOptions.length > 0
+          ? parseAssemblyOptions(
+              // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+              optionMetadata!.assemblyOptions,
+              priceMap,
+              product,
+              assemblyItem.id,
+              currentTreePath
+            )
+          : null
 
       items[assemblyItem.id] = {
         image: optionMetadata.imageUrl,
@@ -158,10 +171,9 @@ function assemblyItems(priceMap: PriceMap, product: Product, currentTreePath: Tr
       }
 
       return items
-    }
-    , {})
+    },
+    {}
+  )
 }
-
-
 
 export default useAssemblyOptions

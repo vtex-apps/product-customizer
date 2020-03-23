@@ -1,15 +1,16 @@
 import React, { FC } from 'react'
 import { Input } from 'vtex.styleguide'
-import useInputValue from './useInputValue'
 import { useCssHandles } from 'vtex.css-handles'
 
-const CSS_HANDLES = [ 'textInputValue' ] as const
+import useInputValue from './useInputValue'
+
+const CSS_HANDLES = ['textInputValue'] as const
 
 const TextInputValue: FC<Props> = ({ inputValueInfo }) => {
   const [state, onChange] = useInputValue(inputValueInfo)
 
-  const handleChange = (e: any) => {
-    const value = e.target.value
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { value } = e.target
     onChange({ value })
   }
 
@@ -20,7 +21,8 @@ const TextInputValue: FC<Props> = ({ inputValueInfo }) => {
         value={state}
         onChange={handleChange}
         label={inputValueInfo.label}
-        maxLength={inputValueInfo.maxLength} />
+        maxLength={inputValueInfo.maxLength}
+      />
     </div>
   )
 }

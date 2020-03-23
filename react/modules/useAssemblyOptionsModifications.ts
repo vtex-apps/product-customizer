@@ -15,7 +15,7 @@ export default function useAssemblyOptionsModifications(
       valuesOfInputValues,
       optin,
     } = localState
-    const items = Object.values(localItems || {}).map(parseItem(type))
+    const items = Object.values(localItems ?? {}).map(parseItem(type))
     const isValid = isGroupValid(localState)
     const groupInputValues = optin ? valuesOfInputValues : {}
 
@@ -32,7 +32,7 @@ export default function useAssemblyOptionsModifications(
 }
 
 function isGroupValid(group: AssemblyOptionGroupState) {
-  const items = Object.values(group.items || {})
+  const items = Object.values(group.items ?? {})
   const itemsToBeAdded = items.reduce((acc, { quantity }) => acc + quantity, 0)
   const isValid =
     (group.maxQuantity !== undefined &&
@@ -85,7 +85,7 @@ function parseItemChildren(children: Record<string, AssemblyOptionGroupState>) {
 
   for (const groupId of groupIds) {
     const childrenAssemblyOption = children[groupId]
-    result[groupId] = Object.values(childrenAssemblyOption.items || {}).map(
+    result[groupId] = Object.values(childrenAssemblyOption.items ?? {}).map(
       parseItem(childrenAssemblyOption.type)
     )
   }

@@ -1,4 +1,5 @@
 import React, { FC } from 'react'
+
 import { useProductAssemblyItem } from '../ProductAssemblyContext/Item'
 import { GROUP_TYPES } from '../../modules/assemblyGroupType'
 import { withItem } from './withItem'

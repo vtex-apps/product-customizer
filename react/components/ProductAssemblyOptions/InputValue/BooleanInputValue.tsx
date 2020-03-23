@@ -1,15 +1,16 @@
 import React, { FC } from 'react'
 import { Checkbox } from 'vtex.styleguide'
-import useInputValue, { useInputValueId } from './useInputValue'
 import { useCssHandles } from 'vtex.css-handles'
 
-const CSS_HANDLES = [ 'booleanInputValue' ] as const
+import useInputValue, { useInputValueId } from './useInputValue'
+
+const CSS_HANDLES = ['booleanInputValue'] as const
 
 const BooleanInputValue: FC<Props> = ({ inputValueInfo }) => {
   const [state, onChange] = useInputValue(inputValueInfo)
   const id = useInputValueId(inputValueInfo)
 
-  const handleChange = (e: any) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.checked
     onChange({ value })
   }
@@ -23,7 +24,8 @@ const BooleanInputValue: FC<Props> = ({ inputValueInfo }) => {
         checked={Boolean(state)}
         name={inputValueInfo.label}
         label={inputValueInfo.label}
-        onChange={handleChange} />
+        onChange={handleChange}
+      />
     </div>
   )
 }

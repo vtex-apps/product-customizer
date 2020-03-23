@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Spinner } from 'vtex.styleguide'
 import { path } from 'ramda'
-
 import { ExtensionPoint } from 'vtex.render-runtime'
 
 import ProductCustomizerContainer from './components/Product/ProductCustomizerContainer'

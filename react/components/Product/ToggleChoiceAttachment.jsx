@@ -11,6 +11,7 @@ class ToggleChoiceAttachment extends Component {
     const { items, name, onAttachmentChange } = this.props
     onAttachmentChange(name, parseItem(items[itemName]), false)
   }
+
   render() {
     const { items } = this.props
 

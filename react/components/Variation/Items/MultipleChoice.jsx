@@ -2,6 +2,7 @@ import PropTypes from 'prop-types'
 import React, { memo } from 'react'
 import NumericStepper from 'vtex.styleguide/NumericStepper'
 import ProductPrice from 'vtex.store-components/ProductPrice'
+
 import ItemDescription from './ItemDescription'
 
 import '../../../global.css'
@@ -22,11 +23,7 @@ const MultipleChoice = ({
   const sellingPriceClass = 'c-action-primary t-small fw5'
 
   const description = !!parsedPrice && (
-    <div
-      className={
-        'multiple-choice__price flex items-center c-action-primary t-small fw5 mt1'
-      }
-    >
+    <div className="multiple-choice__price flex items-center c-action-primary t-small fw5 mt1">
       <div>+ </div>
       <ProductPrice
         {...{

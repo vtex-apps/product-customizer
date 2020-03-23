@@ -1,8 +1,9 @@
 import React, { FC, useMemo } from 'react'
 import { Dropdown } from 'vtex.styleguide'
+import { useCssHandles } from 'vtex.css-handles'
+
 import useInputValue from './useInputValue'
 import OptionBox from './OptionBox'
-import { useCssHandles } from 'vtex.css-handles'
 
 const DROPDOWN_OPTIONS_HANDLES = ['optionsInputValueDropdown'] as const
 const BOX_OPTIONS_HANDLES = [
@@ -16,8 +17,8 @@ const DropdownOptions: FC<Props> = ({ inputValueInfo }) => {
   const [state, onChange] = useInputValue(inputValueInfo)
   const handles = useCssHandles(DROPDOWN_OPTIONS_HANDLES)
 
-  const handleChange = (e: any) => {
-    const value = e.target.value
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { value } = e.target
     onChange({ value })
   }
 
@@ -44,7 +45,7 @@ const BoxOptions: FC<Props> = ({ inputValueInfo }) => {
   const [state, onChange] = useInputValue(inputValueInfo)
   const handles = useCssHandles(BOX_OPTIONS_HANDLES)
 
-  const handleKeyDown = (event: KeyboardEvent) => {
+  const handleKeyDown = (event: React.KeyboardEvent) => {
     const selected = state as string
     const options = inputValueInfo.domain
     const selectedIndex = options.indexOf(selected)
@@ -65,7 +66,7 @@ const BoxOptions: FC<Props> = ({ inputValueInfo }) => {
         break
       }
       case 'Home': {
-        const newValue = options[0]
+        const [newValue] = options
         onChange({ value: newValue })
         break
       }
@@ -76,6 +77,7 @@ const BoxOptions: FC<Props> = ({ inputValueInfo }) => {
         break
       }
       default: {
+        break
       }
     }
   }

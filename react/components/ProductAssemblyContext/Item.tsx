@@ -2,7 +2,9 @@ import React, { FC, createContext, useContext } from 'react'
 
 type AssemblyItemContext = AssemblyItem | null
 
-export const ProductAssemblyItemContext = createContext<AssemblyItemContext>(null)
+export const ProductAssemblyItemContext = createContext<AssemblyItemContext>(
+  null
+)
 
 export const ProductAssemblyItemProvider: FC<Props> = ({ item, children }) => {
   return (

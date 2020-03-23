@@ -1,11 +1,12 @@
 import React, { Fragment, Component } from 'react'
+
 import MultipleChoice from '../Variation/Items/MultipleChoice'
 
 class MultipleChoiceAttachment extends Component {
   getUpdatedQuantities(updatedItem, quantity) {
     const quantities = Object.values(this.props.items).reduce(
-      (quantities, item) => ({
-        ...quantities,
+      (acc, item) => ({
+        ...acc,
         [item.name]: {
           id: item.id,
           quantity: item.quantity,
@@ -39,6 +40,7 @@ class MultipleChoiceAttachment extends Component {
 
   handleChangeItemQuantity(itemName, quantity) {
     const { name, onAttachmentChange } = this.props
+    // eslint-disable-next-line vtex/prefer-early-return
     if (this.canChangeItemQuantity(itemName, quantity)) {
       const quantities = this.getUpdatedQuantities(itemName, quantity)
       onAttachmentChange(name, quantities, false)

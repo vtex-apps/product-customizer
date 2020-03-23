@@ -47,7 +47,7 @@ class MovingBottomButton extends PureComponent {
     return (
       <Fragment>
         <div
-          className={`vtex-product-customizer__actions w-100`}
+          className="vtex-product-customizer__actions w-100"
           ref={this.scrollingButton}
         >
           <AddToCart
@@ -58,7 +58,7 @@ class MovingBottomButton extends PureComponent {
           />
         </div>
         <div
-          className={`vtex-product-customizer__actions z-2 fixed bg-white bottom-0 w-40-ns ph1-ns w-100 bt b--light-gray`}
+          className="vtex-product-customizer__actions z-2 fixed bg-white bottom-0 w-40-ns ph1-ns w-100 bt b--light-gray"
           ref={this.fixedButton}
         >
           <AddToCart

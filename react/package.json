@@ -27,12 +27,8 @@
     "@vtex/tsconfig": "^0.1.1",
     "apollo-cache-inmemory": "^1.6.3",
     "apollo-client": "^2.5.1",
-    "eslint": "^5.16.0",
-    "eslint-config-vtex-react": "^5.0.0",
-    "prettier": "^1.18.2",
     "react-test-renderer": "^16.9.0",
-    "tslint-eslint-rules": "^5.4.0",
-    "typescript": "3.5.2"
+    "typescript": "3.8.3"
   },
   "version": "2.6.6"
 }

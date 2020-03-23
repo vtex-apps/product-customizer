@@ -1,6 +1,8 @@
 import React, { memo } from 'react'
 
 import '../../../global.css'
+
+/* eslint-disable jsx-a11y/alt-text */
 function ItemDescription({ description, name, imageUrl }) {
   return (
     <div className="flex">

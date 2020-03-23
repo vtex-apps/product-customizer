@@ -1,4 +1,4 @@
 declare module 'vtex.store-components/ProductPrice' {
-  const ProductPrice: any
+  const ProductPrice
   export default ProductPrice
 }

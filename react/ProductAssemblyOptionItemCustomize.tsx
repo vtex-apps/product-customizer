@@ -1,2 +1,3 @@
 import ProductAssemblyOptionItemCustomize from './components/ProductAssemblyOptions/ProductAssemblyOptionItemCustomize'
+
 export default ProductAssemblyOptionItemCustomize

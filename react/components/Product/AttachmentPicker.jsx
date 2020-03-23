@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react'
 import { FormattedMessage } from 'react-intl'
+
 import SingleChoiceAttachment from './SingleChoiceAttachment'
 import MultipleChoiceAttachment from './MultipleChoiceAttachment'
 import ToggleChoiceAttachment from './ToggleChoiceAttachment'
