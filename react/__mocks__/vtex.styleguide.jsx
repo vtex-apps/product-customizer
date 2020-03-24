@@ -5,6 +5,8 @@ import StyleguideRadio from '@vtex/styleguide/lib/Radio'
 import StyleguideNumericStepper from '@vtex/styleguide/lib/NumericStepper'
 import StyleguideInput from '@vtex/styleguide/lib/Input'
 import StyleguideDropdown from '@vtex/styleguide/lib/Dropdown'
+import StyleguideModal from '@vtex/styleguide/lib/Modal'
+
 
 export const Spinner = () => <div>Spinner</div>
 
@@ -16,3 +18,4 @@ export const Radio = StyleguideRadio
 export const NumericStepper = StyleguideNumericStepper
 export const Input = StyleguideInput
 export const Dropdown = StyleguideDropdown
+export const Modal = StyleguideModal

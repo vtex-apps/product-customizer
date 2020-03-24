@@ -62,15 +62,13 @@ export const ProductAssemblyGroupContextProvider: FC<ProductAssemblyGroupContext
     return acc
   }, {})
 
-  const initialState: AssemblyOptionGroupState = {
-    ...assemblyOption,
-    path: groupPath,
-    quantitySum,
-    optin: assemblyOption.required,
-    valuesOfInputValues,
-  }
+  assemblyOption.path = assemblyOption.path ?? groupPath
+  assemblyOption.quantitySum = assemblyOption.quantitySum ?? quantitySum
+  assemblyOption.optin = assemblyOption.optin ?? assemblyOption.required
+  assemblyOption.valuesOfInputValues =
+    assemblyOption.valuesOfInputValues ?? valuesOfInputValues
 
-  const [state, dispatch] = useReducer(reducer, initialState)
+  const [state, dispatch] = useReducer(reducer, assemblyOption)
 
   return (
     <ProductAssemblyDispatchContext.Provider value={dispatch}>
@@ -107,6 +105,19 @@ export const useProductAssemblyGroupDispatch = () =>
 export const useProductAssemblyGroupState = () =>
   useContext(ProductAssemblyGroupContext)
 
+const checkSamePath = (path1: string[], path2: string[]) => {
+  return path1.join('/') === path2.join('/')
+}
+
+const getGroupState = (
+  state: AssemblyOptionGroupState,
+  groupPath: string[]
+) => {
+  return checkSamePath(state.path, groupPath)
+    ? (state as AssemblyOptionGroupState)
+    : (path(groupPath, state) as AssemblyOptionGroupState)
+}
+
 function reducer(
   state: AssemblyOptionGroupState,
   action: DispatchAction
@@ -114,7 +125,7 @@ function reducer(
   switch (action.type) {
     case 'OPTIN': {
       const { groupPath } = action.args
-      const groupState = path(groupPath, state) as AssemblyOptionGroupState
+      const groupState = getGroupState(state, groupPath)
 
       groupState.optin = !groupState.optin
 
@@ -122,12 +133,9 @@ function reducer(
     }
     case 'SET_INPUT_VALUE': {
       const { groupPath, inputValue, inputValueLabel } = action.args
-      const groupState = path(groupPath, state) as AssemblyOptionGroupState
+      const groupState = getGroupState(state, groupPath)
 
-      groupState.valuesOfInputValues = {
-        ...groupState.valuesOfInputValues,
-        [inputValueLabel]: inputValue,
-      }
+      groupState.valuesOfInputValues[inputValueLabel] = inputValue
 
       return { ...state }
     }
