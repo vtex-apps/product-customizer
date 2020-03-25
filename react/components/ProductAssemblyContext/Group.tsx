@@ -45,10 +45,7 @@ export const ProductAssemblyGroupContext = createContext<
   AssemblyOptionGroupState | undefined
 >(undefined)
 
-export const ProductAssemblyGroupContextProvider: FC<ProductAssemblyGroupContextProviderProps> = ({
-  assemblyOption,
-  children,
-}) => {
+const initState = (assemblyOption: AssemblyOptionGroupState) => {
   const groupPath = getGroupPath(assemblyOption.treePath)
   const quantitySum = Object.values(assemblyOption.items ?? {}).reduce(
     (acc, { quantity }) => acc + quantity,
@@ -68,7 +65,14 @@ export const ProductAssemblyGroupContextProvider: FC<ProductAssemblyGroupContext
   assemblyOption.valuesOfInputValues =
     assemblyOption.valuesOfInputValues ?? valuesOfInputValues
 
-  const [state, dispatch] = useReducer(reducer, assemblyOption)
+  return assemblyOption
+}
+
+export const ProductAssemblyGroupContextProvider: FC<ProductAssemblyGroupContextProviderProps> = ({
+  assemblyOption,
+  children,
+}) => {
+  const [state, dispatch] = useReducer(reducer, assemblyOption, initState)
 
   return (
     <ProductAssemblyDispatchContext.Provider value={dispatch}>
