@@ -142,22 +142,22 @@ test('should keep input values for recursive assemblies', async () => {
   }))
 
   const { getByText, getByLabelText } = renderComponentRecursive()
-  expect(mockedDispatch.mock.calls).toHaveLength(3)
 
+  // Click on button Customize
   const assembly = getByText('Bells add-ons 1-3 lines')
   const customizeButton = assembly.parentElement?.querySelector(
     '.vtex-button'
   ) as HTMLElement
-
   fireEvent.click(customizeButton)
 
+  // Click on Add 1-3-lines inside the modal
   const modal = within(
     document.querySelector('.vtex-modal__modal') as HTMLElement
   )
   const modalCustomizeButton = modal.getByText('Add 1-3-lines')
-
   fireEvent.click(modalCustomizeButton)
 
+  // Type "Foobar" in the Input Value "Line 1"
   const input = modal.getByLabelText('Line 1')
   fireEvent.change(input, { target: { value: 'Foobar' } })
 
@@ -167,17 +167,20 @@ test('should keep input values for recursive assemblies', async () => {
   expect(lastCall.type).toBe('SET_ASSEMBLY_OPTIONS')
   expect(lastCall.args.groupInputValues['Line 1']).toBe('Foobar')
 
+  // Close the modal
   fireEvent.click(
     document.querySelector('.vtex-modal__modal .vtex__icon-close') as Element
   )
 
+  // Wait for the close transition to end
   await waitForElementToBeRemoved(() =>
     document.querySelector('.vtex-modal__modal .vtex__icon-close')
   )
 
+  // Click on Customize button to open the modal again
   fireEvent.click(customizeButton)
 
+  // Check if input still set with "Foobar" previously typed
   const inputLine1 = getByLabelText('Line 1') as HTMLInputElement
-
   expect(inputLine1.value).toBe('Foobar')
 })
