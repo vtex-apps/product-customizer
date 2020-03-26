@@ -1,5 +1,5 @@
 import React from 'react'
-import { render, fireEvent, within } from '@vtex/test-tools/react'
+import { render, fireEvent } from '@vtex/test-tools/react'
 import useProduct, { ProductContext } from 'vtex.product-context/useProduct'
 import { useProductDispatch } from 'vtex.product-context/ProductDispatchContext'
 
