@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.8.0] - 2020-03-26
+
 ### Added
 - Make Input Values work for recursive assemblies.
 
