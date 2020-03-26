@@ -41,18 +41,19 @@ const ModalView: FC<{ closeAction: () => void }> = ({
           />
         </div>
       </div>
-      {Object.keys(itemChildren!).map(childId => {
-        return (
-          <ProductAssemblyGroupContextProvider
-            key={childId}
-            assemblyOption={itemChildren![childId]}
-          >
-            <ProductAssemblyOptionsGroup>
-              {children}
-            </ProductAssemblyOptionsGroup>
-          </ProductAssemblyGroupContextProvider>
-        )
-      })}
+      {itemChildren &&
+        Object.keys(itemChildren).map(childId => {
+          return (
+            <ProductAssemblyGroupContextProvider
+              key={childId}
+              assemblyOption={itemChildren[childId]}
+            >
+              <ProductAssemblyOptionsGroup>
+                {children}
+              </ProductAssemblyOptionsGroup>
+            </ProductAssemblyGroupContextProvider>
+          )
+        })}
       <div className="mt3">
         <Button block onClick={closeAction}>
           <div className="c-on-action-primary">DONE</div>
