@@ -7,7 +7,6 @@ import StyleguideInput from '@vtex/styleguide/lib/Input'
 import StyleguideDropdown from '@vtex/styleguide/lib/Dropdown'
 import StyleguideModal from '@vtex/styleguide/lib/Modal'
 
-
 export const Spinner = () => <div>Spinner</div>
 
 // eslint-disable-next-line react/display-name
