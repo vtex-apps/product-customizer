@@ -48,7 +48,7 @@ const BoxOptions: FC<Props> = ({ inputValueInfo }) => {
   const handleKeyDown = (event: React.KeyboardEvent) => {
     const selected = state as string
     const options = inputValueInfo.domain
-    const selectedIndex = options.indexOf(selected)
+    const selectedIndex: number = options.indexOf(selected)
 
     switch (event.key) {
       case 'ArrowRight': {
