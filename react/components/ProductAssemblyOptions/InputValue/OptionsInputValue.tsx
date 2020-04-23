@@ -60,6 +60,8 @@ const BoxOptions: FC<Props> = ({ inputValueInfo }) => {
       }
       case 'ArrowLeft': {
         const count = options.length
+        // Linter is triggering a false positive here :/
+        // eslint-disable-next-line @typescript-eslint/restrict-plus-operands
         const previousSelectedIndex = (selectedIndex - 1 + count) % count
         const newValue = options[previousSelectedIndex]
         onChange({ value: newValue })
