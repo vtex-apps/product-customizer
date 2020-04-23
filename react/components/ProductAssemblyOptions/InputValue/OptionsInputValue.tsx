@@ -23,7 +23,7 @@ const DropdownOptions: FC<Props> = ({ inputValueInfo }) => {
   }
 
   const options = useMemo(() => {
-    return inputValueInfo.domain.map(option => ({
+    return inputValueInfo.domain.map((option) => ({
       value: option,
       label: option,
     }))
@@ -96,7 +96,7 @@ const BoxOptions: FC<Props> = ({ inputValueInfo }) => {
       <div
         className={`${handles.optionsInputValueOptionBoxContainer} inline-flex flex-wrap flex items-center`}
       >
-        {inputValueInfo.domain.map(option => (
+        {inputValueInfo.domain.map((option) => (
           <OptionBox
             key={option}
             onKeyDown={handleKeyDown}

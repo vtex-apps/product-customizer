@@ -13,7 +13,7 @@ const ProductAssemblyOptions: FC = ({ children }) => {
 
   return (
     <Fragment>
-      {Object.keys(assemblyOptions).map(assemblyOptionId => (
+      {Object.keys(assemblyOptions).map((assemblyOptionId) => (
         <ProductAssemblyGroupContextProvider
           key={assemblyOptionId}
           assemblyOption={assemblyOptions[assemblyOptionId]}

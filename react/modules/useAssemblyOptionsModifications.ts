@@ -45,12 +45,12 @@ function isGroupValid(group: AssemblyOptionGroupState) {
     return false
   }
 
-  const areItemsValid = items.every(item => {
+  const areItemsValid = items.every((item) => {
     if (!item.children) {
       return true
     }
     const childrenGroups = Object.values(item.children)
-    const areChildrenValid = childrenGroups.every(childGroup =>
+    const areChildrenValid = childrenGroups.every((childGroup) =>
       isGroupValid(childGroup)
     )
     return areChildrenValid

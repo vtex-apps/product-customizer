@@ -60,7 +60,7 @@ const ProductAssemblyOptionsGroup: FC = ({ children }) => {
             )}
           </div>
           {assemblyOptionGroup.items ? (
-            Object.values(assemblyOptionGroup.items).map(item => {
+            Object.values(assemblyOptionGroup.items).map((item) => {
               return (
                 <ProductAssemblyItemProvider item={item} key={item.id}>
                   <div

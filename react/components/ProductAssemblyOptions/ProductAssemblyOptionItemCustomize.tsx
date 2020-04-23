@@ -42,7 +42,7 @@ const ModalView: FC<{ closeAction: () => void }> = ({
         </div>
       </div>
       {itemChildren &&
-        Object.keys(itemChildren).map(childId => {
+        Object.keys(itemChildren).map((childId) => {
           return (
             <ProductAssemblyGroupContextProvider
               key={childId}

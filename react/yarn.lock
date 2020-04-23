@@ -1542,10 +1542,10 @@
     regenerator-runtime "^0.13.1"
     typescript "^3.7.3"
 
-"@vtex/tsconfig@^0.1.1":
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/@vtex/tsconfig/-/tsconfig-0.1.1.tgz#4d30964d3fa5ff89ef98f1f330b25e0124f1f0f8"
-  integrity sha512-G/rjbKq5lY/PgnObJFWM/qJfX+I5zDxfejK2gtM1oGkRLzE4OEb860Pv2+VFyxzIQ5g1Rlc0VEeLeRoiCrW5lg==
+"@vtex/tsconfig@^0.4.4":
+  version "0.4.4"
+  resolved "https://registry.yarnpkg.com/@vtex/tsconfig/-/tsconfig-0.4.4.tgz#03fd9a65aabe4820e57a9ef14a01fdda1fab26fd"
+  integrity sha512-aja4GABSbOyAC02TBEHem9ONN01fmKJR70t1+PNCgHGrmSVaLcjjQ7HbU0hhoyp+q7MvRIZznM60tIlntTogNA==
 
 "@wry/context@^0.4.0":
   version "0.4.4"

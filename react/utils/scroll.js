@@ -6,7 +6,7 @@ const getTopbarScrollOffset = () => {
   return rect.height + rect.top
 }
 
-export const scrollToElementTop = element => {
+export const scrollToElementTop = (element) => {
   setTimeout(() => {
     const positionToScroll = element.offsetTop - getTopbarScrollOffset()
     window.scrollTo({ top: positionToScroll, behavior: 'smooth' })

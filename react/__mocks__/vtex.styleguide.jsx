@@ -10,7 +10,7 @@ import StyleguideModal from '@vtex/styleguide/lib/Modal'
 export const Spinner = () => <div>Spinner</div>
 
 // eslint-disable-next-line react/display-name
-export const withToast = Comp => props => <Comp {...props} />
+export const withToast = (Comp) => (props) => <Comp {...props} />
 export const Button = StyleguideButton
 export const Checkbox = StyleguideCheckbox
 export const Radio = StyleguideRadio

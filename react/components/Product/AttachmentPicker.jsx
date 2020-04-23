@@ -6,10 +6,7 @@ import MultipleChoiceAttachment from './MultipleChoiceAttachment'
 import ToggleChoiceAttachment from './ToggleChoiceAttachment'
 
 function getTitleId({ name }) {
-  const key = name
-    .toLowerCase()
-    .split(' ')
-    .join('-')
+  const key = name.toLowerCase().split(' ').join('-')
   return `store/product-customizer.${key}-title`
 }
 

@@ -38,8 +38,9 @@ const MultipleChoice = ({
 
   return (
     <div
-      className={`vtex-product-customizer__multiple-choice ${isSelected &&
-        'selected bg-muted-5'} hover-bg-muted-5 w-100 ph4 pv5 bb b--muted-5`}
+      className={`vtex-product-customizer__multiple-choice ${
+        isSelected && 'selected bg-muted-5'
+      } hover-bg-muted-5 w-100 ph4 pv5 bb b--muted-5`}
     >
       <div className="relative flex justify-between items-center">
         <ItemDescription {...{ imageUrl, name, description }} />
