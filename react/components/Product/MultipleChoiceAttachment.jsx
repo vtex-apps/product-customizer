@@ -70,7 +70,7 @@ class MultipleChoiceAttachment extends Component {
 
     return (
       <Fragment>
-        {itemsNames.map(itemName => (
+        {itemsNames.map((itemName) => (
           <MultipleChoice {...this.getItemProps(itemName)} key={itemName} />
         ))}
       </Fragment>

@@ -65,7 +65,7 @@ class AttachmentsPicker extends Component {
     }
   }
 
-  attachmentChangeCallback = newChosenAttachments => {
+  attachmentChangeCallback = (newChosenAttachments) => {
     const { attachments } = this.props
     const currentAllSinglesPicked = this.state.allSinglesPicked
     const newSinglesPicked = areAllSinglesPicked(

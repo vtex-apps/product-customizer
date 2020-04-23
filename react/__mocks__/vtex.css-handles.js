@@ -1,7 +1,7 @@
-export const useCssHandles = something => {
+export const useCssHandles = (something) => {
   return something
 }
 
-export const applyModifiers = something => {
+export const applyModifiers = (something) => {
   return something
 }

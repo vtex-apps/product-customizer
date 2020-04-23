@@ -31,7 +31,7 @@ const ProductAssemblyOptionItemChildrenDescription: FC = () => {
   const groups = Object.values(children)
   return (
     <div>
-      {groups.map(group => {
+      {groups.map((group) => {
         const assemblyGroup = group as AssemblyOptionGroup
 
         const items = Object.values(assemblyGroup.items || []).filter(
@@ -45,7 +45,7 @@ const ProductAssemblyOptionItemChildrenDescription: FC = () => {
         return (
           <div className="flex" key={assemblyGroup.id}>
             <div className="mh2">
-              {items.map(item => {
+              {items.map((item) => {
                 const itemText = getItemText(item, assemblyGroup.type)
                 return (
                   itemText && (

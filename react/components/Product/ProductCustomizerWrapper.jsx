@@ -33,7 +33,7 @@ class ProductCustomizerWrapper extends Component {
     item && shouldScroll && scrollToElementTop(this.attachmentView.current)
   }
 
-  getQuantitiesFromSkuAttachments = sku =>
+  getQuantitiesFromSkuAttachments = (sku) =>
     sku
       ? Object.entries(this.props.product.items[sku].attachments).reduce(
           (quantities, [attName, attachment]) => ({
@@ -44,7 +44,7 @@ class ProductCustomizerWrapper extends Component {
         )
       : {}
 
-  getQuantitiesFromItems = items =>
+  getQuantitiesFromItems = (items) =>
     Object.entries(items).reduce(
       (quantities, [itemName, item]) => ({
         ...quantities,
@@ -64,7 +64,7 @@ class ProductCustomizerWrapper extends Component {
     callback
   ) => {
     this.setState(
-      state => ({
+      (state) => ({
         chosenAttachments: {
           ...state.chosenAttachments,
           [attachmentName]: {
@@ -207,7 +207,7 @@ class ProductCustomizerWrapper extends Component {
     return { options, removed, added }
   }
 
-  showToast = success => {
+  showToast = (success) => {
     const suffix = success ? 'buy-success' : 'add-failure'
     const message = this.props.intl.formatMessage({
       id: `store/product-customizer.${suffix}`,
@@ -321,7 +321,7 @@ class ProductCustomizerWrapper extends Component {
 
 const withMutation = graphql(ADD_TO_CART_MUTATION, {
   props: ({ mutate }) => ({
-    addToCart: items => mutate({ variables: { items } }),
+    addToCart: (items) => mutate({ variables: { items } }),
   }),
 })
 

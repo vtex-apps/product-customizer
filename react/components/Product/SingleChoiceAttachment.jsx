@@ -7,7 +7,7 @@ const parseItem = ({ id, seller, name }) => ({
 })
 
 class SingleChoiceAttachment extends Component {
-  handleOnChange = itemName => {
+  handleOnChange = (itemName) => {
     const { name, onAttachmentChange, items } = this.props
     onAttachmentChange(name, parseItem(items[itemName]), true)
   }

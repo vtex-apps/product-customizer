@@ -25,7 +25,7 @@ const compareSku = (item, otherItem) => {
 const moreThanVariations = (items, count) =>
   pathOr(0, ['0', 'variations', 'length'], items) > count
 
-const getSkuItems = items => sort(compareSku, items)
+const getSkuItems = (items) => sort(compareSku, items)
 
 const getSelectedItem = (items, selectedSku) =>
   selectedSku ? find(propEq('name', selectedSku), items) : null
@@ -51,7 +51,7 @@ const SelectorOptions = ({
           skuItems={getSkuItems(items)}
           skuSelected={getSelectedItem(items, selectedSku)}
           productSlug={productQuery.product.linkText}
-          onSKUSelected={skuId => saveSkuSelector(onSkuChange, skuId, items)}
+          onSKUSelected={(skuId) => saveSkuSelector(onSkuChange, skuId, items)}
           alwaysShowSecondary={false}
         />
       </div>

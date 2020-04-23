@@ -11,7 +11,7 @@ export const imageUrlForSize = (imageUrl: string, size: number) => {
     return ''
   }
   const urlSplitted = imageUrl.split('/')
-  const idsStringIdx = urlSplitted.findIndex(content => content === 'ids')
+  const idsStringIdx = urlSplitted.findIndex((content) => content === 'ids')
   if (idsStringIdx < 0 || idsStringIdx === urlSplitted.length - 1) {
     return imageUrl
   }

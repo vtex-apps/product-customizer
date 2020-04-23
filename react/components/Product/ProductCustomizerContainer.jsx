@@ -77,7 +77,7 @@ class ProductCustomizerContainer extends Component {
     const { product } = this.props.productQuery
     const metadatas = product.itemMetadata.items
     const { id, priceTable } = compItem
-    const compMeta = metadatas.find(metadata => metadata.id === id)
+    const compMeta = metadatas.find((metadata) => metadata.id === id)
     const price = prices[priceTable][id]
     const fullComp = {
       ...compMeta,

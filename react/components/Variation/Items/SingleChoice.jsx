@@ -33,10 +33,11 @@ const SingleChoice = ({
     <div
       role="button"
       tabIndex={0}
-      onKeyDown={e => e.key === ' ' && onChange(name, true)}
+      onKeyDown={(e) => e.key === ' ' && onChange(name, true)}
       onClick={() => onChange(name, true)}
-      className={`${selected &&
-        'selected bg-muted-5'} hover-bg-muted-5 ph4 pointer bb b--muted-5 bw1`}
+      className={`${
+        selected && 'selected bg-muted-5'
+      } hover-bg-muted-5 ph4 pointer bb b--muted-5 bw1`}
     >
       <div className="relative flex items-center justify-between pv5">
         <ItemDescription {...{ description, imageUrl, name }} />

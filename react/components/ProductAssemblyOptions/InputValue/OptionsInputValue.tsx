@@ -23,7 +23,7 @@ const DropdownOptions: FC<Props> = ({ inputValueInfo }) => {
   }
 
   const options = useMemo(() => {
-    return inputValueInfo.domain.map(option => ({
+    return inputValueInfo.domain.map((option) => ({
       value: option,
       label: option,
     }))
@@ -48,7 +48,7 @@ const BoxOptions: FC<Props> = ({ inputValueInfo }) => {
   const handleKeyDown = (event: React.KeyboardEvent) => {
     const selected = state as string
     const options = inputValueInfo.domain
-    const selectedIndex = options.indexOf(selected)
+    const selectedIndex: number = options.indexOf(selected)
 
     switch (event.key) {
       case 'ArrowRight': {
@@ -60,6 +60,8 @@ const BoxOptions: FC<Props> = ({ inputValueInfo }) => {
       }
       case 'ArrowLeft': {
         const count = options.length
+        // Linter is triggering a false positive here :/
+        // eslint-disable-next-line @typescript-eslint/restrict-plus-operands
         const previousSelectedIndex = (selectedIndex - 1 + count) % count
         const newValue = options[previousSelectedIndex]
         onChange({ value: newValue })
@@ -94,7 +96,7 @@ const BoxOptions: FC<Props> = ({ inputValueInfo }) => {
       <div
         className={`${handles.optionsInputValueOptionBoxContainer} inline-flex flex-wrap flex items-center`}
       >
-        {inputValueInfo.domain.map(option => (
+        {inputValueInfo.domain.map((option) => (
           <OptionBox
             key={option}
             onKeyDown={handleKeyDown}
