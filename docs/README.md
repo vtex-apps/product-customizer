@@ -91,7 +91,7 @@ Then, check out below how the product attachment displayed above was registered 
 
 :information_source: Notice that **when a product's attachment was registered as required, all attachment options will be automatically made available to users**. If the product's attachment is not added as required, the `Add customization` button is rendered, as shown in the example above, giving users the options to add or not to add an attachment to their product.
 
-:warning: The Product Customizer uses the new Assembly Options API (the traditional Attachments API will be discontinued).  As a result, **Checkout still doesn't natively render the customized product option previously selected by the user in the product page**. For the product to be correctly displayed with the chosen attachment, it's necessary for now to customize the Checkout page interface for it to read the product data in its context and render it.
+:warning: The Product Customizer uses the new Assembly Options API (the traditional Attachments API will be discontinued). As a result, **Checkout still doesn't natively render the customized product option previously selected by the user in the product page**. For the product to be correctly displayed with the chosen attachment, it's necessary for now to customize the Checkout page interface for it to read the product data in its context and render it.
 
 ## Customization
 
