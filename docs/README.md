@@ -17,7 +17,7 @@ The Product Customizer allows a product's [attachments](https://help.vtex.com/tu
 ```diff
   dependencies: {
 +   "vtex.product-customizer": "2.x"
-}
+ }
 ```
 
 Now, you are able to use all blocks exported by the `product-customizer` app. Check out the full list below:
@@ -119,4 +119,3 @@ Thanks goes to these wonderful people:
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind are welcome!
 
 <!-- DOCS-IGNORE:end -->
-
