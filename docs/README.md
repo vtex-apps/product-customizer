@@ -43,7 +43,7 @@ Now, you are able to use all blocks exported by the `product-customizer` app. Ch
   },
 ````
 
-Notice that you can use other blocks, such as the `assembly-option-item-image`, as `product-assembly-options`'s child in order to build the Product Customizer component most suitable for your desired scenario.
+:information_source: *Notice that you can use other blocks, such as the `assembly-option-item-image`, as `product-assembly-options`'s child in order to build the Product Customizer component most suitable for your desired scenario.*
 
 3. Then, declare the props according to your store's scenario. For example:
 
