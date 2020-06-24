@@ -24,16 +24,16 @@ Now, you are able to use all blocks exported by the `product-customizer` app. Ch
 
 | Block name     | Description                                     |
 | -------------- | ----------------------------------------------- |
-| `product-assembly-options` | ![https://img.shields.io/badge/-Mandatory-red](https://img.shields.io/badge/-Mandatory-red)  Top level block in which you will specify which entity and schema from Master Data will be used for building the form. It provides context to all its 8 children blocks (listed below).   |
-| `assembly-option-item-image` | 
-| `assembly-option-item-quantity-selector` | 
-| `assembly-option-item-name` |
-| `assembly-option-item-price` | 
-| `assembly-option-item-customize` |
-| `assembly-option-item-children-description` | 
-| `assembly-option-input-values` | Renders a checkbox field in the form. |
+| `product-assembly-options` | ![https://img.shields.io/badge/-Mandatory-red](https://img.shields.io/badge/-Mandatory-red)  Top level block responsible for displaying the product customizer default component. Use this block's children list to define which attachment data you want to display for users.   |
+| `assembly-option-input-values` | ![https://img.shields.io/badge/-Mandatory-red](https://img.shields.io/badge/-Mandatory-red) Displays a checkbox or a dropdown list field so users can choose the desired attachment for their products. |
+| `assembly-option-item-image` | Renders the attachment image. | 
+| `assembly-option-item-quantity-selector` | Renders a quantity selector. | 
+| `assembly-option-item-name` | Renders the attachment name. | 
+| `assembly-option-item-price` | Renders the attachment price (if any). |
+| `assembly-option-item-customize` | ???? Renders the attachment customization options. | 
+| `assembly-option-item-children-description` | ???? | 
 
-2. In the theme's product template (`store.product`), add the `product-assembly-options` block, exported by the Product Customizer app, and declare the `assembly-option-input-values` block as its child:
+2. In the theme's product template (`store.product`), add the `product-assembly-options` block and declare the `assembly-option-input-values` block as its child:
 
 ```json
   "product-assembly-options": {
@@ -42,6 +42,8 @@ Now, you are able to use all blocks exported by the `product-customizer` app. Ch
     ]
   },
 ````
+
+Notice that you can use other blocks, such as the `assembly-option-item-image`, as `product-assembly-options`'s child in order to build the Product Customizer component most suitable for your desired scenario.
 
 3. Then, declare the props according to your store's scenario. For example:
 
@@ -64,6 +66,12 @@ Now, you are able to use all blocks exported by the `product-customizer` app. Ch
 |--------------|--------|--------------| --------|
 | `initiallyOpened` | `enum` | By default, the customization box is opened if the attachment is required and closed if it's not. You can override this behavior by setting this prop to `always`, making it be opened even if the attachment is not required. Leave it as `required` for the default behavior. | `required` |
 | `optionsDisplay` | `enum` | Define whether the attachment's pre-defined options will be displayed to be selected in a Checkbox (`box`) or in a dropdown list (`select`) . | `select` |
+
+### `assembly-option-item-customize`props
+
+| Prop name | Type | Description | Default value |
+|--------------|--------|--------------| --------|
+| `buttonProps` | `enum` | ???????. Possible values are: `left`, `right` or `none`. | ?? | 
 
 ## Modus Operandi
 
