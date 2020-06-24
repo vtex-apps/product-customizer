@@ -14,6 +14,7 @@ import productAttachment from '../../__fixtures__/productAttachment.json'
 import productRecursive from '../../__fixtures__/productRecursive.json'
 import ProductAssemblyOptionItemName from './ProductAssemblyOptionItemName'
 import ProductAssemblyOptionItemCustomize from './ProductAssemblyOptionItemCustomize'
+import ProductAssemblyOptionItemQuantity from './ProductAssemblyOptionItemQuantity'
 
 const mockedUseProductDispatch = useProductDispatch as jest.Mock<
   () => jest.Mock
@@ -161,7 +162,7 @@ test('should keep input values for recursive assemblies', async () => {
   const input = modal.getByLabelText('Line 1')
   fireEvent.change(input, { target: { value: 'Foobar' } })
 
-  expect(mockedDispatch.mock.calls).toHaveLength(6)
+  expect(mockedDispatch.mock.calls).toHaveLength(7)
   // eslint-disable-next-line prefer-destructuring
   const [lastCall] = mockedDispatch.mock.calls[5]
   expect(lastCall.type).toBe('SET_ASSEMBLY_OPTIONS')
@@ -183,4 +184,53 @@ test('should keep input values for recursive assemblies', async () => {
   // Check if input still set with "Foobar" previously typed
   const inputLine1 = getByLabelText('Line 1') as HTMLInputElement
   expect(inputLine1.value).toBe('Foobar')
+})
+
+test('should select option when click in customize', () => {
+  mockUseProduct.mockImplementation(() => ({
+    product: productRecursive.data.product,
+    selectedItem: productRecursive.data.product.items[0],
+    selectedQuantity: 1,
+  }))
+
+  const { getByText } = render(
+    <ProductAssemblyOptions>
+      <ProductAssemblyOptionItemName />
+      <InputValue />
+      <ProductAssemblyOptionItemQuantity />
+      <ProductAssemblyOptionItemCustomize>
+        <ProductAssemblyOptionItemName />
+        <InputValue />
+      </ProductAssemblyOptionItemCustomize>
+    </ProductAssemblyOptions>
+  )
+
+  const checkStyleguideCheckboxChecked = (container: HTMLElement) => {
+    const radioButton = container.querySelector('.fake-radio') as HTMLElement
+
+    const classList = Array.from(radioButton.classList)
+
+    return classList.includes('b--action-primary')
+  }
+
+  // Click on button Customize
+  const assembly = getByText('Bells add-ons 1-3 lines')
+
+  const isCheckedBefore = checkStyleguideCheckboxChecked(
+    assembly.parentElement as HTMLElement
+  )
+
+  expect(isCheckedBefore).toBe(false)
+
+  const customizeButton = assembly.parentElement?.querySelector(
+    '.vtex-button'
+  ) as HTMLElement
+
+  fireEvent.click(customizeButton)
+
+  const isCheckedAfter = checkStyleguideCheckboxChecked(
+    assembly.parentElement as HTMLElement
+  )
+
+  expect(isCheckedAfter).toBe(true)
 })
