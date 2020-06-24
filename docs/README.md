@@ -24,14 +24,14 @@ Now, you are able to use all blocks exported by the `product-customizer` app. Ch
 
 | Block name     | Description                                     |
 | -------------- | ----------------------------------------------- |
-| `product-assembly-options` | ![https://img.shields.io/badge/-Mandatory-red](https://img.shields.io/badge/-Mandatory-red)  Top level block responsible for displaying the product customizer default component. Use this block's children list to define which attachment data you want to display for users.   |
+| `product-assembly-options` | ![https://img.shields.io/badge/-Mandatory-red](https://img.shields.io/badge/-Mandatory-red)  Top level block responsible for displaying the product customizer default component, showing product's attachments. Use this block's children list to define which attachment data you want to display for users.   |
 | `assembly-option-input-values` | ![https://img.shields.io/badge/-Mandatory-red](https://img.shields.io/badge/-Mandatory-red) Displays a checkbox or a dropdown list field so users can choose the desired attachment for their products. |
 | `assembly-option-item-image` | Renders the attachment image. | 
 | `assembly-option-item-quantity-selector` | Renders a quantity selector. | 
 | `assembly-option-item-name` | Renders the attachment name. | 
-| `assembly-option-item-price` | Renders the attachment price (if any). |
-| `assembly-option-item-customize` | ???? Renders the attachment customization options. | 
-| `assembly-option-item-children-description` | ???? | 
+| `assembly-option-item-price` | Renders the attachment price. |
+| `assembly-option-item-customize` | Renders a button `Customize` that when clicked on opens a modal to customize the attachment. | 
+| `assembly-option-item-children-description` | Renders a summary with all attachments selected. | 
 
 2. In the theme's product template (`store.product`), add the `product-assembly-options` block and declare the `assembly-option-input-values` block as its child:
 
@@ -71,7 +71,14 @@ Now, you are able to use all blocks exported by the `product-customizer` app. Ch
 
 | Prop name | Type | Description | Default value |
 |--------------|--------|--------------| --------|
-| `buttonProps` | `enum` | ???????. Possible values are: `left`, `right` or `none`. | ?? | 
+| `buttonProps` | `object` | Defines how the `Customize` button will behave. In addition to the `collapse` prop, the `buttonProps` object also receives child blocks to build the content of the modal triggered when the button is clicked on.| `undefined` | 
+
+- **`buttonProps`  object:**
+
+| Prop name | Type | Description | Default value |
+|--------------|--------|--------------| --------|
+| `collapse` | `enum` | `Customize` button positioning. Possible values are: `left` or `right`. | `left` | 
+
 
 ## Modus Operandi
 
