@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 ### Fixed
-- Make selection when clicking in the item instead of needing to click on the Radio button.
+- Make selection when clicking in the item instead of needing to click on the Radio button or Checkbox.
 
 ## [2.8.2] - 2020-04-27
 ### Fixed
