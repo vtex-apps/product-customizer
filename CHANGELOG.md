@@ -6,8 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
-### Added
-- Select item when clicking in a Customize button of a Single selection group.
+### Fixed
+- Make selection when clicking in the item instead of needing to click on the Radio button.
 
 ## [2.8.2] - 2020-04-27
 ### Fixed

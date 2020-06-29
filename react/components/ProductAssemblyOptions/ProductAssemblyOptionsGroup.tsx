@@ -1,6 +1,5 @@
 import React, { FC, Fragment } from 'react'
 import { Button } from 'vtex.styleguide'
-import { useCssHandles } from 'vtex.css-handles'
 import { IOMessage } from 'vtex.native-types'
 
 import {
@@ -9,13 +8,11 @@ import {
 } from '../ProductAssemblyContext/Group'
 import useAssemblyOptionsModifications from '../../modules/useAssemblyOptionsModifications'
 import { ProductAssemblyItemProvider } from '../ProductAssemblyContext/Item'
-
-const CSS_HANDLES = ['itemContainer'] as const
+import ProductAssemblyOptionsItem from './ProductAssemblyOptionsItem'
 
 const ProductAssemblyOptionsGroup: FC = ({ children }) => {
   const assemblyOptionGroup = useProductAssemblyGroupState() as AssemblyOptionGroupState
   const dispatch = useProductAssemblyGroupDispatch()
-  const handles = useCssHandles(CSS_HANDLES)
 
   useAssemblyOptionsModifications(assemblyOptionGroup)
 
@@ -63,11 +60,9 @@ const ProductAssemblyOptionsGroup: FC = ({ children }) => {
             Object.values(assemblyOptionGroup.items).map((item) => {
               return (
                 <ProductAssemblyItemProvider item={item} key={item.id}>
-                  <div
-                    className={`${handles.itemContainer} hover-bg-muted-5 bb b--muted-5 pa3`}
-                  >
+                  <ProductAssemblyOptionsItem>
                     {children}
-                  </div>
+                  </ProductAssemblyOptionsItem>
                 </ProductAssemblyItemProvider>
               )
             })

@@ -6,13 +6,8 @@ import { useDevice } from 'vtex.device-detector'
 import { useProductAssemblyItem } from '../ProductAssemblyContext/Item'
 import ProductAssemblyOptionsGroup from './ProductAssemblyOptionsGroup'
 import { imageUrlForSize } from './ProductAssemblyOptionItemImage'
-import {
-  ProductAssemblyGroupContextProvider,
-  useProductAssemblyGroupState,
-  useProductAssemblyGroupDispatch,
-} from '../ProductAssemblyContext/Group'
+import { ProductAssemblyGroupContextProvider } from '../ProductAssemblyContext/Group'
 import { withItem } from './withItem'
-import { GROUP_TYPES } from '../../modules/assemblyGroupType'
 
 const IMG_SIZE = 140
 
@@ -76,30 +71,6 @@ interface ButtonProps {
   collapse?: 'left' | 'right' | 'none'
 }
 
-/**
- * If the Customize button is rendered inside a Single/Radio selection (min 1, max 1)
- * When clicking in the Customize button it should select the item
- */
-const useSelectSingle = () => {
-  const { id, quantity } = useProductAssemblyItem() as AssemblyItem
-  const { type, path } = useProductAssemblyGroupState() as AssemblyOptionGroup
-  const dispatch = useProductAssemblyGroupDispatch()
-
-  return () => {
-    if (quantity === 0 && type === GROUP_TYPES.SINGLE) {
-      dispatch({
-        type: 'SET_QUANTITY',
-        args: {
-          itemId: id,
-          newQuantity: 1,
-          type: GROUP_TYPES.SINGLE,
-          groupPath: path,
-        },
-      })
-    }
-  }
-}
-
 const ProductAssemblyOptionItemCustomize: FC<Props> = ({
   children,
   buttonProps = {},
@@ -108,7 +79,7 @@ const ProductAssemblyOptionItemCustomize: FC<Props> = ({
     name,
     children: itemChildren,
   } = useProductAssemblyItem() as AssemblyItem
-  const selectSingle = useSelectSingle()
+
   const { isMobile } = useDevice()
   const buttonCollapse = buttonProps.collapse
   const [modalOpen, setModalOpen] = useState(false)
@@ -119,7 +90,6 @@ const ProductAssemblyOptionItemCustomize: FC<Props> = ({
 
   const handleClick = () => {
     setModalOpen(true)
-    selectSingle()
   }
 
   const closeAction = () => setModalOpen(false)
