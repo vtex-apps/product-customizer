@@ -66,7 +66,7 @@ const ProductAssemblyOptionsItem: FC = ({ children }) => {
       role="button"
       onClick={handleClick}
       onKeyDown={handleKeyDown}
-      className={`${handles.itemContainer} hover-bg-muted-5 bb b--muted-5 pa3`}
+      className={`${handles.itemContainer} hover-bg-muted-5 bb b--muted-5 pa3 pointer`}
     >
       {children}
     </div>
