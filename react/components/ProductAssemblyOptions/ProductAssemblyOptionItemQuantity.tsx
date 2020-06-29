@@ -70,6 +70,7 @@ const Toggle: FC = () => {
 
   return (
     <Checkbox
+      id={`${path}-selected-${id}`}
       disabled={disabled}
       name={`selected-${id}`}
       checked={selected}

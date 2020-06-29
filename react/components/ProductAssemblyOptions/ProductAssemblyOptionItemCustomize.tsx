@@ -79,6 +79,7 @@ const ProductAssemblyOptionItemCustomize: FC<Props> = ({
     name,
     children: itemChildren,
   } = useProductAssemblyItem() as AssemblyItem
+
   const { isMobile } = useDevice()
   const buttonCollapse = buttonProps.collapse
   const [modalOpen, setModalOpen] = useState(false)
@@ -87,13 +88,17 @@ const ProductAssemblyOptionItemCustomize: FC<Props> = ({
     return null
   }
 
+  const handleClick = () => {
+    setModalOpen(true)
+  }
+
   const closeAction = () => setModalOpen(false)
 
   return (
     <Fragment>
       <Button
         variation="tertiary"
-        onClick={() => setModalOpen(true)}
+        onClick={handleClick}
         collapseLeft={buttonCollapse === 'left'}
         collapseRight={buttonCollapse === 'right'}
       >
