@@ -18,7 +18,10 @@ The Product Customizer allows a product's [attachments](https://help.vtex.com/tu
   "product-assembly-options": {
     "children": [
       "assembly-option-input-values"
-    ]
+    ],
+    "props": {
+      "initiallyOpened": true
+    }
   },
   "assembly-option-input-values": {
     "props": {
@@ -29,6 +32,7 @@ The Product Customizer allows a product's [attachments](https://help.vtex.com/tu
 
 | Prop name | Type | Description | Default value |
 |--------------|--------|--------------| --------|
+| `initiallyOpened` | Boolean | You should choose wheter the customization box should be initiallyOpened (`true`) or closed (`false`) . | `false` | 
 | `optionsDisplay` | String | You should choose between “box” or “select”. This will define whether the attachment's pre-defined options will be displayed to be selected in a Checkbox (`box`) or a dropdown list (`select`) . | `select` | 
 
 ## Modus Operandi

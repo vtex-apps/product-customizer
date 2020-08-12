@@ -10,7 +10,7 @@ import useAssemblyOptionsModifications from '../../modules/useAssemblyOptionsMod
 import { ProductAssemblyItemProvider } from '../ProductAssemblyContext/Item'
 import ProductAssemblyOptionsItem from './ProductAssemblyOptionsItem'
 
-const ProductAssemblyOptionsGroup: FC = ({ children }) => {
+const ProductAssemblyOptionsGroup: FC<AssemblyOptionsGroup> = ({ children, initiallyOpened }) => {
   const assemblyOptionGroup = useProductAssemblyGroupState() as AssemblyOptionGroupState
   const dispatch = useProductAssemblyGroupDispatch()
 
@@ -27,7 +27,7 @@ const ProductAssemblyOptionsGroup: FC = ({ children }) => {
 
   return (
     <Fragment>
-      {assemblyOptionGroup.optin === false ? (
+      {assemblyOptionGroup.optin === initiallyOpened ? (
         <Button variation="secondary" onClick={changeOptinInput}>
           <IOMessage
             id="store/product-customizer.add-assembly"

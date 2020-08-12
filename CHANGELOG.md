@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+- Prop `initiallyOpened` to `assembly-options-group`
+
 ## [2.8.3] - 2020-06-29
 ### Fixed
 - Make selection when clicking in the item instead of needing to click on the Radio button or Checkbox.

@@ -130,4 +130,8 @@ declare global {
     quantity: number
     children: Record<string, AssemblyOptionGroupState> | null
   }
+
+  interface AssemblyOptionsGroup {
+    initiallyOpened?: boolean
+  }
 }
