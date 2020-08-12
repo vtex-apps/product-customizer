@@ -4,7 +4,7 @@ import useAssemblyOptions from './modules/useAssemblyOptions'
 import ProductAssemblyOptionsGroup from './components/ProductAssemblyOptions/ProductAssemblyOptionsGroup'
 import { ProductAssemblyGroupContextProvider } from './components/ProductAssemblyContext/Group'
 
-const ProductAssemblyOptions: FC<AssemblyOptionsGroup> = ({ children, initiallyOpened = false }) => {
+const ProductAssemblyOptions: FC<AssemblyOptionsGroup> = ({ children, initiallyOpened }) => {
   const assemblyOptions = useAssemblyOptions()
 
   if (!assemblyOptions) {

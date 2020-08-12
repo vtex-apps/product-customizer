@@ -10,7 +10,7 @@ import useAssemblyOptionsModifications from '../../modules/useAssemblyOptionsMod
 import { ProductAssemblyItemProvider } from '../ProductAssemblyContext/Item'
 import ProductAssemblyOptionsItem from './ProductAssemblyOptionsItem'
 
-const ProductAssemblyOptionsGroup: FC<AssemblyOptionsGroup> = ({ children, initiallyOpened }) => {
+const ProductAssemblyOptionsGroup: FC<AssemblyOptionsGroup> = ({ children, initiallyOpened = false }) => {
   const assemblyOptionGroup = useProductAssemblyGroupState() as AssemblyOptionGroupState
   const dispatch = useProductAssemblyGroupDispatch()
 
