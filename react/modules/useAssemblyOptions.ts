@@ -11,7 +11,7 @@ import { getGroupType } from './assemblyGroupType'
 const splitGroupName = compose(last, split('_'))
 
 type PriceMap = Record<string, Record<string, Record<string, number>>>
-type ParsedAssemblyOptions = Record<string, AssemblyOptionGroupState>
+type ParsedAssemblyOptions = Record<string, AssemblyOptionGroup>
 
 const findItemMetadata = (id: string) => find<MetadataItem>(propEq('id', id))
 
@@ -130,7 +130,7 @@ function assemblyItems(
     return undefined
   }
 
-  return assemblyOption.composition.items.reduce<Record<string, AssemblyItem>>(
+  return assemblyOption.composition.items.reduce<AssemblyItem[]>(
     (items, assemblyItem) => {
       const optionMetadata = findItemMetadata(assemblyItem.id)(
         product.itemMetadata.items
@@ -141,7 +141,7 @@ function assemblyItems(
       }
 
       // Recursively parse children of this assembly option
-      const children =
+      const assemblyOptions =
         optionMetadata.assemblyOptions.length > 0
           ? parseAssemblyOptions(
               // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
@@ -153,7 +153,7 @@ function assemblyItems(
             )
           : null
 
-      items[assemblyItem.id] = {
+      items.push({
         image: optionMetadata.imageUrl,
         name: optionMetadata.name,
         id: assemblyItem.id,
@@ -166,13 +166,12 @@ function assemblyItems(
         maxQuantity: assemblyItem.maxQuantity,
         seller: assemblyItem.seller,
         initialQuantity: assemblyItem.initialQuantity,
-        quantity: assemblyItem.initialQuantity,
-        children,
-      }
+        assemblyOptions,
+      })
 
       return items
     },
-    {}
+    []
   )
 }
 

@@ -1,12 +1,53 @@
 declare module 'vtex.product-context/useProduct' {
-  import { ItemMetadata } from '../modules/AssemblyTypings'
-
   export interface SelectedItem {
     itemId: string
     sellers: Array<{
       commertialOffer: {
         AvailableQuantity: number
       }
+    }>
+  }
+
+  export interface ProductContextInputValue {
+    label: string
+    maxLength: number
+    type: string
+    domain: string[] | null
+    defaultValue: string
+  }
+
+  interface ItemMetadata {
+    items: Array<{
+      id: string
+      name: string
+      imageUrl: string
+      seller: string
+      assemblyOptions: Array<{
+        id: string
+        name: string
+        required: boolean
+        inputValues: InputValue[]
+        composition: {
+          minQuantity: number
+          maxQuantity: number
+          items: Array<{
+            id: string
+            minQuantity: number
+            maxQuantity: number
+            priceTable: string
+            seller: string
+            initialQuantity: number
+          }>
+        } | null
+      }>
+    }>
+    priceTable: Array<{
+      type: string
+      values: Array<{
+        id: string
+        assemblyId: string
+        price: number
+      }>
     }>
   }
 

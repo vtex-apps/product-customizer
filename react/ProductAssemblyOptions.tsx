@@ -17,6 +17,7 @@ const ProductAssemblyOptions: FC = ({ children }) => {
         <ProductAssemblyGroupContextProvider
           key={assemblyOptionId}
           assemblyOption={assemblyOptions[assemblyOptionId]}
+          name={assemblyOptions[assemblyOptionId].id}
         >
           <ProductAssemblyOptionsGroup>{children}</ProductAssemblyOptionsGroup>
         </ProductAssemblyGroupContextProvider>
