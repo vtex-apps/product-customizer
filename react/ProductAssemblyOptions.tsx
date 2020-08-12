@@ -21,6 +21,7 @@ const ProductAssemblyOptions: FC<Props> = ({ children, initiallyOpened }) => {
         <ProductAssemblyGroupContextProvider
           key={assemblyOptionId}
           assemblyOption={assemblyOptions[assemblyOptionId]}
+          name={assemblyOptions[assemblyOptionId].id}
         >
           <ProductAssemblyOptionsGroup initiallyOpened={initiallyOpened}>
             {children}

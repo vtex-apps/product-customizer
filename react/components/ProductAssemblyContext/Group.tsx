@@ -45,8 +45,14 @@ export const ProductAssemblyGroupContext = createContext<
   AssemblyOptionGroupState | undefined
 >(undefined)
 
-const initState = (assemblyOption: AssemblyOptionGroupState) => {
-  const groupPath = getGroupPath(assemblyOption.treePath)
+const initState = ({
+  assemblyOption,
+  name,
+}: {
+  assemblyOption: AssemblyOptionGroupState
+  name: string
+}) => {
+  const groupPath = getGroupPath(assemblyOption.treePath, name)
   const quantitySum = Object.values(assemblyOption.items ?? {}).reduce(
     (acc, { quantity }) => acc + quantity,
     0
@@ -71,9 +77,14 @@ const initState = (assemblyOption: AssemblyOptionGroupState) => {
 
 export const ProductAssemblyGroupContextProvider: FC<ProductAssemblyGroupContextProviderProps> = ({
   assemblyOption,
+  name,
   children,
 }) => {
-  const [state, dispatch] = useReducer(reducer, assemblyOption, initState)
+  const [state, dispatch] = useReducer(
+    reducer,
+    { assemblyOption, name },
+    initState
+  )
 
   return (
     <ProductAssemblyDispatchContext.Provider value={dispatch}>
@@ -84,7 +95,7 @@ export const ProductAssemblyGroupContextProvider: FC<ProductAssemblyGroupContext
   )
 }
 
-function getGroupPath(assemblyTreePath?: TreePath[]) {
+function getGroupPath(assemblyTreePath?: TreePath[], name?: string) {
   const treePath = assemblyTreePath ?? []
 
   let groupPath: string[] = []
@@ -92,7 +103,7 @@ function getGroupPath(assemblyTreePath?: TreePath[]) {
   for (const currentPath of treePath) {
     groupPath = groupPath.concat([
       'items',
-      currentPath.itemId,
+      name ?? currentPath.itemId,
       'children',
       currentPath.groupId,
     ])
@@ -103,6 +114,7 @@ function getGroupPath(assemblyTreePath?: TreePath[]) {
 
 interface ProductAssemblyGroupContextProviderProps {
   assemblyOption: AssemblyOptionGroupState
+  name: string
 }
 
 export const useProductAssemblyGroupDispatch = () =>

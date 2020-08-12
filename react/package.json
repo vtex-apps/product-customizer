@@ -6,7 +6,6 @@
   "scripts": {
     "lint": "eslint --ext ts,tsx,js,jsx .",
     "lint:fix": "eslint --fix --ext ts,tsx,js,jsx .",
-    "pretest": "yarn",
     "test": "vtex-test-tools test"
   },
   "dependencies": {

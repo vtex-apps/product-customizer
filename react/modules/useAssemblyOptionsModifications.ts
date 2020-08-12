@@ -14,6 +14,7 @@ export default function useAssemblyOptionsModifications(
       type,
       valuesOfInputValues,
       optin,
+      path,
     } = localState
     const items = Object.values(localItems ?? {}).map(parseItem(type))
     const isValid = isGroupValid(localState)
@@ -24,6 +25,7 @@ export default function useAssemblyOptionsModifications(
       args: {
         groupId: id,
         groupItems: items,
+        groupPath: path,
         groupInputValues,
         isValid,
       },
