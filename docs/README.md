@@ -18,10 +18,7 @@ The Product Customizer allows a product's [attachments](https://help.vtex.com/tu
   "product-assembly-options": {
     "children": [
       "assembly-option-input-values"
-    ],
-    "props": {
-      "initiallyOpened": true
-    }
+    ]
   },
   "assembly-option-input-values": {
     "props": {
