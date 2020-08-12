@@ -34,7 +34,7 @@ const ProductAssemblyOptionsGroup: FC<Props> = ({
 
   return (
     <Fragment>
-      {assemblyOptionGroup.optin === initiallyOpened ? (
+      {assemblyOptionGroup.optin === false && initiallyOpened === false ? (
         <Button variation="secondary" onClick={changeOptinInput}>
           <IOMessage
             id="store/product-customizer.add-assembly"

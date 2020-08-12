@@ -13,9 +13,9 @@ const mockedUseProductDispatch = useProductDispatch as jest.Mock<
 >
 const mockUseProduct = useProduct as jest.Mock<ProductContext>
 
-function renderComponent() {
+function renderComponent(props: { initiallyOpened?: boolean } = {}) {
   return render(
-    <ProductAssemblyOptions>
+    <ProductAssemblyOptions {...props}>
       <ProductAssemblyOptionItemName />
       <InputValue />
     </ProductAssemblyOptions>
@@ -53,6 +53,16 @@ describe('Product with required assembly', () => {
 
     expect(getByText(/Customization/)).toBeTruthy()
     expect(getByLabelText(/Font/)).toBeTruthy()
+  })
+
+  it('should NOT show Add Customization and Remove button if initiallyOpened is set to true', () => {
+    const { queryByText } = renderComponent({ initiallyOpened: true })
+
+    const addButton = queryByText(/Add Customization/)
+    expect(addButton).toBeFalsy()
+
+    const removeButton = queryByText(/Remove/)
+    expect(removeButton).toBeFalsy()
   })
 })
 
