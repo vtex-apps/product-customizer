@@ -5,7 +5,7 @@ import ProductAssemblyOptionsGroup from './components/ProductAssemblyOptions/Pro
 import { ProductAssemblyGroupContextProvider } from './components/ProductAssemblyContext/Group'
 
 interface Props {
-  initiallyOpened?: boolean
+  initiallyOpened?: 'always' | 'required'
 }
 
 const ProductAssemblyOptions: FC<Props> = ({ children, initiallyOpened }) => {
