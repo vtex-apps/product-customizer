@@ -29,7 +29,8 @@ The Product Customizer allows a product's [attachments](https://help.vtex.com/tu
 
 | Prop name | Type | Description | Default value |
 |--------------|--------|--------------| --------|
-| `optionsDisplay` | String | You should choose between “box” or “select”. This will define whether the attachment's pre-defined options will be displayed to be selected in a Checkbox (`box`) or a dropdown list (`select`) . | `select` | 
+| `optionsDisplay` | `string` | Whether the attachment's pre-defined options will be displayed to be selected in a checkbox (`box`) or a dropdown list (`select`). | `select` |
+| `initiallyOpened` | `enum` | By default, the customization box is opened if the attachment is required and closed if it's not. You can override this behavior by setting this prop to `always`, making it be opened even if the attachment is not required. Leave it as `required` for the default behavior. | `required` |
 
 ## Modus Operandi
 

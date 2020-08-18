@@ -4,7 +4,11 @@ import useAssemblyOptions from './modules/useAssemblyOptions'
 import ProductAssemblyOptionsGroup from './components/ProductAssemblyOptions/ProductAssemblyOptionsGroup'
 import { ProductAssemblyGroupContextProvider } from './components/ProductAssemblyContext/Group'
 
-const ProductAssemblyOptions: FC = ({ children }) => {
+interface Props {
+  initiallyOpened?: 'always' | 'required'
+}
+
+const ProductAssemblyOptions: FC<Props> = ({ children, initiallyOpened }) => {
   const assemblyOptions = useAssemblyOptions()
 
   if (!assemblyOptions) {
@@ -18,7 +22,9 @@ const ProductAssemblyOptions: FC = ({ children }) => {
           key={assemblyOptionId}
           assemblyOption={assemblyOptions[assemblyOptionId]}
         >
-          <ProductAssemblyOptionsGroup>{children}</ProductAssemblyOptionsGroup>
+          <ProductAssemblyOptionsGroup initiallyOpened={initiallyOpened}>
+            {children}
+          </ProductAssemblyOptionsGroup>
         </ProductAssemblyGroupContextProvider>
       ))}
     </Fragment>
