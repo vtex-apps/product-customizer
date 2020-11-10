@@ -1,6 +1,7 @@
 import React, { FC, Fragment } from 'react'
 import { Button } from 'vtex.styleguide'
 import { IOMessage } from 'vtex.native-types'
+import { useIntl } from 'react-intl'
 
 import {
   useProductAssemblyGroupState,
@@ -9,6 +10,10 @@ import {
 import useAssemblyOptionsModifications from '../../modules/useAssemblyOptionsModifications'
 import { ProductAssemblyItemProvider } from '../ProductAssemblyContext/Item'
 import ProductAssemblyOptionsItem from './ProductAssemblyOptionsItem'
+import {
+  formatSubscriptionLabel,
+  isSubscription,
+} from '../../modules/subscriptions'
 
 interface Props {
   initiallyOpened?: 'always' | 'required'
@@ -18,6 +23,7 @@ const ProductAssemblyOptionsGroup: FC<Props> = ({
   children,
   initiallyOpened = 'required',
 }) => {
+  const intl = useIntl()
   const assemblyOptionGroup = useProductAssemblyGroupState() as AssemblyOptionGroupState
   const dispatch = useProductAssemblyGroupDispatch()
 
@@ -32,21 +38,23 @@ const ProductAssemblyOptionsGroup: FC<Props> = ({
     })
   }
 
+  const groupName = isSubscription(assemblyOptionGroup)
+    ? formatSubscriptionLabel(assemblyOptionGroup, intl)
+    : assemblyOptionGroup.groupName
+
   return (
     <Fragment>
       {assemblyOptionGroup.optin === false && initiallyOpened === 'required' ? (
         <Button variation="secondary" onClick={changeOptinInput}>
           <IOMessage
             id="store/product-customizer.add-assembly"
-            values={{ name: assemblyOptionGroup.groupName }}
+            values={{ name: groupName }}
           />
         </Button>
       ) : (
         <Fragment>
           <div className="flex justify-between">
-            <div className="ttc-s pv4 c-muted-2 t-small">
-              {assemblyOptionGroup.groupName}
-            </div>
+            <div className="ttc-s pv4 c-muted-2 t-small">{groupName}</div>
             {assemblyOptionGroup.required === false && (
               <div>
                 <Button
@@ -57,7 +65,7 @@ const ProductAssemblyOptionsGroup: FC<Props> = ({
                 >
                   <IOMessage
                     id="store/product-customizer.remove-assembly"
-                    values={{ name: assemblyOptionGroup.groupName }}
+                    values={{ name: groupName }}
                   />
                 </Button>
               </div>

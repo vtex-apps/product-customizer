@@ -17,5 +17,8 @@
   "store/product-customizer.buy-success": "product-customizer.buy-success",
   "store/product-customizer.add-failure": "product-customizer.add-failure",
   "store/product-customizer.add-assembly": "Add {name}",
-  "store/product-customizer.remove-assembly": "Remove"
+  "store/product-customizer.remove-assembly": "Remove",
+  "store/product-customizer.subscription": "Subscription",
+  "store/product-customizer.subscription.frequency": "Frequency",
+  "store/product-customizer.subscription.purchaseday": "Purchase day"
 }

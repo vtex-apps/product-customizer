@@ -17,5 +17,8 @@
   "store/product-customizer.buy-success": "Your product was added to the cart!",
   "store/product-customizer.add-failure": "Something went wrong and the item wasn't added to your cart!",
   "store/product-customizer.add-assembly": "Add {name}",
-  "store/product-customizer.remove-assembly": "Remove"
+  "store/product-customizer.remove-assembly": "Remove",
+  "store/product-customizer.subscription": "Subscription",
+  "store/product-customizer.subscription.frequency": "Frequency",
+  "store/product-customizer.subscription.purchaseday": "Purchase day"
 }

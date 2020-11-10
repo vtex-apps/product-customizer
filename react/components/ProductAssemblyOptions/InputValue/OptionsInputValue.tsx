@@ -1,9 +1,14 @@
 import React, { FC, useMemo } from 'react'
 import { Dropdown } from 'vtex.styleguide'
 import { useCssHandles } from 'vtex.css-handles'
+import { useIntl } from 'react-intl'
 
 import useInputValue from './useInputValue'
 import OptionBox from './OptionBox'
+import {
+  formatSubscriptionLabel,
+  isSubscription,
+} from '../../../modules/subscriptions'
 
 const DROPDOWN_OPTIONS_HANDLES = ['optionsInputValueDropdown'] as const
 const BOX_OPTIONS_HANDLES = [
@@ -14,6 +19,7 @@ const BOX_OPTIONS_HANDLES = [
 ] as const
 
 const DropdownOptions: FC<Props> = ({ inputValueInfo }) => {
+  const intl = useIntl()
   const [state, onChange] = useInputValue(inputValueInfo)
   const handles = useCssHandles(DROPDOWN_OPTIONS_HANDLES)
 
@@ -29,12 +35,16 @@ const DropdownOptions: FC<Props> = ({ inputValueInfo }) => {
     }))
   }, [inputValueInfo.domain])
 
+  const label = isSubscription(inputValueInfo)
+    ? formatSubscriptionLabel(inputValueInfo, intl)
+    : inputValueInfo.label
+
   return (
     <div className={`${handles.optionsInputValueDropdown} mb4`}>
       <Dropdown
         value={state}
         onChange={handleChange}
-        label={inputValueInfo.label}
+        label={label}
         options={options}
       />
     </div>
@@ -42,6 +52,7 @@ const DropdownOptions: FC<Props> = ({ inputValueInfo }) => {
 }
 
 const BoxOptions: FC<Props> = ({ inputValueInfo }) => {
+  const intl = useIntl()
   const [state, onChange] = useInputValue(inputValueInfo)
   const handles = useCssHandles(BOX_OPTIONS_HANDLES)
 
@@ -84,13 +95,17 @@ const BoxOptions: FC<Props> = ({ inputValueInfo }) => {
     }
   }
 
+  const label = isSubscription(inputValueInfo)
+    ? formatSubscriptionLabel(inputValueInfo, intl)
+    : inputValueInfo.label
+
   return (
     <div className={`${handles.optionsInputValue} mb4`}>
       <div className={`${handles.optionsInputValueLabelContainer} mb3`}>
         <span
           className={`${handles.optionsInputValueLabel} c-muted-1 t-small overflow-hidden`}
         >
-          {inputValueInfo.label}
+          {label}
         </span>
       </div>
       <div
