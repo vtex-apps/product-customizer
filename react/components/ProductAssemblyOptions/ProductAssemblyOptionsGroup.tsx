@@ -38,8 +38,8 @@ const ProductAssemblyOptionsGroup: FC<Props> = ({
     })
   }
 
-  const groupName = isSubscription(assemblyOptionGroup)
-    ? formatSubscriptionLabel(assemblyOptionGroup, intl)
+  const groupName = isSubscription(assemblyOptionGroup.groupName)
+    ? formatSubscriptionLabel(assemblyOptionGroup.groupName, intl)
     : assemblyOptionGroup.groupName
 
   return (

@@ -8,26 +8,27 @@ interface OnChangeParams {
 }
 
 export default function useInputValue(
-  inputValueInfo: InputValue
+  inputId: string
 ): [string | boolean, (param: OnChangeParams) => void] {
   const {
     path,
     valuesOfInputValues,
   } = useProductAssemblyGroupState() as AssemblyOptionGroupState
+
   const dispatch = useProductAssemblyGroupDispatch()
 
   const onChange = ({ value }: OnChangeParams) => {
     dispatch({
       type: 'SET_INPUT_VALUE',
       args: {
-        inputValueLabel: inputValueInfo.label,
+        inputValueLabel: inputId,
         inputValue: value,
         groupPath: path,
       },
     })
   }
 
-  const value = valuesOfInputValues[inputValueInfo.label]
+  const value = valuesOfInputValues[inputId]
 
   return [value, onChange]
 }

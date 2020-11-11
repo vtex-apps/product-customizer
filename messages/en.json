@@ -20,5 +20,9 @@
   "store/product-customizer.remove-assembly": "Remove",
   "store/product-customizer.subscription": "Subscription",
   "store/product-customizer.subscription.frequency": "Frequency",
+  "store/product-customizer.subscription.frequency.day": "Every {count, plural, one {day} other {# days}}",
+  "store/product-customizer.subscription.frequency.month": "Every {count, plural, one {month} other {# months}}",
+  "store/product-customizer.subscription.frequency.week": "Every {count, plural, one {week} other {# weeks}}",
+  "store/product-customizer.subscription.frequency.year": "Every {count, plural, one {year} other {# years}}",
   "store/product-customizer.subscription.purchaseday": "Purchase day"
 }

@@ -3,10 +3,12 @@ import { Dropdown } from 'vtex.styleguide'
 import { useCssHandles } from 'vtex.css-handles'
 import { useIntl } from 'react-intl'
 
+import { useProductAssemblyGroupState } from '../../ProductAssemblyContext/Group'
 import useInputValue from './useInputValue'
 import OptionBox from './OptionBox'
 import {
   formatSubscriptionLabel,
+  formatSubscriptionOptions,
   isSubscription,
 } from '../../../modules/subscriptions'
 
@@ -18,26 +20,33 @@ const BOX_OPTIONS_HANDLES = [
   'optionsInputValueOptionBoxContainer',
 ] as const
 
-const DropdownOptions: FC<Props> = ({ inputValueInfo }) => {
-  const intl = useIntl()
-  const [state, onChange] = useInputValue(inputValueInfo)
+export type OptionDisplay = 'select' | 'box' | 'smart'
+
+type Options = {
+  label: string
+  value: string
+}
+
+type InnerProps = {
+  label: string
+  options: Options[]
+  inputId: string
+}
+
+type Props = {
+  optionsDisplay?: OptionDisplay
+  inputValueInfo: OptionsInputValue
+}
+
+const DropdownOptions: FC<InnerProps> = ({ label, options, inputId }) => {
+  const [state, onChange] = useInputValue(inputId)
   const handles = useCssHandles(DROPDOWN_OPTIONS_HANDLES)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target
+
     onChange({ value })
   }
-
-  const options = useMemo(() => {
-    return inputValueInfo.domain.map((option) => ({
-      value: option,
-      label: option,
-    }))
-  }, [inputValueInfo.domain])
-
-  const label = isSubscription(inputValueInfo)
-    ? formatSubscriptionLabel(inputValueInfo, intl)
-    : inputValueInfo.label
 
   return (
     <div className={`${handles.optionsInputValueDropdown} mb4`}>
@@ -51,53 +60,55 @@ const DropdownOptions: FC<Props> = ({ inputValueInfo }) => {
   )
 }
 
-const BoxOptions: FC<Props> = ({ inputValueInfo }) => {
-  const intl = useIntl()
-  const [state, onChange] = useInputValue(inputValueInfo)
+const BoxOptions: FC<InnerProps> = ({ label, options, inputId }) => {
+  const [state, onChange] = useInputValue(inputId)
   const handles = useCssHandles(BOX_OPTIONS_HANDLES)
 
   const handleKeyDown = (event: React.KeyboardEvent) => {
     const selected = state as string
-    const options = inputValueInfo.domain
-    const selectedIndex: number = options.indexOf(selected)
+    const selectedIndex: number = options.findIndex((i) => i.value === selected)
 
     switch (event.key) {
       case 'ArrowRight': {
         const count = options.length
         const nextSelectedIndex = (selectedIndex + 1) % count
-        const newValue = options[nextSelectedIndex]
-        onChange({ value: newValue })
+        const newOption = options[nextSelectedIndex]
+
+        onChange({ value: newOption.value })
         break
       }
+
       case 'ArrowLeft': {
         const count = options.length
         // Linter is triggering a false positive here :/
         // eslint-disable-next-line @typescript-eslint/restrict-plus-operands
         const previousSelectedIndex = (selectedIndex - 1 + count) % count
-        const newValue = options[previousSelectedIndex]
-        onChange({ value: newValue })
+        const newOption = options[previousSelectedIndex]
+
+        onChange({ value: newOption.value })
         break
       }
+
       case 'Home': {
-        const [newValue] = options
-        onChange({ value: newValue })
+        const [newOption] = options
+
+        onChange({ value: newOption.value })
         break
       }
+
       case 'End': {
         const count = options.length
-        const newValue = options[count - 1]
-        onChange({ value: newValue })
+        const newOption = options[count - 1]
+
+        onChange({ value: newOption.value })
         break
       }
+
       default: {
         break
       }
     }
   }
-
-  const label = isSubscription(inputValueInfo)
-    ? formatSubscriptionLabel(inputValueInfo, intl)
-    : inputValueInfo.label
 
   return (
     <div className={`${handles.optionsInputValue} mb4`}>
@@ -111,15 +122,17 @@ const BoxOptions: FC<Props> = ({ inputValueInfo }) => {
       <div
         className={`${handles.optionsInputValueOptionBoxContainer} inline-flex flex-wrap flex items-center`}
       >
-        {inputValueInfo.domain.map((option) => (
-          <OptionBox
-            key={option}
-            onKeyDown={handleKeyDown}
-            option={option}
-            selected={state === option}
-            onClick={() => onChange({ value: option })}
-          />
-        ))}
+        {options.map((option) => {
+          return (
+            <OptionBox
+              key={option.value}
+              onKeyDown={handleKeyDown}
+              option={option.label}
+              selected={state === option.value}
+              onClick={() => onChange({ value: option.value })}
+            />
+          )
+        })}
       </div>
     </div>
   )
@@ -129,18 +142,50 @@ const OptionsInputValue: FC<Props> = ({
   optionsDisplay = 'select',
   inputValueInfo,
 }) => {
-  return optionsDisplay === 'box' ? (
-    <BoxOptions inputValueInfo={inputValueInfo} />
-  ) : (
-    <DropdownOptions inputValueInfo={inputValueInfo} />
+  const intl = useIntl()
+  const state = useProductAssemblyGroupState()
+  const inputId = inputValueInfo.label
+  const inputDomain = inputValueInfo.domain
+  const isSubscriptionOption = isSubscription(inputId)
+
+  // We get the current `frequency` value here instead of inside the useMemo
+  // so it doesn't depend on the state, as it is a new object at every update.
+  // For non-subscription inputValues, this is `undefined` which is fine.
+  // Prevents re-rendering when changing `purchaseDay`.
+  const frequency = state?.valuesOfInputValues[
+    'vtex.subscription.key.frequency'
+  ] as string
+
+  const { label, options } = useMemo(() => {
+    // not a subscription, just map the options
+    if (!isSubscriptionOption) {
+      return {
+        label: inputId,
+        options: inputDomain.map((value) => ({ label: value, value })),
+      }
+    }
+
+    return {
+      label: formatSubscriptionLabel(inputId, intl),
+      options: formatSubscriptionOptions({
+        inputId,
+        inputDomain,
+        frequency,
+        intl,
+      }),
+    }
+  }, [isSubscriptionOption, inputId, inputDomain, frequency, intl])
+
+  const OptionComponent =
+    optionsDisplay === 'box' ? BoxOptions : DropdownOptions
+
+  return (
+    <OptionComponent
+      inputId={inputValueInfo.label}
+      label={label}
+      options={options}
+    />
   )
-}
-
-export type OptionDisplay = 'select' | 'box' | 'smart'
-
-interface Props {
-  optionsDisplay?: OptionDisplay
-  inputValueInfo: OptionsInputValue
 }
 
 export default OptionsInputValue
