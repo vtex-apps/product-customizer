@@ -24,5 +24,6 @@
   "store/product-customizer.subscription.frequency.month": "A cada {frequencyNumber, plural, one {# mês} other {# meses}}",
   "store/product-customizer.subscription.frequency.week": "A cada {frequencyNumber, plural, one {# semana} other {# semanas}}",
   "store/product-customizer.subscription.frequency.year": "A cada {frequencyNumber, plural, one {# ano} other {# anos}}",
-  "store/product-customizer.subscription.purchaseday": "Dia da compra"
+  "store/product-customizer.subscription.purchaseday": "Dia da compra",
+  "store/product-customizer.subscription.purchaseday.day": "{day}º dia do mês"
 }

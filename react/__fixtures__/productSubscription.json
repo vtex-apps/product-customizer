@@ -237,7 +237,14 @@
                     "label": "vtex.subscription.key.frequency",
                     "maxLength": null,
                     "type": "OPTIONS",
-                    "domain": ["7 day"],
+                    "domain": [
+                      "1 day",
+                      "7 day",
+                      "1 month",
+                      "2 month",
+                      "1 year",
+                      "2 year"
+                    ],
                     "defaultValue": "7 day",
                     "__typename": "InputValue"
                   },
@@ -245,7 +252,7 @@
                     "label": "vtex.subscription.key.purchaseday",
                     "maxLength": null,
                     "type": "OPTIONS",
-                    "domain": ["0", " 2", " 6"],
+                    "domain": ["1", " 2", " 6"],
                     "defaultValue": "0",
                     "__typename": "InputValue"
                   }

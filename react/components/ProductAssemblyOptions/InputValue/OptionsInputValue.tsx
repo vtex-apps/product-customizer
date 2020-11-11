@@ -10,6 +10,9 @@ import {
   formatSubscriptionLabel,
   formatSubscriptionOptions,
   isSubscription,
+  parseFrequency,
+  SUBSCRIPTION_KEY_PURCHASEDAY,
+  SUBSCRIPTION_KEY_FREQUENCY,
 } from '../../../modules/subscriptions'
 
 const DROPDOWN_OPTIONS_HANDLES = ['optionsInputValueDropdown'] as const
@@ -138,43 +141,61 @@ const BoxOptions: FC<InnerProps> = ({ label, options, inputId }) => {
   )
 }
 
-const OptionsInputValue: FC<Props> = ({
-  optionsDisplay = 'select',
-  inputValueInfo,
-}) => {
+const SubscriptionOption: FC<Props> = ({ optionsDisplay, inputValueInfo }) => {
   const intl = useIntl()
   const state = useProductAssemblyGroupState()
   const inputId = inputValueInfo.label
   const inputDomain = inputValueInfo.domain
-  const isSubscriptionOption = isSubscription(inputId)
 
   // We get the current `frequency` value here instead of inside the useMemo
   // so it doesn't depend on the state, as it is a new object at every update.
   // For non-subscription inputValues, this is `undefined` which is fine.
   // Prevents re-rendering when changing `purchaseDay`.
-  const frequency = state?.valuesOfInputValues[
-    'vtex.subscription.key.frequency'
-  ] as string
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+  const frequency = parseFrequency(
+    state?.valuesOfInputValues[SUBSCRIPTION_KEY_FREQUENCY] as string
+  )!
 
   const { label, options } = useMemo(() => {
-    // not a subscription, just map the options
-    if (!isSubscriptionOption) {
-      return {
-        label: inputId,
-        options: inputDomain.map((value) => ({ label: value, value })),
-      }
-    }
-
     return {
       label: formatSubscriptionLabel(inputId, intl),
       options: formatSubscriptionOptions({
         inputId,
         inputDomain,
-        frequency,
+        frequency: {
+          type: frequency.type,
+          interval: frequency.interval,
+        },
         intl,
       }),
     }
-  }, [isSubscriptionOption, inputId, inputDomain, frequency, intl])
+  }, [inputId, intl, inputDomain, frequency.type, frequency.interval])
+
+  let OptionComponent = optionsDisplay === 'box' ? BoxOptions : DropdownOptions
+
+  // enforce dropdown format for numeric days
+  if (
+    inputValueInfo.label === SUBSCRIPTION_KEY_PURCHASEDAY &&
+    (frequency.type === 'month' || frequency.type === 'year')
+  ) {
+    OptionComponent = DropdownOptions
+  }
+
+  return (
+    <OptionComponent
+      inputId={inputValueInfo.label}
+      label={label}
+      options={options}
+    />
+  )
+}
+
+const OptionsInputValue: FC<Props> = (props) => {
+  const { optionsDisplay = 'select', inputValueInfo } = props
+
+  if (isSubscription(inputValueInfo.label)) {
+    return <SubscriptionOption {...props} />
+  }
 
   const OptionComponent =
     optionsDisplay === 'box' ? BoxOptions : DropdownOptions
@@ -182,8 +203,8 @@ const OptionsInputValue: FC<Props> = ({
   return (
     <OptionComponent
       inputId={inputValueInfo.label}
-      label={label}
-      options={options}
+      label={inputValueInfo.label}
+      options={inputValueInfo.domain.map((value) => ({ label: value, value }))}
     />
   )
 }
