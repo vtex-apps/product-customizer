@@ -67,21 +67,23 @@ exports[`ProductCustomizer components  render with no variations and press on Sm
             class="mt3"
           >
             <div
-              class="flex items-start relative pointer mb3"
+              class="vtex-radio flex items-start relative pointer mb3"
             >
-              <div>
+              <div
+                class="vtex-radio__fakeRadioContainer"
+              >
                 <div
-                  class="fake-radio relative ba br-100 mr3 flex justify-center items-center b--muted-4 pointer"
+                  class="vtex-radio__fakeRadio fake-radio relative ba br-100 mr3 flex justify-center items-center b--muted-4 pointer"
                   style="border-width: 3px; height: 1.25rem; width: 1.25rem; transition: border 100ms ease-in-out;"
                 >
                   <div
-                    class="br-100 bg-action-primary"
+                    class="vtex-radio__fakeRadioInner br-100 bg-action-primary"
                     style="height: 0.5rem; width: 0.5rem; transform: scale(0); transition: transform 80ms ease-in;"
                   />
                 </div>
               </div>
               <input
-                class="absolute o-0 pointer"
+                class="vtex-radio__input absolute o-0 pointer"
                 id=""
                 name=""
                 style="height: 1.5rem; width: 1.5rem;"
@@ -89,7 +91,7 @@ exports[`ProductCustomizer components  render with no variations and press on Sm
                 value=""
               />
               <label
-                class="c-on-base pointer flex flex-auto"
+                class="vtex-radio__label c-on-base pointer flex flex-auto"
                 for=""
                 style="word-break: break-word;"
               />
@@ -134,21 +136,23 @@ exports[`ProductCustomizer components  render with no variations and press on Sm
             class="mt3"
           >
             <div
-              class="flex items-start relative pointer mb3"
+              class="vtex-radio flex items-start relative pointer mb3"
             >
-              <div>
+              <div
+                class="vtex-radio__fakeRadioContainer"
+              >
                 <div
-                  class="fake-radio relative ba br-100 mr3 flex justify-center items-center b--muted-4 pointer"
+                  class="vtex-radio__fakeRadio fake-radio relative ba br-100 mr3 flex justify-center items-center b--muted-4 pointer"
                   style="border-width: 3px; height: 1.25rem; width: 1.25rem; transition: border 100ms ease-in-out;"
                 >
                   <div
-                    class="br-100 bg-action-primary"
+                    class="vtex-radio__fakeRadioInner br-100 bg-action-primary"
                     style="height: 0.5rem; width: 0.5rem; transform: scale(0); transition: transform 80ms ease-in;"
                   />
                 </div>
               </div>
               <input
-                class="absolute o-0 pointer"
+                class="vtex-radio__input absolute o-0 pointer"
                 id=""
                 name=""
                 style="height: 1.5rem; width: 1.5rem;"
@@ -156,7 +160,7 @@ exports[`ProductCustomizer components  render with no variations and press on Sm
                 value=""
               />
               <label
-                class="c-on-base pointer flex flex-auto"
+                class="vtex-radio__label c-on-base pointer flex flex-auto"
                 for=""
                 style="word-break: break-word;"
               />
@@ -201,21 +205,23 @@ exports[`ProductCustomizer components  render with no variations and press on Sm
             class="mt3"
           >
             <div
-              class="flex items-start relative pointer mb3"
+              class="vtex-radio flex items-start relative pointer mb3"
             >
-              <div>
+              <div
+                class="vtex-radio__fakeRadioContainer"
+              >
                 <div
-                  class="fake-radio relative ba br-100 mr3 flex justify-center items-center b--muted-4 pointer"
+                  class="vtex-radio__fakeRadio fake-radio relative ba br-100 mr3 flex justify-center items-center b--muted-4 pointer"
                   style="border-width: 3px; height: 1.25rem; width: 1.25rem; transition: border 100ms ease-in-out;"
                 >
                   <div
-                    class="br-100 bg-action-primary"
+                    class="vtex-radio__fakeRadioInner br-100 bg-action-primary"
                     style="height: 0.5rem; width: 0.5rem; transform: scale(0); transition: transform 80ms ease-in;"
                   />
                 </div>
               </div>
               <input
-                class="absolute o-0 pointer"
+                class="vtex-radio__input absolute o-0 pointer"
                 id=""
                 name=""
                 style="height: 1.5rem; width: 1.5rem;"
@@ -223,7 +229,7 @@ exports[`ProductCustomizer components  render with no variations and press on Sm
                 value=""
               />
               <label
-                class="c-on-base pointer flex flex-auto"
+                class="vtex-radio__label c-on-base pointer flex flex-auto"
                 for=""
                 style="word-break: break-word;"
               />
@@ -314,21 +320,23 @@ exports[`ProductCustomizer components  render with no variations and press on Sm
             class="mt3"
           >
             <div
-              class="flex items-start relative pointer mb3"
+              class="vtex-radio flex items-start relative pointer mb3"
             >
-              <div>
+              <div
+                class="vtex-radio__fakeRadioContainer"
+              >
                 <div
-                  class="fake-radio relative ba br-100 mr3 flex justify-center items-center b--action-primary pointer"
+                  class="vtex-radio__fakeRadio fake-radio relative ba br-100 mr3 flex justify-center items-center b--action-primary pointer"
                   style="border-width: 3px; height: 1.25rem; width: 1.25rem; transition: border 100ms ease-in-out;"
                 >
                   <div
-                    class="br-100 bg-action-primary"
+                    class="vtex-radio__fakeRadioInner br-100 bg-action-primary"
                     style="height: 0.5rem; width: 0.5rem; transform: scale(1); transition: transform 80ms ease-out;"
                   />
                 </div>
               </div>
               <input
-                class="absolute o-0 pointer"
+                class="vtex-radio__input absolute o-0 pointer"
                 id=""
                 name=""
                 style="height: 1.5rem; width: 1.5rem;"
@@ -336,7 +344,7 @@ exports[`ProductCustomizer components  render with no variations and press on Sm
                 value=""
               />
               <label
-                class="c-on-base pointer flex flex-auto"
+                class="vtex-radio__label c-on-base pointer flex flex-auto"
                 for=""
                 style="word-break: break-word;"
               />
@@ -381,21 +389,23 @@ exports[`ProductCustomizer components  render with no variations and press on Sm
             class="mt3"
           >
             <div
-              class="flex items-start relative pointer mb3"
+              class="vtex-radio flex items-start relative pointer mb3"
             >
-              <div>
+              <div
+                class="vtex-radio__fakeRadioContainer"
+              >
                 <div
-                  class="fake-radio relative ba br-100 mr3 flex justify-center items-center b--muted-4 pointer"
+                  class="vtex-radio__fakeRadio fake-radio relative ba br-100 mr3 flex justify-center items-center b--muted-4 pointer"
                   style="border-width: 3px; height: 1.25rem; width: 1.25rem; transition: border 100ms ease-in-out;"
                 >
                   <div
-                    class="br-100 bg-action-primary"
+                    class="vtex-radio__fakeRadioInner br-100 bg-action-primary"
                     style="height: 0.5rem; width: 0.5rem; transform: scale(0); transition: transform 80ms ease-in;"
                   />
                 </div>
               </div>
               <input
-                class="absolute o-0 pointer"
+                class="vtex-radio__input absolute o-0 pointer"
                 id=""
                 name=""
                 style="height: 1.5rem; width: 1.5rem;"
@@ -403,7 +413,7 @@ exports[`ProductCustomizer components  render with no variations and press on Sm
                 value=""
               />
               <label
-                class="c-on-base pointer flex flex-auto"
+                class="vtex-radio__label c-on-base pointer flex flex-auto"
                 for=""
                 style="word-break: break-word;"
               />
@@ -448,21 +458,23 @@ exports[`ProductCustomizer components  render with no variations and press on Sm
             class="mt3"
           >
             <div
-              class="flex items-start relative pointer mb3"
+              class="vtex-radio flex items-start relative pointer mb3"
             >
-              <div>
+              <div
+                class="vtex-radio__fakeRadioContainer"
+              >
                 <div
-                  class="fake-radio relative ba br-100 mr3 flex justify-center items-center b--muted-4 pointer"
+                  class="vtex-radio__fakeRadio fake-radio relative ba br-100 mr3 flex justify-center items-center b--muted-4 pointer"
                   style="border-width: 3px; height: 1.25rem; width: 1.25rem; transition: border 100ms ease-in-out;"
                 >
                   <div
-                    class="br-100 bg-action-primary"
+                    class="vtex-radio__fakeRadioInner br-100 bg-action-primary"
                     style="height: 0.5rem; width: 0.5rem; transform: scale(0); transition: transform 80ms ease-in;"
                   />
                 </div>
               </div>
               <input
-                class="absolute o-0 pointer"
+                class="vtex-radio__input absolute o-0 pointer"
                 id=""
                 name=""
                 style="height: 1.5rem; width: 1.5rem;"
@@ -470,7 +482,7 @@ exports[`ProductCustomizer components  render with no variations and press on Sm
                 value=""
               />
               <label
-                class="c-on-base pointer flex flex-auto"
+                class="vtex-radio__label c-on-base pointer flex flex-auto"
                 for=""
                 style="word-break: break-word;"
               />
@@ -533,21 +545,23 @@ exports[`ProductCustomizer components  render with no variations and press on Sm
                 class="mt3"
               >
                 <div
-                  class="flex items-start relative pointer mb3"
+                  class="vtex-radio flex items-start relative pointer mb3"
                 >
-                  <div>
+                  <div
+                    class="vtex-radio__fakeRadioContainer"
+                  >
                     <div
-                      class="fake-radio relative ba br-100 mr3 flex justify-center items-center b--muted-4 pointer"
+                      class="vtex-radio__fakeRadio fake-radio relative ba br-100 mr3 flex justify-center items-center b--muted-4 pointer"
                       style="border-width: 3px; height: 1.25rem; width: 1.25rem; transition: border 100ms ease-in-out;"
                     >
                       <div
-                        class="br-100 bg-action-primary"
+                        class="vtex-radio__fakeRadioInner br-100 bg-action-primary"
                         style="height: 0.5rem; width: 0.5rem; transform: scale(0); transition: transform 80ms ease-in;"
                       />
                     </div>
                   </div>
                   <input
-                    class="absolute o-0 pointer"
+                    class="vtex-radio__input absolute o-0 pointer"
                     id=""
                     name=""
                     style="height: 1.5rem; width: 1.5rem;"
@@ -555,7 +569,7 @@ exports[`ProductCustomizer components  render with no variations and press on Sm
                     value=""
                   />
                   <label
-                    class="c-on-base pointer flex flex-auto"
+                    class="vtex-radio__label c-on-base pointer flex flex-auto"
                     for=""
                     style="word-break: break-word;"
                   />
@@ -609,21 +623,23 @@ exports[`ProductCustomizer components  render with no variations and press on Sm
                 class="mt3"
               >
                 <div
-                  class="flex items-start relative pointer mb3"
+                  class="vtex-radio flex items-start relative pointer mb3"
                 >
-                  <div>
+                  <div
+                    class="vtex-radio__fakeRadioContainer"
+                  >
                     <div
-                      class="fake-radio relative ba br-100 mr3 flex justify-center items-center b--muted-4 pointer"
+                      class="vtex-radio__fakeRadio fake-radio relative ba br-100 mr3 flex justify-center items-center b--muted-4 pointer"
                       style="border-width: 3px; height: 1.25rem; width: 1.25rem; transition: border 100ms ease-in-out;"
                     >
                       <div
-                        class="br-100 bg-action-primary"
+                        class="vtex-radio__fakeRadioInner br-100 bg-action-primary"
                         style="height: 0.5rem; width: 0.5rem; transform: scale(0); transition: transform 80ms ease-in;"
                       />
                     </div>
                   </div>
                   <input
-                    class="absolute o-0 pointer"
+                    class="vtex-radio__input absolute o-0 pointer"
                     id=""
                     name=""
                     style="height: 1.5rem; width: 1.5rem;"
@@ -631,7 +647,7 @@ exports[`ProductCustomizer components  render with no variations and press on Sm
                     value=""
                   />
                   <label
-                    class="c-on-base pointer flex flex-auto"
+                    class="vtex-radio__label c-on-base pointer flex flex-auto"
                     for=""
                     style="word-break: break-word;"
                   />
@@ -674,21 +690,23 @@ exports[`ProductCustomizer components  render with no variations and press on Sm
                 class="mt3"
               >
                 <div
-                  class="flex items-start relative pointer mb3"
+                  class="vtex-radio flex items-start relative pointer mb3"
                 >
-                  <div>
+                  <div
+                    class="vtex-radio__fakeRadioContainer"
+                  >
                     <div
-                      class="fake-radio relative ba br-100 mr3 flex justify-center items-center b--muted-4 pointer"
+                      class="vtex-radio__fakeRadio fake-radio relative ba br-100 mr3 flex justify-center items-center b--muted-4 pointer"
                       style="border-width: 3px; height: 1.25rem; width: 1.25rem; transition: border 100ms ease-in-out;"
                     >
                       <div
-                        class="br-100 bg-action-primary"
+                        class="vtex-radio__fakeRadioInner br-100 bg-action-primary"
                         style="height: 0.5rem; width: 0.5rem; transform: scale(0); transition: transform 80ms ease-in;"
                       />
                     </div>
                   </div>
                   <input
-                    class="absolute o-0 pointer"
+                    class="vtex-radio__input absolute o-0 pointer"
                     id=""
                     name=""
                     style="height: 1.5rem; width: 1.5rem;"
@@ -696,7 +714,7 @@ exports[`ProductCustomizer components  render with no variations and press on Sm
                     value=""
                   />
                   <label
-                    class="c-on-base pointer flex flex-auto"
+                    class="vtex-radio__label c-on-base pointer flex flex-auto"
                     for=""
                     style="word-break: break-word;"
                   />
@@ -741,7 +759,7 @@ exports[`ProductCustomizer components  render with no variations and press on Sm
                 class=""
               >
                 <div
-                  class="vtex-checkbox__line-container flex items-center relative pointer"
+                  class="vtex-checkbox__line-container flex items-start relative pointer"
                 >
                   <div
                     class="vtex-checkbox__container relative w1 h1"
@@ -751,11 +769,11 @@ exports[`ProductCustomizer components  render with no variations and press on Sm
                       style="transition: background 20ms, border 100ms;"
                     />
                     <div
-                      class="absolute w1 h1 flex o-100"
+                      class="vtex-checkbox__box-wrapper absolute w1 h1 flex o-100"
                       style="left: 0px;"
                     >
                       <div
-                        class="absolute top-0 left-0 bottom-0 overflow-hidden w-100 flex items-center align-center justify-center c-on-action-primary"
+                        class="vtex-checkbox__box absolute top-0 left-0 bottom-0 overflow-hidden w-100 flex items-center align-center justify-center c-on-action-primary"
                         style="transition: right 110ms ease-in-out 30ms;"
                       >
                         <svg
@@ -776,7 +794,7 @@ exports[`ProductCustomizer components  render with no variations and press on Sm
                     </div>
                     <input
                       checked=""
-                      class="h1 w1 absolute o-0 pointer"
+                      class="vtex-checkbox__input h1 w1 absolute o-0 pointer"
                       id="Green Pepper-choice"
                       name="Green Pepper"
                       tabindex="0"
@@ -816,7 +834,7 @@ exports[`ProductCustomizer components  render with no variations and press on Sm
                 class=""
               >
                 <div
-                  class="vtex-checkbox__line-container flex items-center relative pointer"
+                  class="vtex-checkbox__line-container flex items-start relative pointer"
                 >
                   <div
                     class="vtex-checkbox__container relative w1 h1"
@@ -826,11 +844,11 @@ exports[`ProductCustomizer components  render with no variations and press on Sm
                       style="transition: background 20ms, border 100ms;"
                     />
                     <div
-                      class="absolute w1 h1 flex o-100"
+                      class="vtex-checkbox__box-wrapper absolute w1 h1 flex o-100"
                       style="left: 0px;"
                     >
                       <div
-                        class="absolute top-0 left-0 bottom-0 overflow-hidden w-100 flex items-center align-center justify-center c-on-action-primary"
+                        class="vtex-checkbox__box absolute top-0 left-0 bottom-0 overflow-hidden w-100 flex items-center align-center justify-center c-on-action-primary"
                         style="transition: right 110ms ease-in-out 30ms;"
                       >
                         <svg
@@ -851,7 +869,7 @@ exports[`ProductCustomizer components  render with no variations and press on Sm
                     </div>
                     <input
                       checked=""
-                      class="h1 w1 absolute o-0 pointer"
+                      class="vtex-checkbox__input h1 w1 absolute o-0 pointer"
                       id="Black Olives-choice"
                       name="Black Olives"
                       tabindex="0"
@@ -891,7 +909,7 @@ exports[`ProductCustomizer components  render with no variations and press on Sm
                 class=""
               >
                 <div
-                  class="vtex-checkbox__line-container flex items-center relative pointer"
+                  class="vtex-checkbox__line-container flex items-start relative pointer"
                 >
                   <div
                     class="vtex-checkbox__container relative w1 h1"
@@ -901,11 +919,11 @@ exports[`ProductCustomizer components  render with no variations and press on Sm
                       style="transition: background 20ms, border 100ms;"
                     />
                     <div
-                      class="absolute w1 h1 flex o-100"
+                      class="vtex-checkbox__box-wrapper absolute w1 h1 flex o-100"
                       style="left: 0px;"
                     >
                       <div
-                        class="absolute top-0 left-0 bottom-0 overflow-hidden w-100 flex items-center align-center justify-center c-on-action-primary"
+                        class="vtex-checkbox__box absolute top-0 left-0 bottom-0 overflow-hidden w-100 flex items-center align-center justify-center c-on-action-primary"
                         style="transition: right 110ms ease-in-out 30ms;"
                       >
                         <svg
@@ -926,7 +944,7 @@ exports[`ProductCustomizer components  render with no variations and press on Sm
                     </div>
                     <input
                       checked=""
-                      class="h1 w1 absolute o-0 pointer"
+                      class="vtex-checkbox__input h1 w1 absolute o-0 pointer"
                       id="Ham-choice"
                       name="Ham"
                       tabindex="0"
@@ -966,7 +984,7 @@ exports[`ProductCustomizer components  render with no variations and press on Sm
                 class=""
               >
                 <div
-                  class="vtex-checkbox__line-container flex items-center relative pointer"
+                  class="vtex-checkbox__line-container flex items-start relative pointer"
                 >
                   <div
                     class="vtex-checkbox__container relative w1 h1"
@@ -976,11 +994,11 @@ exports[`ProductCustomizer components  render with no variations and press on Sm
                       style="transition: background 20ms, border 100ms;"
                     />
                     <div
-                      class="absolute w1 h1 flex o-100"
+                      class="vtex-checkbox__box-wrapper absolute w1 h1 flex o-100"
                       style="left: 0px;"
                     >
                       <div
-                        class="absolute top-0 left-0 bottom-0 overflow-hidden w-100 flex items-center align-center justify-center c-on-action-primary"
+                        class="vtex-checkbox__box absolute top-0 left-0 bottom-0 overflow-hidden w-100 flex items-center align-center justify-center c-on-action-primary"
                         style="transition: right 110ms ease-in-out 30ms;"
                       >
                         <svg
@@ -1001,7 +1019,7 @@ exports[`ProductCustomizer components  render with no variations and press on Sm
                     </div>
                     <input
                       checked=""
-                      class="h1 w1 absolute o-0 pointer"
+                      class="vtex-checkbox__input h1 w1 absolute o-0 pointer"
                       id="Pepperoni-choice"
                       name="Pepperoni"
                       tabindex="0"
@@ -1041,7 +1059,7 @@ exports[`ProductCustomizer components  render with no variations and press on Sm
                 class=""
               >
                 <div
-                  class="vtex-checkbox__line-container flex items-center relative pointer"
+                  class="vtex-checkbox__line-container flex items-start relative pointer"
                 >
                   <div
                     class="vtex-checkbox__container relative w1 h1"
@@ -1051,11 +1069,11 @@ exports[`ProductCustomizer components  render with no variations and press on Sm
                       style="transition: background 20ms, border 100ms;"
                     />
                     <div
-                      class="absolute w1 h1 flex o-100"
+                      class="vtex-checkbox__box-wrapper absolute w1 h1 flex o-100"
                       style="left: 0px;"
                     >
                       <div
-                        class="absolute top-0 left-0 bottom-0 overflow-hidden w-100 flex items-center align-center justify-center c-on-action-primary"
+                        class="vtex-checkbox__box absolute top-0 left-0 bottom-0 overflow-hidden w-100 flex items-center align-center justify-center c-on-action-primary"
                         style="transition: right 110ms ease-in-out 30ms;"
                       >
                         <svg
@@ -1076,7 +1094,7 @@ exports[`ProductCustomizer components  render with no variations and press on Sm
                     </div>
                     <input
                       checked=""
-                      class="h1 w1 absolute o-0 pointer"
+                      class="vtex-checkbox__input h1 w1 absolute o-0 pointer"
                       id="Champignon-choice"
                       name="Champignon"
                       tabindex="0"
@@ -1116,7 +1134,7 @@ exports[`ProductCustomizer components  render with no variations and press on Sm
                 class=""
               >
                 <div
-                  class="vtex-checkbox__line-container flex items-center relative pointer"
+                  class="vtex-checkbox__line-container flex items-start relative pointer"
                 >
                   <div
                     class="vtex-checkbox__container relative w1 h1"
@@ -1126,11 +1144,11 @@ exports[`ProductCustomizer components  render with no variations and press on Sm
                       style="transition: background 20ms, border 100ms;"
                     />
                     <div
-                      class="absolute w1 h1 flex o-100"
+                      class="vtex-checkbox__box-wrapper absolute w1 h1 flex o-100"
                       style="left: 0px;"
                     >
                       <div
-                        class="absolute top-0 left-0 bottom-0 overflow-hidden w-100 flex items-center align-center justify-center c-on-action-primary"
+                        class="vtex-checkbox__box absolute top-0 left-0 bottom-0 overflow-hidden w-100 flex items-center align-center justify-center c-on-action-primary"
                         style="transition: right 110ms ease-in-out 30ms;"
                       >
                         <svg
@@ -1151,7 +1169,7 @@ exports[`ProductCustomizer components  render with no variations and press on Sm
                     </div>
                     <input
                       checked=""
-                      class="h1 w1 absolute o-0 pointer"
+                      class="vtex-checkbox__input h1 w1 absolute o-0 pointer"
                       id="Onion-choice"
                       name="Onion"
                       tabindex="0"
@@ -1219,46 +1237,47 @@ exports[`ProductCustomizer components  render with no variations and press on Sm
                   class="multiple-choice__actions flex-none ml4 c-action-primary t-body fw5 z-1"
                 >
                   <div
-                    class="numeric-stepper-wrapper"
+                    class="vtex-numeric-stepper-wrapper numeric-stepper-wrapper"
                   >
                     <div
-                      class="numeric-stepper-container flex self-start"
+                      class="vtex-numeric-stepper-container numeric-stepper-container flex self-start"
                     >
                       <input
-                        class="numeric-stepper__input z-1 order-1 tc bw1 b--transparent  br0 h-regular t-body w2 br2 hover-b--muted-4 ba outline-transparent hideDecorators"
+                        class="vtex-numeric-stepper__input numeric-stepper__input z-1 order-1 tc bw1 b--transparent  br0 h-regular t-body w2 br2 hover-b--muted-4 ba outline-transparent hideDecorators"
+                        step="1"
                         type="tel"
                         value="0"
                       />
                       <div
-                        class="numeric-stepper__plus-button-container z-2 order-2 flex-none"
+                        class="vtex-numeric-stepper__plus-button-container numeric-stepper__plus-button-container z-2 order-2 flex-none"
                       >
                         <button
                           aria-label="+"
-                          class="numeric-stepper__plus-button br2 pa0 bl-0 flex items-center justify-center b--transparent  h-regular f4  pointer bg-base c-action-primary outline-0 "
+                          class="vtex-numeric-stepper__plus-button numeric-stepper__plus-button br2 pa0 bl-0 flex items-center justify-center b--transparent  h-regular f4  pointer bg-base c-action-primary outline-0 "
                           style="border-top-left-radius: 0; border-bottom-left-radius: 0; width: 2em; transition: opacity 150ms;"
                           tabindex="0"
                           type="button"
                         >
                           <div
-                            class="numeric-stepper__plus-button__text b"
+                            class="vtex-numeric-stepper__plus-button__text numeric-stepper__plus-button__text b"
                           >
                             ＋
                           </div>
                         </button>
                       </div>
                       <div
-                        class="numeric-stepper__minus-button-container z-2 order-0 flex-none"
+                        class="vtex-numeric-stepper__minus-button-container numeric-stepper__minus-button-container z-2 order-0 flex-none"
                       >
                         <button
                           aria-label="−"
-                          class="numeric-stepper__minus-button br2 pa0 br-0 flex items-center justify-center b--transparent  h-regular f4  c-disabled bg-transparent "
+                          class="vtex-numeric-stepper__minus-button numeric-stepper__minus-button br2 pa0 br-0 flex items-center justify-center b--transparent  h-regular f4  c-disabled bg-transparent "
                           disabled=""
                           style="border-top-right-radius: 0; border-bottom-right-radius: 0; width: 2em; transition: opacity 150ms;"
                           tabindex="0"
                           type="button"
                         >
                           <span
-                            class="numeric-stepper__minus-button__text b"
+                            class="vtex-numeric-stepper__minus-button__text numeric-stepper__minus-button__text b"
                           >
                             －
                           </span>
@@ -1317,46 +1336,47 @@ exports[`ProductCustomizer components  render with no variations and press on Sm
                   class="multiple-choice__actions flex-none ml4 c-action-primary t-body fw5 z-1"
                 >
                   <div
-                    class="numeric-stepper-wrapper"
+                    class="vtex-numeric-stepper-wrapper numeric-stepper-wrapper"
                   >
                     <div
-                      class="numeric-stepper-container flex self-start"
+                      class="vtex-numeric-stepper-container numeric-stepper-container flex self-start"
                     >
                       <input
-                        class="numeric-stepper__input z-1 order-1 tc bw1 b--transparent  br0 h-regular t-body w2 br2 hover-b--muted-4 ba outline-transparent hideDecorators"
+                        class="vtex-numeric-stepper__input numeric-stepper__input z-1 order-1 tc bw1 b--transparent  br0 h-regular t-body w2 br2 hover-b--muted-4 ba outline-transparent hideDecorators"
+                        step="1"
                         type="tel"
                         value="0"
                       />
                       <div
-                        class="numeric-stepper__plus-button-container z-2 order-2 flex-none"
+                        class="vtex-numeric-stepper__plus-button-container numeric-stepper__plus-button-container z-2 order-2 flex-none"
                       >
                         <button
                           aria-label="+"
-                          class="numeric-stepper__plus-button br2 pa0 bl-0 flex items-center justify-center b--transparent  h-regular f4  pointer bg-base c-action-primary outline-0 "
+                          class="vtex-numeric-stepper__plus-button numeric-stepper__plus-button br2 pa0 bl-0 flex items-center justify-center b--transparent  h-regular f4  pointer bg-base c-action-primary outline-0 "
                           style="border-top-left-radius: 0; border-bottom-left-radius: 0; width: 2em; transition: opacity 150ms;"
                           tabindex="0"
                           type="button"
                         >
                           <div
-                            class="numeric-stepper__plus-button__text b"
+                            class="vtex-numeric-stepper__plus-button__text numeric-stepper__plus-button__text b"
                           >
                             ＋
                           </div>
                         </button>
                       </div>
                       <div
-                        class="numeric-stepper__minus-button-container z-2 order-0 flex-none"
+                        class="vtex-numeric-stepper__minus-button-container numeric-stepper__minus-button-container z-2 order-0 flex-none"
                       >
                         <button
                           aria-label="−"
-                          class="numeric-stepper__minus-button br2 pa0 br-0 flex items-center justify-center b--transparent  h-regular f4  c-disabled bg-transparent "
+                          class="vtex-numeric-stepper__minus-button numeric-stepper__minus-button br2 pa0 br-0 flex items-center justify-center b--transparent  h-regular f4  c-disabled bg-transparent "
                           disabled=""
                           style="border-top-right-radius: 0; border-bottom-right-radius: 0; width: 2em; transition: opacity 150ms;"
                           tabindex="0"
                           type="button"
                         >
                           <span
-                            class="numeric-stepper__minus-button__text b"
+                            class="vtex-numeric-stepper__minus-button__text numeric-stepper__minus-button__text b"
                           >
                             －
                           </span>
@@ -1415,46 +1435,47 @@ exports[`ProductCustomizer components  render with no variations and press on Sm
                   class="multiple-choice__actions flex-none ml4 c-action-primary t-body fw5 z-1"
                 >
                   <div
-                    class="numeric-stepper-wrapper"
+                    class="vtex-numeric-stepper-wrapper numeric-stepper-wrapper"
                   >
                     <div
-                      class="numeric-stepper-container flex self-start"
+                      class="vtex-numeric-stepper-container numeric-stepper-container flex self-start"
                     >
                       <input
-                        class="numeric-stepper__input z-1 order-1 tc bw1 b--transparent  br0 h-regular t-body w2 br2 hover-b--muted-4 ba outline-transparent hideDecorators"
+                        class="vtex-numeric-stepper__input numeric-stepper__input z-1 order-1 tc bw1 b--transparent  br0 h-regular t-body w2 br2 hover-b--muted-4 ba outline-transparent hideDecorators"
+                        step="1"
                         type="tel"
                         value="0"
                       />
                       <div
-                        class="numeric-stepper__plus-button-container z-2 order-2 flex-none"
+                        class="vtex-numeric-stepper__plus-button-container numeric-stepper__plus-button-container z-2 order-2 flex-none"
                       >
                         <button
                           aria-label="+"
-                          class="numeric-stepper__plus-button br2 pa0 bl-0 flex items-center justify-center b--transparent  h-regular f4  pointer bg-base c-action-primary outline-0 "
+                          class="vtex-numeric-stepper__plus-button numeric-stepper__plus-button br2 pa0 bl-0 flex items-center justify-center b--transparent  h-regular f4  pointer bg-base c-action-primary outline-0 "
                           style="border-top-left-radius: 0; border-bottom-left-radius: 0; width: 2em; transition: opacity 150ms;"
                           tabindex="0"
                           type="button"
                         >
                           <div
-                            class="numeric-stepper__plus-button__text b"
+                            class="vtex-numeric-stepper__plus-button__text numeric-stepper__plus-button__text b"
                           >
                             ＋
                           </div>
                         </button>
                       </div>
                       <div
-                        class="numeric-stepper__minus-button-container z-2 order-0 flex-none"
+                        class="vtex-numeric-stepper__minus-button-container numeric-stepper__minus-button-container z-2 order-0 flex-none"
                       >
                         <button
                           aria-label="−"
-                          class="numeric-stepper__minus-button br2 pa0 br-0 flex items-center justify-center b--transparent  h-regular f4  c-disabled bg-transparent "
+                          class="vtex-numeric-stepper__minus-button numeric-stepper__minus-button br2 pa0 br-0 flex items-center justify-center b--transparent  h-regular f4  c-disabled bg-transparent "
                           disabled=""
                           style="border-top-right-radius: 0; border-bottom-right-radius: 0; width: 2em; transition: opacity 150ms;"
                           tabindex="0"
                           type="button"
                         >
                           <span
-                            class="numeric-stepper__minus-button__text b"
+                            class="vtex-numeric-stepper__minus-button__text numeric-stepper__minus-button__text b"
                           >
                             －
                           </span>
@@ -1513,46 +1534,47 @@ exports[`ProductCustomizer components  render with no variations and press on Sm
                   class="multiple-choice__actions flex-none ml4 c-action-primary t-body fw5 z-1"
                 >
                   <div
-                    class="numeric-stepper-wrapper"
+                    class="vtex-numeric-stepper-wrapper numeric-stepper-wrapper"
                   >
                     <div
-                      class="numeric-stepper-container flex self-start"
+                      class="vtex-numeric-stepper-container numeric-stepper-container flex self-start"
                     >
                       <input
-                        class="numeric-stepper__input z-1 order-1 tc bw1 b--transparent  br0 h-regular t-body w2 br2 hover-b--muted-4 ba outline-transparent hideDecorators"
+                        class="vtex-numeric-stepper__input numeric-stepper__input z-1 order-1 tc bw1 b--transparent  br0 h-regular t-body w2 br2 hover-b--muted-4 ba outline-transparent hideDecorators"
+                        step="1"
                         type="tel"
                         value="0"
                       />
                       <div
-                        class="numeric-stepper__plus-button-container z-2 order-2 flex-none"
+                        class="vtex-numeric-stepper__plus-button-container numeric-stepper__plus-button-container z-2 order-2 flex-none"
                       >
                         <button
                           aria-label="+"
-                          class="numeric-stepper__plus-button br2 pa0 bl-0 flex items-center justify-center b--transparent  h-regular f4  pointer bg-base c-action-primary outline-0 "
+                          class="vtex-numeric-stepper__plus-button numeric-stepper__plus-button br2 pa0 bl-0 flex items-center justify-center b--transparent  h-regular f4  pointer bg-base c-action-primary outline-0 "
                           style="border-top-left-radius: 0; border-bottom-left-radius: 0; width: 2em; transition: opacity 150ms;"
                           tabindex="0"
                           type="button"
                         >
                           <div
-                            class="numeric-stepper__plus-button__text b"
+                            class="vtex-numeric-stepper__plus-button__text numeric-stepper__plus-button__text b"
                           >
                             ＋
                           </div>
                         </button>
                       </div>
                       <div
-                        class="numeric-stepper__minus-button-container z-2 order-0 flex-none"
+                        class="vtex-numeric-stepper__minus-button-container numeric-stepper__minus-button-container z-2 order-0 flex-none"
                       >
                         <button
                           aria-label="−"
-                          class="numeric-stepper__minus-button br2 pa0 br-0 flex items-center justify-center b--transparent  h-regular f4  c-disabled bg-transparent "
+                          class="vtex-numeric-stepper__minus-button numeric-stepper__minus-button br2 pa0 br-0 flex items-center justify-center b--transparent  h-regular f4  c-disabled bg-transparent "
                           disabled=""
                           style="border-top-right-radius: 0; border-bottom-right-radius: 0; width: 2em; transition: opacity 150ms;"
                           tabindex="0"
                           type="button"
                         >
                           <span
-                            class="numeric-stepper__minus-button__text b"
+                            class="vtex-numeric-stepper__minus-button__text numeric-stepper__minus-button__text b"
                           >
                             －
                           </span>
@@ -1611,46 +1633,47 @@ exports[`ProductCustomizer components  render with no variations and press on Sm
                   class="multiple-choice__actions flex-none ml4 c-action-primary t-body fw5 z-1"
                 >
                   <div
-                    class="numeric-stepper-wrapper"
+                    class="vtex-numeric-stepper-wrapper numeric-stepper-wrapper"
                   >
                     <div
-                      class="numeric-stepper-container flex self-start"
+                      class="vtex-numeric-stepper-container numeric-stepper-container flex self-start"
                     >
                       <input
-                        class="numeric-stepper__input z-1 order-1 tc bw1 b--transparent  br0 h-regular t-body w2 br2 hover-b--muted-4 ba outline-transparent hideDecorators"
+                        class="vtex-numeric-stepper__input numeric-stepper__input z-1 order-1 tc bw1 b--transparent  br0 h-regular t-body w2 br2 hover-b--muted-4 ba outline-transparent hideDecorators"
+                        step="1"
                         type="tel"
                         value="0"
                       />
                       <div
-                        class="numeric-stepper__plus-button-container z-2 order-2 flex-none"
+                        class="vtex-numeric-stepper__plus-button-container numeric-stepper__plus-button-container z-2 order-2 flex-none"
                       >
                         <button
                           aria-label="+"
-                          class="numeric-stepper__plus-button br2 pa0 bl-0 flex items-center justify-center b--transparent  h-regular f4  pointer bg-base c-action-primary outline-0 "
+                          class="vtex-numeric-stepper__plus-button numeric-stepper__plus-button br2 pa0 bl-0 flex items-center justify-center b--transparent  h-regular f4  pointer bg-base c-action-primary outline-0 "
                           style="border-top-left-radius: 0; border-bottom-left-radius: 0; width: 2em; transition: opacity 150ms;"
                           tabindex="0"
                           type="button"
                         >
                           <div
-                            class="numeric-stepper__plus-button__text b"
+                            class="vtex-numeric-stepper__plus-button__text numeric-stepper__plus-button__text b"
                           >
                             ＋
                           </div>
                         </button>
                       </div>
                       <div
-                        class="numeric-stepper__minus-button-container z-2 order-0 flex-none"
+                        class="vtex-numeric-stepper__minus-button-container numeric-stepper__minus-button-container z-2 order-0 flex-none"
                       >
                         <button
                           aria-label="−"
-                          class="numeric-stepper__minus-button br2 pa0 br-0 flex items-center justify-center b--transparent  h-regular f4  c-disabled bg-transparent "
+                          class="vtex-numeric-stepper__minus-button numeric-stepper__minus-button br2 pa0 br-0 flex items-center justify-center b--transparent  h-regular f4  c-disabled bg-transparent "
                           disabled=""
                           style="border-top-right-radius: 0; border-bottom-right-radius: 0; width: 2em; transition: opacity 150ms;"
                           tabindex="0"
                           type="button"
                         >
                           <span
-                            class="numeric-stepper__minus-button__text b"
+                            class="vtex-numeric-stepper__minus-button__text numeric-stepper__minus-button__text b"
                           >
                             －
                           </span>
@@ -1709,46 +1732,47 @@ exports[`ProductCustomizer components  render with no variations and press on Sm
                   class="multiple-choice__actions flex-none ml4 c-action-primary t-body fw5 z-1"
                 >
                   <div
-                    class="numeric-stepper-wrapper"
+                    class="vtex-numeric-stepper-wrapper numeric-stepper-wrapper"
                   >
                     <div
-                      class="numeric-stepper-container flex self-start"
+                      class="vtex-numeric-stepper-container numeric-stepper-container flex self-start"
                     >
                       <input
-                        class="numeric-stepper__input z-1 order-1 tc bw1 b--transparent  br0 h-regular t-body w2 br2 hover-b--muted-4 ba outline-transparent hideDecorators"
+                        class="vtex-numeric-stepper__input numeric-stepper__input z-1 order-1 tc bw1 b--transparent  br0 h-regular t-body w2 br2 hover-b--muted-4 ba outline-transparent hideDecorators"
+                        step="1"
                         type="tel"
                         value="0"
                       />
                       <div
-                        class="numeric-stepper__plus-button-container z-2 order-2 flex-none"
+                        class="vtex-numeric-stepper__plus-button-container numeric-stepper__plus-button-container z-2 order-2 flex-none"
                       >
                         <button
                           aria-label="+"
-                          class="numeric-stepper__plus-button br2 pa0 bl-0 flex items-center justify-center b--transparent  h-regular f4  pointer bg-base c-action-primary outline-0 "
+                          class="vtex-numeric-stepper__plus-button numeric-stepper__plus-button br2 pa0 bl-0 flex items-center justify-center b--transparent  h-regular f4  pointer bg-base c-action-primary outline-0 "
                           style="border-top-left-radius: 0; border-bottom-left-radius: 0; width: 2em; transition: opacity 150ms;"
                           tabindex="0"
                           type="button"
                         >
                           <div
-                            class="numeric-stepper__plus-button__text b"
+                            class="vtex-numeric-stepper__plus-button__text numeric-stepper__plus-button__text b"
                           >
                             ＋
                           </div>
                         </button>
                       </div>
                       <div
-                        class="numeric-stepper__minus-button-container z-2 order-0 flex-none"
+                        class="vtex-numeric-stepper__minus-button-container numeric-stepper__minus-button-container z-2 order-0 flex-none"
                       >
                         <button
                           aria-label="−"
-                          class="numeric-stepper__minus-button br2 pa0 br-0 flex items-center justify-center b--transparent  h-regular f4  c-disabled bg-transparent "
+                          class="vtex-numeric-stepper__minus-button numeric-stepper__minus-button br2 pa0 br-0 flex items-center justify-center b--transparent  h-regular f4  c-disabled bg-transparent "
                           disabled=""
                           style="border-top-right-radius: 0; border-bottom-right-radius: 0; width: 2em; transition: opacity 150ms;"
                           tabindex="0"
                           type="button"
                         >
                           <span
-                            class="numeric-stepper__minus-button__text b"
+                            class="vtex-numeric-stepper__minus-button__text numeric-stepper__minus-button__text b"
                           >
                             －
                           </span>
@@ -1807,46 +1831,47 @@ exports[`ProductCustomizer components  render with no variations and press on Sm
                   class="multiple-choice__actions flex-none ml4 c-action-primary t-body fw5 z-1"
                 >
                   <div
-                    class="numeric-stepper-wrapper"
+                    class="vtex-numeric-stepper-wrapper numeric-stepper-wrapper"
                   >
                     <div
-                      class="numeric-stepper-container flex self-start"
+                      class="vtex-numeric-stepper-container numeric-stepper-container flex self-start"
                     >
                       <input
-                        class="numeric-stepper__input z-1 order-1 tc bw1 b--transparent  br0 h-regular t-body w2 br2 hover-b--muted-4 ba outline-transparent hideDecorators"
+                        class="vtex-numeric-stepper__input numeric-stepper__input z-1 order-1 tc bw1 b--transparent  br0 h-regular t-body w2 br2 hover-b--muted-4 ba outline-transparent hideDecorators"
+                        step="1"
                         type="tel"
                         value="0"
                       />
                       <div
-                        class="numeric-stepper__plus-button-container z-2 order-2 flex-none"
+                        class="vtex-numeric-stepper__plus-button-container numeric-stepper__plus-button-container z-2 order-2 flex-none"
                       >
                         <button
                           aria-label="+"
-                          class="numeric-stepper__plus-button br2 pa0 bl-0 flex items-center justify-center b--transparent  h-regular f4  pointer bg-base c-action-primary outline-0 "
+                          class="vtex-numeric-stepper__plus-button numeric-stepper__plus-button br2 pa0 bl-0 flex items-center justify-center b--transparent  h-regular f4  pointer bg-base c-action-primary outline-0 "
                           style="border-top-left-radius: 0; border-bottom-left-radius: 0; width: 2em; transition: opacity 150ms;"
                           tabindex="0"
                           type="button"
                         >
                           <div
-                            class="numeric-stepper__plus-button__text b"
+                            class="vtex-numeric-stepper__plus-button__text numeric-stepper__plus-button__text b"
                           >
                             ＋
                           </div>
                         </button>
                       </div>
                       <div
-                        class="numeric-stepper__minus-button-container z-2 order-0 flex-none"
+                        class="vtex-numeric-stepper__minus-button-container numeric-stepper__minus-button-container z-2 order-0 flex-none"
                       >
                         <button
                           aria-label="−"
-                          class="numeric-stepper__minus-button br2 pa0 br-0 flex items-center justify-center b--transparent  h-regular f4  c-disabled bg-transparent "
+                          class="vtex-numeric-stepper__minus-button numeric-stepper__minus-button br2 pa0 br-0 flex items-center justify-center b--transparent  h-regular f4  c-disabled bg-transparent "
                           disabled=""
                           style="border-top-right-radius: 0; border-bottom-right-radius: 0; width: 2em; transition: opacity 150ms;"
                           tabindex="0"
                           type="button"
                         >
                           <span
-                            class="numeric-stepper__minus-button__text b"
+                            class="vtex-numeric-stepper__minus-button__text numeric-stepper__minus-button__text b"
                           >
                             －
                           </span>

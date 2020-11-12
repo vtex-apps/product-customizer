@@ -10,3 +10,4 @@ react/**/__snapshots__/**
 react/**/*.test.js
 react/**/*.test.ts
 react/**/*.test.tsx
+react/setupTests.js
