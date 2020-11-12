@@ -5980,9 +5980,9 @@ vtex-tachyons@^3.2.0:
   version "0.15.1"
   resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.flex-layout@0.15.1/public/@types/vtex.flex-layout#b5e99e063dc79cf86c4a1167383e6661cfbc8e61"
 
-"vtex.native-types@https://kiwi--storecomponents.myvtex.com/_v/private/typings/linked/v1/vtex.native-types@0.7.1+build1605202753/public/@types/vtex.native-types":
+"vtex.native-types@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.native-types@0.7.1/public/@types/vtex.native-types":
   version "0.7.1"
-  resolved "https://kiwi--storecomponents.myvtex.com/_v/private/typings/linked/v1/vtex.native-types@0.7.1+build1605202753/public/@types/vtex.native-types#c16e35c3f84cd3b2cfa769ec789bbb45c2be8a6d"
+  resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.native-types@0.7.1/public/@types/vtex.native-types#a197484a2fdcee5c61a6d20ad6c994faa58380f5"
 
 "vtex.product-context@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.product-context@0.9.2/public/@types/vtex.product-context":
   version "0.9.2"

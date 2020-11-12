@@ -18,7 +18,7 @@
   "store/product-customizer.add-failure": "Algo deu errado e o item não pode ser adicionado ao seu carrinho!",
   "store/product-customizer.add-assembly": "Adicionar {name}",
   "store/product-customizer.remove-assembly": "Remover",
-  "store/product-customizer.subscription": "Subscription",
+  "store/product-customizer.subscription": "Assinatura",
   "store/product-customizer.subscription.frequency": "Frequência",
   "store/product-customizer.subscription.frequency.day": "A cada {frequencyNumber, plural, one {# dia} other {# dias}}",
   "store/product-customizer.subscription.frequency.month": "A cada {frequencyNumber, plural, one {# mês} other {# meses}}",
