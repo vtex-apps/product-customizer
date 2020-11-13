@@ -1,0 +1,484 @@
+{
+  "data": {
+    "product": {
+      "cacheId": "orange-juice",
+      "productId": "2000190",
+      "description": "Refreshing orange juice.",
+      "productName": "Orange Juice",
+      "productReference": "OJ230",
+      "linkText": "orange-juice",
+      "brand": "Kawasaki",
+      "brandId": 2000001,
+      "link": "https://portal.vtexcommercestable.com.br/orange-juice/p",
+      "categories": ["/Grocery/Drinks/", "/Grocery/"],
+      "priceRange": {
+        "sellingPrice": {
+          "highPrice": 12,
+          "lowPrice": 12,
+          "__typename": "PriceRange"
+        },
+        "listPrice": {
+          "highPrice": 12,
+          "lowPrice": 12,
+          "__typename": "PriceRange"
+        },
+        "__typename": "ProductPriceRange"
+      },
+      "specificationGroups": [],
+      "skuSpecifications": null,
+      "productClusters": [],
+      "clusterHighlights": [],
+      "properties": [],
+      "__typename": "Product",
+      "titleTag": "Orange Juice",
+      "metaTagDescription": "Refreshing orange juice.",
+      "categoryId": "154",
+      "items": [
+        {
+          "itemId": "310124173",
+          "name": "Orange Juice",
+          "nameComplete": "Orange Juice",
+          "complementName": "",
+          "ean": "8846956789130",
+          "variations": [],
+          "referenceId": null,
+          "measurementUnit": "oz",
+          "unitMultiplier": 2,
+          "images": [
+            {
+              "cacheId": "155638",
+              "imageId": "155638",
+              "imageLabel": "orange0juice",
+              "imageTag": "<img src=\"~/arquivos/ids/155638-#width#-#height#/Screen-Shot-2020-09-08-at-12.33.19-PM.png?v=637351760031370000\" width=\"#width#\" height=\"#height#\" alt=\"orange-juice\" id=\"\" />",
+              "imageUrl": "https://storecomponents.vtexassets.com/arquivos/ids/155638/Screen-Shot-2020-09-08-at-12.33.19-PM.png?v=637351760031370000",
+              "imageText": "orange-juice",
+              "__typename": "Image"
+            }
+          ],
+          "__typename": "SKU",
+          "videos": [],
+          "sellers": [
+            {
+              "sellerId": "1",
+              "sellerName": "VTEX",
+              "__typename": "Seller",
+              "addToCartLink": "https://portal.vtexcommercestable.com.br/checkout/cart/add?sku=310124173&qty=1&seller=1&sc=1&price=1200&cv=017c57ddc286f81bbb3588ba574d2456_&sc=1",
+              "sellerDefault": true,
+              "commertialOffer": {
+                "discountHighlights": [],
+                "teasers": [
+                  {
+                    "name": "8% Boleto",
+                    "conditions": {
+                      "minimumQuantity": 0,
+                      "parameters": [
+                        {
+                          "name": "PaymentMethodId",
+                          "value": "6",
+                          "__typename": "TeaserValue"
+                        }
+                      ],
+                      "__typename": "TeaserCondition"
+                    },
+                    "effects": {
+                      "parameters": [
+                        {
+                          "name": "PercentualDiscount",
+                          "value": "8.0",
+                          "__typename": "TeaserValue"
+                        }
+                      ],
+                      "__typename": "TeaserEffects"
+                    },
+                    "__typename": "Teaser"
+                  }
+                ],
+                "Price": 12,
+                "ListPrice": 12,
+                "Tax": 0,
+                "taxPercentage": 0,
+                "spotPrice": 12,
+                "PriceWithoutDiscount": 12,
+                "RewardValue": 0,
+                "PriceValidUntil": "2021-11-10T17:12:23Z",
+                "AvailableQuantity": 3000000,
+                "__typename": "Offer",
+                "CacheVersionUsedToCallCheckout": "017c57ddc286f81bbb3588ba574d2456_",
+                "Installments": [
+                  {
+                    "Value": 12,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 12,
+                    "NumberOfInstallments": 1,
+                    "Name": "American Express à vista",
+                    "PaymentSystemName": "American Express",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 12,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 12,
+                    "NumberOfInstallments": 1,
+                    "Name": "Visa à vista",
+                    "PaymentSystemName": "Visa",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 6,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 12,
+                    "NumberOfInstallments": 2,
+                    "Name": "Visa 2 vezes sem juros",
+                    "PaymentSystemName": "Visa",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 12,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 12,
+                    "NumberOfInstallments": 1,
+                    "Name": "Mastercard à vista",
+                    "PaymentSystemName": "Mastercard",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 6,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 12,
+                    "NumberOfInstallments": 2,
+                    "Name": "Mastercard 2 vezes sem juros",
+                    "PaymentSystemName": "Mastercard",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 12,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 12,
+                    "NumberOfInstallments": 1,
+                    "Name": "Boleto Bancário à vista",
+                    "PaymentSystemName": "Boleto Bancário",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 12,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 12,
+                    "NumberOfInstallments": 1,
+                    "Name": "Vale à vista",
+                    "PaymentSystemName": "Vale",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 12,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 12,
+                    "NumberOfInstallments": 1,
+                    "Name": "Promissory à vista",
+                    "PaymentSystemName": "Promissory",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 12,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 12,
+                    "NumberOfInstallments": 1,
+                    "Name": "Customer Credit à vista",
+                    "PaymentSystemName": "Customer Credit",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 6,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 12,
+                    "NumberOfInstallments": 2,
+                    "Name": "Customer Credit 2 vezes sem juros",
+                    "PaymentSystemName": "Customer Credit",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 12,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 12,
+                    "NumberOfInstallments": 1,
+                    "Name": "Free à vista",
+                    "PaymentSystemName": "Free",
+                    "__typename": "Installment"
+                  }
+                ]
+              }
+            }
+          ],
+          "kitItems": [],
+          "attachments": [
+            {
+              "id": "45",
+              "name": "vtex.subscription.juice",
+              "required": false,
+              "__typename": "Attachment"
+            }
+          ],
+          "estimatedDateArrival": null
+        }
+      ],
+      "itemMetadata": {
+        "items": [
+          {
+            "id": "310124173",
+            "name": "Orange Juice",
+            "imageUrl": "https://storecomponents.vtexassets.com/arquivos/ids/155638/Screen-Shot-2020-09-08-at-12.33.19-PM.png",
+            "seller": "1",
+            "assemblyOptions": [
+              {
+                "id": "vtex.subscription.juice",
+                "name": "vtex.subscription.juice",
+                "required": false,
+                "inputValues": [
+                  {
+                    "label": "vtex.subscription.key.frequency",
+                    "maxLength": null,
+                    "type": "OPTIONS",
+                    "domain": [
+                      "1 day",
+                      "7 day",
+                      "1 month",
+                      "2 month",
+                      "1 year",
+                      "2 year"
+                    ],
+                    "defaultValue": "7 day",
+                    "__typename": "InputValue"
+                  },
+                  {
+                    "label": "vtex.subscription.key.purchaseday",
+                    "maxLength": null,
+                    "type": "OPTIONS",
+                    "domain": ["1", " 2", " 6"],
+                    "defaultValue": "0",
+                    "__typename": "InputValue"
+                  }
+                ],
+                "composition": null,
+                "__typename": "AssemblyOption"
+              }
+            ],
+            "__typename": "ItemMetadataUnit"
+          }
+        ],
+        "priceTable": [],
+        "__typename": "ItemMetadata"
+      },
+      "benefits": [],
+      "categoryTree": [
+        {
+          "id": 153,
+          "name": "Grocery",
+          "href": "/grocery",
+          "__typename": "Category"
+        },
+        {
+          "id": 154,
+          "name": "Drinks",
+          "href": "/grocery/drinks",
+          "__typename": "Category"
+        }
+      ]
+    },
+    "selectedItem": {
+      "itemId": "310124173",
+      "name": "Orange Juice",
+      "nameComplete": "Orange Juice",
+      "complementName": "",
+      "ean": "8846956789130",
+      "variations": [],
+      "referenceId": null,
+      "measurementUnit": "oz",
+      "unitMultiplier": 2,
+      "images": [
+        {
+          "cacheId": "155638",
+          "imageId": "155638",
+          "imageLabel": "orange0juice",
+          "imageTag": "<img src=\"~/arquivos/ids/155638-#width#-#height#/Screen-Shot-2020-09-08-at-12.33.19-PM.png?v=637351760031370000\" width=\"#width#\" height=\"#height#\" alt=\"orange-juice\" id=\"\" />",
+          "imageUrl": "https://storecomponents.vtexassets.com/arquivos/ids/155638/Screen-Shot-2020-09-08-at-12.33.19-PM.png?v=637351760031370000",
+          "imageText": "orange-juice",
+          "__typename": "Image"
+        }
+      ],
+      "__typename": "SKU",
+      "videos": [],
+      "sellers": [
+        {
+          "sellerId": "1",
+          "sellerName": "VTEX",
+          "__typename": "Seller",
+          "addToCartLink": "https://portal.vtexcommercestable.com.br/checkout/cart/add?sku=310124173&qty=1&seller=1&sc=1&price=1200&cv=017c57ddc286f81bbb3588ba574d2456_&sc=1",
+          "sellerDefault": true,
+          "commertialOffer": {
+            "discountHighlights": [],
+            "teasers": [
+              {
+                "name": "8% Boleto",
+                "conditions": {
+                  "minimumQuantity": 0,
+                  "parameters": [
+                    {
+                      "name": "PaymentMethodId",
+                      "value": "6",
+                      "__typename": "TeaserValue"
+                    }
+                  ],
+                  "__typename": "TeaserCondition"
+                },
+                "effects": {
+                  "parameters": [
+                    {
+                      "name": "PercentualDiscount",
+                      "value": "8.0",
+                      "__typename": "TeaserValue"
+                    }
+                  ],
+                  "__typename": "TeaserEffects"
+                },
+                "__typename": "Teaser"
+              }
+            ],
+            "Price": 12,
+            "ListPrice": 12,
+            "Tax": 0,
+            "taxPercentage": 0,
+            "spotPrice": 12,
+            "PriceWithoutDiscount": 12,
+            "RewardValue": 0,
+            "PriceValidUntil": "2021-11-10T17:12:23Z",
+            "AvailableQuantity": 3000000,
+            "__typename": "Offer",
+            "CacheVersionUsedToCallCheckout": "017c57ddc286f81bbb3588ba574d2456_",
+            "Installments": [
+              {
+                "Value": 12,
+                "InterestRate": 0,
+                "TotalValuePlusInterestRate": 12,
+                "NumberOfInstallments": 1,
+                "Name": "American Express à vista",
+                "PaymentSystemName": "American Express",
+                "__typename": "Installment"
+              },
+              {
+                "Value": 12,
+                "InterestRate": 0,
+                "TotalValuePlusInterestRate": 12,
+                "NumberOfInstallments": 1,
+                "Name": "Visa à vista",
+                "PaymentSystemName": "Visa",
+                "__typename": "Installment"
+              },
+              {
+                "Value": 6,
+                "InterestRate": 0,
+                "TotalValuePlusInterestRate": 12,
+                "NumberOfInstallments": 2,
+                "Name": "Visa 2 vezes sem juros",
+                "PaymentSystemName": "Visa",
+                "__typename": "Installment"
+              },
+              {
+                "Value": 12,
+                "InterestRate": 0,
+                "TotalValuePlusInterestRate": 12,
+                "NumberOfInstallments": 1,
+                "Name": "Mastercard à vista",
+                "PaymentSystemName": "Mastercard",
+                "__typename": "Installment"
+              },
+              {
+                "Value": 6,
+                "InterestRate": 0,
+                "TotalValuePlusInterestRate": 12,
+                "NumberOfInstallments": 2,
+                "Name": "Mastercard 2 vezes sem juros",
+                "PaymentSystemName": "Mastercard",
+                "__typename": "Installment"
+              },
+              {
+                "Value": 12,
+                "InterestRate": 0,
+                "TotalValuePlusInterestRate": 12,
+                "NumberOfInstallments": 1,
+                "Name": "Boleto Bancário à vista",
+                "PaymentSystemName": "Boleto Bancário",
+                "__typename": "Installment"
+              },
+              {
+                "Value": 12,
+                "InterestRate": 0,
+                "TotalValuePlusInterestRate": 12,
+                "NumberOfInstallments": 1,
+                "Name": "Vale à vista",
+                "PaymentSystemName": "Vale",
+                "__typename": "Installment"
+              },
+              {
+                "Value": 12,
+                "InterestRate": 0,
+                "TotalValuePlusInterestRate": 12,
+                "NumberOfInstallments": 1,
+                "Name": "Promissory à vista",
+                "PaymentSystemName": "Promissory",
+                "__typename": "Installment"
+              },
+              {
+                "Value": 12,
+                "InterestRate": 0,
+                "TotalValuePlusInterestRate": 12,
+                "NumberOfInstallments": 1,
+                "Name": "Customer Credit à vista",
+                "PaymentSystemName": "Customer Credit",
+                "__typename": "Installment"
+              },
+              {
+                "Value": 6,
+                "InterestRate": 0,
+                "TotalValuePlusInterestRate": 12,
+                "NumberOfInstallments": 2,
+                "Name": "Customer Credit 2 vezes sem juros",
+                "PaymentSystemName": "Customer Credit",
+                "__typename": "Installment"
+              },
+              {
+                "Value": 12,
+                "InterestRate": 0,
+                "TotalValuePlusInterestRate": 12,
+                "NumberOfInstallments": 1,
+                "Name": "Free à vista",
+                "PaymentSystemName": "Free",
+                "__typename": "Installment"
+              }
+            ]
+          }
+        }
+      ],
+      "kitItems": [],
+      "attachments": [
+        {
+          "id": "45",
+          "name": "vtex.subscription.juice",
+          "required": false,
+          "__typename": "Attachment"
+        }
+      ],
+      "estimatedDateArrival": null
+    },
+    "selectedQuantity": 1,
+    "skuSelector": {
+      "selectedImageVariationSKU": null,
+      "isVisible": false,
+      "areAllVariationsSelected": true
+    },
+    "buyButton": { "clicked": false },
+    "assemblyOptions": {
+      "items": { "vtex.subscription.juice": [] },
+      "inputValues": { "vtex.subscription.juice": {} },
+      "areGroupsValid": { "vtex.subscription.juice": true }
+    }
+  }
+}

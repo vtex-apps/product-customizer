@@ -7,15 +7,17 @@ import useInputValue, { useInputValueId } from './useInputValue'
 const CSS_HANDLES = ['booleanInputValue'] as const
 
 const BooleanInputValue: FC<Props> = ({ inputValueInfo }) => {
-  const [state, onChange] = useInputValue(inputValueInfo)
+  const [state, onChange] = useInputValue(inputValueInfo.label)
   const id = useInputValueId(inputValueInfo)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.checked
+
     onChange({ value })
   }
 
   const handles = useCssHandles(CSS_HANDLES)
+
   return (
     <div className={`${handles.booleanInputValue} mb4`}>
       <Checkbox

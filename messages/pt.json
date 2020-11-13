@@ -17,5 +17,13 @@
   "store/product-customizer.buy-success": "Seu produto foi adicionado ao carrinho!",
   "store/product-customizer.add-failure": "Algo deu errado e o item não pode ser adicionado ao seu carrinho!",
   "store/product-customizer.add-assembly": "Adicionar {name}",
-  "store/product-customizer.remove-assembly": "Remover"
+  "store/product-customizer.remove-assembly": "Remover",
+  "store/product-customizer.subscription": "Assinatura",
+  "store/product-customizer.subscription.frequency": "Frequência",
+  "store/product-customizer.subscription.frequency.day": "A cada {frequencyNumber, plural, one {# dia} other {# dias}}",
+  "store/product-customizer.subscription.frequency.month": "A cada {frequencyNumber, plural, one {# mês} other {# meses}}",
+  "store/product-customizer.subscription.frequency.week": "A cada {frequencyNumber, plural, one {# semana} other {# semanas}}",
+  "store/product-customizer.subscription.frequency.year": "A cada {frequencyNumber, plural, one {# ano} other {# anos}}",
+  "store/product-customizer.subscription.purchaseday": "Dia da compra",
+  "store/product-customizer.subscription.purchaseday.day": "{day}º dia do mês"
 }

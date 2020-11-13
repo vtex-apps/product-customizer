@@ -17,5 +17,13 @@
   "store/product-customizer.buy-success": "Su producto se ha agregado a la cesta!",
   "store/product-customizer.add-failure": "¡Algo salió mal y el artículo no se agregó a tu carrito!",
   "store/product-customizer.add-assembly": "Sumar {name}",
-  "store/product-customizer.remove-assembly": "Eliminar"
+  "store/product-customizer.remove-assembly": "Eliminar",
+  "store/product-customizer.subscription": "Suscripción",
+  "store/product-customizer.subscription.frequency": "Frecuencia",
+  "store/product-customizer.subscription.frequency.day": "Cada {frequencyNumber, plural, one {# dia} other {# dias}}",
+  "store/product-customizer.subscription.frequency.month": "Cada {frequencyNumber, plural, one {# mes} other {# meses}}",
+  "store/product-customizer.subscription.frequency.week": "Cada {frequencyNumber, plural, one {# semana} other {# semanas}}",
+  "store/product-customizer.subscription.frequency.year": "Cada {frequencyNumber, plural, one {# año} other {# años}}",
+  "store/product-customizer.subscription.purchaseday": "Día de facturación",
+  "store/product-customizer.subscription.purchaseday.day": "{day}º dia del mes"
 }
