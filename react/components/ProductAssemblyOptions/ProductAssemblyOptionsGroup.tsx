@@ -12,7 +12,7 @@ import { ProductAssemblyItemProvider } from '../ProductAssemblyContext/Item'
 import ProductAssemblyOptionsItem from './ProductAssemblyOptionsItem'
 import {
   formatSubscriptionLabel,
-  isSubscription,
+  isSubscriptionRelated,
 } from '../../modules/subscriptions'
 
 interface Props {
@@ -38,7 +38,7 @@ const ProductAssemblyOptionsGroup: FC<Props> = ({
     })
   }
 
-  const groupName = isSubscription(assemblyOptionGroup.groupName)
+  const groupName = isSubscriptionRelated(assemblyOptionGroup.groupName)
     ? formatSubscriptionLabel(assemblyOptionGroup.groupName, intl)
     : assemblyOptionGroup.groupName
 

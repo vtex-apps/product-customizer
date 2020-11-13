@@ -9,7 +9,7 @@ import OptionBox from './OptionBox'
 import {
   formatSubscriptionLabel,
   formatSubscriptionOptions,
-  isSubscription,
+  isSubscriptionRelated,
   parseFrequency,
   SUBSCRIPTION_KEY_PURCHASEDAY,
   SUBSCRIPTION_KEY_FREQUENCY,
@@ -83,8 +83,6 @@ const BoxOptions: FC<InnerProps> = ({ label, options, inputId }) => {
 
       case 'ArrowLeft': {
         const count = options.length
-        // Linter is triggering a false positive here :/
-        // eslint-disable-next-line @typescript-eslint/restrict-plus-operands
         const previousSelectedIndex = (selectedIndex - 1 + count) % count
         const newOption = options[previousSelectedIndex]
 
@@ -193,7 +191,7 @@ const SubscriptionOption: FC<Props> = ({ optionsDisplay, inputValueInfo }) => {
 const OptionsInputValue: FC<Props> = (props) => {
   const { optionsDisplay = 'select', inputValueInfo } = props
 
-  if (isSubscription(inputValueInfo.label)) {
+  if (isSubscriptionRelated(inputValueInfo.label)) {
     return <SubscriptionOption {...props} />
   }
 

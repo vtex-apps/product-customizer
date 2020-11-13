@@ -30,20 +30,24 @@ const frequencyMessages = defineMessages({
   year: { id: 'store/product-customizer.subscription.frequency.year' },
 })
 
-export function isSubscription(id: string) {
-  return Boolean(id.indexOf(SUBSCRIPTION_PREFIX) === 0)
+export function isSubscriptionRelated(id: string) {
+  return id.indexOf(SUBSCRIPTION_PREFIX) === 0
+}
+
+export function isSubscriptionKey(id: string) {
+  return id.indexOf(SUBSCRIPTION_KEY_PREFIX) === 0
 }
 
 function getSubscriptionMessageId(id: string) {
   // uses the 'keyName' of vtex.subscription.key.{keyName}
-  if (id.indexOf(SUBSCRIPTION_KEY_PREFIX) === 0) {
+  if (isSubscriptionKey(id)) {
     return messages[
       id.slice(SUBSCRIPTION_KEY_PREFIX.length + 1) as keyof typeof messages
     ]
   }
 
   // uses 'subscriptions' for vtex.subscription.*
-  if (id.indexOf(SUBSCRIPTION_PREFIX) === 0) {
+  if (isSubscriptionRelated(id)) {
     return messages.subscription
   }
 
@@ -61,15 +65,15 @@ export function formatSubscriptionLabel(id: string, intl: IntlShape) {
 export function parseFrequency(
   frequency?: string
 ): SubscriptionFrequency | undefined {
-  if (frequency == null) return undefined
+  if (frequency == null) return
 
   const match = frequency.match(FREQUENCY_PATTERN)
 
-  if (!match) return undefined
+  if (!match) return
 
   const [, count, type] = match
 
-  if (!type) return undefined
+  if (!type) return
 
   return {
     interval: +count,
