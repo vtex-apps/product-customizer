@@ -5964,9 +5964,9 @@ vtex-tachyons@^3.2.0:
   version "0.15.1"
   resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.flex-layout@0.15.1/public/@types/vtex.flex-layout#b5e99e063dc79cf86c4a1167383e6661cfbc8e61"
 
-"vtex.native-types@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.native-types@0.7.2/public/@types/vtex.native-types":
-  version "0.7.2"
-  resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.native-types@0.7.2/public/@types/vtex.native-types#a3879125a3617547bcb6edf20db77ee4a664c81d"
+"vtex.native-types@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.native-types@0.7.3/public/@types/vtex.native-types":
+  version "0.7.3"
+  resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.native-types@0.7.3/public/@types/vtex.native-types#8b32238685324687995052e8c746449bcc00985c"
 
 "vtex.product-context@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.product-context@0.9.2/public/@types/vtex.product-context":
   version "0.9.2"
@@ -5976,13 +5976,13 @@ vtex-tachyons@^3.2.0:
   version "0.0.0"
   resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.product-details@1.19.10/public/_types/react#fa7a0347e046eab3dd768998fc9252b2c0dd5aef"
 
-"vtex.render-runtime@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.render-runtime@8.124.3/public/@types/vtex.render-runtime":
-  version "8.124.3"
-  resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.render-runtime@8.124.3/public/@types/vtex.render-runtime#8158e34bd24b4a51cb5d463eeef4e37af626c2d5"
+"vtex.render-runtime@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.render-runtime@8.126.0/public/@types/vtex.render-runtime":
+  version "8.126.0"
+  resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.render-runtime@8.126.0/public/@types/vtex.render-runtime#910cb26d40acb46be4d35d654948ae6a191d1057"
 
-"vtex.store-components@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.store-components@3.131.2/public/@types/vtex.store-components":
-  version "3.131.2"
-  resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.store-components@3.131.2/public/@types/vtex.store-components#ef90f420736fcf95b2e6051e254958da13f9518e"
+"vtex.store-components@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.store-components@3.132.0/public/@types/vtex.store-components":
+  version "3.132.0"
+  resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.store-components@3.132.0/public/@types/vtex.store-components#df6ee92d49029eee3e4de1e1c7ccda99a8b7404a"
 
 "vtex.styleguide@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.styleguide@9.133.2/public/@types/vtex.styleguide":
   version "9.133.2"
