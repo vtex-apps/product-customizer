@@ -116,6 +116,18 @@ In order to apply CSS customizations in this and other blocks, follow the instru
 | `optionsInputValueLabelContainer` | 
 | `optionsInputValueOptionBoxContainer` |
 | `textInputValue` |
+| `modalViewProductContainer` |
+| `modalViewProductImage` |
+| `modalViewProductName` |
+| `modalViewProductInfos` |
+| `modalViewDoneButton` |
+| `productAssemblyOptionItemCustomize` |
+| `productAssemblyOptionItemCustomize__label` |
+| `productAssemblyOptionItemImage` |
+| `productAssemblyOptionItemName` |
+| `productAssemblyGroupName` |
+| `productAssemblyGroupNameRow` |
+| `productAssemblyGroupRequiredTag` |
 
 <!-- DOCS-IGNORE:start -->
 
