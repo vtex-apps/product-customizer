@@ -17,6 +17,7 @@ const CSS_HANDLES = [
   'modalViewProductName',
   'modalViewProductInfos',
   'modalViewDoneButton',
+  'modalViewTitle',
   'productAssemblyOptionItemCustomize',
   'productAssemblyOptionItemCustomize__label',
 ] as const
@@ -142,12 +143,16 @@ const ProductAssemblyOptionItemCustomize: FC<Props> = ({
         isOpen={modalOpen}
         onClose={closeAction}
         centered={!isMobile}
-        title={intl.formatMessage(
-          {
-            id: 'store/product-customizer.modal-view.title',
-          },
-          { name }
-        )}
+        title={
+          <div className={handles.modalViewTitle}>
+            {intl.formatMessage(
+              {
+                id: 'store/product-customizer.modal-view.title',
+              },
+              { name }
+            )}
+          </div>
+        }
         {...modalProps}
       >
         <ModalView closeAction={closeAction}>{children}</ModalView>
