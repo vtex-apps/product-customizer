@@ -25,5 +25,8 @@
   "store/product-customizer.subscription.frequency.month": "Every {interval, plural, one {month} other {# months}}",
   "store/product-customizer.subscription.frequency.week": "Every {interval, plural, one {week} other {# weeks}}",
   "store/product-customizer.subscription.frequency.year": "Every {interval, plural, one {year} other {# years}}",
-  "store/product-customizer.subscription.purchaseday.day": "{day, plural, one {1st} two {2nd} three {3rd} other {#th}} day of the month"
+  "store/product-customizer.subscription.purchaseday.day": "{day, plural, one {1st} two {2nd} three {3rd} other {#th}} day of the month",
+  "store/product-customizer.modal-view.title": "store/product-customizer.modal-view.title",
+  "store/product-customizer.button-text": "store/product-customizer.button-text",
+  "store/product-customizer.modal-view.done-button": "store/product-customizer.modal-view.done-button"
 }

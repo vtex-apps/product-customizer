@@ -25,5 +25,8 @@
   "store/product-customizer.subscription.frequency.week": "Cada {frequencyNumber, plural, one {# semana} other {# semanas}}",
   "store/product-customizer.subscription.frequency.year": "Cada {frequencyNumber, plural, one {# año} other {# años}}",
   "store/product-customizer.subscription.purchaseday": "Día de facturación",
-  "store/product-customizer.subscription.purchaseday.day": "{day}º dia del mes"
+  "store/product-customizer.subscription.purchaseday.day": "{day}º dia del mes",
+  "store/product-customizer.modal-view.title": "Personalizar {name}",
+  "store/product-customizer.button-text": "Personalizar",
+  "store/product-customizer.modal-view.done-button": "Hecho"
 }
