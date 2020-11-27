@@ -84,7 +84,7 @@ const ProductAssemblyOptionsGroup: FC<Props> = ({
                 </Button>
               </div>
             ) : (
-              <div className={handles.productAssemblyGroupRequiredTag}>
+              <div className={`${handles.productAssemblyGroupRequiredTag} f7`}>
                 <FormattedMessage id="store/product-customizer.required" />
               </div>
             )}
