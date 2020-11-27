@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+
+- "Required" tag on assemblies groups
+- Basic Translations on static texts
+- CSS handles classes
+
 ## [2.9.2] - 2020-11-13
 ### Fixed
 - Subscription labels not being localized.
