@@ -20,10 +20,10 @@
   "store/product-customizer.remove-assembly": "Eliminar",
   "store/product-customizer.subscription": "Suscripción",
   "store/product-customizer.subscription.frequency": "Frecuencia",
-  "store/product-customizer.subscription.frequency.day": "Cada {frequencyNumber, plural, one {# dia} other {# dias}}",
-  "store/product-customizer.subscription.frequency.month": "Cada {frequencyNumber, plural, one {# mes} other {# meses}}",
-  "store/product-customizer.subscription.frequency.week": "Cada {frequencyNumber, plural, one {# semana} other {# semanas}}",
-  "store/product-customizer.subscription.frequency.year": "Cada {frequencyNumber, plural, one {# año} other {# años}}",
+  "store/product-customizer.subscription.frequency.day": "Cada {interval, plural, one {# dia} other {# dias}}",
+  "store/product-customizer.subscription.frequency.month": "Cada {interval, plural, one {# mes} other {# meses}}",
+  "store/product-customizer.subscription.frequency.week": "Cada {interval, plural, one {# semana} other {# semanas}}",
+  "store/product-customizer.subscription.frequency.year": "Cada {interval, plural, one {# año} other {# años}}",
   "store/product-customizer.subscription.purchaseday": "Día de facturación",
   "store/product-customizer.subscription.purchaseday.day": "{day}º dia del mes"
 }
