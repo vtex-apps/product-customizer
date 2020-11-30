@@ -56,6 +56,7 @@ const initState = (assemblyOption: AssemblyOptionGroupState) => {
     Record<string, string | boolean>
   >((acc, inputValue) => {
     acc[inputValue.label] = inputValue.defaultValue
+
     return acc
   }, {})
 
@@ -87,6 +88,7 @@ function getGroupPath(assemblyTreePath?: TreePath[]) {
   const treePath = assemblyTreePath ?? []
 
   let groupPath: string[] = []
+
   for (const currentPath of treePath) {
     groupPath = groupPath.concat([
       'items',
@@ -135,6 +137,7 @@ function reducer(
 
       return { ...state }
     }
+
     case 'SET_INPUT_VALUE': {
       const { groupPath, inputValue, inputValueLabel } = action.args
       const groupState = getGroupState(state, groupPath)
@@ -143,13 +146,15 @@ function reducer(
 
       return { ...state }
     }
+
     case 'SET_QUANTITY': {
       if (!state.items) {
         return state
       }
 
       const { itemId, newQuantity, type, groupPath } = action.args
-      const groupState = path(groupPath, state) as AssemblyOptionGroup
+      const groupState = (path(groupPath, state) ??
+        state) as AssemblyOptionGroup
 
       if (type === GROUP_TYPES.SINGLE) {
         groupState.items = removeAllItems(groupState.items)
@@ -158,7 +163,9 @@ function reducer(
       const newItems = {
         ...groupState.items,
         ...(itemId && groupState.items && groupState.items[itemId]
-          ? { [itemId]: { ...groupState.items[itemId], quantity: newQuantity } }
+          ? {
+              [itemId]: { ...groupState.items[itemId], quantity: newQuantity },
+            }
           : {}),
       }
 
@@ -172,6 +179,7 @@ function reducer(
 
       return { ...state }
     }
+
     default:
       return state
   }
@@ -184,6 +192,7 @@ function removeAllItems(items: Record<string, AssemblyItem>) {
         ...items[itemId],
         quantity: 0,
       }
+
       return acc
     },
     {}
