@@ -8,10 +8,17 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 
 ### Added
-
 - "Required" tag on assemblies groups
 - Basic Translations on static texts
 - CSS handles classes
+
+## [2.9.4] - 2020-11-30
+### Fixed
+- ModalView customize error
+
+## [2.9.3] - 2020-11-30
+### Fixed
+- Subscription messages for `es` and `pt` locales.
 
 ## [2.9.2] - 2020-11-13
 ### Fixed
