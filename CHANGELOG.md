@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 ### Fixed
 - Hard-coded `customize` string replaced with `FormattedMessage`.
+- Prevent events from modal content being propagated to its react-tree parents.
 
 ## [2.9.2] - 2020-11-13
 ### Fixed

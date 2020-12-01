@@ -9,6 +9,7 @@ import ProductAssemblyOptionsGroup from './ProductAssemblyOptionsGroup'
 import { imageUrlForSize } from './ProductAssemblyOptionItemImage'
 import { ProductAssemblyGroupContextProvider } from '../ProductAssemblyContext/Group'
 import { withItem } from './withItem'
+import StopPropagation from '../StopPropagation'
 
 const IMG_SIZE = 140
 
@@ -107,14 +108,16 @@ const ProductAssemblyOptionItemCustomize: FC<Props> = ({
           <FormattedMessage id="store/product-customizer.customize" />
         </div>
       </Button>
-      <Modal
-        isOpen={modalOpen}
-        onClose={closeAction}
-        centered={!isMobile}
-        title={`Customize your ${name}`}
-      >
-        <ModalView closeAction={closeAction}>{children}</ModalView>
-      </Modal>
+      <StopPropagation>
+        <Modal
+          isOpen={modalOpen}
+          onClose={closeAction}
+          centered={!isMobile}
+          title={`Customize your ${name}`}
+        >
+          <ModalView closeAction={closeAction}>{children}</ModalView>
+        </Modal>
+      </StopPropagation>
     </Fragment>
   )
 }
