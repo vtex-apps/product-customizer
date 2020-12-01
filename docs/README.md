@@ -109,25 +109,25 @@ In order to apply CSS customizations in this and other blocks, follow the instru
 | `booleanInputValue`| 
 | `inputValueOptionBox` |
 | `itemContainer` | 
-| `multipleItemQuantitySelector` | 
-| `optionsInputValue` | 
-| `optionsInputValueDropdown` | 
-| `optionsInputValueLabel` |
-| `optionsInputValueLabelContainer` | 
-| `optionsInputValueOptionBoxContainer` |
-| `textInputValue` |
-| `modalViewProductContainer` |
-| `modalViewProductImage` |
-| `modalViewProductName` |
+| `modalViewDoneButton` | 
+| `modalViewProductContainer` | 
+| `modalViewProductImage` | 
 | `modalViewProductInfos` |
-| `modalViewDoneButton` |
+| `modalViewProductName` | 
+| `multipleItemQuantitySelector` |
+| `optionsInputValue` |
+| `optionsInputValueDropdown` |
+| `optionsInputValueLabel` |
+| `optionsInputValueLabelContainer` |
+| `optionsInputValueOptionBoxContainer` |
+| `productAssemblyGroupName` |
+| `productAssemblyGroupNameRow` |
+| `productAssemblyGroupRequiredTag` |
 | `productAssemblyOptionItemCustomize` |
 | `productAssemblyOptionItemCustomize__label` |
 | `productAssemblyOptionItemImage` |
 | `productAssemblyOptionItemName` |
-| `productAssemblyGroupName` |
-| `productAssemblyGroupNameRow` |
-| `productAssemblyGroupRequiredTag` |
+| `textInputValue` |
 
 <!-- DOCS-IGNORE:start -->
 
