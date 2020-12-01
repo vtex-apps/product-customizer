@@ -2,6 +2,7 @@ import React, { Fragment, useState, FC } from 'react'
 import { Button, Modal } from 'vtex.styleguide'
 import ProductPrice from 'vtex.store-components/ProductPrice'
 import { useDevice } from 'vtex.device-detector'
+import { FormattedMessage } from 'react-intl'
 
 import { useProductAssemblyItem } from '../ProductAssemblyContext/Item'
 import ProductAssemblyOptionsGroup from './ProductAssemblyOptionsGroup'
@@ -102,7 +103,9 @@ const ProductAssemblyOptionItemCustomize: FC<Props> = ({
         collapseLeft={buttonCollapse === 'left'}
         collapseRight={buttonCollapse === 'right'}
       >
-        <div className="c-action-primary t-action">Customize</div>
+        <div className="c-action-primary t-action">
+          <FormattedMessage id="store/product-customizer.customize" />
+        </div>
       </Button>
       <Modal
         isOpen={modalOpen}
