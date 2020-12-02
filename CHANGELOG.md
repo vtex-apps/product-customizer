@@ -12,6 +12,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Basic Translations on static texts
 - CSS handles classes
 
+## [2.9.5] - 2020-12-01
+### Fixed
+- Hard-coded `customize` string replaced with `FormattedMessage`.
+- Prevent events from modal content being propagated to its react-tree parents.
+
 ## [2.9.4] - 2020-11-30
 ### Fixed
 - ModalView customize error

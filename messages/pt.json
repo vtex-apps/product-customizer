@@ -27,6 +27,6 @@
   "store/product-customizer.subscription.purchaseday": "Dia da compra",
   "store/product-customizer.subscription.purchaseday.day": "{day}º dia do mês",
   "store/product-customizer.modal-view.title": "Customizar {name}",
-  "store/product-customizer.button-text": "Customizar",
+  "store/product-customizer.customize": "Customizar",
   "store/product-customizer.modal-view.done-button": "Feito"
 }

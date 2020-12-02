@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react'
-import { useIntl } from 'react-intl'
+import { FormattedMessage, useIntl } from 'react-intl'
 import { useCssHandles } from 'vtex.css-handles'
 import { useDevice } from 'vtex.device-detector'
 import ProductPrice from 'vtex.store-components/ProductPrice'
@@ -7,6 +7,7 @@ import { Button, Modal } from 'vtex.styleguide'
 
 import { ProductAssemblyGroupContextProvider } from '../ProductAssemblyContext/Group'
 import { useProductAssemblyItem } from '../ProductAssemblyContext/Item'
+import StopPropagation from '../StopPropagation'
 import { imageUrlForSize } from './ProductAssemblyOptionItemImage'
 import ProductAssemblyOptionsGroup from './ProductAssemblyOptionsGroup'
 import { withItem } from './withItem'
@@ -134,29 +135,29 @@ const ProductAssemblyOptionItemCustomize: FC<Props> = ({
         <div
           className={`${handles.productAssemblyOptionItemCustomize__label} c-action-primary t-action`}
         >
-          {intl.formatMessage({
-            id: 'store/product-customizer.button-text',
-          })}
+          <FormattedMessage id="store/product-customizer.customize" />
         </div>
       </Button>
-      <Modal
-        isOpen={modalOpen}
-        onClose={closeAction}
-        centered={!isMobile}
-        title={
-          <div className={handles.modalViewTitle}>
-            {intl.formatMessage(
-              {
-                id: 'store/product-customizer.modal-view.title',
-              },
-              { name }
-            )}
-          </div>
-        }
-        {...modalProps}
-      >
-        <ModalView closeAction={closeAction}>{children}</ModalView>
-      </Modal>
+      <StopPropagation>
+        <Modal
+          isOpen={modalOpen}
+          onClose={closeAction}
+          centered={!isMobile}
+          title={
+            <div className={handles.modalViewTitle}>
+              {intl.formatMessage(
+                {
+                  id: 'store/product-customizer.modal-view.title',
+                },
+                { name }
+              )}
+            </div>
+          }
+          {...modalProps}
+        >
+          <ModalView closeAction={closeAction}>{children}</ModalView>
+        </Modal>
+      </StopPropagation>
     </div>
   )
 }
