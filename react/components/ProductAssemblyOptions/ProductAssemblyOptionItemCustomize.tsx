@@ -20,7 +20,7 @@ const CSS_HANDLES = [
   'modalViewDoneButton',
   'modalViewTitle',
   'productAssemblyOptionItemCustomize',
-  'productAssemblyOptionItemCustomize__label',
+  'productAssemblyOptionItemCustomizeLabel',
 ] as const
 
 const IMG_SIZE = 140
