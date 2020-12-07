@@ -1,19 +1,26 @@
 import React, { FC, Fragment } from 'react'
-import { Button } from 'vtex.styleguide'
+import { FormattedMessage, useIntl } from 'react-intl'
+import { useCssHandles } from 'vtex.css-handles'
 import { IOMessage } from 'vtex.native-types'
-import { useIntl } from 'react-intl'
+import { Button } from 'vtex.styleguide'
 
-import {
-  useProductAssemblyGroupState,
-  useProductAssemblyGroupDispatch,
-} from '../ProductAssemblyContext/Group'
-import useAssemblyOptionsModifications from '../../modules/useAssemblyOptionsModifications'
-import { ProductAssemblyItemProvider } from '../ProductAssemblyContext/Item'
-import ProductAssemblyOptionsItem from './ProductAssemblyOptionsItem'
 import {
   formatSubscriptionLabel,
   isSubscriptionRelated,
 } from '../../modules/subscriptions'
+import useAssemblyOptionsModifications from '../../modules/useAssemblyOptionsModifications'
+import {
+  useProductAssemblyGroupDispatch,
+  useProductAssemblyGroupState,
+} from '../ProductAssemblyContext/Group'
+import { ProductAssemblyItemProvider } from '../ProductAssemblyContext/Item'
+import ProductAssemblyOptionsItem from './ProductAssemblyOptionsItem'
+
+const CSS_HANDLES = [
+  'productAssemblyGroupName',
+  'productAssemblyGroupNameRow',
+  'productAssemblyGroupRequiredTag',
+] as const
 
 interface Props {
   initiallyOpened?: 'always' | 'required'
@@ -24,6 +31,7 @@ const ProductAssemblyOptionsGroup: FC<Props> = ({
   initiallyOpened = 'required',
 }) => {
   const intl = useIntl()
+  const handles = useCssHandles(CSS_HANDLES)
   const assemblyOptionGroup = useProductAssemblyGroupState() as AssemblyOptionGroupState
   const dispatch = useProductAssemblyGroupDispatch()
 
@@ -53,9 +61,15 @@ const ProductAssemblyOptionsGroup: FC<Props> = ({
         </Button>
       ) : (
         <Fragment>
-          <div className="flex justify-between">
-            <div className="ttc-s pv4 c-muted-2 t-small">{groupName}</div>
-            {assemblyOptionGroup.required === false && (
+          <div
+            className={`${handles.productAssemblyGroupNameRow} flex justify-between items-center`}
+          >
+            <div
+              className={`${handles.productAssemblyGroupName} ttc-s pv4 c-muted-2 t-small`}
+            >
+              {groupName}
+            </div>
+            {assemblyOptionGroup.required === false ? (
               <div>
                 <Button
                   size="small"
@@ -68,6 +82,10 @@ const ProductAssemblyOptionsGroup: FC<Props> = ({
                     values={{ name: groupName }}
                   />
                 </Button>
+              </div>
+            ) : (
+              <div className={`${handles.productAssemblyGroupRequiredTag} f7`}>
+                <FormattedMessage id="store/product-customizer.required" />
               </div>
             )}
           </div>

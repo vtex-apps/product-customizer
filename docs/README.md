@@ -109,12 +109,24 @@ In order to apply CSS customizations in this and other blocks, follow the instru
 | `booleanInputValue`| 
 | `inputValueOptionBox` |
 | `itemContainer` | 
-| `multipleItemQuantitySelector` | 
-| `optionsInputValue` | 
-| `optionsInputValueDropdown` | 
+| `modalViewDoneButton` | 
+| `modalViewProductContainer` | 
+| `modalViewProductImage` | 
+| `modalViewProductInfos` |
+| `modalViewProductName` | 
+| `multipleItemQuantitySelector` |
+| `optionsInputValue` |
+| `optionsInputValueDropdown` |
 | `optionsInputValueLabel` |
-| `optionsInputValueLabelContainer` | 
+| `optionsInputValueLabelContainer` |
 | `optionsInputValueOptionBoxContainer` |
+| `productAssemblyGroupName` |
+| `productAssemblyGroupNameRow` |
+| `productAssemblyGroupRequiredTag` |
+| `productAssemblyOptionItemCustomize` |
+| `productAssemblyOptionItemCustomize__label` |
+| `productAssemblyOptionItemImage` |
+| `productAssemblyOptionItemName` |
 | `textInputValue` |
 
 <!-- DOCS-IGNORE:start -->

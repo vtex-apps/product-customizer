@@ -1,15 +1,27 @@
-import React, { Fragment, useState, FC } from 'react'
-import { Button, Modal } from 'vtex.styleguide'
-import ProductPrice from 'vtex.store-components/ProductPrice'
+import React, { FC, useState } from 'react'
+import { FormattedMessage, useIntl } from 'react-intl'
+import { useCssHandles } from 'vtex.css-handles'
 import { useDevice } from 'vtex.device-detector'
-import { FormattedMessage } from 'react-intl'
+import ProductPrice from 'vtex.store-components/ProductPrice'
+import { Button, Modal } from 'vtex.styleguide'
 
-import { useProductAssemblyItem } from '../ProductAssemblyContext/Item'
-import ProductAssemblyOptionsGroup from './ProductAssemblyOptionsGroup'
-import { imageUrlForSize } from './ProductAssemblyOptionItemImage'
 import { ProductAssemblyGroupContextProvider } from '../ProductAssemblyContext/Group'
-import { withItem } from './withItem'
+import { useProductAssemblyItem } from '../ProductAssemblyContext/Item'
 import StopPropagation from '../StopPropagation'
+import { imageUrlForSize } from './ProductAssemblyOptionItemImage'
+import ProductAssemblyOptionsGroup from './ProductAssemblyOptionsGroup'
+import { withItem } from './withItem'
+
+const CSS_HANDLES = [
+  'modalViewProductContainer',
+  'modalViewProductImage',
+  'modalViewProductName',
+  'modalViewProductInfos',
+  'modalViewDoneButton',
+  'modalViewTitle',
+  'productAssemblyOptionItemCustomize',
+  'productAssemblyOptionItemCustomizeLabel',
+] as const
 
 const IMG_SIZE = 140
 
@@ -17,6 +29,8 @@ const ModalView: FC<{ closeAction: () => void }> = ({
   children,
   closeAction,
 }) => {
+  const handles = useCssHandles(CSS_HANDLES)
+  const intl = useIntl()
   const {
     image,
     name,
@@ -26,15 +40,22 @@ const ModalView: FC<{ closeAction: () => void }> = ({
 
   return (
     <div className="flex flex-column">
-      <div className="flex">
+      <div className={`${handles.modalViewProductContainer} flex`}>
         {/* eslint-disable-next-line jsx-a11y/alt-text */}
         <img
+          className={handles.modalViewProductImage}
           src={imageUrlForSize(image, IMG_SIZE)}
           width={IMG_SIZE}
           height={IMG_SIZE}
         />
-        <div className="flex flex-column ml5">
-          <span className="t-heading-5 c-on-base">{name}</span>
+        <div
+          className={`${handles.modalViewProductInfos} flex flex-column ml5`}
+        >
+          <span
+            className={`${handles.modalViewProductName} t-heading-5 c-on-base`}
+          >
+            {name}
+          </span>
           <ProductPrice
             showLabels={false}
             showListPrice={false}
@@ -56,9 +77,11 @@ const ModalView: FC<{ closeAction: () => void }> = ({
             </ProductAssemblyGroupContextProvider>
           )
         })}
-      <div className="mt3">
+      <div className={`${handles.modalViewDoneButton} mt3`}>
         <Button block onClick={closeAction}>
-          <div className="c-on-action-primary">DONE</div>
+          {intl.formatMessage({
+            id: 'store/product-customizer.modal-view.done-button',
+          })}
         </Button>
       </div>
     </div>
@@ -67,6 +90,7 @@ const ModalView: FC<{ closeAction: () => void }> = ({
 
 interface Props {
   buttonProps?: ButtonProps
+  modalProps?: unknown
 }
 
 interface ButtonProps {
@@ -76,7 +100,10 @@ interface ButtonProps {
 const ProductAssemblyOptionItemCustomize: FC<Props> = ({
   children,
   buttonProps = {},
+  modalProps = {},
 }) => {
+  const intl = useIntl()
+  const handles = useCssHandles(CSS_HANDLES)
   const {
     name,
     children: itemChildren,
@@ -97,14 +124,17 @@ const ProductAssemblyOptionItemCustomize: FC<Props> = ({
   const closeAction = () => setModalOpen(false)
 
   return (
-    <Fragment>
+    <div className={handles.productAssemblyOptionItemCustomize}>
       <Button
         variation="tertiary"
         onClick={handleClick}
         collapseLeft={buttonCollapse === 'left'}
         collapseRight={buttonCollapse === 'right'}
+        {...buttonProps}
       >
-        <div className="c-action-primary t-action">
+        <div
+          className={`${handles.productAssemblyOptionItemCustomize__label} c-action-primary t-action`}
+        >
           <FormattedMessage id="store/product-customizer.customize" />
         </div>
       </Button>
@@ -113,12 +143,22 @@ const ProductAssemblyOptionItemCustomize: FC<Props> = ({
           isOpen={modalOpen}
           onClose={closeAction}
           centered={!isMobile}
-          title={`Customize your ${name}`}
+          title={
+            <div className={handles.modalViewTitle}>
+              {intl.formatMessage(
+                {
+                  id: 'store/product-customizer.modal-view.title',
+                },
+                { name }
+              )}
+            </div>
+          }
+          {...modalProps}
         >
           <ModalView closeAction={closeAction}>{children}</ModalView>
         </Modal>
       </StopPropagation>
-    </Fragment>
+    </div>
   )
 }
 

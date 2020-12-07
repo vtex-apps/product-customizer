@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+- "Required" tag on assemblies groups
+- Basic Translations on static texts
+- CSS handles classes
+
 ## [2.9.5] - 2020-12-01
 ### Fixed
 - Hard-coded `customize` string replaced with `FormattedMessage`.
