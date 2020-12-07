@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.10.0] - 2020-12-07
+
 ### Added
 - "Required" tag on assemblies groups
 - Basic Translations on static texts
