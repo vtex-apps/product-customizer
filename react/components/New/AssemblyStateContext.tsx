@@ -79,11 +79,13 @@ export const useAssemblyState = (
   assemblyPath: string[]
 ): AssemblyState | undefined => {
   const state = useContext(AssemblyStateContext)
+
   return state.get(assemblyPath)
 }
 
 export const useAssemblyStateDispatch = (assemblyPath: string[]) => {
   const dispatch = useContext(AssemblyStateDispatchContext)
+
   return dispatch
 }
 
@@ -100,6 +102,7 @@ export function createState({
 
   const assembly = initialState.reduce((acc, state) => {
     acc.set(state.assemblyPath, state)
+
     return acc
   }, new Map())
 
@@ -118,6 +121,7 @@ function createItemAssemblyOptionsState(
     // Create a state for each option of the item
     const optionPath = [...path, productId, option.id]
     const optionState = createAssemblyState(optionPath, productId, option)
+
     states.push(optionState)
 
     if (!option.composition) {
@@ -142,6 +146,7 @@ function createAssemblyState(
 ): AssemblyState {
   let totalQuantitySelected = 0
   const selectedItems: SelectedAssemblyItem[] = []
+
   if (option.composition) {
     for (const item of option.composition.items) {
       if (item.initialQuantity === 0) continue
@@ -156,6 +161,7 @@ function createAssemblyState(
   }
 
   const inputValues: AssemblyState['inputValues'] = {}
+
   if (option.inputValues?.length > 0) {
     for (const inputValue of option.inputValues) {
       inputValues[inputValue.label] = inputValue.defaultValue

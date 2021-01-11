@@ -21,5 +21,6 @@ export const AssemblyOptionsProvider: FC<AssemblyOptionsProviderProps> = ({
 
 export const useAssemblyOptions = (productId: string): ItemAssembly => {
   const state = useContext(AssemblyOptionsContext)
+
   return state[productId] as ItemAssembly
 }

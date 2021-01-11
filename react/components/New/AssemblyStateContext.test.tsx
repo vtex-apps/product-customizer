@@ -3,7 +3,7 @@ import { createState } from './AssemblyStateContext'
 
 test('should generate the initial state', () => {
   const productId = '2000584'
-  const initialState = createState(productId, baseOptions)
+  const initialState = createState({ productId, options: baseOptions })
 
   expect(initialState).toMatchInlineSnapshot(`
     Map {
