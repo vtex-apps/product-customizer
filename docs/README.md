@@ -6,9 +6,15 @@
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
-The Product Customizer allows a product's [attachments](https://help.vtex.com/tutorial/o-que-e-um-anexo--aGICk0RVbqKg6GYmQcWUm) to be made available and ready to be chosen by users from the product page. 
+The Product Customizer allows a product's [attachments](https://help.vtex.com/tutorial/o-que-e-um-anexo--aGICk0RVbqKg6GYmQcWUm) and/or its subscription to be made available and ready to be defined by users on the product details page. 
 
 ![attachment-product-customization-select](https://user-images.githubusercontent.com/52087100/65711995-707f6e00-e06c-11e9-8faa-43aecfed3e51.png)
+*Example of a product details page with the Product Customizer component displaying the product's attachments.*
+
+![subscription-gif](https://user-images.githubusercontent.com/52087100/104508392-eba0c680-55c6-11eb-9d08-772a173c1df3.gif)
+*Example of a product details page with the Product Customizer component displaying the product subscription.*
+
+> ℹ️ ***The Product Customizer's integration with the Subscription module is native and automatically enabled by the component**. In order to allow your users to set the subscription on the product details page, set up the [Subscription v2](https://help.vtex.com/tutorial/setting-up-subscription-v2--1FA9dfE7vJqxBna9Nft5Sj) in your VTEX account and follow the instructions below to implement the Product Customizer app.* 
 
 ## Configuration 
 
@@ -33,7 +39,23 @@ Now, you are able to use all blocks exported by the `product-customizer` app. Ch
 | `assembly-option-item-customize` | Renders a button `Customize` that when clicked on opens a modal to customize the attachment. | 
 | `assembly-option-item-children-description` | Renders a summary with all attachments selected. | 
 
-2. In the theme's product template (`store.product`), add the `product-assembly-options` block and declare the `assembly-option-input-values` block as its child:
+2. In the theme's product template (`store.product`), add the `product-assembly-options` block to the children list. This will be enough to display the subscription options for the products if the [Subscription v2](https://help.vtex.com/tutorial/setting-up-subscription-v2--1FA9dfE7vJqxBna9Nft5Sj) was previously configured in your VTEX account.
+
+```json
+  "store.product": {
+    "children": [
+      "flex-layout.row#product-breadcrumb",
+      "flex-layout.row#product-main",
+      "flex-layout.row#description",
+      "shelf.relatedProducts",
+      "product-reviews",
+      "product-questions-and-answers",
+      "product-assembly-options"
+    ]
+  },
+ ```
+
+3. Declare the `product-assembly-options` block and add the `assembly-option-input-values` block as its child to display the product's attachments on the product details page. 
 
 ```json
   "product-assembly-options": {
@@ -43,9 +65,9 @@ Now, you are able to use all blocks exported by the `product-customizer` app. Ch
   },
 ````
 
-:information_source: *Notice that you can use other blocks, such as the `assembly-option-item-image`, as `product-assembly-options`'s child in order to build the Product Customizer component most suitable for your desired scenario.*
+> ℹ️  *Notice that you can use other blocks, such as the `assembly-option-item-image`, as `product-assembly-options`'s child in order to build the Product Customizer component most suitable for your desired scenario.*
 
-3. Then, declare the props according to your store's scenario. For example:
+4. Declare the blocks' props according to the desired scenario. For example:
 
 ```json
   "product-assembly-options": {
@@ -79,7 +101,6 @@ Now, you are able to use all blocks exported by the `product-customizer` app. Ch
 |--------------|--------|--------------| --------|
 | `collapse` | `enum` | `Customize` button positioning. Possible values are: `left` or `right`. | `left` | 
 
-
 ## Modus Operandi
 
 According to the [data entry](https://help.vtex.com/tutorial/adding-an-attachment?locale=en) in the catalog, the Product Customizer takes 3 types of attachments into account when being rendered:
@@ -96,9 +117,9 @@ Then, check out below how the product attachment displayed above was registered 
 
 ![attachment-product-customizer](https://user-images.githubusercontent.com/52087100/65720878-471c0d80-e07f-11e9-8267-27c35fb4c6b4.png)
 
-:information_source: Notice that **when a product's attachment was registered as required, all attachment options will be automatically made available to users**. If the product's attachment is not added as required, the `Add customization` button is rendered, as shown in the example above, giving users the options to add or not to add an attachment to their product.
+> ℹ️ *Notice that **when a product's attachment was registered as required, all attachment options will be automatically made available to users**. If the product's attachment is not added as required, the `Add customization` button is rendered, as shown in the example above, giving users the options to add or not to add an attachment to their product.*
 
-:warning: The Product Customizer uses the new Assembly Options API (the traditional Attachments API will be discontinued). As a result, **Checkout still doesn't natively render the customized product option previously selected by the user in the product page**. For the product to be correctly displayed with the chosen attachment, it's necessary for now to customize the Checkout page interface for it to read the product data in its context and render it.
+> ℹ️ *The Product Customizer uses the new Assembly Options API (the traditional Attachments API will be discontinued). As a result, **Checkout still doesn't natively render the customized product option previously selected by the user in the product page**. For the product to be correctly displayed with the chosen attachment, it's necessary for now to customize the Checkout page interface for it to read the product data in its context and render it.*
 
 ## Customization
 
