@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Fixed
+- Update the app documentation to reflect the new subscription feature
+
 ## [2.10.1] - 2020-12-29
 ### Fixed
 - Misspelled handle name causing build error
