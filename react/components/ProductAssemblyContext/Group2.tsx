@@ -35,6 +35,7 @@ export function reducer(
         optin: !!state.optin,
       }
     }
+
     case 'SET_INPUT_VALUE': {
       const { inputValueLabel, inputValue } = action.args
 
@@ -46,6 +47,7 @@ export function reducer(
         },
       }
     }
+
     case 'SET_QUANTITY': {
       const { itemId, newQuantity } = action.args
 
@@ -54,6 +56,7 @@ export function reducer(
         (item) => {
           if (item.id === itemId) {
             quantityUpdated = true
+
             return {
               id: itemId,
               quantity: newQuantity,
@@ -89,6 +92,7 @@ export function reducer(
         selectedItems: newSelectedItems,
       }
     }
+
     default:
       return state
   }
