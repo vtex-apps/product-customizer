@@ -227,11 +227,11 @@ function reducer(
         groupState.items = removeAllItems(groupState.items)
       }
 
-      if (groupState.items[itemId]) {
+      if (groupState?.items && groupState.items[itemId]) {
         groupState.items[itemId].quantity = newQuantity
       }
 
-      const newQuantitySum = Object.values(groupState.items).reduce(
+      const newQuantitySum = Object.values(groupState?.items ?? {}).reduce(
         (acc, { quantity }) => acc + quantity,
         0
       )
