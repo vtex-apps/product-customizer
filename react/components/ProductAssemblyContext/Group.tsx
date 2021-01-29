@@ -9,7 +9,11 @@ import { path } from 'ramda'
 
 import { GROUP_TYPES } from '../../modules/assemblyGroupType'
 
-type DispatchAction = SetQuantityAction | SetInputValueAction | OptinAction
+type DispatchAction =
+  | SetQuantityAction
+  | SetInputValueAction
+  | OptinAction
+  | UpdateChildrenAction
 
 type SetQuantityAction = {
   type: 'SET_QUANTITY'
@@ -35,6 +39,11 @@ type OptinAction = {
   args: {
     groupPath: string[]
   }
+}
+
+type UpdateChildrenAction = {
+  type: 'UPDATE_CHILDREN'
+  args: any
 }
 
 export const ProductAssemblyDispatchContext = createContext<
@@ -69,14 +78,42 @@ const initState = (assemblyOption: AssemblyOptionGroupState) => {
   return assemblyOption
 }
 
+const createRecursiveDispatch = ({
+  hasParent,
+  dispatch,
+}: {
+  hasParent: boolean
+  dispatch: Dispatch<DispatchAction>
+}) => {
+  if (hasParent) {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const parentDispatch = useContext(ProductAssemblyDispatchContext)
+
+    return (action: DispatchAction) => {
+      dispatch(action)
+      parentDispatch({
+        type: 'UPDATE_CHILDREN',
+        args: action.args,
+      })
+    }
+  }
+
+  return dispatch
+}
+
 export const ProductAssemblyGroupContextProvider: FC<ProductAssemblyGroupContextProviderProps> = ({
   assemblyOption,
   children,
 }) => {
   const [state, dispatch] = useReducer(reducer, assemblyOption, initState)
 
+  const recursiveDispatch = createRecursiveDispatch({
+    hasParent: !!assemblyOption.treePath.length,
+    dispatch,
+  })
+
   return (
-    <ProductAssemblyDispatchContext.Provider value={dispatch}>
+    <ProductAssemblyDispatchContext.Provider value={recursiveDispatch}>
       <ProductAssemblyGroupContext.Provider value={state}>
         {children}
       </ProductAssemblyGroupContext.Provider>
@@ -152,11 +189,11 @@ function reducer(
         return state
       }
 
-      const { itemId, newQuantity, type, groupPath } = action.args
+      const { itemId, newQuantity, groupPath } = action.args
       const groupState = (path(groupPath, state) ??
         state) as AssemblyOptionGroup
 
-      if (type === GROUP_TYPES.SINGLE) {
+      if (state.type === GROUP_TYPES.SINGLE) {
         groupState.items = removeAllItems(groupState.items)
       }
 
@@ -176,6 +213,30 @@ function reducer(
 
       groupState.quantitySum = newQuantitySum
       groupState.items = newItems
+
+      return { ...state }
+    }
+
+    case 'UPDATE_CHILDREN': {
+      const { itemId, newQuantity, type, groupPath } = action.args
+
+      const groupState = (path(groupPath, state) ??
+        state) as AssemblyOptionGroup
+
+      if (type === GROUP_TYPES.SINGLE) {
+        groupState.items = removeAllItems(groupState.items)
+      }
+
+      if (groupState.items[itemId]) {
+        groupState.items[itemId].quantity = newQuantity
+      }
+
+      const newQuantitySum = Object.values(groupState.items).reduce(
+        (acc, { quantity }) => acc + quantity,
+        0
+      )
+
+      groupState.quantitySum = newQuantitySum
 
       return { ...state }
     }
