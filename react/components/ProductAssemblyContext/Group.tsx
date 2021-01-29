@@ -78,27 +78,20 @@ const initState = (assemblyOption: AssemblyOptionGroupState) => {
   return assemblyOption
 }
 
-const createRecursiveDispatch = ({
-  hasParent,
+const useCreateRecursiveDispatch = ({
   dispatch,
 }: {
-  hasParent: boolean
   dispatch: Dispatch<DispatchAction>
 }) => {
-  if (hasParent) {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    const parentDispatch = useContext(ProductAssemblyDispatchContext)
+  const parentDispatch = useContext(ProductAssemblyDispatchContext)
 
-    return (action: DispatchAction) => {
-      dispatch(action)
-      parentDispatch({
-        type: 'UPDATE_CHILDREN',
-        args: action.args,
-      })
-    }
+  return (action: DispatchAction) => {
+    dispatch(action)
+    parentDispatch({
+      type: 'UPDATE_CHILDREN',
+      args: action.args,
+    })
   }
-
-  return dispatch
 }
 
 export const ProductAssemblyGroupContextProvider: FC<ProductAssemblyGroupContextProviderProps> = ({
@@ -107,8 +100,7 @@ export const ProductAssemblyGroupContextProvider: FC<ProductAssemblyGroupContext
 }) => {
   const [state, dispatch] = useReducer(reducer, assemblyOption, initState)
 
-  const recursiveDispatch = createRecursiveDispatch({
-    hasParent: !!assemblyOption.treePath.length,
+  const recursiveDispatch = useCreateRecursiveDispatch({
     dispatch,
   })
 
