@@ -4,6 +4,7 @@ import React, {
   Dispatch,
   useReducer,
   FC,
+  useCallback,
 } from 'react'
 import { path } from 'ramda'
 
@@ -78,20 +79,25 @@ const initState = (assemblyOption: AssemblyOptionGroupState) => {
   return assemblyOption
 }
 
-const useCreateRecursiveDispatch = ({
+const useRecursiveDispatch = ({
   dispatch,
 }: {
   dispatch: Dispatch<DispatchAction>
 }) => {
   const parentDispatch = useContext(ProductAssemblyDispatchContext)
 
-  return (action: DispatchAction) => {
-    dispatch(action)
-    parentDispatch({
-      type: 'UPDATE_CHILDREN',
-      args: action.args,
-    })
-  }
+  const recursiveDispatch = useCallback(
+    (action: DispatchAction) => {
+      dispatch(action)
+      parentDispatch({
+        type: 'UPDATE_CHILDREN',
+        args: action.args,
+      })
+    },
+    [dispatch, parentDispatch]
+  )
+
+  return recursiveDispatch
 }
 
 export const ProductAssemblyGroupContextProvider: FC<ProductAssemblyGroupContextProviderProps> = ({
@@ -100,7 +106,7 @@ export const ProductAssemblyGroupContextProvider: FC<ProductAssemblyGroupContext
 }) => {
   const [state, dispatch] = useReducer(reducer, assemblyOption, initState)
 
-  const recursiveDispatch = useCreateRecursiveDispatch({
+  const recursiveDispatch = useRecursiveDispatch({
     dispatch,
   })
 
