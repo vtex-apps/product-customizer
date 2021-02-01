@@ -44,7 +44,10 @@ type OptinAction = {
 
 type UpdateChildrenAction = {
   type: 'UPDATE_CHILDREN'
-  args: any
+  args:
+    | SetQuantityAction['args']
+    | SetInputValueAction['args']
+    | OptinAction['args']
 }
 
 export const ProductAssemblyDispatchContext = createContext<
@@ -216,6 +219,14 @@ function reducer(
     }
 
     case 'UPDATE_CHILDREN': {
+      if (
+        !('itemId' in action.args) ||
+        !('newQuantity' in action.args) ||
+        !('type' in action.args)
+      ) {
+        return state
+      }
+
       const { itemId, newQuantity, type, groupPath } = action.args
 
       const groupState = (path(groupPath, state) ??

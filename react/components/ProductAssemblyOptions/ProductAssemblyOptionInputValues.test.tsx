@@ -176,7 +176,7 @@ test('should keep input values for recursive assemblies', async () => {
 
   fireEvent.change(input, { target: { value: 'Foobar' } })
 
-  expect(mockedDispatch.mock.calls).toHaveLength(9)
+  expect(mockedDispatch.mock.calls).toHaveLength(7)
   // eslint-disable-next-line prefer-destructuring
   const [lastCall] = mockedDispatch.mock.calls[5]
 
