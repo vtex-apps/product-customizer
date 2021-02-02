@@ -1,0 +1,1177 @@
+{
+  "data": {
+    "product": {
+      "cacheId": "mcproductrefid136",
+      "productId": "2003666",
+      "description": "Descrição genérica",
+      "productName": "Family Box 1",
+      "productReference": "MCPRODUCTREFID136",
+      "linkText": "mcproductrefid136",
+      "brand": "Test Brand name",
+      "brandId": 2000000,
+      "link": "https://portal.vtexcommercestable.com.br/mcproductrefid136/p",
+      "categories": ["/MACCT/Family Box/", "/MACCT/"],
+      "categoryId": "47",
+      "priceRange": {
+        "sellingPrice": {
+          "highPrice": 11,
+          "lowPrice": 11,
+          "__typename": "PriceRange"
+        },
+        "listPrice": {
+          "highPrice": 11,
+          "lowPrice": 11,
+          "__typename": "PriceRange"
+        },
+        "__typename": "ProductPriceRange"
+      },
+      "specificationGroups": [],
+      "skuSpecifications": null,
+      "productClusters": [],
+      "clusterHighlights": [],
+      "properties": [],
+      "__typename": "Product",
+      "titleTag": "Family Box 1",
+      "metaTagDescription": null,
+      "items": [
+        {
+          "itemId": "10104",
+          "name": "Family Box 1",
+          "nameComplete": "Family Box 1",
+          "complementName": "",
+          "ean": "MCexempleean123469",
+          "variations": [],
+          "referenceId": [
+            {
+              "Key": "RefId",
+              "Value": "MCexemplerefidSKU014",
+              "__typename": "Reference"
+            }
+          ],
+          "measurementUnit": "un",
+          "unitMultiplier": 1,
+          "images": [
+            {
+              "cacheId": "155732",
+              "imageId": "155732",
+              "imageLabel": "",
+              "imageTag": "<img src=\"~/arquivos/ids/155732-#width#-#height#/test-product.jpg?v=637411294577970000\" width=\"#width#\" height=\"#height#\" alt=\"test-product\" id=\"\" />",
+              "imageUrl": "https://acctglobal.vtexassets.com/arquivos/ids/155732/test-product.jpg?v=637411294577970000",
+              "imageText": "test-product",
+              "__typename": "Image"
+            }
+          ],
+          "__typename": "SKU",
+          "videos": [],
+          "sellers": [
+            {
+              "sellerId": "1",
+              "sellerName": "ACCT CONSULTORIA E DESENVOLVIMENTO LTDA",
+              "__typename": "Seller",
+              "addToCartLink": "https://portal.vtexcommercestable.com.br/checkout/cart/add?sku=10104&qty=1&seller=1&sc=1&price=1100&cv=124B4B001C2F62802E0E34F4A0A079EB_&sc=1",
+              "sellerDefault": true,
+              "commertialOffer": {
+                "discountHighlights": [],
+                "teasers": [],
+                "Price": 11,
+                "ListPrice": 11,
+                "Tax": 0,
+                "taxPercentage": 0,
+                "spotPrice": 11,
+                "PriceWithoutDiscount": 11,
+                "RewardValue": 0,
+                "PriceValidUntil": "2022-02-01T18:22:16Z",
+                "AvailableQuantity": 1000000,
+                "__typename": "Offer",
+                "CacheVersionUsedToCallCheckout": "124B4B001C2F62802E0E34F4A0A079EB_",
+                "Installments": [
+                  {
+                    "Value": 11,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 11,
+                    "NumberOfInstallments": 1,
+                    "Name": "American Express à vista",
+                    "PaymentSystemName": "American Express",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 11,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 11,
+                    "NumberOfInstallments": 1,
+                    "Name": "Visa à vista",
+                    "PaymentSystemName": "Visa",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 11,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 11,
+                    "NumberOfInstallments": 1,
+                    "Name": "Mastercard à vista",
+                    "PaymentSystemName": "Mastercard",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 11,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 11,
+                    "NumberOfInstallments": 1,
+                    "Name": "Vale à vista",
+                    "PaymentSystemName": "Vale",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 11,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 11,
+                    "NumberOfInstallments": 1,
+                    "Name": "Promissory à vista",
+                    "PaymentSystemName": "Promissory",
+                    "__typename": "Installment"
+                  },
+                  {
+                    "Value": 11,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 11,
+                    "NumberOfInstallments": 1,
+                    "Name": "BOLBRADESCO à vista",
+                    "PaymentSystemName": "BOLBRADESCO",
+                    "__typename": "Installment"
+                  }
+                ]
+              }
+            }
+          ],
+          "kitItems": [],
+          "attachments": [
+            {
+              "id": "20",
+              "name": "Family Box - 1",
+              "required": true,
+              "__typename": "Attachment"
+            },
+            {
+              "id": "22",
+              "name": "Side Extra",
+              "required": false,
+              "__typename": "Attachment"
+            }
+          ],
+          "estimatedDateArrival": "2014-03-05T00:00:00"
+        }
+      ],
+      "itemMetadata": {
+        "items": [
+          {
+            "id": "10104",
+            "name": "Family Box 1",
+            "imageUrl": "https://acctglobal.vtexassets.com/arquivos/ids/155732/test-product.jpg",
+            "seller": "1",
+            "assemblyOptions": [
+              {
+                "id": "Side Extra_Acompanhamento Adicional",
+                "name": "Side Extra",
+                "required": false,
+                "inputValues": [],
+                "composition": {
+                  "minQuantity": 0,
+                  "maxQuantity": 10,
+                  "items": [
+                    {
+                      "id": "10106",
+                      "minQuantity": 0,
+                      "maxQuantity": 5,
+                      "priceTable": "mcside",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "CompositionItem"
+                    },
+                    {
+                      "id": "10107",
+                      "minQuantity": 0,
+                      "maxQuantity": 5,
+                      "priceTable": "mcside",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "CompositionItem"
+                    }
+                  ],
+                  "__typename": "CompositionType"
+                },
+                "__typename": "AssemblyOption"
+              },
+              {
+                "id": "_Combo2",
+                "name": "Family Box - 1",
+                "required": true,
+                "inputValues": [],
+                "composition": {
+                  "minQuantity": 1,
+                  "maxQuantity": 1,
+                  "items": [
+                    {
+                      "id": "10101",
+                      "minQuantity": 0,
+                      "maxQuantity": 1,
+                      "priceTable": "mclanches",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "CompositionItem"
+                    },
+                    {
+                      "id": "10102",
+                      "minQuantity": 0,
+                      "maxQuantity": 1,
+                      "priceTable": "mclanches",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "CompositionItem"
+                    }
+                  ],
+                  "__typename": "CompositionType"
+                },
+                "__typename": "AssemblyOption"
+              },
+              {
+                "id": "_Combo1",
+                "name": "Family Box - 1",
+                "required": true,
+                "inputValues": [],
+                "composition": {
+                  "minQuantity": 1,
+                  "maxQuantity": 1,
+                  "items": [
+                    {
+                      "id": "10101",
+                      "minQuantity": 0,
+                      "maxQuantity": 1,
+                      "priceTable": "mclanches",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "CompositionItem"
+                    },
+                    {
+                      "id": "10102",
+                      "minQuantity": 0,
+                      "maxQuantity": 1,
+                      "priceTable": "mclanches",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "CompositionItem"
+                    }
+                  ],
+                  "__typename": "CompositionType"
+                },
+                "__typename": "AssemblyOption"
+              }
+            ],
+            "__typename": "ItemMetadataUnit"
+          },
+          {
+            "id": "10106",
+            "name": "MACCT Fries",
+            "imageUrl": "https://acctglobal.vtexassets.com/arquivos/ids/155734/test-product.jpg",
+            "seller": "1",
+            "assemblyOptions": [],
+            "__typename": "ItemMetadataUnit"
+          },
+          {
+            "id": "10107",
+            "name": "MACCT Nuggets",
+            "imageUrl": "https://acctglobal.vtexassets.com/arquivos/ids/155735/test-product.jpg",
+            "seller": "1",
+            "assemblyOptions": [],
+            "__typename": "ItemMetadataUnit"
+          },
+          {
+            "id": "10101",
+            "name": "Combo 1",
+            "imageUrl": "https://acctglobal.vtexassets.com/arquivos/ids/155729/test-product.jpg",
+            "seller": "1",
+            "assemblyOptions": [
+              {
+                "id": "Side Extra_Acompanhamento Adicional",
+                "name": "Side Extra",
+                "required": false,
+                "inputValues": [],
+                "composition": {
+                  "minQuantity": 0,
+                  "maxQuantity": 10,
+                  "items": [
+                    {
+                      "id": "10106",
+                      "minQuantity": 0,
+                      "maxQuantity": 5,
+                      "priceTable": "mcside",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "CompositionItem"
+                    },
+                    {
+                      "id": "10107",
+                      "minQuantity": 0,
+                      "maxQuantity": 5,
+                      "priceTable": "mcside",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "CompositionItem"
+                    }
+                  ],
+                  "__typename": "CompositionType"
+                },
+                "__typename": "AssemblyOption"
+              },
+              {
+                "id": "Combo 1_Acompanhamento",
+                "name": "Combo 1",
+                "required": true,
+                "inputValues": [],
+                "composition": {
+                  "minQuantity": 1,
+                  "maxQuantity": 1,
+                  "items": [
+                    {
+                      "id": "10106",
+                      "minQuantity": 0,
+                      "maxQuantity": 1,
+                      "priceTable": "mclanches",
+                      "seller": "1",
+                      "initialQuantity": 1,
+                      "__typename": "CompositionItem"
+                    },
+                    {
+                      "id": "10107",
+                      "minQuantity": 0,
+                      "maxQuantity": 1,
+                      "priceTable": "mclanches",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "CompositionItem"
+                    }
+                  ],
+                  "__typename": "CompositionType"
+                },
+                "__typename": "AssemblyOption"
+              },
+              {
+                "id": "Combo 1_Bebida",
+                "name": "Combo 1",
+                "required": true,
+                "inputValues": [],
+                "composition": {
+                  "minQuantity": 1,
+                  "maxQuantity": 1,
+                  "items": [
+                    {
+                      "id": "10108",
+                      "minQuantity": 0,
+                      "maxQuantity": 1,
+                      "priceTable": "mclanches",
+                      "seller": "1",
+                      "initialQuantity": 1,
+                      "__typename": "CompositionItem"
+                    },
+                    {
+                      "id": "10109",
+                      "minQuantity": 0,
+                      "maxQuantity": 1,
+                      "priceTable": "mclanches",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "CompositionItem"
+                    }
+                  ],
+                  "__typename": "CompositionType"
+                },
+                "__typename": "AssemblyOption"
+              },
+              {
+                "id": "Combo 1_Lanche",
+                "name": "Combo 1",
+                "required": true,
+                "inputValues": [],
+                "composition": {
+                  "minQuantity": 1,
+                  "maxQuantity": 1,
+                  "items": [
+                    {
+                      "id": "10091",
+                      "minQuantity": 0,
+                      "maxQuantity": 1,
+                      "priceTable": "mclanches",
+                      "seller": "1",
+                      "initialQuantity": 1,
+                      "__typename": "CompositionItem"
+                    },
+                    {
+                      "id": "10093",
+                      "minQuantity": 0,
+                      "maxQuantity": 1,
+                      "priceTable": "mclanches",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "CompositionItem"
+                    }
+                  ],
+                  "__typename": "CompositionType"
+                },
+                "__typename": "AssemblyOption"
+              }
+            ],
+            "__typename": "ItemMetadataUnit"
+          },
+          {
+            "id": "10108",
+            "name": "Refrigerante 1",
+            "imageUrl": "https://acctglobal.vtexassets.com/arquivos/ids/155736/test-product.jpg",
+            "seller": "1",
+            "assemblyOptions": [],
+            "__typename": "ItemMetadataUnit"
+          },
+          {
+            "id": "10109",
+            "name": "Refrigerante 2",
+            "imageUrl": "https://acctglobal.vtexassets.com/arquivos/ids/155737/test-product.jpg",
+            "seller": "1",
+            "assemblyOptions": [],
+            "__typename": "ItemMetadataUnit"
+          },
+          {
+            "id": "10091",
+            "name": "Big MACCT",
+            "imageUrl": "https://acctglobal.vtexassets.com/arquivos/ids/155719/test-product.jpg",
+            "seller": "1",
+            "assemblyOptions": [
+              {
+                "id": "Extra_Extra",
+                "name": "Extra",
+                "required": false,
+                "inputValues": [],
+                "composition": {
+                  "minQuantity": 0,
+                  "maxQuantity": 4,
+                  "items": [
+                    {
+                      "id": "10110",
+                      "minQuantity": 0,
+                      "maxQuantity": 2,
+                      "priceTable": "mcextras",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "CompositionItem"
+                    },
+                    {
+                      "id": "10095",
+                      "minQuantity": 0,
+                      "maxQuantity": 2,
+                      "priceTable": "mcextras",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "CompositionItem"
+                    }
+                  ],
+                  "__typename": "CompositionType"
+                },
+                "__typename": "AssemblyOption"
+              },
+              {
+                "id": "Big MACCT_Lanche",
+                "name": "Big MACCT",
+                "required": true,
+                "inputValues": [],
+                "composition": {
+                  "minQuantity": 2,
+                  "maxQuantity": 7,
+                  "items": [
+                    {
+                      "id": "10094",
+                      "minQuantity": 0,
+                      "maxQuantity": 2,
+                      "priceTable": "mclanches",
+                      "seller": "1",
+                      "initialQuantity": 2,
+                      "__typename": "CompositionItem"
+                    },
+                    {
+                      "id": "10095",
+                      "minQuantity": 0,
+                      "maxQuantity": 1,
+                      "priceTable": "mclanches",
+                      "seller": "1",
+                      "initialQuantity": 1,
+                      "__typename": "CompositionItem"
+                    },
+                    {
+                      "id": "10096",
+                      "minQuantity": 0,
+                      "maxQuantity": 1,
+                      "priceTable": "mclanches",
+                      "seller": "1",
+                      "initialQuantity": 1,
+                      "__typename": "CompositionItem"
+                    },
+                    {
+                      "id": "10097",
+                      "minQuantity": 0,
+                      "maxQuantity": 1,
+                      "priceTable": "mclanches",
+                      "seller": "1",
+                      "initialQuantity": 1,
+                      "__typename": "CompositionItem"
+                    },
+                    {
+                      "id": "10098",
+                      "minQuantity": 0,
+                      "maxQuantity": 1,
+                      "priceTable": "mclanches",
+                      "seller": "1",
+                      "initialQuantity": 1,
+                      "__typename": "CompositionItem"
+                    },
+                    {
+                      "id": "10099",
+                      "minQuantity": 0,
+                      "maxQuantity": 1,
+                      "priceTable": "mclanches",
+                      "seller": "1",
+                      "initialQuantity": 1,
+                      "__typename": "CompositionItem"
+                    }
+                  ],
+                  "__typename": "CompositionType"
+                },
+                "__typename": "AssemblyOption"
+              }
+            ],
+            "__typename": "ItemMetadataUnit"
+          },
+          {
+            "id": "10110",
+            "name": "Bacon",
+            "imageUrl": "https://acctglobal.vtexassets.com/arquivos/ids/155738/test-product.jpg",
+            "seller": "1",
+            "assemblyOptions": [],
+            "__typename": "ItemMetadataUnit"
+          },
+          {
+            "id": "10095",
+            "name": "Picles",
+            "imageUrl": "https://acctglobal.vtexassets.com/arquivos/ids/155723/test-product.jpg",
+            "seller": "1",
+            "assemblyOptions": [],
+            "__typename": "ItemMetadataUnit"
+          },
+          {
+            "id": "10094",
+            "name": "Hamburguer",
+            "imageUrl": "https://acctglobal.vtexassets.com/arquivos/ids/155722/test-product.jpg",
+            "seller": "1",
+            "assemblyOptions": [],
+            "__typename": "ItemMetadataUnit"
+          },
+          {
+            "id": "10096",
+            "name": "Alface",
+            "imageUrl": "https://acctglobal.vtexassets.com/arquivos/ids/155724/test-product.jpg",
+            "seller": "1",
+            "assemblyOptions": [],
+            "__typename": "ItemMetadataUnit"
+          },
+          {
+            "id": "10097",
+            "name": "Tomate",
+            "imageUrl": "https://acctglobal.vtexassets.com/arquivos/ids/155725/test-product.jpg",
+            "seller": "1",
+            "assemblyOptions": [],
+            "__typename": "ItemMetadataUnit"
+          },
+          {
+            "id": "10098",
+            "name": "Cebola",
+            "imageUrl": "https://acctglobal.vtexassets.com/arquivos/ids/155726/test-product.jpg",
+            "seller": "1",
+            "assemblyOptions": [],
+            "__typename": "ItemMetadataUnit"
+          },
+          {
+            "id": "10099",
+            "name": "Molho",
+            "imageUrl": "https://acctglobal.vtexassets.com/arquivos/ids/155727/test-product.jpg",
+            "seller": "1",
+            "assemblyOptions": [],
+            "__typename": "ItemMetadataUnit"
+          },
+          {
+            "id": "10093",
+            "name": "Lanche Genérico",
+            "imageUrl": "https://acctglobal.vtexassets.com/arquivos/ids/155721/test-product.jpg",
+            "seller": "1",
+            "assemblyOptions": [
+              {
+                "id": "Side Extra_Acompanhamento Adicional",
+                "name": "Side Extra",
+                "required": false,
+                "inputValues": [],
+                "composition": {
+                  "minQuantity": 0,
+                  "maxQuantity": 10,
+                  "items": [
+                    {
+                      "id": "10106",
+                      "minQuantity": 0,
+                      "maxQuantity": 5,
+                      "priceTable": "mcside",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "CompositionItem"
+                    },
+                    {
+                      "id": "10107",
+                      "minQuantity": 0,
+                      "maxQuantity": 5,
+                      "priceTable": "mcside",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "CompositionItem"
+                    }
+                  ],
+                  "__typename": "CompositionType"
+                },
+                "__typename": "AssemblyOption"
+              },
+              {
+                "id": "Observações Adicionais - Lanche Genérico",
+                "name": "Observações Adicionais - Lanche Genérico",
+                "required": true,
+                "inputValues": [
+                  {
+                    "label": "Sem Cebola Crispy",
+                    "maxLength": null,
+                    "type": "BOOLEAN",
+                    "domain": null,
+                    "defaultValue": false,
+                    "__typename": "InputValue"
+                  },
+                  {
+                    "label": "Sem Molho Barbecue Extra",
+                    "maxLength": null,
+                    "type": "BOOLEAN",
+                    "domain": null,
+                    "defaultValue": false,
+                    "__typename": "InputValue"
+                  },
+                  {
+                    "label": "Sem Bacon",
+                    "maxLength": null,
+                    "type": "BOOLEAN",
+                    "domain": null,
+                    "defaultValue": false,
+                    "__typename": "InputValue"
+                  },
+                  {
+                    "label": "Sem Queijo Emental",
+                    "maxLength": null,
+                    "type": "BOOLEAN",
+                    "domain": null,
+                    "defaultValue": false,
+                    "__typename": "InputValue"
+                  }
+                ],
+                "composition": null,
+                "__typename": "AssemblyOption"
+              },
+              {
+                "id": "Extra_Extra",
+                "name": "Extra",
+                "required": false,
+                "inputValues": [],
+                "composition": {
+                  "minQuantity": 0,
+                  "maxQuantity": 4,
+                  "items": [
+                    {
+                      "id": "10110",
+                      "minQuantity": 0,
+                      "maxQuantity": 2,
+                      "priceTable": "mcextras",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "CompositionItem"
+                    },
+                    {
+                      "id": "10095",
+                      "minQuantity": 0,
+                      "maxQuantity": 2,
+                      "priceTable": "mcextras",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "CompositionItem"
+                    }
+                  ],
+                  "__typename": "CompositionType"
+                },
+                "__typename": "AssemblyOption"
+              }
+            ],
+            "__typename": "ItemMetadataUnit"
+          },
+          {
+            "id": "10102",
+            "name": "Combo 2",
+            "imageUrl": "https://acctglobal.vtexassets.com/arquivos/ids/155730/test-product.jpg",
+            "seller": "1",
+            "assemblyOptions": [
+              {
+                "id": "Combo 2_Acompanhamento",
+                "name": "Combo 2",
+                "required": true,
+                "inputValues": [],
+                "composition": {
+                  "minQuantity": 1,
+                  "maxQuantity": 1,
+                  "items": [
+                    {
+                      "id": "10106",
+                      "minQuantity": 0,
+                      "maxQuantity": 1,
+                      "priceTable": "main",
+                      "seller": "1",
+                      "initialQuantity": 1,
+                      "__typename": "CompositionItem"
+                    },
+                    {
+                      "id": "10107",
+                      "minQuantity": 0,
+                      "maxQuantity": 1,
+                      "priceTable": "main",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "CompositionItem"
+                    }
+                  ],
+                  "__typename": "CompositionType"
+                },
+                "__typename": "AssemblyOption"
+              },
+              {
+                "id": "Combo 2_Bebida",
+                "name": "Combo 2",
+                "required": true,
+                "inputValues": [],
+                "composition": {
+                  "minQuantity": 1,
+                  "maxQuantity": 1,
+                  "items": [
+                    {
+                      "id": "10108",
+                      "minQuantity": 0,
+                      "maxQuantity": 1,
+                      "priceTable": "main",
+                      "seller": "1",
+                      "initialQuantity": 1,
+                      "__typename": "CompositionItem"
+                    },
+                    {
+                      "id": "10109",
+                      "minQuantity": 0,
+                      "maxQuantity": 1,
+                      "priceTable": "main",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "CompositionItem"
+                    }
+                  ],
+                  "__typename": "CompositionType"
+                },
+                "__typename": "AssemblyOption"
+              },
+              {
+                "id": "Combo 2_Lanche",
+                "name": "Combo 2",
+                "required": true,
+                "inputValues": [],
+                "composition": {
+                  "minQuantity": 1,
+                  "maxQuantity": 1,
+                  "items": [
+                    {
+                      "id": "10092",
+                      "minQuantity": 0,
+                      "maxQuantity": 1,
+                      "priceTable": "main",
+                      "seller": "1",
+                      "initialQuantity": 1,
+                      "__typename": "CompositionItem"
+                    }
+                  ],
+                  "__typename": "CompositionType"
+                },
+                "__typename": "AssemblyOption"
+              }
+            ],
+            "__typename": "ItemMetadataUnit"
+          },
+          {
+            "id": "10092",
+            "name": "MACCTicken",
+            "imageUrl": "https://acctglobal.vtexassets.com/arquivos/ids/155720/test-product.jpg",
+            "seller": "1",
+            "assemblyOptions": [
+              {
+                "id": "Side Extra_Acompanhamento Adicional",
+                "name": "Side Extra",
+                "required": false,
+                "inputValues": [],
+                "composition": {
+                  "minQuantity": 0,
+                  "maxQuantity": 10,
+                  "items": [
+                    {
+                      "id": "10106",
+                      "minQuantity": 0,
+                      "maxQuantity": 5,
+                      "priceTable": "mcside",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "CompositionItem"
+                    },
+                    {
+                      "id": "10107",
+                      "minQuantity": 0,
+                      "maxQuantity": 5,
+                      "priceTable": "mcside",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "CompositionItem"
+                    }
+                  ],
+                  "__typename": "CompositionType"
+                },
+                "__typename": "AssemblyOption"
+              },
+              {
+                "id": "additionalInfoMACCTicken",
+                "name": "additionalInfoMACCTicken",
+                "required": true,
+                "inputValues": [
+                  {
+                    "label": "Sem Cebola Crispy",
+                    "maxLength": null,
+                    "type": "BOOLEAN",
+                    "domain": null,
+                    "defaultValue": false,
+                    "__typename": "InputValue"
+                  },
+                  {
+                    "label": "Sem Maionese",
+                    "maxLength": null,
+                    "type": "BOOLEAN",
+                    "domain": null,
+                    "defaultValue": false,
+                    "__typename": "InputValue"
+                  },
+                  {
+                    "label": "Sem Alface",
+                    "maxLength": null,
+                    "type": "BOOLEAN",
+                    "domain": null,
+                    "defaultValue": false,
+                    "__typename": "InputValue"
+                  }
+                ],
+                "composition": null,
+                "__typename": "AssemblyOption"
+              },
+              {
+                "id": "Extra_Extra",
+                "name": "Extra",
+                "required": false,
+                "inputValues": [],
+                "composition": {
+                  "minQuantity": 0,
+                  "maxQuantity": 4,
+                  "items": [
+                    {
+                      "id": "10110",
+                      "minQuantity": 0,
+                      "maxQuantity": 2,
+                      "priceTable": "mcextras",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "CompositionItem"
+                    },
+                    {
+                      "id": "10095",
+                      "minQuantity": 0,
+                      "maxQuantity": 2,
+                      "priceTable": "mcextras",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "CompositionItem"
+                    }
+                  ],
+                  "__typename": "CompositionType"
+                },
+                "__typename": "AssemblyOption"
+              }
+            ],
+            "__typename": "ItemMetadataUnit"
+          }
+        ],
+        "priceTable": [
+          {
+            "type": "mcside",
+            "values": [
+              {
+                "id": "10106",
+                "assemblyId": "Side Extra_Acompanhamento Adicional",
+                "price": 600,
+                "__typename": "PriceTableItem"
+              },
+              {
+                "id": "10107",
+                "assemblyId": "Side Extra_Acompanhamento Adicional",
+                "price": 600,
+                "__typename": "PriceTableItem"
+              },
+              {
+                "id": "10106",
+                "assemblyId": "Side Extra_Acompanhamento Adicional",
+                "price": 600,
+                "__typename": "PriceTableItem"
+              },
+              {
+                "id": "10107",
+                "assemblyId": "Side Extra_Acompanhamento Adicional",
+                "price": 600,
+                "__typename": "PriceTableItem"
+              },
+              {
+                "id": "10106",
+                "assemblyId": "Side Extra_Acompanhamento Adicional",
+                "price": 600,
+                "__typename": "PriceTableItem"
+              },
+              {
+                "id": "10107",
+                "assemblyId": "Side Extra_Acompanhamento Adicional",
+                "price": 600,
+                "__typename": "PriceTableItem"
+              },
+              {
+                "id": "10106",
+                "assemblyId": "Side Extra_Acompanhamento Adicional",
+                "price": 600,
+                "__typename": "PriceTableItem"
+              },
+              {
+                "id": "10107",
+                "assemblyId": "Side Extra_Acompanhamento Adicional",
+                "price": 600,
+                "__typename": "PriceTableItem"
+              }
+            ],
+            "__typename": "ItemPriceTable"
+          },
+          {
+            "type": "mclanches",
+            "values": [
+              {
+                "id": "10101",
+                "assemblyId": "_Combo2",
+                "price": 1100,
+                "__typename": "PriceTableItem"
+              },
+              {
+                "id": "10102",
+                "assemblyId": "_Combo2",
+                "price": 1100,
+                "__typename": "PriceTableItem"
+              },
+              {
+                "id": "10101",
+                "assemblyId": "_Combo1",
+                "price": 1100,
+                "__typename": "PriceTableItem"
+              },
+              {
+                "id": "10102",
+                "assemblyId": "_Combo1",
+                "price": 1100,
+                "__typename": "PriceTableItem"
+              },
+              {
+                "id": "10106",
+                "assemblyId": "Combo 1_Acompanhamento",
+                "price": 500,
+                "__typename": "PriceTableItem"
+              },
+              {
+                "id": "10107",
+                "assemblyId": "Combo 1_Acompanhamento",
+                "price": 500,
+                "__typename": "PriceTableItem"
+              },
+              {
+                "id": "10108",
+                "assemblyId": "Combo 1_Bebida",
+                "price": 1125,
+                "__typename": "PriceTableItem"
+              },
+              {
+                "id": "10109",
+                "assemblyId": "Combo 1_Bebida",
+                "price": 1100,
+                "__typename": "PriceTableItem"
+              },
+              {
+                "id": "10091",
+                "assemblyId": "Combo 1_Lanche",
+                "price": 2420,
+                "__typename": "PriceTableItem"
+              },
+              {
+                "id": "10093",
+                "assemblyId": "Combo 1_Lanche",
+                "price": 1100,
+                "__typename": "PriceTableItem"
+              },
+              {
+                "id": "10094",
+                "assemblyId": "Big MACCT_Lanche",
+                "price": 0,
+                "__typename": "PriceTableItem"
+              },
+              {
+                "id": "10095",
+                "assemblyId": "Big MACCT_Lanche",
+                "price": null,
+                "__typename": "PriceTableItem"
+              },
+              {
+                "id": "10096",
+                "assemblyId": "Big MACCT_Lanche",
+                "price": null,
+                "__typename": "PriceTableItem"
+              },
+              {
+                "id": "10097",
+                "assemblyId": "Big MACCT_Lanche",
+                "price": null,
+                "__typename": "PriceTableItem"
+              },
+              {
+                "id": "10098",
+                "assemblyId": "Big MACCT_Lanche",
+                "price": null,
+                "__typename": "PriceTableItem"
+              },
+              {
+                "id": "10099",
+                "assemblyId": "Big MACCT_Lanche",
+                "price": null,
+                "__typename": "PriceTableItem"
+              }
+            ],
+            "__typename": "ItemPriceTable"
+          },
+          {
+            "type": "mcextras",
+            "values": [
+              {
+                "id": "10110",
+                "assemblyId": "Extra_Extra",
+                "price": 250,
+                "__typename": "PriceTableItem"
+              },
+              {
+                "id": "10095",
+                "assemblyId": "Extra_Extra",
+                "price": 200,
+                "__typename": "PriceTableItem"
+              },
+              {
+                "id": "10110",
+                "assemblyId": "Extra_Extra",
+                "price": 250,
+                "__typename": "PriceTableItem"
+              },
+              {
+                "id": "10095",
+                "assemblyId": "Extra_Extra",
+                "price": 200,
+                "__typename": "PriceTableItem"
+              },
+              {
+                "id": "10110",
+                "assemblyId": "Extra_Extra",
+                "price": 250,
+                "__typename": "PriceTableItem"
+              },
+              {
+                "id": "10095",
+                "assemblyId": "Extra_Extra",
+                "price": 200,
+                "__typename": "PriceTableItem"
+              }
+            ],
+            "__typename": "ItemPriceTable"
+          },
+          {
+            "type": "main",
+            "values": [
+              {
+                "id": "10106",
+                "assemblyId": "Combo 2_Acompanhamento",
+                "price": 1100,
+                "__typename": "PriceTableItem"
+              },
+              {
+                "id": "10107",
+                "assemblyId": "Combo 2_Acompanhamento",
+                "price": 1100,
+                "__typename": "PriceTableItem"
+              },
+              {
+                "id": "10108",
+                "assemblyId": "Combo 2_Bebida",
+                "price": 1125,
+                "__typename": "PriceTableItem"
+              },
+              {
+                "id": "10109",
+                "assemblyId": "Combo 2_Bebida",
+                "price": 1100,
+                "__typename": "PriceTableItem"
+              },
+              {
+                "id": "10092",
+                "assemblyId": "Combo 2_Lanche",
+                "price": 2750,
+                "__typename": "PriceTableItem"
+              }
+            ],
+            "__typename": "ItemPriceTable"
+          }
+        ],
+        "__typename": "ItemMetadata"
+      },
+      "benefits": [],
+      "categoryTree": [
+        {
+          "id": 41,
+          "name": "MACCT",
+          "href": "/MACCT",
+          "__typename": "Category"
+        },
+        {
+          "id": 47,
+          "name": "Family Box",
+          "href": "/MACCT/Family-Box",
+          "__typename": "Category"
+        }
+      ]
+    }
+  }
+}
