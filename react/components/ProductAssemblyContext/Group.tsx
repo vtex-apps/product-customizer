@@ -190,11 +190,17 @@ function reducer(
         return state
       }
 
-      const { itemId, newQuantity, groupPath } = action.args
+      const {
+        itemId,
+        newQuantity,
+        type,
+        groupPath,
+      } = action.args as SetQuantityAction['args']
+
       const groupState = (path(groupPath, state) ??
         state) as AssemblyOptionGroup
 
-      if (state.type === GROUP_TYPES.SINGLE) {
+      if (type === GROUP_TYPES.SINGLE) {
         groupState.items = removeAllItems(groupState.items)
       }
 
