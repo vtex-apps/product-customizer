@@ -133,7 +133,7 @@ const ProductAssemblyOptionItemCustomize: FC<Props> = ({
         {...buttonProps}
       >
         <div
-          className={`${handles.productAssemblyOptionItemCustomizeLabel} c-action-primary t-action`}
+          className={`${handles.productAssemblyOptionItemCustomize__label} c-action-primary t-action`}
         >
           <FormattedMessage id="store/product-customizer.customize" />
         </div>
