@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Fixed 
+- Fix crash when subscription is undefined
+- Fix subscription option label when value doesn't have a number prefixed (monthly, yearly...)
+
 ## [2.10.3] - 2021-02-02
 ### Fixed
 - AssemblyOptions tree deep Items quantities. Update parents of nodes that has been changed.
