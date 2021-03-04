@@ -6,7 +6,7 @@ type SubscriptionFrequency = {
   type: SubscriptionFrequencyType
 }
 
-const FREQUENCY_PATTERN = /(\d{1,3})\s*(\w*?)(?:$|s|ly)/i
+const FREQUENCY_PATTERN = /(\d{1,3})?\s*(\w*?)(?:$|s|ly)/i
 
 const SUBSCRIPTION_PREFIX = `vtex.subscription`
 const SUBSCRIPTION_KEY_PREFIX = `${SUBSCRIPTION_PREFIX}.key`
@@ -62,6 +62,7 @@ export function formatSubscriptionLabel(id: string, intl: IntlShape) {
   return intl.formatMessage(messageId)
 }
 
+
 export function parseFrequency(
   frequency?: string
 ): SubscriptionFrequency | undefined {
@@ -69,9 +70,11 @@ export function parseFrequency(
 
   const match = frequency.match(FREQUENCY_PATTERN)
 
-  if (!match) return
+  if (!match) {
+    return
+  }
 
-  const [, count, type] = match
+  const [, count = '1', type] = match
 
   if (!type) return
 
@@ -92,17 +95,20 @@ export function formatSubscriptionOptions({
   frequency: SubscriptionFrequency
   intl: IntlShape
 }) {
+
+
   if (inputId === SUBSCRIPTION_KEY_FREQUENCY) {
     return inputDomain.map((value) => {
       const { interval, type } = parseFrequency(value) ?? {}
       let inputLabel = inputId
-
+      console.log(interval, type)
       if (type) {
         inputLabel = intl.formatMessage(frequencyMessages[type], {
           interval,
         })
       }
 
+      console.log(inputLabel)
       return { label: inputLabel, value }
     })
   }
