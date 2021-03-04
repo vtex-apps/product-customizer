@@ -20,9 +20,7 @@
       "properties": [
         {
           "name": "Sleeve type",
-          "values": [
-            "Sleeveless"
-          ],
+          "values": ["Sleeveless"],
           "__typename": "Property"
         }
       ],
@@ -32,9 +30,7 @@
           "specifications": [
             {
               "name": "Sleeve type",
-              "values": [
-                "Sleeveless"
-              ],
+              "values": ["Sleeveless"],
               "__typename": "SpecificationGroupProperty"
             }
           ],
@@ -45,9 +41,7 @@
           "specifications": [
             {
               "name": "Sleeve type",
-              "values": [
-                "Sleeveless"
-              ],
+              "values": ["Sleeveless"],
               "__typename": "SpecificationGroupProperty"
             }
           ],
@@ -212,9 +206,7 @@
           "variations": [
             {
               "name": "Color",
-              "values": [
-                "Red"
-              ],
+              "values": ["Red"],
               "__typename": "Property"
             }
           ],
@@ -440,9 +432,7 @@
           "variations": [
             {
               "name": "Color",
-              "values": [
-                "Blue"
-              ],
+              "values": ["Blue"],
               "__typename": "Property"
             }
           ],
@@ -776,9 +766,7 @@
           "variations": [
             {
               "name": "Color",
-              "values": [
-                "White"
-              ],
+              "values": ["White"],
               "__typename": "Property"
             }
           ],
@@ -1190,10 +1178,7 @@
                     "maxLength": null,
                     "type": "OPTIONS",
                     "defaultValue": "Sans serif",
-                    "domain": [
-                      "Sans serif",
-                      "Roman"
-                    ],
+                    "domain": ["Sans serif", "Roman"],
                     "__typename": "InputValue"
                   },
                   {
@@ -1243,10 +1228,7 @@
                     "maxLength": null,
                     "type": "OPTIONS",
                     "defaultValue": "Sans serif",
-                    "domain": [
-                      "Sans serif",
-                      "Roman"
-                    ],
+                    "domain": ["Sans serif", "Roman"],
                     "__typename": "InputValue"
                   },
                   {
@@ -1296,10 +1278,7 @@
                     "maxLength": null,
                     "type": "OPTIONS",
                     "defaultValue": "Sans serif",
-                    "domain": [
-                      "Sans serif",
-                      "Roman"
-                    ],
+                    "domain": ["Sans serif", "Roman"],
                     "__typename": "InputValue"
                   },
                   {

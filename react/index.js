@@ -12,9 +12,11 @@ class ProductCustomizerIndex extends Component {
       ['product', 'itemMetadata', 'items'],
       this.props.productQuery
     )
+
     if (!metadataItems) {
       return false
     }
+
     return metadataItems.some(
       ({ assemblyOptions }) => assemblyOptions && assemblyOptions.length > 0
     )

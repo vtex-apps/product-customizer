@@ -9,13 +9,9 @@
       "metaTagDescription": "",
       "linkText": "combo-pizza-drink",
       "productReference": "905",
-      "categories": [
-        "/Combos/"
-      ],
+      "categories": ["/Combos/"],
       "categoryId": "5",
-      "categoriesIds": [
-        "/5/"
-      ],
+      "categoriesIds": ["/5/"],
       "brand": "KFC",
       "brandId": 2000001,
       "properties": [],

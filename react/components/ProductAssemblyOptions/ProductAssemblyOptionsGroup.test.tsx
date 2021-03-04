@@ -11,6 +11,7 @@ import productAttachment from '../../__fixtures__/productAttachment.json'
 const mockedUseProductDispatch = useProductDispatch as jest.Mock<
   () => jest.Mock
 >
+
 const mockUseProduct = useProduct as jest.Mock<ProductContext>
 
 function renderComponent(
@@ -25,6 +26,7 @@ function renderComponent(
 }
 
 let mockedDispatch = jest.fn()
+
 beforeEach(() => {
   mockedDispatch = jest.fn()
   mockedUseProductDispatch.mockImplementation(() => mockedDispatch)
@@ -44,9 +46,11 @@ describe('Product with required assembly', () => {
     const { queryByText } = renderComponent()
 
     const addButton = queryByText(/Add Customization/)
+
     expect(addButton).toBeFalsy()
 
     const removeButton = queryByText(/Remove/)
+
     expect(removeButton).toBeFalsy()
   })
 
@@ -61,9 +65,11 @@ describe('Product with required assembly', () => {
     const { queryByText } = renderComponent({ initiallyOpened: 'always' })
 
     const addButton = queryByText(/Add Customization/)
+
     expect(addButton).toBeFalsy()
 
     const removeButton = queryByText(/Remove/)
+
     expect(removeButton).toBeFalsy()
   })
 })
@@ -81,16 +87,19 @@ describe('Product with not required assembly', () => {
     const { getByLabelText, getByText, queryByLabelText } = renderComponent()
 
     const addButton = getByText(/Add Customization/)
+
     fireEvent.click(addButton)
 
     // Show child elements
     getByLabelText(/Font/)
 
     const removeButton = getByText(/Remove/)
+
     fireEvent.click(removeButton)
 
     // No child elements
     const fontInput = queryByLabelText(/Font/)
+
     expect(fontInput).toBeFalsy()
   })
 
@@ -102,6 +111,7 @@ describe('Product with not required assembly', () => {
     )
 
     const addButton = getByText(/Add Customization/)
+
     fireEvent.click(addButton)
 
     expect(mockedDispatch.mock.calls[1][0].args.groupInputValues).toMatchObject(
@@ -114,6 +124,7 @@ describe('Product with not required assembly', () => {
     )
 
     const removeButton = getByText(/Remove/)
+
     fireEvent.click(removeButton)
 
     expect(mockedDispatch.mock.calls[2][0].args.groupInputValues).toMatchObject(

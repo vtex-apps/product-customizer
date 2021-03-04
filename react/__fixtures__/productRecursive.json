@@ -10,9 +10,7 @@
       "linkText": "custom-bell",
       "productReference": "222444",
       "categoryId": "40",
-      "categories": [
-        "/Home & Decor/"
-      ],
+      "categories": ["/Home & Decor/"],
       "brand": "Kawasaki",
       "brandId": 2000001,
       "properties": [],
@@ -229,9 +227,7 @@
           "variations": [
             {
               "name": "Color",
-              "values": [
-                "Gold"
-              ],
+              "values": ["Gold"],
               "__typename": "Property"
             }
           ],
@@ -464,9 +460,7 @@
           "variations": [
             {
               "name": "Color",
-              "values": [
-                "Silver"
-              ],
+              "values": ["Silver"],
               "__typename": "Property"
             }
           ],

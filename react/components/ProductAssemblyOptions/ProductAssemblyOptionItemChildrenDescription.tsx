@@ -6,9 +6,11 @@ import { withItem } from './withItem'
 
 const getItemText = (item: AssemblyItem, groupType: GroupTypes) => {
   const deltaQuantity = item.quantity - item.initialQuantity
+
   if (deltaQuantity === 0) {
     return null
   }
+
   if (groupType === GROUP_TYPES.SINGLE) {
     return deltaQuantity > 0 ? item.name : null
   }
@@ -18,6 +20,7 @@ const getItemText = (item: AssemblyItem, groupType: GroupTypes) => {
   }
 
   const sign = deltaQuantity < 0 ? '-' : '+'
+
   return `${sign}${deltaQuantity}x ${item.name}`
 }
 
@@ -29,6 +32,7 @@ const ProductAssemblyOptionItemChildrenDescription: FC = () => {
   }
 
   const groups = Object.values(children)
+
   return (
     <div>
       {groups.map((group) => {
@@ -47,6 +51,7 @@ const ProductAssemblyOptionItemChildrenDescription: FC = () => {
             <div className="mh2">
               {items.map((item) => {
                 const itemText = getItemText(item, assemblyGroup.type)
+
                 return (
                   itemText && (
                     <div key={itemText} className="c-on-base t-body">

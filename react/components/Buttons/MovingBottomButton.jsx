@@ -26,6 +26,7 @@ class MovingBottomButton extends PureComponent {
     const fixedButtonY = this.fixedButton.current.offsetTop
     const scrollingButtonY =
       this.scrollingButton.current.offsetTop - window.pageYOffset
+
     if (scrollingButtonY <= fixedButtonY) {
       if (!this.showScrollingButton) {
         this.showScrollingButton = true
@@ -33,6 +34,7 @@ class MovingBottomButton extends PureComponent {
         this.scrollingButton.current.style.visibility = 'visible'
       }
     }
+
     if (scrollingButtonY > fixedButtonY) {
       if (this.showScrollingButton) {
         this.showScrollingButton = false
@@ -44,6 +46,7 @@ class MovingBottomButton extends PureComponent {
 
   render() {
     const { ready, total, onSubmitAddToCart, isLoading } = this.props
+
     return (
       <Fragment>
         <div

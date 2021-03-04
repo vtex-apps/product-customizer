@@ -15,7 +15,9 @@ class MultipleChoiceAttachment extends Component {
       }),
       {}
     )
+
     quantities[updatedItem].quantity = quantity
+
     return quantities
   }
 
@@ -25,12 +27,15 @@ class MultipleChoiceAttachment extends Component {
       (count, item) => count + item.quantity,
       0
     )
+
     const newTotalItems = totalItems + delta
+
     return minTotalItems <= newTotalItems && newTotalItems <= maxTotalItems
   }
 
   canChangeItemQuantity(itemName, newQuantity) {
     const { minQuantity, quantity, maxQuantity } = this.props.items[itemName]
+
     return (
       minQuantity <= newQuantity &&
       newQuantity <= maxQuantity &&
@@ -40,9 +45,11 @@ class MultipleChoiceAttachment extends Component {
 
   handleChangeItemQuantity(itemName, quantity) {
     const { name, onAttachmentChange } = this.props
+
     // eslint-disable-next-line vtex/prefer-early-return
     if (this.canChangeItemQuantity(itemName, quantity)) {
       const quantities = this.getUpdatedQuantities(itemName, quantity)
+
       onAttachmentChange(name, quantities, false)
     }
   }
@@ -53,6 +60,7 @@ class MultipleChoiceAttachment extends Component {
   getItemProps(itemName) {
     const { items } = this.props
     const { imageUrl, price, name, quantity } = items[itemName]
+
     return {
       imageUrl,
       price,

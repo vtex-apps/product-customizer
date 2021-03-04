@@ -13,6 +13,7 @@ const compareSku = (item, otherItem) => {
       commertialOffer: { AvailableQuantity: quantity, Price: price },
     },
   ] = item.sellers
+
   const [
     {
       commertialOffer: { AvailableQuantity: otherQuantity, Price: otherPrice },
@@ -32,6 +33,7 @@ const getSelectedItem = (items, selectedSku) =>
 
 const saveSkuSelector = (onSkuChange, skuId, items) => {
   const name = prop('name', find(propEq('itemId', skuId), items))
+
   onSkuChange(name, false)
 }
 
@@ -42,6 +44,7 @@ const SelectorOptions = ({
   parsedItems,
 }) => {
   const items = pathOr([], ['product', 'items'], productQuery)
+
   // If item has variations field, show SKUSelector
   if (moreThanVariations(items, 0)) {
     return (

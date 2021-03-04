@@ -55,6 +55,7 @@ const ProductAssemblyOptionsItem: FC = ({ children }) => {
   const handleKeyDown = ({ key }: React.KeyboardEvent<HTMLDivElement>) => {
     const SPACE = ' '
     const ENTER = 'Enter'
+
     if (key === SPACE || key === ENTER) {
       select?.()
     }

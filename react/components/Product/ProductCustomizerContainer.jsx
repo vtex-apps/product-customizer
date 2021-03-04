@@ -38,6 +38,7 @@ class ProductCustomizerContainer extends Component {
         }),
         {}
       )
+
       return { ...prev, [type]: priceMap }
     }, {})
   }
@@ -84,6 +85,7 @@ class ProductCustomizerContainer extends Component {
       ...compItem,
       price,
     }
+
     return { [compMeta.name]: fullComp }
   }
 
@@ -91,6 +93,7 @@ class ProductCustomizerContainer extends Component {
     if (itemMetadata.assemblyOptions.length === 0) {
       return {}
     }
+
     const { name } = itemMetadata
     const attachments = itemMetadata.assemblyOptions.reduce(
       (prev, option) => ({
@@ -99,13 +102,16 @@ class ProductCustomizerContainer extends Component {
       }),
       {}
     )
+
     const productItem = find(propEq('itemId', itemMetadata.id))(productItems)
     const crustImage = prop('imageUrl')(
       findLast(propEq('imageLabel', 'Crust'))(productItem.images)
     )
+
     const commertialOffer = prop('commertialOffer')(
       find(propEq('sellerId', itemMetadata.seller))(productItem.sellers)
     )
+
     return {
       [name]: {
         attachments,
@@ -124,6 +130,7 @@ class ProductCustomizerContainer extends Component {
 
   render() {
     const { product } = this.props.productQuery
+
     if (!product) {
       return null
     }

@@ -26,6 +26,7 @@ describe('ProductCustomizer components ', () => {
     expect(asFragment()).toMatchSnapshot()
 
     const smallButton = getByText('Small')
+
     fireEvent.click(smallButton)
     expect(asFragment()).toMatchSnapshot()
   })

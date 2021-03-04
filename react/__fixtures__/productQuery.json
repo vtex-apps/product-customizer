@@ -1,1448 +1,1396 @@
-{  
-  "data":{  
-     "product":{  
-        "cacheId":"super-suprema",
-        "productName":"Super Suprema",
-        "productId":"22",
-        "description":"",
-        "titleTag":"",
-        "metaTagDescription":"",
-        "linkText":"super-suprema",
-        "categories":[  
-           "/Pizzas/"
-        ],
-        "categoryId":"4",
-        "categoriesIds":[  
-           "/4/"
-        ],
-        "brand":"Pizza",
-        "properties":[  
-
-        ],
-        "specificationGroups":[  
-           {  
-              "name":"allSpecifications",
-              "specifications":[  
-
-              ],
-              "__typename":"vtex_storegraphql_2_64_4_SpecificationGroup"
-           }
-        ],
-        "items":[  
-           {  
-              "itemId":"33",
-              "name":"Small",
-              "nameComplete":"Super Suprema Small",
-              "complementName":"",
-              "ean":"",
-              "referenceId":[  
-                 {  
-                    "Key":"RefId",
-                    "Value":"31231",
-                    "__typename":"vtex_storegraphql_2_64_4_Reference"
-                 }
-              ],
-              "measurementUnit":"un",
-              "unitMultiplier":1,
-              "images":[  
-                 {  
-                    "imageId":"155442",
-                    "imageLabel":"Suprema",
-                    "imageTag":"<img src=\"~/arquivos/ids/155442-#width#-#height#/super-supreme.e34cdf7984831c25c4eda14a2d361a20.1.jpg?v=636770452538570000\" width=\"#width#\" height=\"#height#\" alt=\"Suprema\" id=\"\" />",
-                    "imageUrl":"https://delivery.vteximg.com.br/arquivos/ids/155442/super-supreme.e34cdf7984831c25c4eda14a2d361a20.1.jpg?v=636770452538570000",
-                    "imageText":"Suprema",
-                    "__typename":"vtex_storegraphql_2_64_4_Image"
-                 }
-              ],
-              "sellers":[  
-                 {  
-                    "sellerId":"1",
-                    "sellerName":"VTEX",
-                    "addToCartLink":"https://delivery.vtexcommercestable.com.br/checkout/cart/add?sku=33&qty=1&seller=1&sc=3&price=2099&cv=ca3f5cab9c08e03fd37e4c12025f9016_&sc=3",
-                    "sellerDefault":true,
-                    "commertialOffer":{  
-                       "discountHighlights":[  
-
-                       ],
-                       "Price":20.99,
-                       "ListPrice":20.99,
-                       "PriceWithoutDiscount":20.99,
-                       "RewardValue":0,
-                       "PriceValidUntil":"2020-04-08T16:35:49.0463563Z",
-                       "AvailableQuantity":1000000,
-                       "Tax":0,
-                       "CacheVersionUsedToCallCheckout":"ca3f5cab9c08e03fd37e4c12025f9016_",
-                       "Installments":[  
-                          {  
-                             "Value":20.99,
-                             "InterestRate":0,
-                             "TotalValuePlusInterestRate":20.99,
-                             "NumberOfInstallments":1,
-                             "Name":"American Express à vista",
-                             "__typename":"vtex_storegraphql_2_64_4_Installment"
-                          },
-                          {  
-                             "Value":20.99,
-                             "InterestRate":0,
-                             "TotalValuePlusInterestRate":20.99,
-                             "NumberOfInstallments":1,
-                             "Name":"Visa à vista",
-                             "__typename":"vtex_storegraphql_2_64_4_Installment"
-                          },
-                          {  
-                             "Value":10.49,
-                             "InterestRate":0,
-                             "TotalValuePlusInterestRate":20.99,
-                             "NumberOfInstallments":2,
-                             "Name":"Visa 2 vezes sem juros",
-                             "__typename":"vtex_storegraphql_2_64_4_Installment"
-                          },
-                          {  
-                             "Value":6.99,
-                             "InterestRate":0,
-                             "TotalValuePlusInterestRate":20.99,
-                             "NumberOfInstallments":3,
-                             "Name":"Visa 3 vezes sem juros",
-                             "__typename":"vtex_storegraphql_2_64_4_Installment"
-                          },
-                          {  
-                             "Value":5.24,
-                             "InterestRate":0,
-                             "TotalValuePlusInterestRate":20.99,
-                             "NumberOfInstallments":4,
-                             "Name":"Visa 4 vezes sem juros",
-                             "__typename":"vtex_storegraphql_2_64_4_Installment"
-                          },
-                          {  
-                             "Value":20.99,
-                             "InterestRate":0,
-                             "TotalValuePlusInterestRate":20.99,
-                             "NumberOfInstallments":1,
-                             "Name":"Mastercard à vista",
-                             "__typename":"vtex_storegraphql_2_64_4_Installment"
-                          },
-                          {  
-                             "Value":20.99,
-                             "InterestRate":0,
-                             "TotalValuePlusInterestRate":20.99,
-                             "NumberOfInstallments":1,
-                             "Name":"Vale à vista",
-                             "__typename":"vtex_storegraphql_2_64_4_Installment"
-                          },
-                          {  
-                             "Value":20.99,
-                             "InterestRate":0,
-                             "TotalValuePlusInterestRate":20.99,
-                             "NumberOfInstallments":1,
-                             "Name":"Deposito à vista",
-                             "__typename":"vtex_storegraphql_2_64_4_Installment"
-                          }
-                       ],
-                       "__typename":"vtex_storegraphql_2_64_4_Offer"
-                    },
-                    "__typename":"vtex_storegraphql_2_64_4_Seller"
-                 }
-              ],
-              "variations":[  
-
-              ],
-              "kitItems":[  
-
-              ],
-              "attachments":[  
-                 {  
-                    "id":"14",
-                    "name":"Super Suprema - Small",
-                    "required":false,
-                    "__typename":"vtex_storegraphql_2_64_4_Attachment"
-                 }
-              ],
-              "calculatedAttachments":null,
-              "__typename":"vtex_storegraphql_2_64_4_SKU"
-           },
-           {  
-              "itemId":"34",
-              "name":"Medium",
-              "nameComplete":"Super Suprema Medium",
-              "complementName":"",
-              "ean":"",
-              "referenceId":[  
-                 {  
-                    "Key":"RefId",
-                    "Value":"41",
-                    "__typename":"vtex_storegraphql_2_64_4_Reference"
-                 }
-              ],
-              "measurementUnit":"un",
-              "unitMultiplier":1,
-              "images":[  
-                 {  
-                    "imageId":"155442",
-                    "imageLabel":null,
-                    "imageTag":"<img src=\"~/arquivos/ids/155442-#width#-#height#/super-supreme.e34cdf7984831c25c4eda14a2d361a20.1.jpg?v=636770452538570000\" width=\"#width#\" height=\"#height#\" alt=\"Suprema\" id=\"\" />",
-                    "imageUrl":"https://delivery.vteximg.com.br/arquivos/ids/155442/super-supreme.e34cdf7984831c25c4eda14a2d361a20.1.jpg?v=636770452538570000",
-                    "imageText":"Suprema",
-                    "__typename":"vtex_storegraphql_2_64_4_Image"
-                 }
-              ],
-              "sellers":[  
-                 {  
-                    "sellerId":"1",
-                    "sellerName":"VTEX",
-                    "addToCartLink":"https://delivery.vtexcommercestable.com.br/checkout/cart/add?sku=34&qty=1&seller=1&sc=3&price=2399&cv=ca3f5cab9c08e03fd37e4c12025f9016_&sc=3",
-                    "sellerDefault":true,
-                    "commertialOffer":{  
-                       "discountHighlights":[  
-
-                       ],
-                       "Price":23.99,
-                       "ListPrice":23.99,
-                       "PriceWithoutDiscount":23.99,
-                       "RewardValue":0,
-                       "PriceValidUntil":"2020-04-08T16:35:49.0581958Z",
-                       "AvailableQuantity":1000000,
-                       "Tax":0,
-                       "CacheVersionUsedToCallCheckout":"ca3f5cab9c08e03fd37e4c12025f9016_",
-                       "Installments":[  
-                          {  
-                             "Value":25.59,
-                             "InterestRate":0,
-                             "TotalValuePlusInterestRate":25.59,
-                             "NumberOfInstallments":1,
-                             "Name":"American Express à vista",
-                             "__typename":"vtex_storegraphql_2_64_4_Installment"
-                          },
-                          {  
-                             "Value":25.59,
-                             "InterestRate":0,
-                             "TotalValuePlusInterestRate":25.59,
-                             "NumberOfInstallments":1,
-                             "Name":"Visa à vista",
-                             "__typename":"vtex_storegraphql_2_64_4_Installment"
-                          },
-                          {  
-                             "Value":12.79,
-                             "InterestRate":0,
-                             "TotalValuePlusInterestRate":25.59,
-                             "NumberOfInstallments":2,
-                             "Name":"Visa 2 vezes sem juros",
-                             "__typename":"vtex_storegraphql_2_64_4_Installment"
-                          },
-                          {  
-                             "Value":8.53,
-                             "InterestRate":0,
-                             "TotalValuePlusInterestRate":25.59,
-                             "NumberOfInstallments":3,
-                             "Name":"Visa 3 vezes sem juros",
-                             "__typename":"vtex_storegraphql_2_64_4_Installment"
-                          },
-                          {  
-                             "Value":6.39,
-                             "InterestRate":0,
-                             "TotalValuePlusInterestRate":25.59,
-                             "NumberOfInstallments":4,
-                             "Name":"Visa 4 vezes sem juros",
-                             "__typename":"vtex_storegraphql_2_64_4_Installment"
-                          },
-                          {  
-                             "Value":25.59,
-                             "InterestRate":0,
-                             "TotalValuePlusInterestRate":25.59,
-                             "NumberOfInstallments":1,
-                             "Name":"Mastercard à vista",
-                             "__typename":"vtex_storegraphql_2_64_4_Installment"
-                          },
-                          {  
-                             "Value":25.59,
-                             "InterestRate":0,
-                             "TotalValuePlusInterestRate":25.59,
-                             "NumberOfInstallments":1,
-                             "Name":"Vale à vista",
-                             "__typename":"vtex_storegraphql_2_64_4_Installment"
-                          },
-                          {  
-                             "Value":25.59,
-                             "InterestRate":0,
-                             "TotalValuePlusInterestRate":25.59,
-                             "NumberOfInstallments":1,
-                             "Name":"Deposito à vista",
-                             "__typename":"vtex_storegraphql_2_64_4_Installment"
-                          }
-                       ],
-                       "__typename":"vtex_storegraphql_2_64_4_Offer"
-                    },
-                    "__typename":"vtex_storegraphql_2_64_4_Seller"
-                 }
-              ],
-              "variations":[  
-
-              ],
-              "kitItems":[  
-
-              ],
-              "attachments":[  
-                 {  
-                    "id":"15",
-                    "name":"Super Suprema - Medium",
-                    "required":false,
-                    "__typename":"vtex_storegraphql_2_64_4_Attachment"
-                 }
-              ],
-              "calculatedAttachments":null,
-              "__typename":"vtex_storegraphql_2_64_4_SKU"
-           },
-           {  
-              "itemId":"35",
-              "name":"Large",
-              "nameComplete":"Super Suprema Large",
-              "complementName":"",
-              "ean":"",
-              "referenceId":[  
-                 {  
-                    "Key":"RefId",
-                    "Value":"511",
-                    "__typename":"vtex_storegraphql_2_64_4_Reference"
-                 }
-              ],
-              "measurementUnit":"un",
-              "unitMultiplier":1,
-              "images":[  
-                 {  
-                    "imageId":"155442",
-                    "imageLabel":null,
-                    "imageTag":"<img src=\"~/arquivos/ids/155442-#width#-#height#/super-supreme.e34cdf7984831c25c4eda14a2d361a20.1.jpg?v=636770452538570000\" width=\"#width#\" height=\"#height#\" alt=\"Suprema\" id=\"\" />",
-                    "imageUrl":"https://delivery.vteximg.com.br/arquivos/ids/155442/super-supreme.e34cdf7984831c25c4eda14a2d361a20.1.jpg?v=636770452538570000",
-                    "imageText":"Suprema",
-                    "__typename":"vtex_storegraphql_2_64_4_Image"
-                 }
-              ],
-              "sellers":[  
-                 {  
-                    "sellerId":"1",
-                    "sellerName":"VTEX",
-                    "addToCartLink":"https://delivery.vtexcommercestable.com.br/checkout/cart/add?sku=35&qty=1&seller=1&sc=3&price=2480&cv=ca3f5cab9c08e03fd37e4c12025f9016_&sc=3",
-                    "sellerDefault":true,
-                    "commertialOffer":{  
-                       "discountHighlights":[  
-
-                       ],
-                       "Price":24.8,
-                       "ListPrice":24.8,
-                       "PriceWithoutDiscount":24.8,
-                       "RewardValue":0,
-                       "PriceValidUntil":"2020-04-08T16:35:49.0449528Z",
-                       "AvailableQuantity":1000000,
-                       "Tax":0,
-                       "CacheVersionUsedToCallCheckout":"ca3f5cab9c08e03fd37e4c12025f9016_",
-                       "Installments":[  
-                          {  
-                             "Value":24.8,
-                             "InterestRate":0,
-                             "TotalValuePlusInterestRate":24.8,
-                             "NumberOfInstallments":1,
-                             "Name":"American Express à vista",
-                             "__typename":"vtex_storegraphql_2_64_4_Installment"
-                          },
-                          {  
-                             "Value":24.8,
-                             "InterestRate":0,
-                             "TotalValuePlusInterestRate":24.8,
-                             "NumberOfInstallments":1,
-                             "Name":"Visa à vista",
-                             "__typename":"vtex_storegraphql_2_64_4_Installment"
-                          },
-                          {  
-                             "Value":12.4,
-                             "InterestRate":0,
-                             "TotalValuePlusInterestRate":24.8,
-                             "NumberOfInstallments":2,
-                             "Name":"Visa 2 vezes sem juros",
-                             "__typename":"vtex_storegraphql_2_64_4_Installment"
-                          },
-                          {  
-                             "Value":8.26,
-                             "InterestRate":0,
-                             "TotalValuePlusInterestRate":24.8,
-                             "NumberOfInstallments":3,
-                             "Name":"Visa 3 vezes sem juros",
-                             "__typename":"vtex_storegraphql_2_64_4_Installment"
-                          },
-                          {  
-                             "Value":6.2,
-                             "InterestRate":0,
-                             "TotalValuePlusInterestRate":24.8,
-                             "NumberOfInstallments":4,
-                             "Name":"Visa 4 vezes sem juros",
-                             "__typename":"vtex_storegraphql_2_64_4_Installment"
-                          },
-                          {  
-                             "Value":24.8,
-                             "InterestRate":0,
-                             "TotalValuePlusInterestRate":24.8,
-                             "NumberOfInstallments":1,
-                             "Name":"Mastercard à vista",
-                             "__typename":"vtex_storegraphql_2_64_4_Installment"
-                          },
-                          {  
-                             "Value":24.8,
-                             "InterestRate":0,
-                             "TotalValuePlusInterestRate":24.8,
-                             "NumberOfInstallments":1,
-                             "Name":"Vale à vista",
-                             "__typename":"vtex_storegraphql_2_64_4_Installment"
-                          },
-                          {  
-                             "Value":24.8,
-                             "InterestRate":0,
-                             "TotalValuePlusInterestRate":24.8,
-                             "NumberOfInstallments":1,
-                             "Name":"Deposito à vista",
-                             "__typename":"vtex_storegraphql_2_64_4_Installment"
-                          }
-                       ],
-                       "__typename":"vtex_storegraphql_2_64_4_Offer"
-                    },
-                    "__typename":"vtex_storegraphql_2_64_4_Seller"
-                 }
-              ],
-              "variations":[  
-
-              ],
-              "kitItems":[  
-
-              ],
-              "attachments":[  
-                 {  
-                    "id":"16",
-                    "name":"Super Suprema - Large",
-                    "required":false,
-                    "__typename":"vtex_storegraphql_2_64_4_Attachment"
-                 }
-              ],
-              "calculatedAttachments":null,
-              "__typename":"vtex_storegraphql_2_64_4_SKU"
-           }
-        ],
-        "itemMetadata":{  
-           "items":[  
-              {  
-                 "id":"33",
-                 "name":"Small",
-                 "imageUrl":"https://delivery.vteximg.com.br/arquivos/ids/155442/super-supreme.e34cdf7984831c25c4eda14a2d361a20.1.jpg?v=636770452538570000",
-                 "seller":"1",
-                 "assemblyOptions":[  
-                    {  
-                       "id":"Super Suprema - Small_Toppings",
-                       "name":"Super Suprema - Small",
-                       "inputValues": [],
-                       "composition":{  
-                          "minQuantity":0,
-                          "maxQuantity":10,
-                          "items":[  
-                             {  
-                                "id":"8",
-                                "minQuantity":0,
-                                "maxQuantity":3,
-                                "priceTable":"small",
-                                "seller":"1",
-                                "initialQuantity":0,
-                                "__typename":"vtex_storegraphql_2_64_4_CompositionItem"
-                             },
-                             {  
-                                "id":"9",
-                                "minQuantity":0,
-                                "maxQuantity":3,
-                                "priceTable":"small",
-                                "seller":"1",
-                                "initialQuantity":0,
-                                "__typename":"vtex_storegraphql_2_64_4_CompositionItem"
-                             },
-                             {  
-                                "id":"10",
-                                "minQuantity":0,
-                                "maxQuantity":3,
-                                "priceTable":"small",
-                                "seller":"1",
-                                "initialQuantity":0,
-                                "__typename":"vtex_storegraphql_2_64_4_CompositionItem"
-                             },
-                             {  
-                                "id":"11",
-                                "minQuantity":0,
-                                "maxQuantity":3,
-                                "priceTable":"small",
-                                "seller":"1",
-                                "initialQuantity":0,
-                                "__typename":"vtex_storegraphql_2_64_4_CompositionItem"
-                             },
-                             {  
-                                "id":"36",
-                                "minQuantity":0,
-                                "maxQuantity":3,
-                                "priceTable":"small",
-                                "seller":"1",
-                                "initialQuantity":0,
-                                "__typename":"vtex_storegraphql_2_64_4_CompositionItem"
-                             },
-                             {  
-                                "id":"37",
-                                "minQuantity":0,
-                                "maxQuantity":3,
-                                "priceTable":"small",
-                                "seller":"1",
-                                "initialQuantity":0,
-                                "__typename":"vtex_storegraphql_2_64_4_CompositionItem"
-                             },
-                             {  
-                                "id":"38",
-                                "minQuantity":0,
-                                "maxQuantity":3,
-                                "priceTable":"small",
-                                "seller":"1",
-                                "initialQuantity":0,
-                                "__typename":"vtex_storegraphql_2_64_4_CompositionItem"
-                             }
-                          ],
-                          "__typename":"vtex_storegraphql_2_64_4_CompositionType"
-                       },
-                       "__typename":"vtex_storegraphql_2_64_4_AssemblyOption"
-                    },
-                    {  
-                       "id":"Super Suprema - Small_Basic Toppings",
-                       "name":"Super Suprema - Small",
-                       "inputValues": [],
-                       "composition":{  
-                          "minQuantity":0,
-                          "maxQuantity":6,
-                          "items":[  
-                             {  
-                                "id":"37",
-                                "minQuantity":0,
-                                "maxQuantity":1,
-                                "priceTable":"basic",
-                                "seller":"1",
-                                "initialQuantity":1,
-                                "__typename":"vtex_storegraphql_2_64_4_CompositionItem"
-                             },
-                             {  
-                                "id":"36",
-                                "minQuantity":0,
-                                "maxQuantity":1,
-                                "priceTable":"basic",
-                                "seller":"1",
-                                "initialQuantity":1,
-                                "__typename":"vtex_storegraphql_2_64_4_CompositionItem"
-                             },
-                             {  
-                                "id":"8",
-                                "minQuantity":0,
-                                "maxQuantity":1,
-                                "priceTable":"basic",
-                                "seller":"1",
-                                "initialQuantity":1,
-                                "__typename":"vtex_storegraphql_2_64_4_CompositionItem"
-                             },
-                             {  
-                                "id":"9",
-                                "minQuantity":0,
-                                "maxQuantity":1,
-                                "priceTable":"basic",
-                                "seller":"1",
-                                "initialQuantity":1,
-                                "__typename":"vtex_storegraphql_2_64_4_CompositionItem"
-                             },
-                             {  
-                                "id":"10",
-                                "minQuantity":0,
-                                "maxQuantity":1,
-                                "priceTable":"basic",
-                                "seller":"1",
-                                "initialQuantity":1,
-                                "__typename":"vtex_storegraphql_2_64_4_CompositionItem"
-                             },
-                             {  
-                                "id":"11",
-                                "minQuantity":0,
-                                "maxQuantity":1,
-                                "priceTable":"basic",
-                                "seller":"1",
-                                "initialQuantity":1,
-                                "__typename":"vtex_storegraphql_2_64_4_CompositionItem"
-                             }
-                          ],
-                          "__typename":"vtex_storegraphql_2_64_4_CompositionType"
-                       },
-                       "__typename":"vtex_storegraphql_2_64_4_AssemblyOption"
-                    },
-                    {  
-                       "id":"Super Suprema - Small_Crust",
-                       "name":"Super Suprema - Small",
-                       "inputValues": [],
-                       "composition":{  
-                          "minQuantity":1,
-                          "maxQuantity":1,
-                          "items":[  
-                             {  
-                                "id":"12",
-                                "minQuantity":0,
-                                "maxQuantity":1,
-                                "priceTable":"small",
-                                "seller":"1",
-                                "initialQuantity":0,
-                                "__typename":"vtex_storegraphql_2_64_4_CompositionItem"
-                             },
-                             {  
-                                "id":"13",
-                                "minQuantity":0,
-                                "maxQuantity":1,
-                                "priceTable":"small",
-                                "seller":"1",
-                                "initialQuantity":0,
-                                "__typename":"vtex_storegraphql_2_64_4_CompositionItem"
-                             },
-                             {  
-                                "id":"14",
-                                "minQuantity":0,
-                                "maxQuantity":1,
-                                "priceTable":"small",
-                                "seller":"1",
-                                "initialQuantity":0,
-                                "__typename":"vtex_storegraphql_2_64_4_CompositionItem"
-                             }
-                          ],
-                          "__typename":"vtex_storegraphql_2_64_4_CompositionType"
-                       },
-                       "__typename":"vtex_storegraphql_2_64_4_AssemblyOption"
-                    }
-                 ],
-                 "__typename":"vtex_storegraphql_2_64_4_ItemMetadataUnit"
+{
+  "data": {
+    "product": {
+      "cacheId": "super-suprema",
+      "productName": "Super Suprema",
+      "productId": "22",
+      "description": "",
+      "titleTag": "",
+      "metaTagDescription": "",
+      "linkText": "super-suprema",
+      "categories": ["/Pizzas/"],
+      "categoryId": "4",
+      "categoriesIds": ["/4/"],
+      "brand": "Pizza",
+      "properties": [],
+      "specificationGroups": [
+        {
+          "name": "allSpecifications",
+          "specifications": [],
+          "__typename": "vtex_storegraphql_2_64_4_SpecificationGroup"
+        }
+      ],
+      "items": [
+        {
+          "itemId": "33",
+          "name": "Small",
+          "nameComplete": "Super Suprema Small",
+          "complementName": "",
+          "ean": "",
+          "referenceId": [
+            {
+              "Key": "RefId",
+              "Value": "31231",
+              "__typename": "vtex_storegraphql_2_64_4_Reference"
+            }
+          ],
+          "measurementUnit": "un",
+          "unitMultiplier": 1,
+          "images": [
+            {
+              "imageId": "155442",
+              "imageLabel": "Suprema",
+              "imageTag": "<img src=\"~/arquivos/ids/155442-#width#-#height#/super-supreme.e34cdf7984831c25c4eda14a2d361a20.1.jpg?v=636770452538570000\" width=\"#width#\" height=\"#height#\" alt=\"Suprema\" id=\"\" />",
+              "imageUrl": "https://delivery.vteximg.com.br/arquivos/ids/155442/super-supreme.e34cdf7984831c25c4eda14a2d361a20.1.jpg?v=636770452538570000",
+              "imageText": "Suprema",
+              "__typename": "vtex_storegraphql_2_64_4_Image"
+            }
+          ],
+          "sellers": [
+            {
+              "sellerId": "1",
+              "sellerName": "VTEX",
+              "addToCartLink": "https://delivery.vtexcommercestable.com.br/checkout/cart/add?sku=33&qty=1&seller=1&sc=3&price=2099&cv=ca3f5cab9c08e03fd37e4c12025f9016_&sc=3",
+              "sellerDefault": true,
+              "commertialOffer": {
+                "discountHighlights": [],
+                "Price": 20.99,
+                "ListPrice": 20.99,
+                "PriceWithoutDiscount": 20.99,
+                "RewardValue": 0,
+                "PriceValidUntil": "2020-04-08T16:35:49.0463563Z",
+                "AvailableQuantity": 1000000,
+                "Tax": 0,
+                "CacheVersionUsedToCallCheckout": "ca3f5cab9c08e03fd37e4c12025f9016_",
+                "Installments": [
+                  {
+                    "Value": 20.99,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 20.99,
+                    "NumberOfInstallments": 1,
+                    "Name": "American Express à vista",
+                    "__typename": "vtex_storegraphql_2_64_4_Installment"
+                  },
+                  {
+                    "Value": 20.99,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 20.99,
+                    "NumberOfInstallments": 1,
+                    "Name": "Visa à vista",
+                    "__typename": "vtex_storegraphql_2_64_4_Installment"
+                  },
+                  {
+                    "Value": 10.49,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 20.99,
+                    "NumberOfInstallments": 2,
+                    "Name": "Visa 2 vezes sem juros",
+                    "__typename": "vtex_storegraphql_2_64_4_Installment"
+                  },
+                  {
+                    "Value": 6.99,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 20.99,
+                    "NumberOfInstallments": 3,
+                    "Name": "Visa 3 vezes sem juros",
+                    "__typename": "vtex_storegraphql_2_64_4_Installment"
+                  },
+                  {
+                    "Value": 5.24,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 20.99,
+                    "NumberOfInstallments": 4,
+                    "Name": "Visa 4 vezes sem juros",
+                    "__typename": "vtex_storegraphql_2_64_4_Installment"
+                  },
+                  {
+                    "Value": 20.99,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 20.99,
+                    "NumberOfInstallments": 1,
+                    "Name": "Mastercard à vista",
+                    "__typename": "vtex_storegraphql_2_64_4_Installment"
+                  },
+                  {
+                    "Value": 20.99,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 20.99,
+                    "NumberOfInstallments": 1,
+                    "Name": "Vale à vista",
+                    "__typename": "vtex_storegraphql_2_64_4_Installment"
+                  },
+                  {
+                    "Value": 20.99,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 20.99,
+                    "NumberOfInstallments": 1,
+                    "Name": "Deposito à vista",
+                    "__typename": "vtex_storegraphql_2_64_4_Installment"
+                  }
+                ],
+                "__typename": "vtex_storegraphql_2_64_4_Offer"
               },
-              {  
-                 "id":"8",
-                 "name":"Ham",
-                 "imageUrl":"https://delivery.vteximg.com.br/arquivos/ids/155432/Topping_Jamon.jpg.png?v=636766052579200000",
-                 "seller":"1",
-                 "assemblyOptions":[  
-
-                 ],
-                 "__typename":"vtex_storegraphql_2_64_4_ItemMetadataUnit"
-              },
-              {  
-                 "id":"9",
-                 "name":"Pepperoni",
-                 "imageUrl":"https://delivery.vteximg.com.br/arquivos/ids/155428/Topping_Pepperoni.jpg.png?v=636766047561270000",
-                 "seller":"1",
-                 "assemblyOptions":[  
-
-                 ],
-                 "__typename":"vtex_storegraphql_2_64_4_ItemMetadataUnit"
-              },
-              {  
-                 "id":"10",
-                 "name":"Champignon",
-                 "imageUrl":"https://delivery.vteximg.com.br/arquivos/ids/155436/Topping_Champinones.png?v=636766057405600000",
-                 "seller":"1",
-                 "assemblyOptions":[  
-
-                 ],
-                 "__typename":"vtex_storegraphql_2_64_4_ItemMetadataUnit"
-              },
-              {  
-                 "id":"11",
-                 "name":"Onion",
-                 "imageUrl":"https://delivery.vteximg.com.br/arquivos/ids/155427/Topping_Cebolla.jpg.png?v=636766046799500000",
-                 "seller":"1",
-                 "assemblyOptions":[  
-
-                 ],
-                 "__typename":"vtex_storegraphql_2_64_4_ItemMetadataUnit"
-              },
-              {  
-                 "id":"36",
-                 "name":"Black Olives",
-                 "imageUrl":"https://delivery.vteximg.com.br/arquivos/ids/155430/Topping_Aceitunas-Negras.jpg.png?v=636766049376970000",
-                 "seller":"1",
-                 "assemblyOptions":[  
-
-                 ],
-                 "__typename":"vtex_storegraphql_2_64_4_ItemMetadataUnit"
-              },
-              {  
-                 "id":"37",
-                 "name":"Green Pepper",
-                 "imageUrl":"https://delivery.vteximg.com.br/arquivos/ids/155431/PIMIENTO-VERDE.png?v=636766050771230000",
-                 "seller":"1",
-                 "assemblyOptions":[  
-
-                 ],
-                 "__typename":"vtex_storegraphql_2_64_4_ItemMetadataUnit"
-              },
-              {  
-                 "id":"38",
-                 "name":"Pineapple",
-                 "imageUrl":"https://delivery.vteximg.com.br/arquivos/ids/155435/Topping_Pina.jpg.png?v=636766056177370000",
-                 "seller":"1",
-                 "assemblyOptions":[  
-
-                 ],
-                 "__typename":"vtex_storegraphql_2_64_4_ItemMetadataUnit"
-              },
-              {  
-                 "id":"12",
-                 "name":"Cheesy Bites",
-                 "imageUrl":"https://delivery.vteximg.com.br/arquivos/ids/155411/cheesy-bites.png?v=636759865607400000",
-                 "seller":"1",
-                 "assemblyOptions":[  
-
-                 ],
-                 "__typename":"vtex_storegraphql_2_64_4_ItemMetadataUnit"
-              },
-              {  
-                 "id":"13",
-                 "name":"Stuffed Crust",
-                 "imageUrl":"https://delivery.vteximg.com.br/arquivos/ids/155412/stuffed-crust.png?v=636759865852770000",
-                 "seller":"1",
-                 "assemblyOptions":[  
-
-                 ],
-                 "__typename":"vtex_storegraphql_2_64_4_ItemMetadataUnit"
-              },
-              {  
-                 "id":"14",
-                 "name":"Classic Crust",
-                 "imageUrl":"https://delivery.vteximg.com.br/arquivos/ids/155413/classic.png?v=636759866429100000",
-                 "seller":"1",
-                 "assemblyOptions":[  
-
-                 ],
-                 "__typename":"vtex_storegraphql_2_64_4_ItemMetadataUnit"
-              },
-              {  
-                 "id":"34",
-                 "name":"Medium",
-                 "imageUrl":"https://delivery.vteximg.com.br/arquivos/ids/155442/super-supreme.e34cdf7984831c25c4eda14a2d361a20.1.jpg?v=636770452538570000",
-                 "seller":"1",
-                 "assemblyOptions":[  
-                    {  
-                       "id":"Super Suprema - Medium_Toppings",
-                       "name":"Super Suprema - Medium",
-                       "inputValues": [],
-                       "composition":{  
-                          "minQuantity":0,
-                          "maxQuantity":10,
-                          "items":[  
-                             {  
-                                "id":"8",
-                                "minQuantity":0,
-                                "maxQuantity":3,
-                                "priceTable":"medium",
-                                "seller":"1",
-                                "initialQuantity":0,
-                                "__typename":"vtex_storegraphql_2_64_4_CompositionItem"
-                             },
-                             {  
-                                "id":"9",
-                                "minQuantity":0,
-                                "maxQuantity":3,
-                                "priceTable":"medium",
-                                "seller":"1",
-                                "initialQuantity":0,
-                                "__typename":"vtex_storegraphql_2_64_4_CompositionItem"
-                             },
-                             {  
-                                "id":"10",
-                                "minQuantity":0,
-                                "maxQuantity":3,
-                                "priceTable":"medium",
-                                "seller":"1",
-                                "initialQuantity":0,
-                                "__typename":"vtex_storegraphql_2_64_4_CompositionItem"
-                             },
-                             {  
-                                "id":"11",
-                                "minQuantity":0,
-                                "maxQuantity":3,
-                                "priceTable":"medium",
-                                "seller":"1",
-                                "initialQuantity":0,
-                                "__typename":"vtex_storegraphql_2_64_4_CompositionItem"
-                             },
-                             {  
-                                "id":"36",
-                                "minQuantity":0,
-                                "maxQuantity":3,
-                                "priceTable":"medium",
-                                "seller":"1",
-                                "initialQuantity":0,
-                                "__typename":"vtex_storegraphql_2_64_4_CompositionItem"
-                             },
-                             {  
-                                "id":"37",
-                                "minQuantity":0,
-                                "maxQuantity":3,
-                                "priceTable":"medium",
-                                "seller":"1",
-                                "initialQuantity":0,
-                                "__typename":"vtex_storegraphql_2_64_4_CompositionItem"
-                             },
-                             {  
-                                "id":"38",
-                                "minQuantity":0,
-                                "maxQuantity":3,
-                                "priceTable":"medium",
-                                "seller":"1",
-                                "initialQuantity":0,
-                                "__typename":"vtex_storegraphql_2_64_4_CompositionItem"
-                             }
-                          ],
-                          "__typename":"vtex_storegraphql_2_64_4_CompositionType"
-                       },
-                       "__typename":"vtex_storegraphql_2_64_4_AssemblyOption"
-                    },
-                    {  
-                       "id":"Super Suprema - Medium_Basic Toppings",
-                       "name":"Super Suprema - Medium",
-                       "inputValues": [],
-                       "composition":{  
-                          "minQuantity":0,
-                          "maxQuantity":6,
-                          "items":[  
-                             {  
-                                "id":"37",
-                                "minQuantity":0,
-                                "maxQuantity":1,
-                                "priceTable":"basic",
-                                "seller":"1",
-                                "initialQuantity":1,
-                                "__typename":"vtex_storegraphql_2_64_4_CompositionItem"
-                             },
-                             {  
-                                "id":"36",
-                                "minQuantity":0,
-                                "maxQuantity":1,
-                                "priceTable":"basic",
-                                "seller":"1",
-                                "initialQuantity":1,
-                                "__typename":"vtex_storegraphql_2_64_4_CompositionItem"
-                             },
-                             {  
-                                "id":"8",
-                                "minQuantity":0,
-                                "maxQuantity":1,
-                                "priceTable":"basic",
-                                "seller":"1",
-                                "initialQuantity":1,
-                                "__typename":"vtex_storegraphql_2_64_4_CompositionItem"
-                             },
-                             {  
-                                "id":"9",
-                                "minQuantity":0,
-                                "maxQuantity":1,
-                                "priceTable":"basic",
-                                "seller":"1",
-                                "initialQuantity":1,
-                                "__typename":"vtex_storegraphql_2_64_4_CompositionItem"
-                             },
-                             {  
-                                "id":"10",
-                                "minQuantity":0,
-                                "maxQuantity":1,
-                                "priceTable":"basic",
-                                "seller":"1",
-                                "initialQuantity":1,
-                                "__typename":"vtex_storegraphql_2_64_4_CompositionItem"
-                             },
-                             {  
-                                "id":"11",
-                                "minQuantity":0,
-                                "maxQuantity":1,
-                                "priceTable":"basic",
-                                "seller":"1",
-                                "initialQuantity":1,
-                                "__typename":"vtex_storegraphql_2_64_4_CompositionItem"
-                             }
-                          ],
-                          "__typename":"vtex_storegraphql_2_64_4_CompositionType"
-                       },
-                       "__typename":"vtex_storegraphql_2_64_4_AssemblyOption"
-                    },
-                    {  
-                       "id":"Super Suprema - Medium_Crust",
-                       "name":"Super Suprema - Medium",
-                       "inputValues": [],
-                       "composition":{  
-                          "minQuantity":1,
-                          "maxQuantity":1,
-                          "items":[  
-                             {  
-                                "id":"12",
-                                "minQuantity":0,
-                                "maxQuantity":1,
-                                "priceTable":"medium",
-                                "seller":"1",
-                                "initialQuantity":0,
-                                "__typename":"vtex_storegraphql_2_64_4_CompositionItem"
-                             },
-                             {  
-                                "id":"13",
-                                "minQuantity":0,
-                                "maxQuantity":1,
-                                "priceTable":"medium",
-                                "seller":"1",
-                                "initialQuantity":0,
-                                "__typename":"vtex_storegraphql_2_64_4_CompositionItem"
-                             },
-                             {  
-                                "id":"14",
-                                "minQuantity":1,
-                                "maxQuantity":1,
-                                "priceTable":"medium",
-                                "seller":"1",
-                                "initialQuantity":1,
-                                "__typename":"vtex_storegraphql_2_64_4_CompositionItem"
-                             },
-                             {  
-                                "id":"24",
-                                "minQuantity":0,
-                                "maxQuantity":1,
-                                "priceTable":"medium",
-                                "seller":"1",
-                                "initialQuantity":0,
-                                "__typename":"vtex_storegraphql_2_64_4_CompositionItem"
-                             }
-                          ],
-                          "__typename":"vtex_storegraphql_2_64_4_CompositionType"
-                       },
-                       "__typename":"vtex_storegraphql_2_64_4_AssemblyOption"
-                    }
-                 ],
-                 "__typename":"vtex_storegraphql_2_64_4_ItemMetadataUnit"
-              },
-              {  
-                 "id":"24",
-                 "name":"Artesan",
-                 "imageUrl":"https://delivery.vteximg.com.br/arquivos/ids/155414/italian.png?v=636759867374000000",
-                 "seller":"1",
-                 "assemblyOptions":[  
-
-                 ],
-                 "__typename":"vtex_storegraphql_2_64_4_ItemMetadataUnit"
-              },
-              {  
-                 "id":"35",
-                 "name":"Large",
-                 "imageUrl":"https://delivery.vteximg.com.br/arquivos/ids/155442/super-supreme.e34cdf7984831c25c4eda14a2d361a20.1.jpg?v=636770452538570000",
-                 "seller":"1",
-                 "assemblyOptions":[  
-                    {  
-                       "id":"Super Suprema - Large_Toppings",
-                       "name":"Super Suprema - Large",
-                       "inputValues": [],
-                       "composition":{  
-                          "minQuantity":0,
-                          "maxQuantity":10,
-                          "items":[  
-                             {  
-                                "id":"8",
-                                "minQuantity":0,
-                                "maxQuantity":3,
-                                "priceTable":"large",
-                                "seller":"1",
-                                "initialQuantity":0,
-                                "__typename":"vtex_storegraphql_2_64_4_CompositionItem"
-                             },
-                             {  
-                                "id":"9",
-                                "minQuantity":0,
-                                "maxQuantity":3,
-                                "priceTable":"large",
-                                "seller":"1",
-                                "initialQuantity":0,
-                                "__typename":"vtex_storegraphql_2_64_4_CompositionItem"
-                             },
-                             {  
-                                "id":"10",
-                                "minQuantity":0,
-                                "maxQuantity":3,
-                                "priceTable":"large",
-                                "seller":"1",
-                                "initialQuantity":0,
-                                "__typename":"vtex_storegraphql_2_64_4_CompositionItem"
-                             },
-                             {  
-                                "id":"11",
-                                "minQuantity":0,
-                                "maxQuantity":3,
-                                "priceTable":"large",
-                                "seller":"1",
-                                "initialQuantity":0,
-                                "__typename":"vtex_storegraphql_2_64_4_CompositionItem"
-                             },
-                             {  
-                                "id":"36",
-                                "minQuantity":0,
-                                "maxQuantity":3,
-                                "priceTable":"large",
-                                "seller":"1",
-                                "initialQuantity":0,
-                                "__typename":"vtex_storegraphql_2_64_4_CompositionItem"
-                             },
-                             {  
-                                "id":"37",
-                                "minQuantity":0,
-                                "maxQuantity":3,
-                                "priceTable":"large",
-                                "seller":"1",
-                                "initialQuantity":0,
-                                "__typename":"vtex_storegraphql_2_64_4_CompositionItem"
-                             },
-                             {  
-                                "id":"38",
-                                "minQuantity":0,
-                                "maxQuantity":3,
-                                "priceTable":"large",
-                                "seller":"1",
-                                "initialQuantity":0,
-                                "__typename":"vtex_storegraphql_2_64_4_CompositionItem"
-                             }
-                          ],
-                          "__typename":"vtex_storegraphql_2_64_4_CompositionType"
-                       },
-                       "__typename":"vtex_storegraphql_2_64_4_AssemblyOption"
-                    },
-                    {  
-                       "id":"Super Suprema - Large_Basic Toppings",
-                       "name":"Super Suprema - Large",
-                       "inputValues": [],
-                       "composition":{  
-                          "minQuantity":0,
-                          "maxQuantity":6,
-                          "items":[  
-                             {  
-                                "id":"37",
-                                "minQuantity":1,
-                                "maxQuantity":1,
-                                "priceTable":"basic",
-                                "seller":"1",
-                                "initialQuantity":0,
-                                "__typename":"vtex_storegraphql_2_64_4_CompositionItem"
-                             },
-                             {  
-                                "id":"36",
-                                "minQuantity":1,
-                                "maxQuantity":1,
-                                "priceTable":"basic",
-                                "seller":"1",
-                                "initialQuantity":0,
-                                "__typename":"vtex_storegraphql_2_64_4_CompositionItem"
-                             },
-                             {  
-                                "id":"8",
-                                "minQuantity":1,
-                                "maxQuantity":1,
-                                "priceTable":"basic",
-                                "seller":"1",
-                                "initialQuantity":0,
-                                "__typename":"vtex_storegraphql_2_64_4_CompositionItem"
-                             },
-                             {  
-                                "id":"9",
-                                "minQuantity":1,
-                                "maxQuantity":1,
-                                "priceTable":"basic",
-                                "seller":"1",
-                                "initialQuantity":0,
-                                "__typename":"vtex_storegraphql_2_64_4_CompositionItem"
-                             },
-                             {  
-                                "id":"10",
-                                "minQuantity":1,
-                                "maxQuantity":1,
-                                "priceTable":"basic",
-                                "seller":"1",
-                                "initialQuantity":0,
-                                "__typename":"vtex_storegraphql_2_64_4_CompositionItem"
-                             },
-                             {  
-                                "id":"11",
-                                "minQuantity":1,
-                                "maxQuantity":1,
-                                "priceTable":"basic",
-                                "seller":"1",
-                                "initialQuantity":0,
-                                "__typename":"vtex_storegraphql_2_64_4_CompositionItem"
-                             }
-                          ],
-                          "__typename":"vtex_storegraphql_2_64_4_CompositionType"
-                       },
-                       "__typename":"vtex_storegraphql_2_64_4_AssemblyOption"
-                    },
-                    {  
-                       "id":"Super Suprema - Large_Crust",
-                       "name":"Super Suprema - Large",
-                       "inputValues": [],
-                       "composition":{  
-                          "minQuantity":1,
-                          "maxQuantity":1,
-                          "items":[  
-                             {  
-                                "id":"12",
-                                "minQuantity":0,
-                                "maxQuantity":1,
-                                "priceTable":"large",
-                                "seller":"1",
-                                "initialQuantity":0,
-                                "__typename":"vtex_storegraphql_2_64_4_CompositionItem"
-                             },
-                             {  
-                                "id":"13",
-                                "minQuantity":0,
-                                "maxQuantity":1,
-                                "priceTable":"large",
-                                "seller":"1",
-                                "initialQuantity":0,
-                                "__typename":"vtex_storegraphql_2_64_4_CompositionItem"
-                             },
-                             {  
-                                "id":"14",
-                                "minQuantity":0,
-                                "maxQuantity":1,
-                                "priceTable":"large",
-                                "seller":"1",
-                                "initialQuantity":0,
-                                "__typename":"vtex_storegraphql_2_64_4_CompositionItem"
-                             },
-                             {  
-                                "id":"24",
-                                "minQuantity":0,
-                                "maxQuantity":1,
-                                "priceTable":"large",
-                                "seller":"1",
-                                "initialQuantity":0,
-                                "__typename":"vtex_storegraphql_2_64_4_CompositionItem"
-                             },
-                             {  
-                                "id":"25",
-                                "minQuantity":0,
-                                "maxQuantity":1,
-                                "priceTable":"large",
-                                "seller":"1",
-                                "initialQuantity":0,
-                                "__typename":"vtex_storegraphql_2_64_4_CompositionItem"
-                             }
-                          ],
-                          "__typename":"vtex_storegraphql_2_64_4_CompositionType"
-                       },
-                       "__typename":"vtex_storegraphql_2_64_4_AssemblyOption"
-                    }
-                 ],
-                 "__typename":"vtex_storegraphql_2_64_4_ItemMetadataUnit"
-              },
-              {  
-                 "id":"25",
-                 "name":"Hut Cheese",
-                 "imageUrl":"https://delivery.vteximg.com.br/arquivos/ids/155415/5-cheese.png?v=636759867642500000",
-                 "seller":"1",
-                 "assemblyOptions":[  
-
-                 ],
-                 "__typename":"vtex_storegraphql_2_64_4_ItemMetadataUnit"
-              }
-           ],
-           "priceTable":[  
-              {  
-                 "type":"small",
-                 "values":[  
-                    {  
-                       "id":"8",
-                       "price":150,
-                       "__typename":"vtex_storegraphql_2_64_4_PriceTableItem"
-                    },
-                    {  
-                       "id":"9",
-                       "price":250,
-                       "__typename":"vtex_storegraphql_2_64_4_PriceTableItem"
-                    },
-                    {  
-                       "id":"10",
-                       "price":125,
-                       "__typename":"vtex_storegraphql_2_64_4_PriceTableItem"
-                    },
-                    {  
-                       "id":"11",
-                       "price":140,
-                       "__typename":"vtex_storegraphql_2_64_4_PriceTableItem"
-                    },
-                    {  
-                       "id":"36",
-                       "price":75,
-                       "__typename":"vtex_storegraphql_2_64_4_PriceTableItem"
-                    },
-                    {  
-                       "id":"37",
-                       "price":50,
-                       "__typename":"vtex_storegraphql_2_64_4_PriceTableItem"
-                    },
-                    {  
-                       "id":"38",
-                       "price":100,
-                       "__typename":"vtex_storegraphql_2_64_4_PriceTableItem"
-                    },
-                    {  
-                       "id":"12",
-                       "price":258,
-                       "__typename":"vtex_storegraphql_2_64_4_PriceTableItem"
-                    },
-                    {  
-                       "id":"13",
-                       "price":218,
-                       "__typename":"vtex_storegraphql_2_64_4_PriceTableItem"
-                    },
-                    {  
-                       "id":"14",
-                       "price":0,
-                       "__typename":"vtex_storegraphql_2_64_4_PriceTableItem"
-                    }
-                 ],
-                 "__typename":"vtex_storegraphql_2_64_4_ItemPriceTable"
-              },
-              {  
-                 "type":"basic",
-                 "values":[  
-                    {  
-                       "id":"37",
-                       "price":0,
-                       "__typename":"vtex_storegraphql_2_64_4_PriceTableItem"
-                    },
-                    {  
-                       "id":"36",
-                       "price":0,
-                       "__typename":"vtex_storegraphql_2_64_4_PriceTableItem"
-                    },
-                    {  
-                       "id":"8",
-                       "price":0,
-                       "__typename":"vtex_storegraphql_2_64_4_PriceTableItem"
-                    },
-                    {  
-                       "id":"9",
-                       "price":0,
-                       "__typename":"vtex_storegraphql_2_64_4_PriceTableItem"
-                    },
-                    {  
-                       "id":"10",
-                       "price":0,
-                       "__typename":"vtex_storegraphql_2_64_4_PriceTableItem"
-                    },
-                    {  
-                       "id":"11",
-                       "price":0,
-                       "__typename":"vtex_storegraphql_2_64_4_PriceTableItem"
-                    },
-                    {  
-                       "id":"37",
-                       "price":0,
-                       "__typename":"vtex_storegraphql_2_64_4_PriceTableItem"
-                    },
-                    {  
-                       "id":"36",
-                       "price":0,
-                       "__typename":"vtex_storegraphql_2_64_4_PriceTableItem"
-                    },
-                    {  
-                       "id":"8",
-                       "price":0,
-                       "__typename":"vtex_storegraphql_2_64_4_PriceTableItem"
-                    },
-                    {  
-                       "id":"9",
-                       "price":0,
-                       "__typename":"vtex_storegraphql_2_64_4_PriceTableItem"
-                    },
-                    {  
-                       "id":"10",
-                       "price":0,
-                       "__typename":"vtex_storegraphql_2_64_4_PriceTableItem"
-                    },
-                    {  
-                       "id":"11",
-                       "price":0,
-                       "__typename":"vtex_storegraphql_2_64_4_PriceTableItem"
-                    },
-                    {  
-                       "id":"37",
-                       "price":0,
-                       "__typename":"vtex_storegraphql_2_64_4_PriceTableItem"
-                    },
-                    {  
-                       "id":"36",
-                       "price":0,
-                       "__typename":"vtex_storegraphql_2_64_4_PriceTableItem"
-                    },
-                    {  
-                       "id":"8",
-                       "price":0,
-                       "__typename":"vtex_storegraphql_2_64_4_PriceTableItem"
-                    },
-                    {  
-                       "id":"9",
-                       "price":0,
-                       "__typename":"vtex_storegraphql_2_64_4_PriceTableItem"
-                    },
-                    {  
-                       "id":"10",
-                       "price":0,
-                       "__typename":"vtex_storegraphql_2_64_4_PriceTableItem"
-                    },
-                    {  
-                       "id":"11",
-                       "price":0,
-                       "__typename":"vtex_storegraphql_2_64_4_PriceTableItem"
-                    }
-                 ],
-                 "__typename":"vtex_storegraphql_2_64_4_ItemPriceTable"
-              },
-              {  
-                 "type":"medium",
-                 "values":[  
-                    {  
-                       "id":"8",
-                       "price":190,
-                       "__typename":"vtex_storegraphql_2_64_4_PriceTableItem"
-                    },
-                    {  
-                       "id":"9",
-                       "price":300,
-                       "__typename":"vtex_storegraphql_2_64_4_PriceTableItem"
-                    },
-                    {  
-                       "id":"10",
-                       "price":200,
-                       "__typename":"vtex_storegraphql_2_64_4_PriceTableItem"
-                    },
-                    {  
-                       "id":"11",
-                       "price":195,
-                       "__typename":"vtex_storegraphql_2_64_4_PriceTableItem"
-                    },
-                    {  
-                       "id":"36",
-                       "price":100,
-                       "__typename":"vtex_storegraphql_2_64_4_PriceTableItem"
-                    },
-                    {  
-                       "id":"37",
-                       "price":60,
-                       "__typename":"vtex_storegraphql_2_64_4_PriceTableItem"
-                    },
-                    {  
-                       "id":"38",
-                       "price":200,
-                       "__typename":"vtex_storegraphql_2_64_4_PriceTableItem"
-                    },
-                    {  
-                       "id":"12",
-                       "price":560,
-                       "__typename":"vtex_storegraphql_2_64_4_PriceTableItem"
-                    },
-                    {  
-                       "id":"13",
-                       "price":435,
-                       "__typename":"vtex_storegraphql_2_64_4_PriceTableItem"
-                    },
-                    {  
-                       "id":"14",
-                       "price":160,
-                       "__typename":"vtex_storegraphql_2_64_4_PriceTableItem"
-                    },
-                    {  
-                       "id":"24",
-                       "price":800,
-                       "__typename":"vtex_storegraphql_2_64_4_PriceTableItem"
-                    }
-                 ],
-                 "__typename":"vtex_storegraphql_2_64_4_ItemPriceTable"
-              },
-              {  
-                 "type":"large",
-                 "values":[  
-                    {  
-                       "id":"8",
-                       "price":220,
-                       "__typename":"vtex_storegraphql_2_64_4_PriceTableItem"
-                    },
-                    {  
-                       "id":"9",
-                       "price":350,
-                       "__typename":"vtex_storegraphql_2_64_4_PriceTableItem"
-                    },
-                    {  
-                       "id":"10",
-                       "price":250,
-                       "__typename":"vtex_storegraphql_2_64_4_PriceTableItem"
-                    },
-                    {  
-                       "id":"11",
-                       "price":220,
-                       "__typename":"vtex_storegraphql_2_64_4_PriceTableItem"
-                    },
-                    {  
-                       "id":"36",
-                       "price":110,
-                       "__typename":"vtex_storegraphql_2_64_4_PriceTableItem"
-                    },
-                    {  
-                       "id":"37",
-                       "price":65,
-                       "__typename":"vtex_storegraphql_2_64_4_PriceTableItem"
-                    },
-                    {  
-                       "id":"38",
-                       "price":300,
-                       "__typename":"vtex_storegraphql_2_64_4_PriceTableItem"
-                    },
-                    {  
-                       "id":"12",
-                       "price":785,
-                       "__typename":"vtex_storegraphql_2_64_4_PriceTableItem"
-                    },
-                    {  
-                       "id":"13",
-                       "price":610,
-                       "__typename":"vtex_storegraphql_2_64_4_PriceTableItem"
-                    },
-                    {  
-                       "id":"14",
-                       "price":260,
-                       "__typename":"vtex_storegraphql_2_64_4_PriceTableItem"
-                    },
-                    {  
-                       "id":"24",
-                       "price":1000,
-                       "__typename":"vtex_storegraphql_2_64_4_PriceTableItem"
-                    },
-                    {  
-                       "id":"25",
-                       "price":1860,
-                       "__typename":"vtex_storegraphql_2_64_4_PriceTableItem"
-                    }
-                 ],
-                 "__typename":"vtex_storegraphql_2_64_4_ItemPriceTable"
-              }
-           ],
-           "__typename":"vtex_storegraphql_2_64_4_ItemMetadata"
+              "__typename": "vtex_storegraphql_2_64_4_Seller"
+            }
+          ],
+          "variations": [],
+          "kitItems": [],
+          "attachments": [
+            {
+              "id": "14",
+              "name": "Super Suprema - Small",
+              "required": false,
+              "__typename": "vtex_storegraphql_2_64_4_Attachment"
+            }
+          ],
+          "calculatedAttachments": null,
+          "__typename": "vtex_storegraphql_2_64_4_SKU"
         },
-        "productClusters":[  
-           {  
-              "id":"137",
-              "name":"Pizzas",
-              "__typename":"vtex_storegraphql_2_64_4_ProductClusters"
-           }
+        {
+          "itemId": "34",
+          "name": "Medium",
+          "nameComplete": "Super Suprema Medium",
+          "complementName": "",
+          "ean": "",
+          "referenceId": [
+            {
+              "Key": "RefId",
+              "Value": "41",
+              "__typename": "vtex_storegraphql_2_64_4_Reference"
+            }
+          ],
+          "measurementUnit": "un",
+          "unitMultiplier": 1,
+          "images": [
+            {
+              "imageId": "155442",
+              "imageLabel": null,
+              "imageTag": "<img src=\"~/arquivos/ids/155442-#width#-#height#/super-supreme.e34cdf7984831c25c4eda14a2d361a20.1.jpg?v=636770452538570000\" width=\"#width#\" height=\"#height#\" alt=\"Suprema\" id=\"\" />",
+              "imageUrl": "https://delivery.vteximg.com.br/arquivos/ids/155442/super-supreme.e34cdf7984831c25c4eda14a2d361a20.1.jpg?v=636770452538570000",
+              "imageText": "Suprema",
+              "__typename": "vtex_storegraphql_2_64_4_Image"
+            }
+          ],
+          "sellers": [
+            {
+              "sellerId": "1",
+              "sellerName": "VTEX",
+              "addToCartLink": "https://delivery.vtexcommercestable.com.br/checkout/cart/add?sku=34&qty=1&seller=1&sc=3&price=2399&cv=ca3f5cab9c08e03fd37e4c12025f9016_&sc=3",
+              "sellerDefault": true,
+              "commertialOffer": {
+                "discountHighlights": [],
+                "Price": 23.99,
+                "ListPrice": 23.99,
+                "PriceWithoutDiscount": 23.99,
+                "RewardValue": 0,
+                "PriceValidUntil": "2020-04-08T16:35:49.0581958Z",
+                "AvailableQuantity": 1000000,
+                "Tax": 0,
+                "CacheVersionUsedToCallCheckout": "ca3f5cab9c08e03fd37e4c12025f9016_",
+                "Installments": [
+                  {
+                    "Value": 25.59,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 25.59,
+                    "NumberOfInstallments": 1,
+                    "Name": "American Express à vista",
+                    "__typename": "vtex_storegraphql_2_64_4_Installment"
+                  },
+                  {
+                    "Value": 25.59,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 25.59,
+                    "NumberOfInstallments": 1,
+                    "Name": "Visa à vista",
+                    "__typename": "vtex_storegraphql_2_64_4_Installment"
+                  },
+                  {
+                    "Value": 12.79,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 25.59,
+                    "NumberOfInstallments": 2,
+                    "Name": "Visa 2 vezes sem juros",
+                    "__typename": "vtex_storegraphql_2_64_4_Installment"
+                  },
+                  {
+                    "Value": 8.53,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 25.59,
+                    "NumberOfInstallments": 3,
+                    "Name": "Visa 3 vezes sem juros",
+                    "__typename": "vtex_storegraphql_2_64_4_Installment"
+                  },
+                  {
+                    "Value": 6.39,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 25.59,
+                    "NumberOfInstallments": 4,
+                    "Name": "Visa 4 vezes sem juros",
+                    "__typename": "vtex_storegraphql_2_64_4_Installment"
+                  },
+                  {
+                    "Value": 25.59,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 25.59,
+                    "NumberOfInstallments": 1,
+                    "Name": "Mastercard à vista",
+                    "__typename": "vtex_storegraphql_2_64_4_Installment"
+                  },
+                  {
+                    "Value": 25.59,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 25.59,
+                    "NumberOfInstallments": 1,
+                    "Name": "Vale à vista",
+                    "__typename": "vtex_storegraphql_2_64_4_Installment"
+                  },
+                  {
+                    "Value": 25.59,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 25.59,
+                    "NumberOfInstallments": 1,
+                    "Name": "Deposito à vista",
+                    "__typename": "vtex_storegraphql_2_64_4_Installment"
+                  }
+                ],
+                "__typename": "vtex_storegraphql_2_64_4_Offer"
+              },
+              "__typename": "vtex_storegraphql_2_64_4_Seller"
+            }
+          ],
+          "variations": [],
+          "kitItems": [],
+          "attachments": [
+            {
+              "id": "15",
+              "name": "Super Suprema - Medium",
+              "required": false,
+              "__typename": "vtex_storegraphql_2_64_4_Attachment"
+            }
+          ],
+          "calculatedAttachments": null,
+          "__typename": "vtex_storegraphql_2_64_4_SKU"
+        },
+        {
+          "itemId": "35",
+          "name": "Large",
+          "nameComplete": "Super Suprema Large",
+          "complementName": "",
+          "ean": "",
+          "referenceId": [
+            {
+              "Key": "RefId",
+              "Value": "511",
+              "__typename": "vtex_storegraphql_2_64_4_Reference"
+            }
+          ],
+          "measurementUnit": "un",
+          "unitMultiplier": 1,
+          "images": [
+            {
+              "imageId": "155442",
+              "imageLabel": null,
+              "imageTag": "<img src=\"~/arquivos/ids/155442-#width#-#height#/super-supreme.e34cdf7984831c25c4eda14a2d361a20.1.jpg?v=636770452538570000\" width=\"#width#\" height=\"#height#\" alt=\"Suprema\" id=\"\" />",
+              "imageUrl": "https://delivery.vteximg.com.br/arquivos/ids/155442/super-supreme.e34cdf7984831c25c4eda14a2d361a20.1.jpg?v=636770452538570000",
+              "imageText": "Suprema",
+              "__typename": "vtex_storegraphql_2_64_4_Image"
+            }
+          ],
+          "sellers": [
+            {
+              "sellerId": "1",
+              "sellerName": "VTEX",
+              "addToCartLink": "https://delivery.vtexcommercestable.com.br/checkout/cart/add?sku=35&qty=1&seller=1&sc=3&price=2480&cv=ca3f5cab9c08e03fd37e4c12025f9016_&sc=3",
+              "sellerDefault": true,
+              "commertialOffer": {
+                "discountHighlights": [],
+                "Price": 24.8,
+                "ListPrice": 24.8,
+                "PriceWithoutDiscount": 24.8,
+                "RewardValue": 0,
+                "PriceValidUntil": "2020-04-08T16:35:49.0449528Z",
+                "AvailableQuantity": 1000000,
+                "Tax": 0,
+                "CacheVersionUsedToCallCheckout": "ca3f5cab9c08e03fd37e4c12025f9016_",
+                "Installments": [
+                  {
+                    "Value": 24.8,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 24.8,
+                    "NumberOfInstallments": 1,
+                    "Name": "American Express à vista",
+                    "__typename": "vtex_storegraphql_2_64_4_Installment"
+                  },
+                  {
+                    "Value": 24.8,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 24.8,
+                    "NumberOfInstallments": 1,
+                    "Name": "Visa à vista",
+                    "__typename": "vtex_storegraphql_2_64_4_Installment"
+                  },
+                  {
+                    "Value": 12.4,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 24.8,
+                    "NumberOfInstallments": 2,
+                    "Name": "Visa 2 vezes sem juros",
+                    "__typename": "vtex_storegraphql_2_64_4_Installment"
+                  },
+                  {
+                    "Value": 8.26,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 24.8,
+                    "NumberOfInstallments": 3,
+                    "Name": "Visa 3 vezes sem juros",
+                    "__typename": "vtex_storegraphql_2_64_4_Installment"
+                  },
+                  {
+                    "Value": 6.2,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 24.8,
+                    "NumberOfInstallments": 4,
+                    "Name": "Visa 4 vezes sem juros",
+                    "__typename": "vtex_storegraphql_2_64_4_Installment"
+                  },
+                  {
+                    "Value": 24.8,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 24.8,
+                    "NumberOfInstallments": 1,
+                    "Name": "Mastercard à vista",
+                    "__typename": "vtex_storegraphql_2_64_4_Installment"
+                  },
+                  {
+                    "Value": 24.8,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 24.8,
+                    "NumberOfInstallments": 1,
+                    "Name": "Vale à vista",
+                    "__typename": "vtex_storegraphql_2_64_4_Installment"
+                  },
+                  {
+                    "Value": 24.8,
+                    "InterestRate": 0,
+                    "TotalValuePlusInterestRate": 24.8,
+                    "NumberOfInstallments": 1,
+                    "Name": "Deposito à vista",
+                    "__typename": "vtex_storegraphql_2_64_4_Installment"
+                  }
+                ],
+                "__typename": "vtex_storegraphql_2_64_4_Offer"
+              },
+              "__typename": "vtex_storegraphql_2_64_4_Seller"
+            }
+          ],
+          "variations": [],
+          "kitItems": [],
+          "attachments": [
+            {
+              "id": "16",
+              "name": "Super Suprema - Large",
+              "required": false,
+              "__typename": "vtex_storegraphql_2_64_4_Attachment"
+            }
+          ],
+          "calculatedAttachments": null,
+          "__typename": "vtex_storegraphql_2_64_4_SKU"
+        }
+      ],
+      "itemMetadata": {
+        "items": [
+          {
+            "id": "33",
+            "name": "Small",
+            "imageUrl": "https://delivery.vteximg.com.br/arquivos/ids/155442/super-supreme.e34cdf7984831c25c4eda14a2d361a20.1.jpg?v=636770452538570000",
+            "seller": "1",
+            "assemblyOptions": [
+              {
+                "id": "Super Suprema - Small_Toppings",
+                "name": "Super Suprema - Small",
+                "inputValues": [],
+                "composition": {
+                  "minQuantity": 0,
+                  "maxQuantity": 10,
+                  "items": [
+                    {
+                      "id": "8",
+                      "minQuantity": 0,
+                      "maxQuantity": 3,
+                      "priceTable": "small",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "vtex_storegraphql_2_64_4_CompositionItem"
+                    },
+                    {
+                      "id": "9",
+                      "minQuantity": 0,
+                      "maxQuantity": 3,
+                      "priceTable": "small",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "vtex_storegraphql_2_64_4_CompositionItem"
+                    },
+                    {
+                      "id": "10",
+                      "minQuantity": 0,
+                      "maxQuantity": 3,
+                      "priceTable": "small",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "vtex_storegraphql_2_64_4_CompositionItem"
+                    },
+                    {
+                      "id": "11",
+                      "minQuantity": 0,
+                      "maxQuantity": 3,
+                      "priceTable": "small",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "vtex_storegraphql_2_64_4_CompositionItem"
+                    },
+                    {
+                      "id": "36",
+                      "minQuantity": 0,
+                      "maxQuantity": 3,
+                      "priceTable": "small",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "vtex_storegraphql_2_64_4_CompositionItem"
+                    },
+                    {
+                      "id": "37",
+                      "minQuantity": 0,
+                      "maxQuantity": 3,
+                      "priceTable": "small",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "vtex_storegraphql_2_64_4_CompositionItem"
+                    },
+                    {
+                      "id": "38",
+                      "minQuantity": 0,
+                      "maxQuantity": 3,
+                      "priceTable": "small",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "vtex_storegraphql_2_64_4_CompositionItem"
+                    }
+                  ],
+                  "__typename": "vtex_storegraphql_2_64_4_CompositionType"
+                },
+                "__typename": "vtex_storegraphql_2_64_4_AssemblyOption"
+              },
+              {
+                "id": "Super Suprema - Small_Basic Toppings",
+                "name": "Super Suprema - Small",
+                "inputValues": [],
+                "composition": {
+                  "minQuantity": 0,
+                  "maxQuantity": 6,
+                  "items": [
+                    {
+                      "id": "37",
+                      "minQuantity": 0,
+                      "maxQuantity": 1,
+                      "priceTable": "basic",
+                      "seller": "1",
+                      "initialQuantity": 1,
+                      "__typename": "vtex_storegraphql_2_64_4_CompositionItem"
+                    },
+                    {
+                      "id": "36",
+                      "minQuantity": 0,
+                      "maxQuantity": 1,
+                      "priceTable": "basic",
+                      "seller": "1",
+                      "initialQuantity": 1,
+                      "__typename": "vtex_storegraphql_2_64_4_CompositionItem"
+                    },
+                    {
+                      "id": "8",
+                      "minQuantity": 0,
+                      "maxQuantity": 1,
+                      "priceTable": "basic",
+                      "seller": "1",
+                      "initialQuantity": 1,
+                      "__typename": "vtex_storegraphql_2_64_4_CompositionItem"
+                    },
+                    {
+                      "id": "9",
+                      "minQuantity": 0,
+                      "maxQuantity": 1,
+                      "priceTable": "basic",
+                      "seller": "1",
+                      "initialQuantity": 1,
+                      "__typename": "vtex_storegraphql_2_64_4_CompositionItem"
+                    },
+                    {
+                      "id": "10",
+                      "minQuantity": 0,
+                      "maxQuantity": 1,
+                      "priceTable": "basic",
+                      "seller": "1",
+                      "initialQuantity": 1,
+                      "__typename": "vtex_storegraphql_2_64_4_CompositionItem"
+                    },
+                    {
+                      "id": "11",
+                      "minQuantity": 0,
+                      "maxQuantity": 1,
+                      "priceTable": "basic",
+                      "seller": "1",
+                      "initialQuantity": 1,
+                      "__typename": "vtex_storegraphql_2_64_4_CompositionItem"
+                    }
+                  ],
+                  "__typename": "vtex_storegraphql_2_64_4_CompositionType"
+                },
+                "__typename": "vtex_storegraphql_2_64_4_AssemblyOption"
+              },
+              {
+                "id": "Super Suprema - Small_Crust",
+                "name": "Super Suprema - Small",
+                "inputValues": [],
+                "composition": {
+                  "minQuantity": 1,
+                  "maxQuantity": 1,
+                  "items": [
+                    {
+                      "id": "12",
+                      "minQuantity": 0,
+                      "maxQuantity": 1,
+                      "priceTable": "small",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "vtex_storegraphql_2_64_4_CompositionItem"
+                    },
+                    {
+                      "id": "13",
+                      "minQuantity": 0,
+                      "maxQuantity": 1,
+                      "priceTable": "small",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "vtex_storegraphql_2_64_4_CompositionItem"
+                    },
+                    {
+                      "id": "14",
+                      "minQuantity": 0,
+                      "maxQuantity": 1,
+                      "priceTable": "small",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "vtex_storegraphql_2_64_4_CompositionItem"
+                    }
+                  ],
+                  "__typename": "vtex_storegraphql_2_64_4_CompositionType"
+                },
+                "__typename": "vtex_storegraphql_2_64_4_AssemblyOption"
+              }
+            ],
+            "__typename": "vtex_storegraphql_2_64_4_ItemMetadataUnit"
+          },
+          {
+            "id": "8",
+            "name": "Ham",
+            "imageUrl": "https://delivery.vteximg.com.br/arquivos/ids/155432/Topping_Jamon.jpg.png?v=636766052579200000",
+            "seller": "1",
+            "assemblyOptions": [],
+            "__typename": "vtex_storegraphql_2_64_4_ItemMetadataUnit"
+          },
+          {
+            "id": "9",
+            "name": "Pepperoni",
+            "imageUrl": "https://delivery.vteximg.com.br/arquivos/ids/155428/Topping_Pepperoni.jpg.png?v=636766047561270000",
+            "seller": "1",
+            "assemblyOptions": [],
+            "__typename": "vtex_storegraphql_2_64_4_ItemMetadataUnit"
+          },
+          {
+            "id": "10",
+            "name": "Champignon",
+            "imageUrl": "https://delivery.vteximg.com.br/arquivos/ids/155436/Topping_Champinones.png?v=636766057405600000",
+            "seller": "1",
+            "assemblyOptions": [],
+            "__typename": "vtex_storegraphql_2_64_4_ItemMetadataUnit"
+          },
+          {
+            "id": "11",
+            "name": "Onion",
+            "imageUrl": "https://delivery.vteximg.com.br/arquivos/ids/155427/Topping_Cebolla.jpg.png?v=636766046799500000",
+            "seller": "1",
+            "assemblyOptions": [],
+            "__typename": "vtex_storegraphql_2_64_4_ItemMetadataUnit"
+          },
+          {
+            "id": "36",
+            "name": "Black Olives",
+            "imageUrl": "https://delivery.vteximg.com.br/arquivos/ids/155430/Topping_Aceitunas-Negras.jpg.png?v=636766049376970000",
+            "seller": "1",
+            "assemblyOptions": [],
+            "__typename": "vtex_storegraphql_2_64_4_ItemMetadataUnit"
+          },
+          {
+            "id": "37",
+            "name": "Green Pepper",
+            "imageUrl": "https://delivery.vteximg.com.br/arquivos/ids/155431/PIMIENTO-VERDE.png?v=636766050771230000",
+            "seller": "1",
+            "assemblyOptions": [],
+            "__typename": "vtex_storegraphql_2_64_4_ItemMetadataUnit"
+          },
+          {
+            "id": "38",
+            "name": "Pineapple",
+            "imageUrl": "https://delivery.vteximg.com.br/arquivos/ids/155435/Topping_Pina.jpg.png?v=636766056177370000",
+            "seller": "1",
+            "assemblyOptions": [],
+            "__typename": "vtex_storegraphql_2_64_4_ItemMetadataUnit"
+          },
+          {
+            "id": "12",
+            "name": "Cheesy Bites",
+            "imageUrl": "https://delivery.vteximg.com.br/arquivos/ids/155411/cheesy-bites.png?v=636759865607400000",
+            "seller": "1",
+            "assemblyOptions": [],
+            "__typename": "vtex_storegraphql_2_64_4_ItemMetadataUnit"
+          },
+          {
+            "id": "13",
+            "name": "Stuffed Crust",
+            "imageUrl": "https://delivery.vteximg.com.br/arquivos/ids/155412/stuffed-crust.png?v=636759865852770000",
+            "seller": "1",
+            "assemblyOptions": [],
+            "__typename": "vtex_storegraphql_2_64_4_ItemMetadataUnit"
+          },
+          {
+            "id": "14",
+            "name": "Classic Crust",
+            "imageUrl": "https://delivery.vteximg.com.br/arquivos/ids/155413/classic.png?v=636759866429100000",
+            "seller": "1",
+            "assemblyOptions": [],
+            "__typename": "vtex_storegraphql_2_64_4_ItemMetadataUnit"
+          },
+          {
+            "id": "34",
+            "name": "Medium",
+            "imageUrl": "https://delivery.vteximg.com.br/arquivos/ids/155442/super-supreme.e34cdf7984831c25c4eda14a2d361a20.1.jpg?v=636770452538570000",
+            "seller": "1",
+            "assemblyOptions": [
+              {
+                "id": "Super Suprema - Medium_Toppings",
+                "name": "Super Suprema - Medium",
+                "inputValues": [],
+                "composition": {
+                  "minQuantity": 0,
+                  "maxQuantity": 10,
+                  "items": [
+                    {
+                      "id": "8",
+                      "minQuantity": 0,
+                      "maxQuantity": 3,
+                      "priceTable": "medium",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "vtex_storegraphql_2_64_4_CompositionItem"
+                    },
+                    {
+                      "id": "9",
+                      "minQuantity": 0,
+                      "maxQuantity": 3,
+                      "priceTable": "medium",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "vtex_storegraphql_2_64_4_CompositionItem"
+                    },
+                    {
+                      "id": "10",
+                      "minQuantity": 0,
+                      "maxQuantity": 3,
+                      "priceTable": "medium",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "vtex_storegraphql_2_64_4_CompositionItem"
+                    },
+                    {
+                      "id": "11",
+                      "minQuantity": 0,
+                      "maxQuantity": 3,
+                      "priceTable": "medium",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "vtex_storegraphql_2_64_4_CompositionItem"
+                    },
+                    {
+                      "id": "36",
+                      "minQuantity": 0,
+                      "maxQuantity": 3,
+                      "priceTable": "medium",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "vtex_storegraphql_2_64_4_CompositionItem"
+                    },
+                    {
+                      "id": "37",
+                      "minQuantity": 0,
+                      "maxQuantity": 3,
+                      "priceTable": "medium",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "vtex_storegraphql_2_64_4_CompositionItem"
+                    },
+                    {
+                      "id": "38",
+                      "minQuantity": 0,
+                      "maxQuantity": 3,
+                      "priceTable": "medium",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "vtex_storegraphql_2_64_4_CompositionItem"
+                    }
+                  ],
+                  "__typename": "vtex_storegraphql_2_64_4_CompositionType"
+                },
+                "__typename": "vtex_storegraphql_2_64_4_AssemblyOption"
+              },
+              {
+                "id": "Super Suprema - Medium_Basic Toppings",
+                "name": "Super Suprema - Medium",
+                "inputValues": [],
+                "composition": {
+                  "minQuantity": 0,
+                  "maxQuantity": 6,
+                  "items": [
+                    {
+                      "id": "37",
+                      "minQuantity": 0,
+                      "maxQuantity": 1,
+                      "priceTable": "basic",
+                      "seller": "1",
+                      "initialQuantity": 1,
+                      "__typename": "vtex_storegraphql_2_64_4_CompositionItem"
+                    },
+                    {
+                      "id": "36",
+                      "minQuantity": 0,
+                      "maxQuantity": 1,
+                      "priceTable": "basic",
+                      "seller": "1",
+                      "initialQuantity": 1,
+                      "__typename": "vtex_storegraphql_2_64_4_CompositionItem"
+                    },
+                    {
+                      "id": "8",
+                      "minQuantity": 0,
+                      "maxQuantity": 1,
+                      "priceTable": "basic",
+                      "seller": "1",
+                      "initialQuantity": 1,
+                      "__typename": "vtex_storegraphql_2_64_4_CompositionItem"
+                    },
+                    {
+                      "id": "9",
+                      "minQuantity": 0,
+                      "maxQuantity": 1,
+                      "priceTable": "basic",
+                      "seller": "1",
+                      "initialQuantity": 1,
+                      "__typename": "vtex_storegraphql_2_64_4_CompositionItem"
+                    },
+                    {
+                      "id": "10",
+                      "minQuantity": 0,
+                      "maxQuantity": 1,
+                      "priceTable": "basic",
+                      "seller": "1",
+                      "initialQuantity": 1,
+                      "__typename": "vtex_storegraphql_2_64_4_CompositionItem"
+                    },
+                    {
+                      "id": "11",
+                      "minQuantity": 0,
+                      "maxQuantity": 1,
+                      "priceTable": "basic",
+                      "seller": "1",
+                      "initialQuantity": 1,
+                      "__typename": "vtex_storegraphql_2_64_4_CompositionItem"
+                    }
+                  ],
+                  "__typename": "vtex_storegraphql_2_64_4_CompositionType"
+                },
+                "__typename": "vtex_storegraphql_2_64_4_AssemblyOption"
+              },
+              {
+                "id": "Super Suprema - Medium_Crust",
+                "name": "Super Suprema - Medium",
+                "inputValues": [],
+                "composition": {
+                  "minQuantity": 1,
+                  "maxQuantity": 1,
+                  "items": [
+                    {
+                      "id": "12",
+                      "minQuantity": 0,
+                      "maxQuantity": 1,
+                      "priceTable": "medium",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "vtex_storegraphql_2_64_4_CompositionItem"
+                    },
+                    {
+                      "id": "13",
+                      "minQuantity": 0,
+                      "maxQuantity": 1,
+                      "priceTable": "medium",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "vtex_storegraphql_2_64_4_CompositionItem"
+                    },
+                    {
+                      "id": "14",
+                      "minQuantity": 1,
+                      "maxQuantity": 1,
+                      "priceTable": "medium",
+                      "seller": "1",
+                      "initialQuantity": 1,
+                      "__typename": "vtex_storegraphql_2_64_4_CompositionItem"
+                    },
+                    {
+                      "id": "24",
+                      "minQuantity": 0,
+                      "maxQuantity": 1,
+                      "priceTable": "medium",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "vtex_storegraphql_2_64_4_CompositionItem"
+                    }
+                  ],
+                  "__typename": "vtex_storegraphql_2_64_4_CompositionType"
+                },
+                "__typename": "vtex_storegraphql_2_64_4_AssemblyOption"
+              }
+            ],
+            "__typename": "vtex_storegraphql_2_64_4_ItemMetadataUnit"
+          },
+          {
+            "id": "24",
+            "name": "Artesan",
+            "imageUrl": "https://delivery.vteximg.com.br/arquivos/ids/155414/italian.png?v=636759867374000000",
+            "seller": "1",
+            "assemblyOptions": [],
+            "__typename": "vtex_storegraphql_2_64_4_ItemMetadataUnit"
+          },
+          {
+            "id": "35",
+            "name": "Large",
+            "imageUrl": "https://delivery.vteximg.com.br/arquivos/ids/155442/super-supreme.e34cdf7984831c25c4eda14a2d361a20.1.jpg?v=636770452538570000",
+            "seller": "1",
+            "assemblyOptions": [
+              {
+                "id": "Super Suprema - Large_Toppings",
+                "name": "Super Suprema - Large",
+                "inputValues": [],
+                "composition": {
+                  "minQuantity": 0,
+                  "maxQuantity": 10,
+                  "items": [
+                    {
+                      "id": "8",
+                      "minQuantity": 0,
+                      "maxQuantity": 3,
+                      "priceTable": "large",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "vtex_storegraphql_2_64_4_CompositionItem"
+                    },
+                    {
+                      "id": "9",
+                      "minQuantity": 0,
+                      "maxQuantity": 3,
+                      "priceTable": "large",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "vtex_storegraphql_2_64_4_CompositionItem"
+                    },
+                    {
+                      "id": "10",
+                      "minQuantity": 0,
+                      "maxQuantity": 3,
+                      "priceTable": "large",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "vtex_storegraphql_2_64_4_CompositionItem"
+                    },
+                    {
+                      "id": "11",
+                      "minQuantity": 0,
+                      "maxQuantity": 3,
+                      "priceTable": "large",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "vtex_storegraphql_2_64_4_CompositionItem"
+                    },
+                    {
+                      "id": "36",
+                      "minQuantity": 0,
+                      "maxQuantity": 3,
+                      "priceTable": "large",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "vtex_storegraphql_2_64_4_CompositionItem"
+                    },
+                    {
+                      "id": "37",
+                      "minQuantity": 0,
+                      "maxQuantity": 3,
+                      "priceTable": "large",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "vtex_storegraphql_2_64_4_CompositionItem"
+                    },
+                    {
+                      "id": "38",
+                      "minQuantity": 0,
+                      "maxQuantity": 3,
+                      "priceTable": "large",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "vtex_storegraphql_2_64_4_CompositionItem"
+                    }
+                  ],
+                  "__typename": "vtex_storegraphql_2_64_4_CompositionType"
+                },
+                "__typename": "vtex_storegraphql_2_64_4_AssemblyOption"
+              },
+              {
+                "id": "Super Suprema - Large_Basic Toppings",
+                "name": "Super Suprema - Large",
+                "inputValues": [],
+                "composition": {
+                  "minQuantity": 0,
+                  "maxQuantity": 6,
+                  "items": [
+                    {
+                      "id": "37",
+                      "minQuantity": 1,
+                      "maxQuantity": 1,
+                      "priceTable": "basic",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "vtex_storegraphql_2_64_4_CompositionItem"
+                    },
+                    {
+                      "id": "36",
+                      "minQuantity": 1,
+                      "maxQuantity": 1,
+                      "priceTable": "basic",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "vtex_storegraphql_2_64_4_CompositionItem"
+                    },
+                    {
+                      "id": "8",
+                      "minQuantity": 1,
+                      "maxQuantity": 1,
+                      "priceTable": "basic",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "vtex_storegraphql_2_64_4_CompositionItem"
+                    },
+                    {
+                      "id": "9",
+                      "minQuantity": 1,
+                      "maxQuantity": 1,
+                      "priceTable": "basic",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "vtex_storegraphql_2_64_4_CompositionItem"
+                    },
+                    {
+                      "id": "10",
+                      "minQuantity": 1,
+                      "maxQuantity": 1,
+                      "priceTable": "basic",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "vtex_storegraphql_2_64_4_CompositionItem"
+                    },
+                    {
+                      "id": "11",
+                      "minQuantity": 1,
+                      "maxQuantity": 1,
+                      "priceTable": "basic",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "vtex_storegraphql_2_64_4_CompositionItem"
+                    }
+                  ],
+                  "__typename": "vtex_storegraphql_2_64_4_CompositionType"
+                },
+                "__typename": "vtex_storegraphql_2_64_4_AssemblyOption"
+              },
+              {
+                "id": "Super Suprema - Large_Crust",
+                "name": "Super Suprema - Large",
+                "inputValues": [],
+                "composition": {
+                  "minQuantity": 1,
+                  "maxQuantity": 1,
+                  "items": [
+                    {
+                      "id": "12",
+                      "minQuantity": 0,
+                      "maxQuantity": 1,
+                      "priceTable": "large",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "vtex_storegraphql_2_64_4_CompositionItem"
+                    },
+                    {
+                      "id": "13",
+                      "minQuantity": 0,
+                      "maxQuantity": 1,
+                      "priceTable": "large",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "vtex_storegraphql_2_64_4_CompositionItem"
+                    },
+                    {
+                      "id": "14",
+                      "minQuantity": 0,
+                      "maxQuantity": 1,
+                      "priceTable": "large",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "vtex_storegraphql_2_64_4_CompositionItem"
+                    },
+                    {
+                      "id": "24",
+                      "minQuantity": 0,
+                      "maxQuantity": 1,
+                      "priceTable": "large",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "vtex_storegraphql_2_64_4_CompositionItem"
+                    },
+                    {
+                      "id": "25",
+                      "minQuantity": 0,
+                      "maxQuantity": 1,
+                      "priceTable": "large",
+                      "seller": "1",
+                      "initialQuantity": 0,
+                      "__typename": "vtex_storegraphql_2_64_4_CompositionItem"
+                    }
+                  ],
+                  "__typename": "vtex_storegraphql_2_64_4_CompositionType"
+                },
+                "__typename": "vtex_storegraphql_2_64_4_AssemblyOption"
+              }
+            ],
+            "__typename": "vtex_storegraphql_2_64_4_ItemMetadataUnit"
+          },
+          {
+            "id": "25",
+            "name": "Hut Cheese",
+            "imageUrl": "https://delivery.vteximg.com.br/arquivos/ids/155415/5-cheese.png?v=636759867642500000",
+            "seller": "1",
+            "assemblyOptions": [],
+            "__typename": "vtex_storegraphql_2_64_4_ItemMetadataUnit"
+          }
         ],
-        "clusterHighlights":[  
-
+        "priceTable": [
+          {
+            "type": "small",
+            "values": [
+              {
+                "id": "8",
+                "price": 150,
+                "__typename": "vtex_storegraphql_2_64_4_PriceTableItem"
+              },
+              {
+                "id": "9",
+                "price": 250,
+                "__typename": "vtex_storegraphql_2_64_4_PriceTableItem"
+              },
+              {
+                "id": "10",
+                "price": 125,
+                "__typename": "vtex_storegraphql_2_64_4_PriceTableItem"
+              },
+              {
+                "id": "11",
+                "price": 140,
+                "__typename": "vtex_storegraphql_2_64_4_PriceTableItem"
+              },
+              {
+                "id": "36",
+                "price": 75,
+                "__typename": "vtex_storegraphql_2_64_4_PriceTableItem"
+              },
+              {
+                "id": "37",
+                "price": 50,
+                "__typename": "vtex_storegraphql_2_64_4_PriceTableItem"
+              },
+              {
+                "id": "38",
+                "price": 100,
+                "__typename": "vtex_storegraphql_2_64_4_PriceTableItem"
+              },
+              {
+                "id": "12",
+                "price": 258,
+                "__typename": "vtex_storegraphql_2_64_4_PriceTableItem"
+              },
+              {
+                "id": "13",
+                "price": 218,
+                "__typename": "vtex_storegraphql_2_64_4_PriceTableItem"
+              },
+              {
+                "id": "14",
+                "price": 0,
+                "__typename": "vtex_storegraphql_2_64_4_PriceTableItem"
+              }
+            ],
+            "__typename": "vtex_storegraphql_2_64_4_ItemPriceTable"
+          },
+          {
+            "type": "basic",
+            "values": [
+              {
+                "id": "37",
+                "price": 0,
+                "__typename": "vtex_storegraphql_2_64_4_PriceTableItem"
+              },
+              {
+                "id": "36",
+                "price": 0,
+                "__typename": "vtex_storegraphql_2_64_4_PriceTableItem"
+              },
+              {
+                "id": "8",
+                "price": 0,
+                "__typename": "vtex_storegraphql_2_64_4_PriceTableItem"
+              },
+              {
+                "id": "9",
+                "price": 0,
+                "__typename": "vtex_storegraphql_2_64_4_PriceTableItem"
+              },
+              {
+                "id": "10",
+                "price": 0,
+                "__typename": "vtex_storegraphql_2_64_4_PriceTableItem"
+              },
+              {
+                "id": "11",
+                "price": 0,
+                "__typename": "vtex_storegraphql_2_64_4_PriceTableItem"
+              },
+              {
+                "id": "37",
+                "price": 0,
+                "__typename": "vtex_storegraphql_2_64_4_PriceTableItem"
+              },
+              {
+                "id": "36",
+                "price": 0,
+                "__typename": "vtex_storegraphql_2_64_4_PriceTableItem"
+              },
+              {
+                "id": "8",
+                "price": 0,
+                "__typename": "vtex_storegraphql_2_64_4_PriceTableItem"
+              },
+              {
+                "id": "9",
+                "price": 0,
+                "__typename": "vtex_storegraphql_2_64_4_PriceTableItem"
+              },
+              {
+                "id": "10",
+                "price": 0,
+                "__typename": "vtex_storegraphql_2_64_4_PriceTableItem"
+              },
+              {
+                "id": "11",
+                "price": 0,
+                "__typename": "vtex_storegraphql_2_64_4_PriceTableItem"
+              },
+              {
+                "id": "37",
+                "price": 0,
+                "__typename": "vtex_storegraphql_2_64_4_PriceTableItem"
+              },
+              {
+                "id": "36",
+                "price": 0,
+                "__typename": "vtex_storegraphql_2_64_4_PriceTableItem"
+              },
+              {
+                "id": "8",
+                "price": 0,
+                "__typename": "vtex_storegraphql_2_64_4_PriceTableItem"
+              },
+              {
+                "id": "9",
+                "price": 0,
+                "__typename": "vtex_storegraphql_2_64_4_PriceTableItem"
+              },
+              {
+                "id": "10",
+                "price": 0,
+                "__typename": "vtex_storegraphql_2_64_4_PriceTableItem"
+              },
+              {
+                "id": "11",
+                "price": 0,
+                "__typename": "vtex_storegraphql_2_64_4_PriceTableItem"
+              }
+            ],
+            "__typename": "vtex_storegraphql_2_64_4_ItemPriceTable"
+          },
+          {
+            "type": "medium",
+            "values": [
+              {
+                "id": "8",
+                "price": 190,
+                "__typename": "vtex_storegraphql_2_64_4_PriceTableItem"
+              },
+              {
+                "id": "9",
+                "price": 300,
+                "__typename": "vtex_storegraphql_2_64_4_PriceTableItem"
+              },
+              {
+                "id": "10",
+                "price": 200,
+                "__typename": "vtex_storegraphql_2_64_4_PriceTableItem"
+              },
+              {
+                "id": "11",
+                "price": 195,
+                "__typename": "vtex_storegraphql_2_64_4_PriceTableItem"
+              },
+              {
+                "id": "36",
+                "price": 100,
+                "__typename": "vtex_storegraphql_2_64_4_PriceTableItem"
+              },
+              {
+                "id": "37",
+                "price": 60,
+                "__typename": "vtex_storegraphql_2_64_4_PriceTableItem"
+              },
+              {
+                "id": "38",
+                "price": 200,
+                "__typename": "vtex_storegraphql_2_64_4_PriceTableItem"
+              },
+              {
+                "id": "12",
+                "price": 560,
+                "__typename": "vtex_storegraphql_2_64_4_PriceTableItem"
+              },
+              {
+                "id": "13",
+                "price": 435,
+                "__typename": "vtex_storegraphql_2_64_4_PriceTableItem"
+              },
+              {
+                "id": "14",
+                "price": 160,
+                "__typename": "vtex_storegraphql_2_64_4_PriceTableItem"
+              },
+              {
+                "id": "24",
+                "price": 800,
+                "__typename": "vtex_storegraphql_2_64_4_PriceTableItem"
+              }
+            ],
+            "__typename": "vtex_storegraphql_2_64_4_ItemPriceTable"
+          },
+          {
+            "type": "large",
+            "values": [
+              {
+                "id": "8",
+                "price": 220,
+                "__typename": "vtex_storegraphql_2_64_4_PriceTableItem"
+              },
+              {
+                "id": "9",
+                "price": 350,
+                "__typename": "vtex_storegraphql_2_64_4_PriceTableItem"
+              },
+              {
+                "id": "10",
+                "price": 250,
+                "__typename": "vtex_storegraphql_2_64_4_PriceTableItem"
+              },
+              {
+                "id": "11",
+                "price": 220,
+                "__typename": "vtex_storegraphql_2_64_4_PriceTableItem"
+              },
+              {
+                "id": "36",
+                "price": 110,
+                "__typename": "vtex_storegraphql_2_64_4_PriceTableItem"
+              },
+              {
+                "id": "37",
+                "price": 65,
+                "__typename": "vtex_storegraphql_2_64_4_PriceTableItem"
+              },
+              {
+                "id": "38",
+                "price": 300,
+                "__typename": "vtex_storegraphql_2_64_4_PriceTableItem"
+              },
+              {
+                "id": "12",
+                "price": 785,
+                "__typename": "vtex_storegraphql_2_64_4_PriceTableItem"
+              },
+              {
+                "id": "13",
+                "price": 610,
+                "__typename": "vtex_storegraphql_2_64_4_PriceTableItem"
+              },
+              {
+                "id": "14",
+                "price": 260,
+                "__typename": "vtex_storegraphql_2_64_4_PriceTableItem"
+              },
+              {
+                "id": "24",
+                "price": 1000,
+                "__typename": "vtex_storegraphql_2_64_4_PriceTableItem"
+              },
+              {
+                "id": "25",
+                "price": 1860,
+                "__typename": "vtex_storegraphql_2_64_4_PriceTableItem"
+              }
+            ],
+            "__typename": "vtex_storegraphql_2_64_4_ItemPriceTable"
+          }
         ],
-        "__typename":"vtex_storegraphql_2_64_4_Product"
-     }
+        "__typename": "vtex_storegraphql_2_64_4_ItemMetadata"
+      },
+      "productClusters": [
+        {
+          "id": "137",
+          "name": "Pizzas",
+          "__typename": "vtex_storegraphql_2_64_4_ProductClusters"
+        }
+      ],
+      "clusterHighlights": [],
+      "__typename": "vtex_storegraphql_2_64_4_Product"
+    }
   }
 }

@@ -7,6 +7,7 @@ import ToggleChoiceAttachment from './ToggleChoiceAttachment'
 
 function getTitleId({ name }) {
   const key = name.toLowerCase().split(' ').join('-')
+
   return `store/product-customizer.${key}-title`
 }
 
@@ -27,6 +28,7 @@ function AttachmentPicker({
       />
     )
   }
+
   if (isToggleChoice) {
     return (
       <ToggleChoiceAttachment

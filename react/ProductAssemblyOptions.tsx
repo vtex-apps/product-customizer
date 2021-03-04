@@ -30,4 +30,5 @@ const ProductAssemblyOptions: FC<Props> = ({ children, initiallyOpened }) => {
     </Fragment>
   )
 }
+
 export default ProductAssemblyOptions

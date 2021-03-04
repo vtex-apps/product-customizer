@@ -9,11 +9,13 @@ const parseItem = ({ id, seller, name }) => ({
 class SingleChoiceAttachment extends Component {
   handleOnChange = (itemName) => {
     const { name, onAttachmentChange, items } = this.props
+
     onAttachmentChange(name, parseItem(items[itemName]), true)
   }
 
   render() {
     const { items } = this.props
+
     return (
       <Fragment>
         {Object.entries(items).map(([itemName, item]) => (
