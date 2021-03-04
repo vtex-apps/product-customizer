@@ -45,8 +45,6 @@ const DropdownOptions: FC<InnerProps> = ({ label, options, inputId }) => {
   const [state, onChange] = useInputValue(inputId)
   const handles = useCssHandles(DROPDOWN_OPTIONS_HANDLES)
 
-  console.log(options)
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target
 
@@ -155,8 +153,6 @@ const SubscriptionOption: FC<Props> = ({ optionsDisplay, inputValueInfo }) => {
   const frequency = parseFrequency(
     state?.valuesOfInputValues[SUBSCRIPTION_KEY_FREQUENCY] as string
   )!
-
-  console.log(frequency)
 
   const { label, options } = useMemo(() => {
     return {
