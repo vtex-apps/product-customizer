@@ -9,6 +9,7 @@ const parseItem = ({ id, quantity, seller, name }) => ({
 class ToggleChoiceAttachment extends Component {
   handleChange = (itemName) => {
     const { items, name, onAttachmentChange } = this.props
+
     onAttachmentChange(name, parseItem(items[itemName]), false)
   }
 

@@ -1,6 +1,7 @@
 import { head } from 'ramda'
 import React, { FC } from 'react'
 import { useCssHandles } from 'vtex.css-handles'
+
 import { useProductAssemblyItem } from '../ProductAssemblyContext/Item'
 import { withItem } from './withItem'
 
@@ -12,8 +13,10 @@ export const imageUrlForSize = (imageUrl: string, size: number) => {
   if (!imageUrl) {
     return ''
   }
+
   const urlSplitted = imageUrl.split('/')
   const idsStringIdx = urlSplitted.findIndex((content) => content === 'ids')
+
   if (idsStringIdx < 0 || idsStringIdx === urlSplitted.length - 1) {
     return imageUrl
   }
@@ -23,6 +26,7 @@ export const imageUrlForSize = (imageUrl: string, size: number) => {
   const imageId = head(sizeString.split('-'))
   const multiplier = window?.devicePixelRatio || 1
   const newSizeString = `${imageId}-${size * multiplier}-auto`
+
   return [
     ...urlSplitted.slice(0, sizeStringIdx),
     newSizeString,

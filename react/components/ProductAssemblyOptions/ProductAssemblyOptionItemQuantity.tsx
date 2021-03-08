@@ -35,6 +35,7 @@ const Single: FC = () => {
   const handleKey = ({ key }: React.KeyboardEvent<HTMLDivElement>) => {
     const SPACE = ' '
     const ENTER = 'Enter'
+
     if (key === SPACE || key === ENTER) {
       handleClick()
     }
@@ -96,6 +97,7 @@ const Multiple: FC = () => {
     minQuantity,
     id,
   } = useProductAssemblyItem() as AssemblyItem
+
   const {
     path,
     maxQuantity: groupMaxQuantity,
@@ -108,6 +110,7 @@ const Multiple: FC = () => {
     quantity + 1 <= maxQuantity && quantitySum + 1 <= groupMaxQuantity
 
   const handles = useCssHandles(CSS_HANDLES)
+
   return (
     <div
       className={handles.multipleItemQuantitySelector}

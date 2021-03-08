@@ -80,6 +80,7 @@ class ProductCustomizerWrapper extends Component {
   getTotalPrice(attachments) {
     const { selectedSku } = this.state
     const baseValue = this.props.product.items[selectedSku].price
+
     return Object.values(attachments).reduce(
       (total, attachment) => total + this.getAttachmentPrice(attachment),
       baseValue * 100
@@ -109,6 +110,7 @@ class ProductCustomizerWrapper extends Component {
         // eslint-disable-next-line no-shadow
         const quantity =
           name in quantities ? quantities[name].quantity : +item.initialQuantity
+
         return [total + quantity, { ...obj, [name]: { ...item, quantity } }]
       },
       [0, {}]
@@ -126,6 +128,7 @@ class ProductCustomizerWrapper extends Component {
       quantity,
       properties: { minTotalItems, maxTotalItems },
     } = attachment
+
     return quantity >= minTotalItems && quantity <= maxTotalItems
   }
 
@@ -133,9 +136,11 @@ class ProductCustomizerWrapper extends Component {
     if (isSingleChoice) {
       return 'SINGLE'
     }
+
     if (isToggleChoice) {
       return 'TOGGLE'
     }
+
     return 'MULTIPLE'
   }
 
@@ -146,9 +151,11 @@ class ProductCustomizerWrapper extends Component {
     const options = []
     const added = []
     const removed = []
+
     Object.entries(chosenAttachments).forEach(([suffix, attachObj]) => {
       const attachmentTypeInfo = product.items[selectedSku].attachments[suffix]
       const { assemblyId } = attachmentTypeInfo
+
       Object.entries(attachObj).forEach(([name, { id, quantity, seller }]) => {
         const initialQuantity = pathOr(
           0,
@@ -204,6 +211,7 @@ class ProductCustomizerWrapper extends Component {
         }
       })
     })
+
     return { options, removed, added }
   }
 
@@ -212,6 +220,7 @@ class ProductCustomizerWrapper extends Component {
     const message = this.props.intl.formatMessage({
       id: `store/product-customizer.${suffix}`,
     })
+
     this.props.showToast({ message })
   }
 
@@ -230,6 +239,7 @@ class ProductCustomizerWrapper extends Component {
       name,
       detailUrl,
     } = skuData
+
     const { options, added, removed } = this.getAssemblyOptions()
     const payload = {
       quantity: 1,
@@ -256,6 +266,7 @@ class ProductCustomizerWrapper extends Component {
 
       const success =
         linkStateItems && !!linkStateItems.find(({ id }) => id === skuId)
+
       this.showToast(success)
     } catch (err) {
       this.showToast(false)
@@ -275,6 +286,7 @@ class ProductCustomizerWrapper extends Component {
         items[selectedSku].attachments,
         chosenAttachments
       )
+
     const ready = attachments && this.isSkuReady(attachments)
     const total = attachments && this.getTotalPrice(attachments)
 

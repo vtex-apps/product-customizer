@@ -17,6 +17,7 @@ const findItemMetadata = (id: string) => find<MetadataItem>(propEq('id', id))
 
 function useAssemblyOptions(): ParsedAssemblyOptions | null {
   const { product, selectedItem } = useProduct()
+
   return useMemo(() => {
     if (!selectedItem || !product) {
       return null
@@ -32,6 +33,7 @@ function useAssemblyOptions(): ParsedAssemblyOptions | null {
     }
 
     const priceMap = parsePriceMap(product.itemMetadata)
+
     return parseAssemblyOptions(assemblyOptions, priceMap, product)
   }, [product, selectedItem])
 }
@@ -43,21 +45,27 @@ function getItemAssemblyOptions(
   if (!itemMetadata || !itemMetadata.items) {
     return null
   }
+
   const metadata = findItemMetadata(selectedItem.itemId)(itemMetadata.items)
+
   return metadata?.assemblyOptions
 }
 
 function parsePriceMap(itemMetadata: ItemMetadata) {
   const result = {} as PriceMap
+
   for (const priceTableItem of itemMetadata.priceTable) {
     const { type } = priceTableItem
+
     result[type] = {}
     for (const priceItem of priceTableItem.values) {
       const groupPrices = result[type][priceItem.assemblyId] || {}
+
       groupPrices[priceItem.id] = priceItem.price
       result[type][priceItem.assemblyId] = groupPrices
     }
   }
+
   return result
 }
 

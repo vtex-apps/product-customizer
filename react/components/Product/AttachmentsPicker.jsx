@@ -8,9 +8,11 @@ function precedence({ isSingleChoice, isToggleChoice }) {
   if (isSingleChoice) {
     return 0
   }
+
   if (isToggleChoice) {
     return 1
   }
+
   return 2
 }
 
@@ -30,6 +32,7 @@ function areAllSinglesPicked(attachments, chosenAttachments) {
 
 function shouldShowAttachment(attachment, canShowOtherAttachments) {
   if (attachment.isSingleChoice) return true
+
   return canShowOtherAttachments
 }
 
@@ -58,6 +61,7 @@ class AttachmentsPicker extends Component {
 
   componentDidUpdate(prevProps) {
     const { attachments, chosenAttachments } = this.props
+
     if (this.props.selectedSku !== prevProps.selectedSku) {
       this.setState({
         allSinglesPicked: areAllSinglesPicked(attachments, chosenAttachments),
@@ -72,11 +76,13 @@ class AttachmentsPicker extends Component {
       attachments,
       newChosenAttachments
     )
+
     // eslint-disable-next-line vtex/prefer-early-return
     if (currentAllSinglesPicked !== newSinglesPicked) {
       this.setState({ allSinglesPicked: newSinglesPicked })
       const [firstNotSingleName] = findFirstNonSingleChoice(attachments) || []
       const picker = firstNotSingleName && this.pickers[firstNotSingleName]
+
       picker && scrollToElementTop(picker.current)
     }
   }
@@ -93,6 +99,7 @@ class AttachmentsPicker extends Component {
   render() {
     const { attachments } = this.props
     const { allSinglesPicked } = this.state
+
     return (
       <Fragment>
         {Object.entries(attachments)

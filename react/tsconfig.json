@@ -1,6 +1,7 @@
 {
   "extends": "@vtex/tsconfig",
   "compilerOptions": {
+    "jsx": "react",
     "lib": ["dom"],
     "resolveJsonModule": true,
     "types": ["node", "jest"],

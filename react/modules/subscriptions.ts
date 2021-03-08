@@ -6,7 +6,7 @@ type SubscriptionFrequency = {
   type: SubscriptionFrequencyType
 }
 
-const FREQUENCY_PATTERN = /(\d{1,3})\s*(\w*?)(?:$|s|ly)/i
+const FREQUENCY_PATTERN = /(\d{1,3})?\s*(\w*?)(?:$|s|ly)/i
 
 const SUBSCRIPTION_PREFIX = `vtex.subscription`
 const SUBSCRIPTION_KEY_PREFIX = `${SUBSCRIPTION_PREFIX}.key`
@@ -69,9 +69,11 @@ export function parseFrequency(
 
   const match = frequency.match(FREQUENCY_PATTERN)
 
-  if (!match) return
+  if (!match) {
+    return
+  }
 
-  const [, count, type] = match
+  const [, count = '1', type] = match
 
   if (!type) return
 

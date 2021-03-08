@@ -161,13 +161,13 @@ const SubscriptionOption: FC<Props> = ({ optionsDisplay, inputValueInfo }) => {
         inputId,
         inputDomain,
         frequency: {
-          type: frequency.type,
-          interval: frequency.interval,
+          type: frequency?.type,
+          interval: frequency?.interval,
         },
         intl,
       }),
     }
-  }, [inputId, intl, inputDomain, frequency.type, frequency.interval])
+  }, [inputId, intl, inputDomain, frequency?.type, frequency?.interval])
 
   let OptionComponent = optionsDisplay === 'box' ? BoxOptions : DropdownOptions
 
