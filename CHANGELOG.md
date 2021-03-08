@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.10.4] - 2021-03-08
+
 ### Fixed 
 - Fix crash when subscription is undefined
 - Fix subscription option label when value doesn't have a number prefixed (monthly, yearly...)
