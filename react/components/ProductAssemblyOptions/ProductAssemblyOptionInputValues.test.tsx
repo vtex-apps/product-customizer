@@ -222,7 +222,9 @@ test('should select option when click in customize', () => {
   )
 
   const checkStyleguideCheckboxChecked = (container: HTMLElement) => {
-    const radioButton = container.querySelector('.fake-radio') as HTMLElement
+    const radioButton = container.querySelector(
+      '.vtex-checkbox__inner-container'
+    ) as HTMLElement
 
     const classList = Array.from(radioButton.classList)
 

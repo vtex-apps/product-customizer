@@ -9,15 +9,14 @@ export const GROUP_TYPES: Record<string, GroupTypes> = {
 }
 
 export const getGroupType = (assemblyOption: AssemblyOption): GroupTypes => {
-  if (!assemblyOption.composition) {
-    return GROUP_TYPES.MULTIPLE
-  }
+  const compositionMinQuantity = assemblyOption.composition?.minQuantity ?? 0
+  const compositionMaxQuantity = assemblyOption.composition?.maxQuantity ?? 0
 
-  if (assemblyOption.composition.maxQuantity === 1) {
+  if (compositionMinQuantity === 1 && compositionMaxQuantity === 1) {
     return GROUP_TYPES.SINGLE
   }
 
-  if (assemblyOption.composition.items.every(maxIsOne)) {
+  if (assemblyOption.composition?.items.every(maxIsOne)) {
     return GROUP_TYPES.TOGGLE
   }
 
