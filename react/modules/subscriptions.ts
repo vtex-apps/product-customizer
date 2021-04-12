@@ -67,7 +67,7 @@ export function parseFrequency(
 ): SubscriptionFrequency | undefined {
   if (frequency == null) return
 
-  const match = frequency.match(FREQUENCY_PATTERN)
+  const match = frequency.trim().match(FREQUENCY_PATTERN)
 
   if (!match) {
     return
