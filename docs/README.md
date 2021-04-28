@@ -153,6 +153,9 @@ In order to apply CSS customizations in this and other blocks, follow the instru
 | `productAssemblyOptionItemImage` |
 | `productAssemblyOptionItemName` |
 | `textInputValue` |
+| `inputValueOptionBoxItem` |
+| `inputValueOptionBoxItemActive` |
+| `inputValueOptionBoxLabel` |
 
 <!-- DOCS-IGNORE:start -->
 
