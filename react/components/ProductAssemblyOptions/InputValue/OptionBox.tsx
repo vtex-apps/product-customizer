@@ -5,7 +5,7 @@ import { useCssHandles, applyModifiers } from 'vtex.css-handles'
 import slugify from '../../../modules/slugify'
 import styles from '../styles.css'
 
-const CSS_HANDLES = ['inputValueOptionBox', 'inputValueOptionBoxItem', 'inputValueOptionBoxItemActive', 'inputValueOptionBoxLabel'] as const
+const CSS_HANDLES = ['inputValueOptionBox', 'inputValueOptionBoxItem', 'inputValueOptionBoxLabel'] as const
 
 const OptionBox: FC<Props> = ({ option, selected, onClick, onKeyDown }) => {
   const handles = useCssHandles(CSS_HANDLES)
@@ -32,8 +32,7 @@ const OptionBox: FC<Props> = ({ option, selected, onClick, onKeyDown }) => {
       />
       <div
         className={classNames(
-          handles.inputValueOptionBoxItem,
-          selected ? handles.inputValueOptionBoxItemActive : '' ,
+          applyModifiers(handles.inputValueOptionBoxItem,  selected ? 'active' : ""),
           'w-100 h-100 ba br2 bw1 b--muted-4 z-1 c-muted-5 flex items-center overflow-hidden',
           {
             'hover-b--muted-2': !selected,
