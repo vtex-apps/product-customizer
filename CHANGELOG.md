@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-### Aded
+### Added
 - CSS class handles to the ProductAssemblyOptions InputValues OptionBox
 
 ## [2.11.0] - 2021-04-22
