@@ -6,9 +6,9 @@ import slugify from '../../../modules/slugify'
 import styles from '../styles.css'
 
 const CSS_HANDLES = [
-  'inputValueOptionBox', 
-  'inputValueOptionBoxItem', 
-  'inputValueOptionBoxLabel'
+  'inputValueOptionBox',
+  'inputValueOptionBoxItem',
+  'inputValueOptionBoxLabel',
 ] as const
 
 const OptionBox: FC<Props> = ({ option, selected, onClick, onKeyDown }) => {
@@ -37,7 +37,7 @@ const OptionBox: FC<Props> = ({ option, selected, onClick, onKeyDown }) => {
       <div
         className={classNames(
           applyModifiers(
-            handles.inputValueOptionBoxItem,  
+            handles.inputValueOptionBoxItem,
             selected ? 'active' : ''
           ),
           'w-100 h-100 ba br2 bw1 b--muted-4 z-1 c-muted-5 flex items-center overflow-hidden',
@@ -46,8 +46,8 @@ const OptionBox: FC<Props> = ({ option, selected, onClick, onKeyDown }) => {
           }
         )}
       >
-        <div 
-          className= {`${handles.inputValueOptionBoxLabel} c-on-base center pv3 ph5 z-1 t-body`}
+        <div
+          className={`${handles.inputValueOptionBoxLabel} c-on-base center pv3 ph5 z-1 t-body`}
         >
           {option}
         </div>
