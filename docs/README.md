@@ -82,11 +82,16 @@ Now, you are able to use all blocks exported by the `product-customizer` app. Ch
   }
 ```
 
-### `assembly-option-input-values` props
+### `product-assembly-options` props
 
 | Prop name | Type | Description | Default value |
 |--------------|--------|--------------| --------|
 | `initiallyOpened` | `enum` | By default, the customization box is opened if the attachment is required and closed if it's not. You can override this behavior by setting this prop to `always`, making it be opened even if the attachment is not required. Leave it as `required` for the default behavior. | `required` |
+
+### `assembly-option-input-values` props
+
+| Prop name | Type | Description | Default value |
+|--------------|--------|--------------| --------|
 | `optionsDisplay` | `enum` | Define whether the attachment's pre-defined options will be displayed to be selected in a Checkbox (`box`) or in a dropdown list (`select`) . | `select` |
 
 ### `assembly-option-item-customize`props
