@@ -70,16 +70,15 @@ Now, you are able to use all blocks exported by the `product-customizer` app. Ch
 4. Declare the blocks' props according to the desired scenario. For example:
 
 ```json
-  "product-assembly-options": {
-    "children": [
-      "assembly-option-input-values"
+ "product-assembly-options": {
+ "props":{
+   "initiallyOpened": "always"
+  },
+ "children": [
+   "flex-layout.row#product-assembly-options",
+   "assembly-option-input-values"
     ]
   },
-  "assembly-option-input-values": {
-    "props": {
-      "optionsDisplay": "box"
-    }
-  }
 ```
 
 ### `product-assembly-options` props
