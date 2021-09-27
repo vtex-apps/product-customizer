@@ -28,5 +28,5 @@
   "store/product-customizer.subscription.purchaseday.day": "月の {day, plural, =1{1} =2{2} =3{3} other {#}} 日",
   "store/product-customizer.modal-view.title": "{name} をカスタマイズ",
   "store/product-customizer.customize": "カスタマイズ",
-  "store/product-customizer.modal-view.done-button": "完了する"
+  "store/product-customizer.modal-view.done-button": "完了"
 }

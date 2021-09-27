@@ -7,7 +7,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+- I18n Ar, Hu.
+
+### Changed
+- I18n Ja, Pt.
+
 ## [2.11.1] - 2021-08-30
+
 ### Fixed
 - prop `initiallyOpened` to the block `product-assembly-options`.
 
