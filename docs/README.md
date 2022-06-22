@@ -6,19 +6,26 @@
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
-The Product Customizer allows a product's [attachments](https://help.vtex.com/tutorial/o-que-e-um-anexo--aGICk0RVbqKg6GYmQcWUm) and/or its subscription to be made available and ready to be defined by users on the product details page. 
+The Product Customizer component can be used on the Product Details Page (PDP) to display [attachments](https://help.vtex.com/tutorial/o-que-e-um-anexo--aGICk0RVbqKg6GYmQcWUm) and/or a [subscription form](https://help.vtex.com/en/tutorial/how-subscriptions-work--frequentlyAskedQuestions_4453).
+
+An attachment is the optional and cost-free customization of a product.
 
 ![attachment-product-customization-select](https://user-images.githubusercontent.com/52087100/65711995-707f6e00-e06c-11e9-8faa-43aecfed3e51.png)
-*Example of a product details page with the Product Customizer component displaying the product's attachments.*
+*Example of a PDP with the Product Customizer component displaying the product's attachments.*
+
+Product subscriptions facilitate recurring sales by automatically scheduling the purchase of a specific product at the frequency requested by the customer.
 
 ![subscription-gif](https://user-images.githubusercontent.com/52087100/104508392-eba0c680-55c6-11eb-9d08-772a173c1df3.gif)
-*Example of a product details page with the Product Customizer component displaying the product subscription.*
+*Example of a PDP with the Product Customizer component displaying the product subscription.*
 
-> ℹ️ ***The Product Customizer's integration with the Subscription module is native and automatically enabled by the component**. In order to allow your users to set the subscription on the product details page, set up the [Subscription v2](https://help.vtex.com/tutorial/setting-up-subscription-v2--1FA9dfE7vJqxBna9Nft5Sj) in your VTEX account and follow the instructions below to implement the Product Customizer app.* 
+## Before you start
+
+- If you'll use the Product Customizer component to display **attachments**, [set up Assembly Options.](https://help.vtex.com/en/tutorial/assembly-options--5x5FhNr4f5RUGDEGWzV1nH) 
+- If you'll use the Product Customizer component to display a **subscription form**, [set up Subscriptions.](https://help.vtex.com/tutorial/setting-up-subscription-v2--1FA9dfE7vJqxBna9Nft5Sj) The Product Customizer's integration with the Subscription module is native and automatically enabled when subscriptions settings are detected.
 
 ## Configuration 
 
-1. Add `product-customizer` app to your theme's dependencies in the `manifest.json`, for example:
+1. Add the `product-customizer` app to your theme's dependencies in the `manifest.json`, for example:
 
 ```diff
   dependencies: {
@@ -26,22 +33,9 @@ The Product Customizer allows a product's [attachments](https://help.vtex.com/tu
  }
 ```
 
-Now, you are able to use all blocks exported by the `product-customizer` app. Check out the full list below:
+2. Add the `product-assembly-options` block as a child of the `store.product` template (PDP template). This is enough to enable the subscription form.
 
-| Block name     | Description                                     |
-| -------------- | ----------------------------------------------- |
-| `product-assembly-options` | ![https://img.shields.io/badge/-Mandatory-red](https://img.shields.io/badge/-Mandatory-red)  Top level block responsible for displaying the product customizer default component, showing product's attachments. Use this block's children list to define which attachment data you want to display for users.   |
-| `assembly-option-input-values` | ![https://img.shields.io/badge/-Mandatory-red](https://img.shields.io/badge/-Mandatory-red) Displays a checkbox or a dropdown list field so users can choose the desired attachment for their products. |
-| `assembly-option-item-image` | Renders the attachment image. | 
-| `assembly-option-item-quantity-selector` | Renders a quantity selector. | 
-| `assembly-option-item-name` | Renders the attachment name. | 
-| `assembly-option-item-price` | Renders the attachment price. |
-| `assembly-option-item-customize` | Renders a button `Customize` that when clicked on opens a modal to customize the attachment. | 
-| `assembly-option-item-children-description` | Renders a summary with all attachments selected. | 
-
-2. In the theme's product template (`store.product`), add the `product-assembly-options` block to the children list. This will be enough to display the subscription options for the products if the [Subscription v2](https://help.vtex.com/tutorial/setting-up-subscription-v2--1FA9dfE7vJqxBna9Nft5Sj) was previously configured in your VTEX account.
-
-```json
+```diff
   "store.product": {
     "children": [
       "flex-layout.row#product-breadcrumb",
@@ -50,12 +44,16 @@ Now, you are able to use all blocks exported by the `product-customizer` app. Ch
       "shelf.relatedProducts",
       "product-reviews",
       "product-questions-and-answers",
-      "product-assembly-options"
++     "product-assembly-options"
     ]
   },
  ```
 
-3. Declare the `product-assembly-options` block and add the `assembly-option-input-values` block as its child to display the product's attachments on the product details page. 
+3. Declare the [`product-assembly-options` props](#product-assembly-options-props) according to your scenario.
+
+### Displaying attachments (Optional)
+
+1. Declare the `product-assembly-options` block and add the `assembly-option-input-values` block as its child to display the attachments of a product on the PDP. 
 
 ```json
   "product-assembly-options": {
@@ -65,39 +63,68 @@ Now, you are able to use all blocks exported by the `product-customizer` app. Ch
   },
 ````
 
-> ℹ️  *Notice that you can use other blocks, such as the `assembly-option-item-image`, as `product-assembly-options`'s child in order to build the Product Customizer component most suitable for your desired scenario.*
+2. Use the blocks exported by the `product-customizer` app to build the most suitable solution for your scenario.
 
-4. Declare the blocks' props according to the desired scenario. For example:
+| Block name     | Description                                     |
+| -------------- | ----------------------------------------------- |
+| `assembly-option-item-image` | Displays the attachment image. | 
+| `assembly-option-item-quantity-selector` | Displays a quantity selector. | 
+| `assembly-option-item-name` | Displays the attachment name. | 
+| `assembly-option-item-price` | Displays the attachment price. |
+| `assembly-option-item-customize` | Displays the `Customize` button. When clicked, it opens a modal that allows shoppers to customize the attachment. | 
+| `assembly-option-item-children-description` | Displays a summary with all attachments selected. | 
+
+3. Declare the [props](#props) for the chosen blocks according to your scenario. For example:
 
 ```json
- "product-assembly-options": {
+"product-assembly-options": {
  "props":{
    "initiallyOpened": "always"
   },
  "children": [
    "flex-layout.row#product-assembly-options",
    "assembly-option-input-values"
-    ]
-  },
+ ]
+},
 ```
+
+While building your solution, notice that you can receive inputs from three types of [attachments](https://help.vtex.com/tutorial/adding-an-attachment?locale=en):
+
+- **Predefined options** - Predefined attachment options set in the `Permitted Values` field. Set up the `optionsDisplay` prop from the `assembly-option-input-values` block to define how these options are displayed.
+-  **Free text** - Text input. Depending on the **Maximum Number of Characters** field in the attachment settings, shoppers may or may not face a character limit.
+ -  **Boolean** - Boolean attachment options set in the `Permitted Values` field. Shoppers can select the attachment by simply clicking on a checkbox.
+ 
+Check the following example where the three attachment types are implemented:
+
+![product-customizer-select](https://user-images.githubusercontent.com/52087100/65720836-32d81080-e07f-11e9-9782-0f5a2e6934f0.png)
+
+Check out below how the product attachment displayed above was registered in the Catalog: 
+
+![attachment-product-customizer](https://user-images.githubusercontent.com/52087100/65720878-471c0d80-e07f-11e9-8267-27c35fb4c6b4.png)
+
+It's worth noting that when an attachment is registered as **required**, all attachment options are automatically made available to shoppers. If an attachment is **not required**, the `Add customization` button is rendered as in the example above, giving shoppers the option to add or not an attachment to their product.
+
+Also, keep in mind that the **Checkout** doesn't natively display the customized product option selected by the shopper. To display the product in the Checkout with the selected attachments, it's necessary to customize the Checkout page, allowing it to read and render product data.
+
+## Props
 
 ### `product-assembly-options` props
 
 | Prop name | Type | Description | Default value |
 |--------------|--------|--------------| --------|
-| `initiallyOpened` | `enum` | By default, the customization box is opened if the attachment is required and closed if it's not. You can override this behavior by setting this prop to `always`, making it be opened even if the attachment is not required. Leave it as `required` for the default behavior. | `required` |
+| `initiallyOpened` | `enum` | Defines whether the customization box will be opened even if an attachment is not required (`always`) or if the customization box will be opened only if the attachment is required (`required`). | `required` |
 
 ### `assembly-option-input-values` props
 
 | Prop name | Type | Description | Default value |
 |--------------|--------|--------------| --------|
-| `optionsDisplay` | `enum` | Define whether the attachment's pre-defined options will be displayed to be selected in a Checkbox (`box`) or in a dropdown list (`select`) . | `select` |
+| `optionsDisplay` | `enum` | Defines whether a Checkbox (`box`) or a dropdown list (`select`) will be used to select the attachment's pre-defined options. | `select` |
 
 ### `assembly-option-item-customize`props
 
 | Prop name | Type | Description | Default value |
 |--------------|--------|--------------| --------|
-| `buttonProps` | `object` | Defines how the `Customize` button will behave. In addition to the `collapse` prop, the `buttonProps` object also receives child blocks to build the content of the modal triggered when the button is clicked on.| `undefined` | 
+| `buttonProps` | `object` | Defines the behavior of the `Customize` button. In addition to the `collapse` prop, the `buttonProps` object also receives child blocks to build the content of the modal triggered when the button is clicked on.| `undefined` | 
 
 - **`buttonProps`  object:**
 
@@ -105,29 +132,9 @@ Now, you are able to use all blocks exported by the `product-customizer` app. Ch
 |--------------|--------|--------------| --------|
 | `collapse` | `enum` | `Customize` button positioning. Possible values are: `left` or `right`. | `left` | 
 
-## Modus Operandi
-
-According to the [data entry](https://help.vtex.com/tutorial/adding-an-attachment?locale=en) in the catalog, the Product Customizer takes 3 types of attachments into account when being rendered:
-
--  **Free text** - Any text can be entered in this field. Users may or may not have a character limit, depending on what was filled in the `Maximum Number of Characters` field in the attachment register.
-  - **Predefined options**  - Users can only choose between an attachment's predefined options, according to what's set in the `Permitted Values` field in the attachment register. The way these options will be displayed can be defined with the `optionsDisplay` prop from `assembly-option-input-values` block.
- -  **Boolean** -  If the options that are predefined in the `Permitted Values` field are either `true` ou `false`, users can choose the attachment by simply clicking on a checkbox.
- 
-Notice the example below and check out the three attachment types simultaneously displayed for the same product:
-
-![product-customizer-select](https://user-images.githubusercontent.com/52087100/65720836-32d81080-e07f-11e9-9782-0f5a2e6934f0.png)
-
-Then, check out below how the product attachment displayed above was registered in the admin's Catalog: 
-
-![attachment-product-customizer](https://user-images.githubusercontent.com/52087100/65720878-471c0d80-e07f-11e9-8267-27c35fb4c6b4.png)
-
-> ℹ️ *Notice that **when a product's attachment was registered as required, all attachment options will be automatically made available to users**. If the product's attachment is not added as required, the `Add customization` button is rendered, as shown in the example above, giving users the options to add or not to add an attachment to their product.*
-
-> ℹ️ *The Product Customizer uses the new Assembly Options API (the traditional Attachments API will be discontinued). As a result, **Checkout still doesn't natively render the customized product option previously selected by the user in the product page**. For the product to be correctly displayed with the chosen attachment, it's necessary for now to customize the Checkout page interface for it to read the product data in its context and render it.*
-
 ## Customization
 
-In order to apply CSS customizations in this and other blocks, follow the instructions given in the recipe on [Using CSS Handles for store customization](https://vtex.io/docs/recipes/style/using-css-handles-for-store-customization).
+To apply CSS customizations in this and other blocks, follow the [Using CSS Handles for store customization](https://developers.vtex.com/vtex-developer-docs/docs/vtex-io-documentation-using-css-handles-for-store-customization) guide.
 
 | CSS Handles | 
 | ---------- | 
