@@ -105,9 +105,12 @@ const hasValues = (itemChildren: any) => {
     return false
   }
 
-  return inputs.findIndex((input: { label: string }) => {
+  return inputs.findIndex((
+      input: { label: string }
+    ) => {
     return itemChildren[name].valuesOfInputValues[input.label] !== ''
-  }) !== -1
+  }) 
+  !== -1
 }
 
 const ProductAssemblyOptionItemCustomize: FC<Props> = ({
