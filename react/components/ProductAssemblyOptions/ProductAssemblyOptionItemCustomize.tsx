@@ -90,11 +90,26 @@ const ModalView: FC<{ closeAction: () => void }> = ({
 
 interface Props {
   buttonProps?: ButtonProps
-  modalProps?: unknown
+  modalProps?: any
 }
 
 interface ButtonProps {
   collapse?: 'left' | 'right' | 'none'
+}
+
+const hasValues = (itemChildren: any) => {
+  const [name] = Object.getOwnPropertyNames(itemChildren)
+  const inputs = itemChildren[name]?.inputValues
+
+  if (!itemChildren[name]?.valuesOfInputValues) {
+    return false
+  }
+
+  return (
+    inputs.findIndex((input: { label: string }) => {
+      return itemChildren[name].valuesOfInputValues[input.label] !== ''
+    }) !== -1
+  )
 }
 
 const ProductAssemblyOptionItemCustomize: FC<Props> = ({
@@ -117,7 +132,11 @@ const ProductAssemblyOptionItemCustomize: FC<Props> = ({
     return null
   }
 
-  const handleClick = () => {
+  const handleClick = (e: any) => {
+    if (hasValues(itemChildren)) {
+      e.stopPropagation()
+    }
+
     setModalOpen(true)
   }
 
