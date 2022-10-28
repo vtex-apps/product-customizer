@@ -99,7 +99,7 @@ interface ButtonProps {
 
 const hasValues = (itemChildren: any) => {
   const [name] = Object.getOwnPropertyNames(itemChildren)
-  const inputs = itemChildren[name].inputValues
+  const inputs = itemChildren[name]?.inputValues
 
   if (!itemChildren[name]?.valuesOfInputValues) {
     return false
