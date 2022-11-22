@@ -26,10 +26,7 @@ interface Props {
   initiallyOpened?: 'always' | 'required'
 }
 
-const ProductAssemblyOptionsGroup: FC<Props> = ({
-  children,
-  initiallyOpened = 'required',
-}) => {
+const ProductAssemblyOptionsGroup: FC<Props> = ({ children }) => {
   const intl = useIntl()
   const handles = useCssHandles(CSS_HANDLES)
   const assemblyOptionGroup = useProductAssemblyGroupState() as AssemblyOptionGroupState
@@ -52,7 +49,7 @@ const ProductAssemblyOptionsGroup: FC<Props> = ({
 
   return (
     <Fragment>
-      {assemblyOptionGroup.optin === false && initiallyOpened === 'required' ? (
+      {assemblyOptionGroup.optin === false ? (
         <Button variation="secondary" onClick={changeOptinInput}>
           <IOMessage
             id="store/product-customizer.add-assembly"

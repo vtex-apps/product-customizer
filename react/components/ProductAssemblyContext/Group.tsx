@@ -106,7 +106,12 @@ const useRecursiveDispatch = ({
 export const ProductAssemblyGroupContextProvider: FC<ProductAssemblyGroupContextProviderProps> = ({
   assemblyOption,
   children,
+  initiallyOpened = 'required',
 }) => {
+  if (initiallyOpened === 'always') {
+    assemblyOption.optin = true
+  }
+
   const [state, dispatch] = useReducer(reducer, assemblyOption, initState)
 
   const recursiveDispatch = useRecursiveDispatch({
@@ -141,6 +146,7 @@ function getGroupPath(assemblyTreePath?: TreePath[]) {
 
 interface ProductAssemblyGroupContextProviderProps {
   assemblyOption: AssemblyOptionGroupState
+  initiallyOpened?: string
 }
 
 export const useProductAssemblyGroupDispatch = () =>
