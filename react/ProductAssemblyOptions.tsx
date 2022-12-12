@@ -8,7 +8,10 @@ interface Props {
   initiallyOpened?: 'always' | 'required'
 }
 
-const ProductAssemblyOptions: FC<Props> = ({ children, initiallyOpened }) => {
+const ProductAssemblyOptions: FC<Props> = ({
+  children,
+  initiallyOpened = 'required',
+}) => {
   const assemblyOptions = useAssemblyOptions()
 
   if (!assemblyOptions) {
@@ -20,6 +23,7 @@ const ProductAssemblyOptions: FC<Props> = ({ children, initiallyOpened }) => {
       {Object.keys(assemblyOptions).map((assemblyOptionId) => (
         <ProductAssemblyGroupContextProvider
           key={assemblyOptionId}
+          initiallyOpened={initiallyOpened}
           assemblyOption={assemblyOptions[assemblyOptionId]}
         >
           <ProductAssemblyOptionsGroup initiallyOpened={initiallyOpened}>

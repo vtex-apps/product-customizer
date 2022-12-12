@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Fixed
+
+- Assembly options will now be correctly added to the cart when `initiallyOpened` prop is set to `always` 
+
 ## [2.11.3] - 2022-07-19
 
 ### Fixed
