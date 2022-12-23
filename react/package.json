@@ -44,5 +44,5 @@
     "vtex.store-components": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.store-components@3.141.2/public/@types/vtex.store-components",
     "vtex.styleguide": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.styleguide@9.135.3/public/@types/vtex.styleguide"
   },
-  "version": "2.11.4"
+  "version": "2.12.0"
 }
