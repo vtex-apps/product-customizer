@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Fixed
+
+- Clear assembly options from product context if `Remove` button is clicked
+
 ## [2.12.0] - 2022-12-23
 
 ### Added
