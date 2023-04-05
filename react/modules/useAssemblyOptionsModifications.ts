@@ -16,8 +16,11 @@ export default function useAssemblyOptionsModifications(
       optin,
     } = localState
 
-    const items = Object.values(localItems ?? {}).map(parseItem(type))
-    const isValid = isGroupValid(localState)
+    const items = optin
+      ? Object.values(localItems ?? {}).map(parseItem(type))
+      : []
+
+    const isValid = !optin ? true : isGroupValid(localState)
     const groupInputValues = optin ? valuesOfInputValues : {}
 
     dispatch({
