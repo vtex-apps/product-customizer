@@ -160,6 +160,8 @@ To apply CSS customizations in this and other blocks, follow the [Using CSS Hand
 | `productAssemblyOptionItemImage` |
 | `productAssemblyOptionItemName` |
 | `textInputValue` |
+| `inputValueOptionBoxItem` |
+| `inputValueOptionBoxLabel` |
 
 <!-- DOCS-IGNORE:start -->
 
