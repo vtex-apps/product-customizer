@@ -156,7 +156,7 @@ To apply CSS customizations in this and other blocks, follow the [Using CSS Hand
 | `productAssemblyGroupNameRow` |
 | `productAssemblyGroupRequiredTag` |
 | `productAssemblyOptionItemCustomize` |
-| `productAssemblyOptionItemCustomize__label` |
+| `productAssemblyOptionItemCustomizeLabel` |
 | `productAssemblyOptionItemImage` |
 | `productAssemblyOptionItemName` |
 | `textInputValue` |

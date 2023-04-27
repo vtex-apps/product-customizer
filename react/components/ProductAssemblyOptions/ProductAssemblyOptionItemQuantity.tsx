@@ -122,15 +122,17 @@ const Multiple: FC = () => {
         minValue={minQuantity}
         maxValue={canIncrease ? undefined : quantity}
         onChange={({ value }: { value: number }) => {
-          dispatch({
-            type: 'SET_QUANTITY',
-            args: {
-              itemId: id,
-              newQuantity: value,
-              type: GROUP_TYPES.MULTIPLE,
-              groupPath: path,
-            },
-          })
+          if (value <= maxQuantity && value >= minQuantity) {
+            dispatch({
+              type: 'SET_QUANTITY',
+              args: {
+                itemId: id,
+                newQuantity: value,
+                type: GROUP_TYPES.MULTIPLE,
+                groupPath: path,
+              },
+            })
+          }
         }}
       />
     </div>
