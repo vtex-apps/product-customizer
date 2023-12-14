@@ -50,7 +50,7 @@ const ProductAssemblyOptionsGroup: FC<Props> = ({ children }) => {
   return (
     <Fragment>
       {assemblyOptionGroup.optin === false ? (
-        <Button variation="secondary" onClick={changeOptinInput}>
+        <Button id={groupName} variation="secondary" onClick={changeOptinInput}>
           <IOMessage
             id="store/product-customizer.add-assembly"
             values={{ name: groupName }}
